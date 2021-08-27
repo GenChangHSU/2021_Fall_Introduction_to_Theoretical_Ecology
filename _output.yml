@@ -1,0 +1,37 @@
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      collapse: section
+      scroll_highlight: true
+      before: |
+        <li><a href="./">Introduction to Theoretical Ecology</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Site built with bookdown</a></li>
+    download: ["pdf"]
+    toolbar:
+      position: fixed
+    fontsettings:
+      theme: white
+      family: sans
+      size: 2
+    sharing:
+      github: true
+      facebook: true
+      twitter: true
+      all: false
+    info: false
+
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+
+bookdown::epub_book: default
+
+
+
+
+

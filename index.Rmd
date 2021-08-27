@@ -1,0 +1,72 @@
+--- 
+title: "Introduction to Theoretical Ecology"
+author: "Instructor: Po-Ju Ke $~~~~~$ Teaching Assistant: Gen-Chang Hsu"
+date: "2021 Fall at National Taiwan Univeristy"
+
+url: 'https\://bookdown.org/john/awesome/'
+github-repo: "john/awesome"
+cover-image: "cover.png"
+
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+
+description: "This is the teaching website for **_Introduction to Theoretical Ecology_** 2021 Fall at National Taiwan University."
+---
+
+```{r include = FALSE}
+# Global options
+options(bookdown.clean_book = TRUE)
+
+# Automatically create a bib database for R packages
+knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib')
+
+```
+
+# Course description {-}
+see the contents on ceiba
+
+
+## Requirements {-}
+see the contents on ceiba
+
+
+## Objectives {-}
+see the contents on ceiba
+
+
+# Course information {-}
+course schedule and location
+
+grading policy
+
+contact info
+
+office hours
+
+
+# Syllabus {-}
+see the contents on ceiba
+
+```{r, echo = FALSE, message = F, warning = F, error = F}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+kbl(iris[, 1:2], align = "cc") %>%  
+  kable_paper(full_width = T, 
+              html_font = "Arial",
+              font_size = 20) %>%
+  kable_styling(bootstrap_options = c("bordered")) %>%
+  row_spec(0, bold = T, color = "black") %>%
+  column_spec(1, bold = T) %>%
+  column_spec(2, width = "30em")
+
+```
+
+
+
+
+

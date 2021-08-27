@@ -1,0 +1,35 @@
+# Week 2 {-}
+
+
+```r
+plot(cars)  # a scatterplot
+```
+
+<div class="figure">
+<img src="02_Week_2_files/figure-html/foo-1.png" alt="(ref:foo)" width="672" />
+<p class="caption">(\#fig:foo)(ref:foo)</p>
+</div>
+
+[Course information]
+
+[non-English books][Course information]
+
+[non-English books2][equations]
+
+Figure \@ref(fig:nice-fig)
+
+Figure \@ref(fig:nice-fig2)
+
+Figure \@ref(fig:foo)
+
+Equation \@ref(eq:binom)
+
+## Cross-reference {-}
+Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+
+
+see @R-base for details 
+
+also @R-bookdown for details
+
+
