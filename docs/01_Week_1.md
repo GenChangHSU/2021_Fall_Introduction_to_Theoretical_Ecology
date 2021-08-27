@@ -1,4 +1,4 @@
-# Week 1{-}
+# Week 1 {-}
 
 Figure with label and caption
 
@@ -7,10 +7,14 @@ par(mar = c(4, 4, .1, .1))
 plot(pressure, type = 'b', pch = 19)
 ```
 
-<div class="figure" style="text-align: center">
-<img src="01_Week_1_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
-<p class="caption">(\#fig:nice-fig)Here is a nice figure!</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{01_Week_1_files/figure-latex/nice-fig-1} 
+
+}
+
+\caption{Here is a nice figure!}(\#fig:nice-fig)
+\end{figure}
 
 External image with label and caption
 
@@ -18,10 +22,14 @@ External image with label and caption
 knitr::include_graphics("knit-logo.png")
 ```
 
-<div class="figure" style="text-align: center">
-<img src="knit-logo.png" alt="Here is a nice figure!" width="80%" />
-<p class="caption">(\#fig:nice-fig2)Here is a nice figure!</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{knit-logo} 
+
+}
+
+\caption{Here is a nice figure!}(\#fig:nice-fig2)
+\end{figure}
 
 Table with label and caption
 
@@ -32,32 +40,40 @@ knitr::kable(
 )
 ```
 
+\begin{table}
 
-
-Table: (\#tab:nice-tab)Here is a nice table!
-
-| Sepal.Length| Sepal.Width| Petal.Length| Petal.Width|Species |
-|------------:|-----------:|------------:|-----------:|:-------|
-|          5.1|         3.5|          1.4|         0.2|setosa  |
-|          4.9|         3.0|          1.4|         0.2|setosa  |
-|          4.7|         3.2|          1.3|         0.2|setosa  |
-|          4.6|         3.1|          1.5|         0.2|setosa  |
-|          5.0|         3.6|          1.4|         0.2|setosa  |
-|          5.4|         3.9|          1.7|         0.4|setosa  |
-|          4.6|         3.4|          1.4|         0.3|setosa  |
-|          5.0|         3.4|          1.5|         0.2|setosa  |
-|          4.4|         2.9|          1.4|         0.2|setosa  |
-|          4.9|         3.1|          1.5|         0.1|setosa  |
-|          5.4|         3.7|          1.5|         0.2|setosa  |
-|          4.8|         3.4|          1.6|         0.2|setosa  |
-|          4.8|         3.0|          1.4|         0.1|setosa  |
-|          4.3|         3.0|          1.1|         0.1|setosa  |
-|          5.8|         4.0|          1.2|         0.2|setosa  |
-|          5.7|         4.4|          1.5|         0.4|setosa  |
-|          5.4|         3.9|          1.3|         0.4|setosa  |
-|          5.1|         3.5|          1.4|         0.3|setosa  |
-|          5.7|         3.8|          1.7|         0.3|setosa  |
-|          5.1|         3.8|          1.5|         0.3|setosa  |
+\caption{(\#tab:nice-tab)Here is a nice table!}
+\centering
+\begin{tabular}[t]{rrrrl}
+\toprule
+Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
+\midrule
+5.1 & 3.5 & 1.4 & 0.2 & setosa\\
+4.9 & 3.0 & 1.4 & 0.2 & setosa\\
+4.7 & 3.2 & 1.3 & 0.2 & setosa\\
+4.6 & 3.1 & 1.5 & 0.2 & setosa\\
+5.0 & 3.6 & 1.4 & 0.2 & setosa\\
+\addlinespace
+5.4 & 3.9 & 1.7 & 0.4 & setosa\\
+4.6 & 3.4 & 1.4 & 0.3 & setosa\\
+5.0 & 3.4 & 1.5 & 0.2 & setosa\\
+4.4 & 2.9 & 1.4 & 0.2 & setosa\\
+4.9 & 3.1 & 1.5 & 0.1 & setosa\\
+\addlinespace
+5.4 & 3.7 & 1.5 & 0.2 & setosa\\
+4.8 & 3.4 & 1.6 & 0.2 & setosa\\
+4.8 & 3.0 & 1.4 & 0.1 & setosa\\
+4.3 & 3.0 & 1.1 & 0.1 & setosa\\
+5.8 & 4.0 & 1.2 & 0.2 & setosa\\
+\addlinespace
+5.7 & 4.4 & 1.5 & 0.4 & setosa\\
+5.4 & 3.9 & 1.3 & 0.4 & setosa\\
+5.1 & 3.5 & 1.4 & 0.3 & setosa\\
+5.7 & 3.8 & 1.7 & 0.3 & setosa\\
+5.1 & 3.8 & 1.5 & 0.3 & setosa\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 [Internal Link to anchor](#abcd)
 
@@ -90,10 +106,7 @@ Text references
 plot(cars)  # a scatterplot
 ```
 
-<div class="figure">
-<img src="01_Week_1_files/figure-html/foo-1.png" alt="(ref:foo)" width="672" />
-<p class="caption">(\#fig:foo)(ref:foo)</p>
-</div>
+![(\#fig:foo)(ref:foo)](01_Week_1_files/figure-latex/foo-1.pdf) 
 
 
 <a name="abcd"></a>

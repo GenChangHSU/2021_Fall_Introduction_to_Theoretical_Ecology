@@ -1,4 +1,4 @@
-# Week 1{-}
+# Week 1 {-}
 
 Figure with label and caption
 ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}

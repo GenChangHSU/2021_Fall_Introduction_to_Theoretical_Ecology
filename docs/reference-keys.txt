@@ -1,5 +1,0 @@
-fig:nice-fig
-fig:nice-fig2
-tab:nice-tab
-eq:binom
-fig:foo

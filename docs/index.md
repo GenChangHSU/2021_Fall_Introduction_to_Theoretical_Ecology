@@ -3,9 +3,9 @@ title: "Introduction to Theoretical Ecology"
 author: "Instructor: Po-Ju Ke $~~~~~$ Teaching Assistant: Gen-Chang Hsu"
 date: "2021 Fall at National Taiwan Univeristy"
 
-url: 'https\://bookdown.org/john/awesome/'
-github-repo: "john/awesome"
-cover-image: "cover.png"
+url: "https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/"
+github-repo: "GenChangHSU/2021_Fall_Introduction_to_Theoretical_Ecology"
+cover-image: ""
 
 site: bookdown::bookdown_site
 documentclass: book
@@ -13,648 +13,77 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 
-description: "This is the teaching website for **_Introduction to Theoretical Ecology_** 2021 Fall at National Taiwan University."
+description: "This is the course website for **_Introduction to Theoretical Ecology_** 2021 Fall at National Taiwan University."
 ---
 
 
 
-# Course description {-}
-see the contents on ceiba
+# Course Description {-}
 
+<p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Overview** </p> The development of theory plays an important role in advancing ecology as a scientific field. This three-unit course is for students at the graduate or advanced undergraduate level. The course will cover classic theoretical topics in ecology, starting from single-species dynamics and gradually build up to multi-species models. The course will primarily focus on population and community ecology, but we will also briefly discuss models in epidemiology and ecosystem ecology. Emphasis will be on theoretical concepts and corresponding mathematical approaches.
 
-## Requirements {-}
-see the contents on ceiba
+This course is designed as a two-hour lecture followed by a one-hour hands-on practice module. In the lecture, we will analyze dynamical models and derive general theories in ecology. In the hands-on practice section, we will use a combination of analytical problem sets, interactive applications, and numerical simulations to gain a general understanding of the dynamics and behavior of different models. 
 
+<p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Objectives** </p>
+By the end of the course, students are expected to be familiar with the basic building blocks of ecological models and would be able to formulate and analyze simple models of their own. The hands-on practice component should allow students to link their ecological intuition with the underlying mathematical model, helping them to better understand the primary literature of theoretical ecology. 
 
-## Objectives {-}
-see the contents on ceiba
+<p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Requirements** </p>
+Students are expected to have a basic understanding of **Calculus** (e.g., freshman introductory course) and **Ecology**.
 
+<p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Format** </p>
+Tuesday 1:20 pm ~ 4:20 pm at Room 204, Gongtong Lecture Building
 
-# Course information {-}
-course schedule and location
+- Main lecture (two hours): theories and models (blackboard writing) 
+- Hands-on practice (one hour): programming and simulation (using R) + discussion
 
-grading policy
+<p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Grading** </p>
+The final grade consists of:
 
-contact info
+(1) Assignment problem sets (60%)
+(2) Midterm exam (15%)
+(3) Final exam (15%)
+(4) Course participation (10%)
 
-office hours
+<p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Course materials** </p>
+We will be using a combination of textbooks and literature articles on theoretical ecology in this course. Textbook chapters and additional reading materials will be provided (see **Syllabus** for more details).
+
+Below are the textbook references:
+
+- Case, Ted J. *An illustrated guide to theoretical ecology*. Oxford University Press, 2000.
+- Gotelli, Nicholas J. *A primer of ecology 4^th^ edition*. Sinauer Associates, 2008.
+- Pastor, John. *Mathematical ecology of populations and ecosystems*. John Wiley & Sons, 2011.
+- Otto, Sarah P. and Troy Day. *A biologist's guide to mathematical modeling in ecology and evolution*. Princeton University Press, 2011.
+
+<p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Contacts** </p>
+**Instructor**: Po-Ju Ke
+
+- Office: Life Science Building R635
+- Email: pojuke@ntu.edu.tw
+- Office hours: by appointment
+
+**Teaching assistant**: Gen-Chang Hsu
+
+- Email: b04b01065@ntu.edu.tw
+- Office hours: by appointment
 
 
 # Syllabus {-}
-see the contents on ceiba
 
-<table class=" lightable-paper table table-bordered" style="font-size: 20px; font-family: Arial; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;font-weight: bold;color: black !important;"> Sepal.Length </th>
-   <th style="text-align:center;font-weight: bold;color: black !important;"> Sepal.Width </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.1 </td>
-   <td style="text-align:center;width: 30em; "> 3.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.9 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.6 </td>
-   <td style="text-align:center;width: 30em; "> 3.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.0 </td>
-   <td style="text-align:center;width: 30em; "> 3.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.4 </td>
-   <td style="text-align:center;width: 30em; "> 3.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.6 </td>
-   <td style="text-align:center;width: 30em; "> 3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.0 </td>
-   <td style="text-align:center;width: 30em; "> 3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.4 </td>
-   <td style="text-align:center;width: 30em; "> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.9 </td>
-   <td style="text-align:center;width: 30em; "> 3.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.4 </td>
-   <td style="text-align:center;width: 30em; "> 3.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.8 </td>
-   <td style="text-align:center;width: 30em; "> 3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.8 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.3 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.8 </td>
-   <td style="text-align:center;width: 30em; "> 4.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.7 </td>
-   <td style="text-align:center;width: 30em; "> 4.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.4 </td>
-   <td style="text-align:center;width: 30em; "> 3.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.1 </td>
-   <td style="text-align:center;width: 30em; "> 3.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.1 </td>
-   <td style="text-align:center;width: 30em; "> 3.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.4 </td>
-   <td style="text-align:center;width: 30em; "> 3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.1 </td>
-   <td style="text-align:center;width: 30em; "> 3.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.6 </td>
-   <td style="text-align:center;width: 30em; "> 3.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.1 </td>
-   <td style="text-align:center;width: 30em; "> 3.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.8 </td>
-   <td style="text-align:center;width: 30em; "> 3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.0 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.0 </td>
-   <td style="text-align:center;width: 30em; "> 3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.2 </td>
-   <td style="text-align:center;width: 30em; "> 3.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.2 </td>
-   <td style="text-align:center;width: 30em; "> 3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.8 </td>
-   <td style="text-align:center;width: 30em; "> 3.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.4 </td>
-   <td style="text-align:center;width: 30em; "> 3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.2 </td>
-   <td style="text-align:center;width: 30em; "> 4.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.5 </td>
-   <td style="text-align:center;width: 30em; "> 4.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.9 </td>
-   <td style="text-align:center;width: 30em; "> 3.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.0 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.5 </td>
-   <td style="text-align:center;width: 30em; "> 3.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.9 </td>
-   <td style="text-align:center;width: 30em; "> 3.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.4 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.1 </td>
-   <td style="text-align:center;width: 30em; "> 3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.0 </td>
-   <td style="text-align:center;width: 30em; "> 3.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.5 </td>
-   <td style="text-align:center;width: 30em; "> 2.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.4 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.0 </td>
-   <td style="text-align:center;width: 30em; "> 3.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.1 </td>
-   <td style="text-align:center;width: 30em; "> 3.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.8 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.1 </td>
-   <td style="text-align:center;width: 30em; "> 3.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.6 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.3 </td>
-   <td style="text-align:center;width: 30em; "> 3.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.0 </td>
-   <td style="text-align:center;width: 30em; "> 3.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.0 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.4 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.9 </td>
-   <td style="text-align:center;width: 30em; "> 3.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.5 </td>
-   <td style="text-align:center;width: 30em; "> 2.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.5 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.7 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.3 </td>
-   <td style="text-align:center;width: 30em; "> 3.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.9 </td>
-   <td style="text-align:center;width: 30em; "> 2.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.6 </td>
-   <td style="text-align:center;width: 30em; "> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.2 </td>
-   <td style="text-align:center;width: 30em; "> 2.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.0 </td>
-   <td style="text-align:center;width: 30em; "> 2.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.9 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.0 </td>
-   <td style="text-align:center;width: 30em; "> 2.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.1 </td>
-   <td style="text-align:center;width: 30em; "> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.6 </td>
-   <td style="text-align:center;width: 30em; "> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.6 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.8 </td>
-   <td style="text-align:center;width: 30em; "> 2.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.2 </td>
-   <td style="text-align:center;width: 30em; "> 2.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.6 </td>
-   <td style="text-align:center;width: 30em; "> 2.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.9 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.1 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.3 </td>
-   <td style="text-align:center;width: 30em; "> 2.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.1 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.4 </td>
-   <td style="text-align:center;width: 30em; "> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.6 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.8 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.0 </td>
-   <td style="text-align:center;width: 30em; "> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.7 </td>
-   <td style="text-align:center;width: 30em; "> 2.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.5 </td>
-   <td style="text-align:center;width: 30em; "> 2.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.5 </td>
-   <td style="text-align:center;width: 30em; "> 2.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.8 </td>
-   <td style="text-align:center;width: 30em; "> 2.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.0 </td>
-   <td style="text-align:center;width: 30em; "> 2.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.4 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.0 </td>
-   <td style="text-align:center;width: 30em; "> 3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.3 </td>
-   <td style="text-align:center;width: 30em; "> 2.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.6 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.5 </td>
-   <td style="text-align:center;width: 30em; "> 2.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.5 </td>
-   <td style="text-align:center;width: 30em; "> 2.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.1 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.8 </td>
-   <td style="text-align:center;width: 30em; "> 2.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.0 </td>
-   <td style="text-align:center;width: 30em; "> 2.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.6 </td>
-   <td style="text-align:center;width: 30em; "> 2.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.7 </td>
-   <td style="text-align:center;width: 30em; "> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.2 </td>
-   <td style="text-align:center;width: 30em; "> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.1 </td>
-   <td style="text-align:center;width: 30em; "> 2.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.7 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.3 </td>
-   <td style="text-align:center;width: 30em; "> 3.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.8 </td>
-   <td style="text-align:center;width: 30em; "> 2.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.1 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.3 </td>
-   <td style="text-align:center;width: 30em; "> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.5 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.6 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 4.9 </td>
-   <td style="text-align:center;width: 30em; "> 2.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.3 </td>
-   <td style="text-align:center;width: 30em; "> 2.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.7 </td>
-   <td style="text-align:center;width: 30em; "> 2.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.2 </td>
-   <td style="text-align:center;width: 30em; "> 3.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.5 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.4 </td>
-   <td style="text-align:center;width: 30em; "> 2.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.8 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.7 </td>
-   <td style="text-align:center;width: 30em; "> 2.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.8 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.4 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.5 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.7 </td>
-   <td style="text-align:center;width: 30em; "> 2.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.0 </td>
-   <td style="text-align:center;width: 30em; "> 2.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.9 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.6 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.7 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.3 </td>
-   <td style="text-align:center;width: 30em; "> 2.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.2 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.2 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.1 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.4 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.2 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.4 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.9 </td>
-   <td style="text-align:center;width: 30em; "> 3.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.4 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.3 </td>
-   <td style="text-align:center;width: 30em; "> 2.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.1 </td>
-   <td style="text-align:center;width: 30em; "> 2.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 7.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.3 </td>
-   <td style="text-align:center;width: 30em; "> 3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.4 </td>
-   <td style="text-align:center;width: 30em; "> 3.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.0 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.9 </td>
-   <td style="text-align:center;width: 30em; "> 3.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.9 </td>
-   <td style="text-align:center;width: 30em; "> 3.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.8 </td>
-   <td style="text-align:center;width: 30em; "> 2.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.8 </td>
-   <td style="text-align:center;width: 30em; "> 3.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.7 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.3 </td>
-   <td style="text-align:center;width: 30em; "> 2.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.5 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 6.2 </td>
-   <td style="text-align:center;width: 30em; "> 3.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;font-weight: bold;"> 5.9 </td>
-   <td style="text-align:center;width: 30em; "> 3.0 </td>
-  </tr>
-</tbody>
-</table>
+\begingroup\fontsize{18}{20}\selectfont
 
-
+\begin{tabu} to \linewidth {>{\centering}X>{\centering}X>{\centering}X>{\centering}X}
+\hline
+\begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Date}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lecture topic}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lab}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Reading}}\endgroup\\
+\hline
+**Week 1** <span style='vertical-align:-30%'> </span>
+           <br> 28-Sept-2021 & Introduction: what is theoretical ecology? &  & \\
+\hline
+**Week 2** <span style='vertical-align:-30%'> </span>
+           <br> 05-Oct-2021 & Exponential and geometric population growth & Modeling population growth & Gotelli [Ch.1] 
+ Case [Ch.1]\\
+\hline
+\end{tabu}
+\endgroup{}
 
 
 

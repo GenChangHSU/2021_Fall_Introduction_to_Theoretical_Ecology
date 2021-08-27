@@ -5,10 +5,7 @@
 plot(cars)  # a scatterplot
 ```
 
-<div class="figure">
-<img src="02_Week_2_files/figure-html/foo-1.png" alt="(ref:foo)" width="672" />
-<p class="caption">(\#fig:foo)(ref:foo)</p>
-</div>
+![(\#fig:foo)(ref:foo)](02_Week_2_files/figure-latex/foo-1.pdf) 
 
 [Course information]
 
