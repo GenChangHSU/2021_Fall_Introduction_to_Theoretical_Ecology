@@ -1,11 +1,11 @@
 --- 
 title: "Introduction to Theoretical Ecology"
 author: "Instructor: Po-Ju Ke $~~~~~$ Teaching Assistant: Gen-Chang Hsu"
-date: "2021 Fall at National Taiwan Univeristy"
+date: "2021 Fall at National Taiwan Univeristy ![](./bifurcation.gif)"
 
 url: "https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/"
 github-repo: "GenChangHSU/2021_Fall_Introduction_to_Theoretical_Ecology"
-cover-image: ""
+cover-image: "bifurcation.gif"
 
 site: bookdown::bookdown_site
 documentclass: book
