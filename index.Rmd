@@ -25,9 +25,9 @@ knitr::write_bib(c(.packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib
 
 ```
 
-# Course Description {-}
+# Course Information {-}
 
-<p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Overview** </p> The development of theory plays an important role in advancing ecology as a scientific field. This three-unit course is for students at the graduate or advanced undergraduate level. The course will cover classic theoretical topics in ecology, starting from single-species dynamics and gradually build up to multi-species models. The course will primarily focus on population and community ecology, but we will also briefly discuss models in epidemiology and ecosystem ecology. Emphasis will be on theoretical concepts and corresponding mathematical approaches.
+<p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Description** </p> The development of theory plays an important role in advancing ecology as a scientific field. This three-unit course is for students at the graduate or advanced undergraduate level. The course will cover classic theoretical topics in ecology, starting from single-species dynamics and gradually build up to multi-species models. The course will primarily focus on population and community ecology, but we will also briefly discuss models in epidemiology and ecosystem ecology. Emphasis will be on theoretical concepts and corresponding mathematical approaches.
 
 This course is designed as a two-hour lecture followed by a one-hour hands-on practice module. In the lecture, we will analyze dynamical models and derive general theories in ecology. In the hands-on practice section, we will use a combination of analytical problem sets, interactive applications, and numerical simulations to gain a general understanding of the dynamics and behavior of different models. 
 
@@ -83,36 +83,108 @@ library(kableExtra)
 
 syllabus <- tibble(
   Date = c("**Week 1** <span style='vertical-align:-30%'> </span>
-           <br> 28-Sept-2021", 
+           <br> 28-Sept-2021",
            "**Week 2** <span style='vertical-align:-30%'> </span>
-           <br> 05-Oct-2021"),
+           <br> 05-Oct-2021",
+           "**Week 3** <span style='vertical-align:-30%'> </span>
+           <br> 12-Oct-2021",
+           "**Week 4** <span style='vertical-align:-30%'> </span>
+           <br> 19-Oct-2021",
+           "**Week 5** <span style='vertical-align:-30%'> </span>
+           <br> 26-Oct-2021",
+           "**Week 6** <span style='vertical-align:-30%'> </span>
+           <br> 02-Nov-2021",
+           "**Week 7** <span style='vertical-align:-30%'> </span>
+           <br> 09-Nov-2021",
+           "**Week 8** <span style='vertical-align:-30%'> </span>
+           <br> 16-Nov-2021",
+           "**Week 9** <span style='vertical-align:-30%'> </span>
+           <br> 23-Nov-2021",
+           "**Week 10** <span style='vertical-align:-30%'> </span>
+           <br> 30-Nov-2021",
+           "**Week 11** <span style='vertical-align:-30%'> </span>
+           <br> 07-Dec-2021",
+           "**Week 12** <span style='vertical-align:-30%'> </span>
+           <br> 14-Dec-2021",
+           "**Week 13** <span style='vertical-align:-30%'> </span>
+           <br> 21-Dec-2021",
+           "**Week 14** <span style='vertical-align:-30%'> </span>
+           <br> 28-Dec-2021",
+           "**Week 15** <span style='vertical-align:-30%'> </span>
+           <br> 04-Jan-2022",
+           "**Week 16** <span style='vertical-align:-30%'> </span>
+           <br> 11-Jan-2022",
+           "**Week 17** <span style='vertical-align:-30%'> </span>
+           <br> 18-Jan-2022"),
   
   `Lecture topic` = c("Introduction: what is theoretical ecology?",
-                      "Exponential and geometric population growth"),
-    
+                      "Exponential and geometric population growth",
+                      "Age-structured population models",
+                      "Density-dependence and logistic population growth",
+                      "Stability analysis of single population dynamics",
+                      "Metapopulations and patch occupancy models",
+                      "Lotka-Volterra model of competition: graphical analysis",
+                      "Lotka-Volterra model of competition: linear stability analysis",
+                      "Midterm exam",
+                      "Predator-prey interactions",
+                      "Mutualisms",
+                      "Multispecies models of competition: apparent and exploitative competition",
+                      "Multispecies models of predation: food chains and intraguild predation",
+                      "Disease dynamics and SIR models",
+                      "Ecosystem models and feedbacks",
+                      "Final exam",
+                      "General discussion: how to develop new theoretical models and the role of theory in modern ecology?"),
     
   Lab = c("",
-          "Modeling population growth"),
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""),
     
     
   Reading = c("",
-              "Gotelli [Ch.1] \n Case [Ch.1]")  
+              "Gotelli [Ch.1] <br> Case [Ch.1]",
+              "Gotelli [Ch.3] <br> Case [Ch.3]",
+              "Gotelli [Ch.2] <br> Case [Ch.5]",
+              "Otto & Day [Ch.5]",
+              "Gotelli [Ch.4] <br> Case [Ch.16]",
+              "Gotelli [Ch.5] <br> Case [Ch.14]",
+              "Otto & Day [Ch.8]",
+              "",
+              "Gotelli [Ch.6] <br> Case [Ch.12 & 13]",
+              "Vandermeer & Boucher, 1978.",
+              "Holt, 1977.",
+              "Holt & Polis, 1997.",
+              "Anderson & May, 1979.",
+              "Pastor [Ch.11 & 12]",
+              "",
+              "Otto & Day [Ch.2] <br> Otto & Rosales, 2020.")  
   
 )
 
-kbl(syllabus, align = "cccc", escape = F) %>%  
+kbl(syllabus, align = "cccl", escape = F) %>%  
   kable_paper(full_width = T, 
               html_font = "Arial",
-              font_size = 18) %>%
+              font_size = 17) %>%
   kable_styling(bootstrap_options = c("bordered")) %>%
   row_spec(0, bold = T, color = "black", font_size = 20) %>%
-  column_spec(1, width = "9em", border_right = T) %>%
+  column_spec(1, width = "10em", border_right = T) %>%
   column_spec(2, width = "20em") %>%
-  column_spec(3, width = "12em") %>%
-  column_spec(4, width = "8em")
-
+  column_spec(3, width = "14em") %>%
+  column_spec(4, width = "13em")
 
 ```
-
 
 

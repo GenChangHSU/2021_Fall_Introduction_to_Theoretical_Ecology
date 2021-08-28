@@ -18,9 +18,9 @@ description: "This is the course website for **_Introduction to Theoretical Ecol
 
 
 
-# Course Description {-}
+# Course Information {-}
 
-<p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Overview** </p> The development of theory plays an important role in advancing ecology as a scientific field. This three-unit course is for students at the graduate or advanced undergraduate level. The course will cover classic theoretical topics in ecology, starting from single-species dynamics and gradually build up to multi-species models. The course will primarily focus on population and community ecology, but we will also briefly discuss models in epidemiology and ecosystem ecology. Emphasis will be on theoretical concepts and corresponding mathematical approaches.
+<p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Description** </p> The development of theory plays an important role in advancing ecology as a scientific field. This three-unit course is for students at the graduate or advanced undergraduate level. The course will cover classic theoretical topics in ecology, starting from single-species dynamics and gradually build up to multi-species models. The course will primarily focus on population and community ecology, but we will also briefly discuss models in epidemiology and ecosystem ecology. Emphasis will be on theoretical concepts and corresponding mathematical approaches.
 
 This course is designed as a two-hour lecture followed by a one-hour hands-on practice module. In the lecture, we will analyze dynamical models and derive general theories in ecology. In the hands-on practice section, we will use a combination of analytical problem sets, interactive applications, and numerical simulations to gain a general understanding of the dynamics and behavior of different models. 
 
@@ -69,21 +69,136 @@ Below are the textbook references:
 
 # Syllabus {-}
 
-\begingroup\fontsize{18}{20}\selectfont
-
-\begin{tabu} to \linewidth {>{\centering}X>{\centering}X>{\centering}X>{\centering}X}
-\hline
-\begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Date}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lecture topic}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lab}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Reading}}\endgroup\\
-\hline
-**Week 1** <span style='vertical-align:-30%'> </span>
-           <br> 28-Sept-2021 & Introduction: what is theoretical ecology? &  & \\
-\hline
-**Week 2** <span style='vertical-align:-30%'> </span>
-           <br> 05-Oct-2021 & Exponential and geometric population growth & Modeling population growth & Gotelli [Ch.1] 
- Case [Ch.1]\\
-\hline
-\end{tabu}
-\endgroup{}
-
+<table class=" lightable-paper table table-bordered" style="font-size: 17px; font-family: Arial; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> Date </th>
+   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> Lecture topic </th>
+   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> Lab </th>
+   <th style="text-align:left;font-weight: bold;color: black !important;font-size: 20px;"> Reading </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 1** <span style="vertical-align:-30%"> </span>
+           <br> 28-Sept-2021 </td>
+   <td style="text-align:center;width: 20em; "> Introduction: what is theoretical ecology? </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; ">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 2** <span style="vertical-align:-30%"> </span>
+           <br> 05-Oct-2021 </td>
+   <td style="text-align:center;width: 20em; "> Exponential and geometric population growth </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Gotelli [Ch.1] <br> Case [Ch.1] </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 3** <span style="vertical-align:-30%"> </span>
+           <br> 12-Oct-2021 </td>
+   <td style="text-align:center;width: 20em; "> Age-structured population models </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Gotelli [Ch.3] <br> Case [Ch.3] </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 4** <span style="vertical-align:-30%"> </span>
+           <br> 19-Oct-2021 </td>
+   <td style="text-align:center;width: 20em; "> Density-dependence and logistic population growth </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Gotelli [Ch.2] <br> Case [Ch.5] </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 5** <span style="vertical-align:-30%"> </span>
+           <br> 26-Oct-2021 </td>
+   <td style="text-align:center;width: 20em; "> Stability analysis of single population dynamics </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Otto &amp; Day [Ch.5] </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 6** <span style="vertical-align:-30%"> </span>
+           <br> 02-Nov-2021 </td>
+   <td style="text-align:center;width: 20em; "> Metapopulations and patch occupancy models </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Gotelli [Ch.4] <br> Case [Ch.16] </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 7** <span style="vertical-align:-30%"> </span>
+           <br> 09-Nov-2021 </td>
+   <td style="text-align:center;width: 20em; "> Lotka-Volterra model of competition: graphical analysis </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Gotelli [Ch.5] <br> Case [Ch.14] </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 8** <span style="vertical-align:-30%"> </span>
+           <br> 16-Nov-2021 </td>
+   <td style="text-align:center;width: 20em; "> Lotka-Volterra model of competition: linear stability analysis </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Otto &amp; Day [Ch.8] </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 9** <span style="vertical-align:-30%"> </span>
+           <br> 23-Nov-2021 </td>
+   <td style="text-align:center;width: 20em; "> Midterm exam </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; ">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 10** <span style="vertical-align:-30%"> </span>
+           <br> 30-Nov-2021 </td>
+   <td style="text-align:center;width: 20em; "> Predator-prey interactions </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Gotelli [Ch.6] <br> Case [Ch.12 &amp; 13] </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 11** <span style="vertical-align:-30%"> </span>
+           <br> 07-Dec-2021 </td>
+   <td style="text-align:center;width: 20em; "> Mutualisms </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Vandermeer &amp; Boucher, 1978. </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 12** <span style="vertical-align:-30%"> </span>
+           <br> 14-Dec-2021 </td>
+   <td style="text-align:center;width: 20em; "> Multispecies models of competition: apparent and exploitative competition </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Holt, 1977. </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 13** <span style="vertical-align:-30%"> </span>
+           <br> 21-Dec-2021 </td>
+   <td style="text-align:center;width: 20em; "> Multispecies models of predation: food chains and intraguild predation </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Holt &amp; Polis, 1997. </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 14** <span style="vertical-align:-30%"> </span>
+           <br> 28-Dec-2021 </td>
+   <td style="text-align:center;width: 20em; "> Disease dynamics and SIR models </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Anderson &amp; May, 1979. </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 15** <span style="vertical-align:-30%"> </span>
+           <br> 04-Jan-2022 </td>
+   <td style="text-align:center;width: 20em; "> Ecosystem models and feedbacks </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Pastor [Ch.11 &amp; 12] </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 16** <span style="vertical-align:-30%"> </span>
+           <br> 11-Jan-2022 </td>
+   <td style="text-align:center;width: 20em; "> Final exam </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; ">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 17** <span style="vertical-align:-30%"> </span>
+           <br> 18-Jan-2022 </td>
+   <td style="text-align:center;width: 20em; "> General discussion: how to develop new theoretical models and the role of theory in modern ecology? </td>
+   <td style="text-align:center;width: 14em; ">  </td>
+   <td style="text-align:left;width: 13em; "> Otto &amp; Day [Ch.2] <br> Otto &amp; Rosales, 2020. </td>
+  </tr>
+</tbody>
+</table>
 
 
