@@ -40,8 +40,8 @@ Students are expected to have a basic understanding of **Calculus** (e.g., fresh
 <p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Format** </p>
 Tuesday 1:20 pm ~ 4:20 pm at Room 204, Gongtong Lecture Building
 
-- Main lecture (two hours): theories and models (blackboard writing) 
-- Hands-on practice (one hour): programming and simulation (using R) + discussion
+- Lecture (two hours): selected topics of ecological theories and models (blackboard writing) 
+- Lab (one hour): hands-on practice in programming and simulation (using R) + discussion
 
 <p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Grading** </p>
 The final grade consists of:
