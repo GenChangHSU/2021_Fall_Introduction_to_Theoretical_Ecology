@@ -136,12 +136,34 @@ Below are the textbook references:
 # Week 1 {-} 
 <div style = "font-size: 28pt"> **Introduction: what is theoretical ecology?**</div>
 
+## Lecture in a nut shell
+
+
+
+
+## Lab demonstration
+
+
+
+
+## Additional readings
+
 <!--chapter:end:01_Week_1.Rmd-->
 
 # Week 2 {-} 
 <div style = "font-size: 28pt"> **Exponential and geometric population growth**</div>
 
+## Lecture in a nut shell
 
+
+
+
+## Lab demonstration
+
+
+
+
+## Additional readings
 
 <!--chapter:end:02_Week_2.Rmd-->
 
