@@ -136,7 +136,7 @@ Below are the textbook references:
 # Week 1 {-} 
 <div style = "font-size: 28pt"> **Introduction: what is theoretical ecology?**</div>
 
-## Lecture in a nut shell
+## Lecture in a nutshell
 
 
 
@@ -153,7 +153,7 @@ Below are the textbook references:
 # Week 2 {-} 
 <div style = "font-size: 28pt"> **Exponential and geometric population growth**</div>
 
-## Lecture in a nut shell
+## Lecture in a nutshell
 
 
 
