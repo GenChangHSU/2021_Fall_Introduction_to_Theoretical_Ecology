@@ -113,9 +113,7 @@ syllabus <- tibble(
            "**Week 15** <span style='vertical-align:-30%'> </span>
            <br> 04-Jan-2022",
            "**Week 16** <span style='vertical-align:-30%'> </span>
-           <br> 11-Jan-2022",
-           "**Week 17** <span style='vertical-align:-30%'> </span>
-           <br> 18-Jan-2022"),
+           <br> 11-Jan-2022"),
   
   `Lecture topic` = c("Introduction: what is theoretical ecology?",
                       "Exponential and geometric population growth",
@@ -132,11 +130,9 @@ syllabus <- tibble(
                       "Multispecies models of predation: food chains and intraguild predation",
                       "Disease dynamics and SIR models",
                       "Ecosystem models and feedbacks",
-                      "Final exam",
-                      "General discussion: how to develop new theoretical models and the role of theory in modern ecology?"),
+                      "Final exam"),
     
   Lab = c("",
-          "",
           "",
           "",
           "",
@@ -169,8 +165,7 @@ syllabus <- tibble(
               "Holt & Polis, 1997.",
               "Anderson & May, 1979.",
               "Pastor [Ch.11 & 12]",
-              "",
-              "Otto & Day [Ch.2] <br> Otto & Rosales, 2020.")  
+              "")  
   
 )
 
