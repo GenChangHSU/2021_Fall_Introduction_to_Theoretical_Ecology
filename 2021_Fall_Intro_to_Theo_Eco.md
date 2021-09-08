@@ -145,6 +145,17 @@ Below are the textbook references:
 
 ## Additional readings {-}
 
+
+
+
+## Assignments {-}
+
+
+
+
+
+
+
 <!--chapter:end:01_Week_1.Rmd-->
 
 # Week 2 {-} 
@@ -161,6 +172,12 @@ Below are the textbook references:
 
 
 ## Additional readings {-}
+
+
+
+## Assignments {-}
+
+
 
 <!--chapter:end:02_Week_2.Rmd-->
 
