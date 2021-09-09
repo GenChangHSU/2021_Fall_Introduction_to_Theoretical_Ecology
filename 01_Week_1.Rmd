@@ -25,9 +25,9 @@ No lab demonstration this week.
 
 Please review the study material and make sure you understand the basic R syntax and programming fundamentals, which we will be using throughout the semester. The example dataset for the tutorial is provided below. 
 
-[Basic Introduction to R](./Assignments/Week1_Basic Introduction to R.pdf)
+[Basic Introduction to R](./Assignments/Week1_Basic Introduction to R.pdf){target="_blank"}
 
-[Example dataset](./Assignments/example_dat.txt)
+[Example dataset](./Assignments/example_dat.txt){target="_blank"}
 
 <br>
 
