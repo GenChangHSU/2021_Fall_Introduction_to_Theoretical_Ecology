@@ -131,7 +131,7 @@ Below are the textbook references:
 <!--chapter:end:index.Rmd-->
 
 # Week 1 {-} 
-<div style = "font-size: 28pt"> **Introduction: what is theoretical ecology?**</div>
+<div style = "font-size: 28pt"> **_Introduction: what is theoretical ecology?_**</div>
 
 ## Lecture in a nutshell {-}
 
@@ -171,7 +171,7 @@ Please review the study material and make sure you understand the basic R syntax
 <!--chapter:end:01_Week_1.Rmd-->
 
 # Week 2 {-} 
-<div style = "font-size: 28pt"> **Exponential and geometric population growth**</div>
+<div style = "font-size: 28pt"> **_Exponential and geometric population growth_**</div>
 
 ## Lecture in a nutshell {-}
 

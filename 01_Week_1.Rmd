@@ -1,5 +1,5 @@
 # Week 1 {-} 
-<div style = "font-size: 28pt"> **Introduction: what is theoretical ecology?**</div>
+<div style = "font-size: 28pt"> **_Introduction: what is theoretical ecology?_**</div>
 
 ## Lecture in a nutshell {-}
 
