@@ -3,17 +3,27 @@
 
 ## Lecture in a nutshell {-}
 
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## Lab demonstration {-}
 
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## Additional readings {-}
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## Assignments {-}
 
