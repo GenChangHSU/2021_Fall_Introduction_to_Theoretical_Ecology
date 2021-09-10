@@ -38,7 +38,7 @@ By the end of the course, students are expected to be familiar with the basic bu
 Students are expected to have a basic understanding of **Calculus** (e.g., freshman introductory course) and **Ecology**.
 
 <p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Format** </p>
-Tuesday 1:20 pm ~ 4:20 pm at Room 204, Gongtong Lecture Building
+Tuesday 1:20 pm ~ 4:20 pm at Room 207, Gongtong Lecture Building
 
 - Lecture (two hours): selected topics of ecological theories and models (blackboard writing) 
 - Lab (one hour): hands-on practice in programming and simulation (using R) + discussion
