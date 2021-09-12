@@ -8,7 +8,7 @@ bookdown::gitbook:
         <li><a href="./">Introduction to Theoretical Ecology</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Site built with bookdown</a></li>
-    download: null
+    download: false
     toolbar:
       position: fixed
     fontsettings:
