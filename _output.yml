@@ -15,6 +15,8 @@ bookdown::gitbook:
       family: sans
       size: 2
     sharing:
+      facebook: false
+      twitter: false
       github: true
       all: false
     info: false
