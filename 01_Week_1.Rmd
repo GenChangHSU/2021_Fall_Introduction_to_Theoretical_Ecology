@@ -15,11 +15,7 @@ No lab demonstration this week.
 
 ## Additional readings {-}
 
-<br>
-<br>
-<br>
-<br>
-<br>
+No additional readings this week.
 
 ## Assignments {-}
 

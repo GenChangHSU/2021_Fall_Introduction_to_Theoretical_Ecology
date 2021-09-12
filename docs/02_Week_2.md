@@ -1,3 +1,5 @@
+
+
 # Week 2 {-} 
 <div style = "font-size: 28pt"> **_Exponential and geometric population growth_**</div>
 
@@ -11,19 +13,99 @@
 
 ## Lab demonstration {-}
 
+In this lab, we will be solving the differential equation for exponential population growth (Part 1) and visualize how the population sizes change over time (Part 2). 
+
+**Part 1 - Numerical solution using the package "deSolve"**
+
+Two main phases:
+
+<span id = "aaa" style="display: block; margin-top: -10px; margin-left: 50px">Model specification: specify the structure of differential equation model</span>
+
+<span id = "bbb" style="display: block; margin-top: -10px; margin-left: 50px">Model application: set the time steps, initial population size, model parameters (e.g., intrinsic population growth rate *r*) and solve the equation</span>
+
+<style>
+
+p span#aaa:before { 
+  content: "(1) "; 
+  display: inline-block;
+  margin-left: -1.5em;
+  margin-right: 0.3em;
+}
+
+p span#bbb:before { 
+  content: "(2) "; 
+  display: inline-block;
+  margin-left: -1.5em;
+  margin-right: 0.3em;
+}
+
+d-article table.lightable-paper {
+  margin-bottom: 0px; 
+}
+
+</style>
+
+<!-- <span style="display: block; margin-top: -5px; margin-left: 10px">(1) </span> -->
+<!-- <span style="display: block; margin-top: 5px; margin-left: 10px">(2) </span> -->
+
+
+```r
+# install.packages("deSolve")
+library(deSolve)
+
+### (1) Model specification
+exponential_model <- function(times, state, parms) {
+  with(as.list(c(state, parms)), {
+    dN = r*N  # the equation
+    return(list(c(dN)))  # return the results  
+  })
+}
+
+### (2) Model application
+times <- seq(0, 10, by = 0.1)  # time steps to integrate over
+state <- c(N = 10)  # initial population size
+parms <- c(r = 1.5)  # intrinsic growth rate
+
+# run the ode solver
+pop_size <- ode(func = exponential_model, times = times, y = state, parms = parms)
+
+# take a look at the results
+head(pop_size)
+```
+
+```
+##      time        N
+## [1,]  0.0 10.00000
+## [2,]  0.1 11.61834
+## [3,]  0.2 13.49860
+## [4,]  0.3 15.68313
+## [5,]  0.4 18.22120
+## [6,]  0.5 21.17002
+```
+
 <br>
-<br>
-<br>
-<br>
-<br>
+
+**Part 2. Visualize the integration results:**
+
+
+```r
+# install.packages("tidyverse")
+library(tidyverse)
+
+ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) + 
+  geom_point() + 
+  labs(title = paste0("Exponential Growth \n (r = ", parms["r"], ")")) +
+  theme_classic(base_size = 12) + 
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+
+\begin{center}\includegraphics[width=0.7\linewidth]{02_Week_2_files/figure-latex/unnamed-chunk-2-1} \end{center}
 
 ## Additional readings {-}
 
-<br>
-<br>
-<br>
-<br>
-<br>
+[Package deSolve: Solving Initial Value Differential Equations in R](./Additional readings/Package deSolve - Solving Initial Value Differential Equations in R.pdf){target="_blank"}
 
 ## Assignments {-}
 
