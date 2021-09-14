@@ -268,6 +268,8 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 
 
 \begin{center}\includegraphics[width=0.7\linewidth]{02_Week_2_files/figure-latex/unnamed-chunk-2-1} \end{center}
+<br>
+
 Log scale
 
 ```r
@@ -283,6 +285,7 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 
 
 \begin{center}\includegraphics[width=0.7\linewidth]{02_Week_2_files/figure-latex/unnamed-chunk-3-1} \end{center}
+<br>
 
 ## Additional readings {-}
 

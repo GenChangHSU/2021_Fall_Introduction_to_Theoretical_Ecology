@@ -255,7 +255,8 @@ d-article table.lightable-paper {
 <span id="cb3-7"><a href="week-2.html#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span> </span>
 <span id="cb3-8"><a href="week-2.html#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
 <p><img src="02_Week_2_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" />
-Log scale</p>
+<br></p>
+<p>Log scale</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="week-2.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">as.data.frame</span>(pop_size), <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> N)) <span class="sc">+</span> </span>
 <span id="cb4-2"><a href="week-2.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb4-3"><a href="week-2.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">&quot;Exponential Growth </span><span class="sc">\n</span><span class="st"> (r = &quot;</span>, parms[<span class="st">&quot;r&quot;</span>], <span class="st">&quot;)&quot;</span>)) <span class="sc">+</span></span>
@@ -263,7 +264,8 @@ Log scale</p>
 <span id="cb4-5"><a href="week-2.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> </span>
 <span id="cb4-6"><a href="week-2.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">trans_breaks</span>(<span class="st">&quot;log10&quot;</span>, <span class="cf">function</span>(x) <span class="dv">10</span><span class="sc">^</span>x)(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span><span class="sc">^</span><span class="dv">7</span>)),</span>
 <span id="cb4-7"><a href="week-2.html#cb4-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">trans_format</span>(<span class="st">&quot;log10&quot;</span>, scales<span class="sc">::</span><span class="fu">math_format</span>(<span class="dv">10</span><span class="sc">^</span>.x)))</span></code></pre></div>
-<p><img src="02_Week_2_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="02_Week_2_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" />
+<br></p>
 </div>
 <div id="additional-readings-1" class="section level2 unnumbered">
 <h2>Additional readings</h2>
