@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Week 2 | Introduction to Theoretical Ecology</title>
   <meta name="description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Week 2 | Introduction to Theoretical Ecology" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/" />
-  <meta property="og:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/bifurcation.gif" />
+  <meta property="og:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology//bifurcation.gif" />
   <meta property="og:description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
   <meta name="github-repo" content="GenChangHSU/2021_Fall_Introduction_to_Theoretical_Ecology" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Week 2 | Introduction to Theoretical Ecology" />
   
   <meta name="twitter:description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
-  <meta name="twitter:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/bifurcation.gif" />
+  <meta name="twitter:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology//bifurcation.gif" />
 
 <meta name="author" content="Instructor: Po-Ju Ke ~~~~~ Teaching Assistant: Gen-Chang Hsu" />
 
@@ -32,9 +32,8 @@
   
 <link rel="prev" href="week-1.html"/>
 
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -215,8 +215,6 @@ d-article table.lightable-paper {
 }
 
 </style>
-<!-- <span style="display: block; margin-top: -5px; margin-left: 10px">(1) </span> -->
-<!-- <span style="display: block; margin-top: 5px; margin-left: 10px">(2) </span> -->
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="week-2.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;deSolve&quot;)</span></span>
 <span id="cb1-2"><a href="week-2.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span>
 <span id="cb1-3"><a href="week-2.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -247,6 +245,7 @@ d-article table.lightable-paper {
 ## [6,]  0.5 21.17002</code></pre>
 <p><br></p>
 <p><strong>Part 2. Visualize the integration results:</strong></p>
+<p>Linear scale</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="week-2.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;tidyverse&quot;)</span></span>
 <span id="cb3-2"><a href="week-2.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb3-3"><a href="week-2.html#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -255,7 +254,16 @@ d-article table.lightable-paper {
 <span id="cb3-6"><a href="week-2.html#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">&quot;Exponential Growth </span><span class="sc">\n</span><span class="st"> (r = &quot;</span>, parms[<span class="st">&quot;r&quot;</span>], <span class="st">&quot;)&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb3-7"><a href="week-2.html#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span> </span>
 <span id="cb3-8"><a href="week-2.html#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
-<p><img src="02_Week_2_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="02_Week_2_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" />
+Log scale</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="week-2.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">as.data.frame</span>(pop_size), <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> N)) <span class="sc">+</span> </span>
+<span id="cb4-2"><a href="week-2.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="week-2.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">&quot;Exponential Growth </span><span class="sc">\n</span><span class="st"> (r = &quot;</span>, parms[<span class="st">&quot;r&quot;</span>], <span class="st">&quot;)&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="week-2.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span> </span>
+<span id="cb4-5"><a href="week-2.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> </span>
+<span id="cb4-6"><a href="week-2.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">trans_breaks</span>(<span class="st">&quot;log10&quot;</span>, <span class="cf">function</span>(x) <span class="dv">10</span><span class="sc">^</span>x)(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span><span class="sc">^</span><span class="dv">7</span>)),</span>
+<span id="cb4-7"><a href="week-2.html#cb4-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">trans_format</span>(<span class="st">&quot;log10&quot;</span>, scales<span class="sc">::</span><span class="fu">math_format</span>(<span class="dv">10</span><span class="sc">^</span>.x)))</span></code></pre></div>
+<p><img src="02_Week_2_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="additional-readings-1" class="section level2 unnumbered">
 <h2>Additional readings</h2>
@@ -276,6 +284,7 @@ d-article table.lightable-paper {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -315,10 +324,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

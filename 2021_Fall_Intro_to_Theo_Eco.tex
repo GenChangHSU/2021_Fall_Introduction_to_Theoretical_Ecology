@@ -384,6 +384,8 @@ Two main phases:
 
 \textbf{Part 2. Visualize the integration results:}
 
+Linear scale
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# install.packages("tidyverse")}
@@ -398,6 +400,22 @@ Two main phases:
 \end{Shaded}
 
 \begin{center}\includegraphics[width=0.7\linewidth]{02_Week_2_files/figure-latex/unnamed-chunk-2-1} \end{center}
+
+Log scale
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =} \FunctionTok{as.data.frame}\NormalTok{(pop\_size), }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ time, }\AttributeTok{y =}\NormalTok{ N)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \FunctionTok{paste0}\NormalTok{(}\StringTok{"Exponential Growth }\SpecialCharTok{\textbackslash{}n}\StringTok{ (r = "}\NormalTok{, parms[}\StringTok{"r"}\NormalTok{], }\StringTok{")"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{)) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_y\_log10}\NormalTok{(}\AttributeTok{breaks =}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{trans\_breaks}\NormalTok{(}\StringTok{"log10"}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\DecValTok{10}\SpecialCharTok{\^{}}\NormalTok{x)(}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{7}\NormalTok{)),}
+                \AttributeTok{labels =}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{trans\_format}\NormalTok{(}\StringTok{"log10"}\NormalTok{, scales}\SpecialCharTok{::}\FunctionTok{math\_format}\NormalTok{(}\DecValTok{10}\SpecialCharTok{\^{}}\NormalTok{.x)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{02_Week_2_files/figure-latex/unnamed-chunk-3-1} \end{center}
 
 \hypertarget{additional-readings-1}{%
 \section*{Additional readings}\label{additional-readings-1}}
