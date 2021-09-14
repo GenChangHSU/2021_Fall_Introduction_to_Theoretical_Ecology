@@ -183,6 +183,8 @@ Please review the study material and make sure you understand the basic R syntax
 
 In this lab, we will be solving the differential equation for exponential population growth (Part 1) and visualize how the population sizes change over time (Part 2). 
 
+<br>
+
 **Part 1 - Numerical solution using the package "deSolve"**
 
 Two main phases:
