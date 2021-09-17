@@ -13,10 +13,10 @@
 
 ## Lab demonstration {-}
 
-In this lab, we will solve the differential equation for logistic population growth and visualize how the population sizes change over time. Have a quick review of the [lab section][#week2lab] in Week 2.
+In this lab, we will solve the differential equation for logistic population growth and visualize how the population sizes change over time. Have a quick review of the [lab section][week2lab] in Week 2.
 
 We will also take a look at how population growth rate ($\frac{dN}{dt}$) and per capita growth rate ($\frac{dN}{dtN}$) change with population size ($N$). 
-
+<br>
 <br>
 
 **Part 1 - Solving the logistic growth equation and visualize the results**
@@ -56,8 +56,6 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 <br>
 
 Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
-
-<!-- <iframe src ="https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/" height = 450px width = 800px /> -->
 
 <iframe src="https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/?showcase=0" width="800px" height="450px" data-external="1"></iframe>
 
@@ -123,14 +121,12 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
 
 <img src="04_Week_4_files/figure-html/unnamed-chunk-3-1.png" width="95%" style="display: block; margin: auto;" />
 
-
-http://raven.wrrb.uaf.edu/~ntakebay/teaching/programming/logistic/node1.html
-
-http://equation-of-the-month.blogspot.com/2012/01/logistic-growth.html
+<br>
 
 ## Additional readings {-}
 
-<br>
+[Logistic Growth](http://equation-of-the-month.blogspot.com/2012/01/logistic-growth.html){target="_blank"}
+
 <br>
 
 ## Assignments {-}
