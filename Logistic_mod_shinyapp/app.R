@@ -1,0 +1,74 @@
+library(shiny)
+library(tidyverse)
+library(deSolve)
+
+# Define UI for application
+ui <- fluidPage(
+
+    # Application title
+    titlePanel(""),
+
+    sidebarLayout(
+        
+        # Sidebar with a slider input
+        sidebarPanel(
+            sliderInput("N",
+                        "N0 = ",
+                        min = 0,
+                        max = 1000,
+                        value = 10,
+                        step = 10),
+            sliderInput("r",
+                        "r = ",
+                        min = 0,
+                        max = 2,
+                        value = 1,
+                        step = 0.1),
+            sliderInput("K",
+                        "K = ",
+                        min = 0,
+                        max = 1000,
+                        value = 500,
+                        step = 10)
+        ),  
+
+
+        # Main plot panel
+        mainPanel(
+           plotOutput("Logostic_plot")
+        )
+    )
+)
+
+# Define server
+server <- function(input, output) {
+
+    output$Logostic_plot <- renderPlot({
+        
+        # Run the ode based on ui inputs
+        logistic_model <- function(times, state, parms) {
+            with(as.list(c(state, parms)), {
+                dN_dt = r*N*(K-N)/K 
+                return(list(c(dN_dt))) 
+            })
+        }
+        
+        times <- seq(0, 10, by = 0.1)  
+        state <- c(N = input$N)  
+        parms <- c(r = input$r, K = input$K) 
+        pop_size <- ode(func = logistic_model, times = times, y = state, parms = parms)
+        
+        ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) + 
+            geom_point() + 
+            labs(title = paste0("Logistic Growth \n (N0 = ", state["N"], ", r = ", parms["r"], ", K = ", parms["K"], ")")) +
+            theme_classic(base_size = 20) + 
+            theme(plot.title = element_text(hjust = 0.5)) +
+            scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0)) +
+            scale_y_continuous(limits = c(0, max(as.data.frame(pop_size)$N)*1.1), expand = c(0, 0))
+    })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+
+

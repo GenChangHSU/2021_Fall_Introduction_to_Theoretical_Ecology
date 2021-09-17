@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="week-1.html"/>
-
+<link rel="next" href="week-4.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,8 +52,6 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -139,7 +137,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course Information</a></li>
-<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i>Syllabus</a></li>
 <li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html"><i class="fa fa-check"></i>Week 1</a>
 <ul>
 <li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html#lecture-in-a-nutshell"><i class="fa fa-check"></i>Lecture in a nutshell</a></li>
@@ -150,9 +147,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="week-2.html"><a href="week-2.html"><i class="fa fa-check"></i>Week 2</a>
 <ul>
 <li class="chapter" data-level="" data-path="week-2.html"><a href="week-2.html#lecture-in-a-nutshell-1"><i class="fa fa-check"></i>Lecture in a nutshell</a></li>
-<li class="chapter" data-level="" data-path="week-2.html"><a href="week-2.html#lab-demonstration-1"><i class="fa fa-check"></i>Lab demonstration</a></li>
+<li class="chapter" data-level="" data-path="week-2.html"><a href="week-2.html#week2lab"><i class="fa fa-check"></i>Lab demonstration</a></li>
 <li class="chapter" data-level="" data-path="week-2.html"><a href="week-2.html#additional-readings-1"><i class="fa fa-check"></i>Additional readings</a></li>
 <li class="chapter" data-level="" data-path="week-2.html"><a href="week-2.html#assignments-1"><i class="fa fa-check"></i>Assignments</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="week-4.html"><a href="week-4.html"><i class="fa fa-check"></i>Week 4</a>
+<ul>
+<li class="chapter" data-level="" data-path="week-4.html"><a href="week-4.html#lecture-in-a-nutshell-2"><i class="fa fa-check"></i>Lecture in a nutshell</a></li>
+<li class="chapter" data-level="" data-path="week-4.html"><a href="week-4.html#lab-demonstration-1"><i class="fa fa-check"></i>Lab demonstration</a></li>
+<li class="chapter" data-level="" data-path="week-4.html"><a href="week-4.html#additional-readings-2"><i class="fa fa-check"></i>Additional readings</a></li>
+<li class="chapter" data-level="" data-path="week-4.html"><a href="week-4.html#assignments-2"><i class="fa fa-check"></i>Assignments</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Site built with bookdown</a></li>
@@ -187,7 +191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <br>
 <br></p>
 </div>
-<div id="lab-demonstration-1" class="section level2 unnumbered">
+<div id="week2lab" class="section level2 unnumbered">
 <h2>Lab demonstration</h2>
 <p>In this lab, we will be solving the differential equation for exponential population growth (Part 1) and visualize how the population sizes change over time (Part 2).</p>
 <p><br></p>
@@ -222,8 +226,8 @@ d-article table.lightable-paper {
 <span id="cb1-4"><a href="week-2.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">### (1) Model specification</span></span>
 <span id="cb1-5"><a href="week-2.html#cb1-5" aria-hidden="true" tabindex="-1"></a>exponential_model <span class="ot">&lt;-</span> <span class="cf">function</span>(times, state, parms) {</span>
 <span id="cb1-6"><a href="week-2.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
-<span id="cb1-7"><a href="week-2.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    dN <span class="ot">=</span> r<span class="sc">*</span>N  <span class="co"># the equation</span></span>
-<span id="cb1-8"><a href="week-2.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dN)))  <span class="co"># return the results  </span></span>
+<span id="cb1-7"><a href="week-2.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    dN_dt <span class="ot">=</span> r<span class="sc">*</span>N  <span class="co"># exponential growth equation</span></span>
+<span id="cb1-8"><a href="week-2.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dN_dt)))  <span class="co"># return the results  </span></span>
 <span id="cb1-9"><a href="week-2.html#cb1-9" aria-hidden="true" tabindex="-1"></a>  })</span>
 <span id="cb1-10"><a href="week-2.html#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-11"><a href="week-2.html#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
@@ -254,7 +258,9 @@ d-article table.lightable-paper {
 <span id="cb3-5"><a href="week-2.html#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb3-6"><a href="week-2.html#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">&quot;Exponential Growth </span><span class="sc">\n</span><span class="st"> (r = &quot;</span>, parms[<span class="st">&quot;r&quot;</span>], <span class="st">&quot;)&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb3-7"><a href="week-2.html#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span> </span>
-<span id="cb3-8"><a href="week-2.html#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<span id="cb3-8"><a href="week-2.html#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb3-9"><a href="week-2.html#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">10.5</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb3-10"><a href="week-2.html#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(<span class="fu">as.data.frame</span>(pop_size)<span class="sc">$</span>N)<span class="sc">*</span><span class="fl">1.1</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
 <p><img src="02_Week_2_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" />
 <br></p>
 <p>Log scale</p>
@@ -263,8 +269,10 @@ d-article table.lightable-paper {
 <span id="cb4-3"><a href="week-2.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">&quot;Exponential Growth </span><span class="sc">\n</span><span class="st"> (r = &quot;</span>, parms[<span class="st">&quot;r&quot;</span>], <span class="st">&quot;)&quot;</span>)) <span class="sc">+</span></span>
 <span id="cb4-4"><a href="week-2.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span> </span>
 <span id="cb4-5"><a href="week-2.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> </span>
-<span id="cb4-6"><a href="week-2.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">trans_breaks</span>(<span class="st">&quot;log10&quot;</span>, <span class="cf">function</span>(x) <span class="dv">10</span><span class="sc">^</span>x)(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span><span class="sc">^</span><span class="dv">7</span>)),</span>
-<span id="cb4-7"><a href="week-2.html#cb4-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">trans_format</span>(<span class="st">&quot;log10&quot;</span>, scales<span class="sc">::</span><span class="fu">math_format</span>(<span class="dv">10</span><span class="sc">^</span>.x)))</span></code></pre></div>
+<span id="cb4-6"><a href="week-2.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">10.5</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="week-2.html#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>(<span class="at">breaks =</span> scales<span class="sc">::</span><span class="fu">trans_breaks</span>(<span class="st">&quot;log10&quot;</span>, <span class="cf">function</span>(x) <span class="dv">10</span><span class="sc">^</span>x)(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span><span class="sc">^</span><span class="dv">7</span>)),</span>
+<span id="cb4-8"><a href="week-2.html#cb4-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">trans_format</span>(<span class="st">&quot;log10&quot;</span>, scales<span class="sc">::</span><span class="fu">math_format</span>(<span class="dv">10</span><span class="sc">^</span>.x)),</span>
+<span id="cb4-9"><a href="week-2.html#cb4-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
 <p><img src="02_Week_2_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" />
 <br></p>
 </div>
@@ -282,8 +290,8 @@ d-article table.lightable-paper {
           </div>
         </div>
       </div>
-<a href="week-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="week-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

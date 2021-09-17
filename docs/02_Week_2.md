@@ -11,7 +11,7 @@
 <br>
 <br>
 
-## Lab demonstration {-}
+## Lab demonstration {- #week2lab}
 
 In this lab, we will be solving the differential equation for exponential population growth (Part 1) and visualize how the population sizes change over time (Part 2). 
 
@@ -55,8 +55,8 @@ library(deSolve)
 ### (1) Model specification
 exponential_model <- function(times, state, parms) {
   with(as.list(c(state, parms)), {
-    dN = r*N  # the equation
-    return(list(c(dN)))  # return the results  
+    dN_dt = r*N  # exponential growth equation
+    return(list(c(dN_dt)))  # return the results  
   })
 }
 
@@ -96,12 +96,12 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
   geom_point() + 
   labs(title = paste0("Exponential Growth \n (r = ", parms["r"], ")")) +
   theme_classic(base_size = 12) + 
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, max(as.data.frame(pop_size)$N)*1.1), expand = c(0, 0))
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{02_Week_2_files/figure-latex/unnamed-chunk-2-1} \end{center}
+<img src="02_Week_2_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" />
 <br>
 
 Log scale
@@ -112,13 +112,13 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
   labs(title = paste0("Exponential Growth \n (r = ", parms["r"], ")")) +
   theme_classic(base_size = 12) + 
   theme(plot.title = element_text(hjust = 0.5)) + 
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0)) +
   scale_y_log10(breaks = scales::trans_breaks("log10", function(x) 10^x)(c(10, 10^7)),
-                labels = scales::trans_format("log10", scales::math_format(10^.x)))
+                labels = scales::trans_format("log10", scales::math_format(10^.x)),
+                expand = c(0, 0))
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{02_Week_2_files/figure-latex/unnamed-chunk-3-1} \end{center}
+<img src="02_Week_2_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" />
 <br>
 
 ## Additional readings {-}
