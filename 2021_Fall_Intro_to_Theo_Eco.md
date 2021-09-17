@@ -20,6 +20,13 @@ description: "This is the course website for **_Introduction to Theoretical Ecol
 
 # Course Information {-}
 
+<p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px; text-align: center"> **IMPORTANT ANOUNCEMENT!!!** </p>
+The first three weeks of this course will be online. We will host the two modules of this course (i.e., 2-hr lecture and 1-hr practice) on different platforms. We will use Google Meet for the lecture section [(link here)](https://meet.google.com/nzd-cdjp-kbt){target="_blank"}. To mimic an environment where we can provide one-on-one coding advice, we will use Gather Town for the hands-on practice section [(link here)](https://gather.town/app/osrqFSf0a7q0I6uo/TheoreticalEcology){target="_blank"}. Please login in advance to make sure it is working; learn how to use Gather Town [here](https://www.youtube.com/watch?v=89at5EvCEvk){target="_blank"}.
+
+For those who wish to enroll manually, please join the first lecture and stay online afterward. Since we have moved to a larger classroom due to COVID-19 regulation, we can accommodate more students. We have asked students to introduce themselves (e.g., research interest and familiarity with R; 1-2 minutes) during the first time we meet online, so please also be prepared if you wish to enroll.
+
+********************************************************************************
+
 <p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px"> **Description** </p> The development of theory plays an important role in advancing ecology as a scientific field. This three-unit course is for students at the graduate or advanced undergraduate level. The course will cover classic theoretical topics in ecology, starting from single-species dynamics and gradually build up to multi-species models. The course will primarily focus on population and community ecology, but we will also briefly discuss models in epidemiology and ecosystem ecology. Emphasis will be on theoretical concepts and corresponding mathematical approaches.
 
 This course is designed as a two-hour lecture followed by a one-hour hands-on practice module. In the lecture, we will analyze dynamical models and derive general theories in ecology. In the hands-on practice section, we will use a combination of analytical problem sets, interactive applications, and numerical simulations to gain a general understanding of the dynamics and behavior of different models. 
@@ -76,19 +83,19 @@ Below are the textbook references:
 \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Date}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lecture topic}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lab}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Reading}}\endgroup\\
 \hline
 **Week 1** <span style='vertical-align:-30%'> </span>
-           <br> 28-Sept-2021 & Introduction: what is theoretical ecology? &  & \\
+           <br> 28-Sept-2021 & Introduction: what is theoretical ecology? &  & Grainger et al., 2021\\
 \hline
 **Week 2** <span style='vertical-align:-30%'> </span>
-           <br> 05-Oct-2021 & Exponential and geometric population growth &  & Gotelli [Ch.1] <br> Case [Ch.1]\\
+           <br> 05-Oct-2021 & Exponential population growth & Solving exponential growth equation using `deSolve` & visualization & Gotelli [Ch.1] <br> Case [Ch.1]\\
 \hline
 **Week 3** <span style='vertical-align:-30%'> </span>
-           <br> 12-Oct-2021 & Age-structured population models &  & Gotelli [Ch.3] <br> Case [Ch.3]\\
+           <br> 12-Oct-2021 & Density-dependence and logistic population growth & Solving logistic growth equation using `deSolve` & visualization & Gotelli [Ch.2] <br> Case [Ch.5]\\
 \hline
 **Week 4** <span style='vertical-align:-30%'> </span>
-           <br> 19-Oct-2021 & Density-dependence and logistic population growth &  & Gotelli [Ch.2] <br> Case [Ch.5]\\
+           <br> 19-Oct-2021 & Stability analysis of single population dynamics &  & Otto & Day [Ch.5]\\
 \hline
 **Week 5** <span style='vertical-align:-30%'> </span>
-           <br> 26-Oct-2021 & Stability analysis of single population dynamics &  & Otto & Day [Ch.5]\\
+           <br> 26-Oct-2021 & Geometric growth and age-structured population models &  & Gotelli [Ch.3] <br> Case[Ch.3]\\
 \hline
 **Week 6** <span style='vertical-align:-30%'> </span>
            <br> 02-Nov-2021 & Metapopulations and patch occupancy models &  & Gotelli [Ch.4] <br> Case [Ch.16]\\
@@ -135,6 +142,8 @@ Below are the textbook references:
 
 ## Lecture in a nutshell {-}
 
+[Lecture handout](./Lecture handouts/Week1_Lecture_What_Is_Theoretical_Ecology.pdf){target="_blank"}
+
 <br>
 <br>
 <br>
@@ -147,7 +156,7 @@ No lab demonstration this week.
 
 ## Additional readings {-}
 
-No additional readings this week.
+[Grainger et al. (2021). An empiricist’s guide to using ecological theory. *American Naturalist*.](./Additional readings/Week1_Reading_Grainger_et_al_2021_AmNat.pdf){target="_blank"} 
 
 ## Assignments {-}
 
@@ -169,7 +178,7 @@ Please review the study material and make sure you understand the basic R syntax
 
 
 # Week 2 {-} 
-<div style = "font-size: 28pt"> **_Exponential and geometric population growth_**</div>
+<div style = "font-size: 28pt"> **_Exponential population growth_**</div>
 
 ## Lecture in a nutshell {-}
 
@@ -179,7 +188,7 @@ Please review the study material and make sure you understand the basic R syntax
 <br>
 <br>
 
-## Lab demonstration
+## Lab demonstration {-}
 
 In this lab, we will be solving the differential equation for exponential population growth (Part 1) and visualize how the population sizes change over time (Part 2). 
 
@@ -303,48 +312,9 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 
 <!--chapter:end:02_Week_2.Rmd-->
 
+
+
 # Week 3 {-} 
-<div style = "font-size: 28pt"> **_Age-structured population models_**</div>
-
-## Lecture in a nutshell {-}
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## Lab demonstration {-}
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## Additional readings {-}
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## Assignments {-}
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-<!--chapter:end:03_Week_3.Rmd-->
-
-
-
-# Week 4 {-} 
 <div style = "font-size: 28pt"> **_Density-dependence and logistic population growth_**</div>
 
 ## Lecture in a nutshell {-}
@@ -398,12 +368,13 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 
 
 
-\begin{center}\includegraphics[width=0.7\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-1-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{03_Week_3_files/figure-latex/unnamed-chunk-1-1} \end{center}
 <br>
 
 Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
 
-<iframe src="https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/?showcase=0" width="800px" height="450px" data-external="1"></iframe>
+
+\href{https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/}{\includegraphics[width=800px]{03_Week_3_files/figure-latex/unnamed-chunk-2-1} }
 
 <br>
 
@@ -467,7 +438,7 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
 
 
 
-\begin{center}\includegraphics[width=0.95\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-3-1} \end{center}
+\begin{center}\includegraphics[width=0.95\linewidth]{03_Week_3_files/figure-latex/unnamed-chunk-3-1} \end{center}
 
 <br>
 
@@ -478,6 +449,45 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
 <br>
 
 ## Assignments {-}
+
+
+
+<!--chapter:end:03_Week_3.Rmd-->
+
+# Week 4 {-} 
+<div style = "font-size: 28pt"> **_Stability analysis of single population dynamics_**</div>
+
+## Lecture in a nutshell {-}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Lab demonstration {-}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Additional readings {-}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Assignments {-}
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 

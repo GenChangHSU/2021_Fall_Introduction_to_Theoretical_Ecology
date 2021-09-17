@@ -3,6 +3,8 @@
 
 ## Lecture in a nutshell {-}
 
+[Lecture handout](./Lecture handouts/Week1_Lecture_What_Is_Theoretical_Ecology.pdf){target="_blank"}
+
 <br>
 <br>
 <br>
@@ -15,7 +17,7 @@ No lab demonstration this week.
 
 ## Additional readings {-}
 
-No additional readings this week.
+[Grainger et al. (2021). An empiricist’s guide to using ecological theory. *American Naturalist*.](./Additional readings/Week1_Reading_Grainger_et_al_2021_AmNat.pdf){target="_blank"} 
 
 ## Assignments {-}
 

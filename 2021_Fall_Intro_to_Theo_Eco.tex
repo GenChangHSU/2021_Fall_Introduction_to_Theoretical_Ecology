@@ -144,6 +144,14 @@
 \chapter*{Course Information}\label{course-information}}
 \addcontentsline{toc}{chapter}{Course Information}
 
+\textbf{IMPORTANT ANOUNCEMENT!!!}
+
+The first three weeks of this course will be online. We will host the two modules of this course (i.e., 2-hr lecture and 1-hr practice) on different platforms. We will use Google Meet for the lecture section \href{https://meet.google.com/nzd-cdjp-kbt}{(link here)}. To mimic an environment where we can provide one-on-one coding advice, we will use Gather Town for the hands-on practice section \href{https://gather.town/app/osrqFSf0a7q0I6uo/TheoreticalEcology}{(link here)}. Please login in advance to make sure it is working; learn how to use Gather Town \href{https://www.youtube.com/watch?v=89at5EvCEvk}{here}.
+
+For those who wish to enroll manually, please join the first lecture and stay online afterward. Since we have moved to a larger classroom due to COVID-19 regulation, we can accommodate more students. We have asked students to introduce themselves (e.g., research interest and familiarity with R; 1-2 minutes) during the first time we meet online, so please also be prepared if you wish to enroll.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
 \textbf{Description}
 
 The development of theory plays an important role in advancing ecology as a scientific field. This three-unit course is for students at the graduate or advanced undergraduate level. The course will cover classic theoretical topics in ecology, starting from single-species dynamics and gradually build up to multi-species models. The course will primarily focus on population and community ecology, but we will also briefly discuss models in epidemiology and ecosystem ecology. Emphasis will be on theoretical concepts and corresponding mathematical approaches.
@@ -240,19 +248,19 @@ Below are the textbook references:
 \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Date}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lecture topic}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lab}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Reading}}\endgroup\\
 \hline
 **Week 1** <span style='vertical-align:-30%'> </span>
-           <br> 28-Sept-2021 & Introduction: what is theoretical ecology? &  & \\
+           <br> 28-Sept-2021 & Introduction: what is theoretical ecology? &  & Grainger et al., 2021\\
 \hline
 **Week 2** <span style='vertical-align:-30%'> </span>
-           <br> 05-Oct-2021 & Exponential and geometric population growth &  & Gotelli [Ch.1] <br> Case [Ch.1]\\
+           <br> 05-Oct-2021 & Exponential population growth & Solving exponential growth equation using `deSolve` & visualization & Gotelli [Ch.1] <br> Case [Ch.1]\\
 \hline
 **Week 3** <span style='vertical-align:-30%'> </span>
-           <br> 12-Oct-2021 & Age-structured population models &  & Gotelli [Ch.3] <br> Case [Ch.3]\\
+           <br> 12-Oct-2021 & Density-dependence and logistic population growth & Solving logistic growth equation using `deSolve` & visualization & Gotelli [Ch.2] <br> Case [Ch.5]\\
 \hline
 **Week 4** <span style='vertical-align:-30%'> </span>
-           <br> 19-Oct-2021 & Density-dependence and logistic population growth &  & Gotelli [Ch.2] <br> Case [Ch.5]\\
+           <br> 19-Oct-2021 & Stability analysis of single population dynamics &  & Otto & Day [Ch.5]\\
 \hline
 **Week 5** <span style='vertical-align:-30%'> </span>
-           <br> 26-Oct-2021 & Stability analysis of single population dynamics &  & Otto & Day [Ch.5]\\
+           <br> 26-Oct-2021 & Geometric growth and age-structured population models &  & Gotelli [Ch.3] <br> Case[Ch.3]\\
 \hline
 **Week 6** <span style='vertical-align:-30%'> </span>
            <br> 02-Nov-2021 & Metapopulations and patch occupancy models &  & Gotelli [Ch.4] <br> Case [Ch.16]\\
@@ -300,6 +308,8 @@ Below are the textbook references:
 \section*{Lecture in a nutshell}\label{lecture-in-a-nutshell}}
 \addcontentsline{toc}{section}{Lecture in a nutshell}
 
+\href{./Lecture\%20handouts/Week1_Lecture_What_Is_Theoretical_Ecology.pdf}{Lecture handout}
+
 \hypertarget{lab-demonstration}{%
 \section*{Lab demonstration}\label{lab-demonstration}}
 \addcontentsline{toc}{section}{Lab demonstration}
@@ -310,7 +320,7 @@ No lab demonstration this week.
 \section*{Additional readings}\label{additional-readings}}
 \addcontentsline{toc}{section}{Additional readings}
 
-No additional readings this week.
+\href{./Additional\%20readings/Week1_Reading_Grainger_et_al_2021_AmNat.pdf}{Grainger et al.~(2021). An empiricist's guide to using ecological theory. \emph{American Naturalist}.}
 
 \hypertarget{assignments}{%
 \section*{Assignments}\label{assignments}}
@@ -326,14 +336,15 @@ Please review the study material and make sure you understand the basic R syntax
 \chapter*{Week 2}\label{week-2}}
 \addcontentsline{toc}{chapter}{Week 2}
 
-\textbf{\emph{Exponential and geometric population growth}}
+\textbf{\emph{Exponential population growth}}
 
 \hypertarget{lecture-in-a-nutshell-1}{%
 \section*{Lecture in a nutshell}\label{lecture-in-a-nutshell-1}}
 \addcontentsline{toc}{section}{Lecture in a nutshell}
 
 \hypertarget{lab-demonstration-1}{%
-\section{Lab demonstration}\label{lab-demonstration-1}}
+\section*{Lab demonstration}\label{lab-demonstration-1}}
+\addcontentsline{toc}{section}{Lab demonstration}
 
 In this lab, we will be solving the differential equation for exponential population growth (Part 1) and visualize how the population sizes change over time (Part 2).
 
@@ -434,7 +445,7 @@ Log scale
 \chapter*{Week 3}\label{week-3}}
 \addcontentsline{toc}{chapter}{Week 3}
 
-\textbf{\emph{Age-structured population models}}
+\textbf{\emph{Density-dependence and logistic population growth}}
 
 \hypertarget{lecture-in-a-nutshell-2}{%
 \section*{Lecture in a nutshell}\label{lecture-in-a-nutshell-2}}
@@ -442,28 +453,6 @@ Log scale
 
 \hypertarget{lab-demonstration-2}{%
 \section*{Lab demonstration}\label{lab-demonstration-2}}
-\addcontentsline{toc}{section}{Lab demonstration}
-
-\hypertarget{additional-readings-2}{%
-\section*{Additional readings}\label{additional-readings-2}}
-\addcontentsline{toc}{section}{Additional readings}
-
-\hypertarget{assignments-2}{%
-\section*{Assignments}\label{assignments-2}}
-\addcontentsline{toc}{section}{Assignments}
-
-\hypertarget{week-4}{%
-\chapter*{Week 4}\label{week-4}}
-\addcontentsline{toc}{chapter}{Week 4}
-
-\textbf{\emph{Density-dependence and logistic population growth}}
-
-\hypertarget{lecture-in-a-nutshell-3}{%
-\section*{Lecture in a nutshell}\label{lecture-in-a-nutshell-3}}
-\addcontentsline{toc}{section}{Lecture in a nutshell}
-
-\hypertarget{lab-demonstration-3}{%
-\section*{Lab demonstration}\label{lab-demonstration-3}}
 \addcontentsline{toc}{section}{Lab demonstration}
 
 In this lab, we will solve the differential equation for logistic population growth and visualize how the population sizes change over time. Have a quick review of the \href{https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/week-2.html\#week2lab}{lab section} in Week 2.
@@ -504,9 +493,11 @@ We will also take a look at how population growth rate (\(\frac{dN}{dt}\)) and p
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.7\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-1-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{03_Week_3_files/figure-latex/unnamed-chunk-1-1} \end{center}
 
 Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
+
+\href{https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/}{\includegraphics[width=800px]{03_Week_3_files/figure-latex/unnamed-chunk-2-1} }
 
 \textbf{Part 2 - The relationship between population growth rate (\(\frac{dN}{dt}\))/per capita growth rate (\(\frac{dN}{dtN}\)) and population size (\(N\))}
 
@@ -567,13 +558,35 @@ Here is an interactive web app for the logistic growth model. Feel free to play 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.95\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-3-1} \end{center}
+\begin{center}\includegraphics[width=0.95\linewidth]{03_Week_3_files/figure-latex/unnamed-chunk-3-1} \end{center}
+
+\hypertarget{additional-readings-2}{%
+\section*{Additional readings}\label{additional-readings-2}}
+\addcontentsline{toc}{section}{Additional readings}
+
+\href{http://equation-of-the-month.blogspot.com/2012/01/logistic-growth.html}{Logistic Growth}
+
+\hypertarget{assignments-2}{%
+\section*{Assignments}\label{assignments-2}}
+\addcontentsline{toc}{section}{Assignments}
+
+\hypertarget{week-4}{%
+\chapter*{Week 4}\label{week-4}}
+\addcontentsline{toc}{chapter}{Week 4}
+
+\textbf{\emph{Stability analysis of single population dynamics}}
+
+\hypertarget{lecture-in-a-nutshell-3}{%
+\section*{Lecture in a nutshell}\label{lecture-in-a-nutshell-3}}
+\addcontentsline{toc}{section}{Lecture in a nutshell}
+
+\hypertarget{lab-demonstration-3}{%
+\section*{Lab demonstration}\label{lab-demonstration-3}}
+\addcontentsline{toc}{section}{Lab demonstration}
 
 \hypertarget{additional-readings-3}{%
 \section*{Additional readings}\label{additional-readings-3}}
 \addcontentsline{toc}{section}{Additional readings}
-
-\href{http://equation-of-the-month.blogspot.com/2012/01/logistic-growth.html}{Logistic Growth}
 
 \hypertarget{assignments-3}{%
 \section*{Assignments}\label{assignments-3}}
