@@ -9,6 +9,7 @@ ui <- fluidPage(
     titlePanel(""),
 
     sidebarLayout(
+        fluid = F,
         
         # Sidebar with a slider input
         sidebarPanel(

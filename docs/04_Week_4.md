@@ -55,7 +55,11 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 <img src="04_Week_4_files/figure-html/unnamed-chunk-1-1.png" width="70%" style="display: block; margin: auto;" />
 <br>
 
-<iframe src="https://yihui.shinyapps.io/miniUI/" width="99%" height="400px" data-external="1"></iframe>
+Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
+
+<!-- <iframe src ="https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/" height = 450px width = 800px /> -->
+
+<iframe src="https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/?showcase=0" width="800px" height="450px" data-external="1"></iframe>
 
 <br>
 

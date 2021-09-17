@@ -332,8 +332,8 @@ Please review the study material and make sure you understand the basic R syntax
 \section*{Lecture in a nutshell}\label{lecture-in-a-nutshell-1}}
 \addcontentsline{toc}{section}{Lecture in a nutshell}
 
-\hypertarget{lab-demonstration-1}{%
-\section*{Lab demonstration}\label{lab-demonstration-1}}
+\hypertarget{week2lab}{%
+\section*{Lab demonstration}\label{week2lab}}
 \addcontentsline{toc}{section}{Lab demonstration}
 
 In this lab, we will be solving the differential equation for exponential population growth (Part 1) and visualize how the population sizes change over time (Part 2).
@@ -354,8 +354,8 @@ Two main phases:
 \DocumentationTok{\#\#\# (1) Model specification}
 \NormalTok{exponential\_model }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(times, state, parms) \{}
   \FunctionTok{with}\NormalTok{(}\FunctionTok{as.list}\NormalTok{(}\FunctionTok{c}\NormalTok{(state, parms)), \{}
-\NormalTok{    dN }\OtherTok{=}\NormalTok{ r}\SpecialCharTok{*}\NormalTok{N  }\CommentTok{\# the equation}
-    \FunctionTok{return}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\FunctionTok{c}\NormalTok{(dN)))  }\CommentTok{\# return the results  }
+\NormalTok{    dN\_dt }\OtherTok{=}\NormalTok{ r}\SpecialCharTok{*}\NormalTok{N  }\CommentTok{\# exponential growth equation}
+    \FunctionTok{return}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\FunctionTok{c}\NormalTok{(dN\_dt)))  }\CommentTok{\# return the results  }
 \NormalTok{  \})}
 \NormalTok{\}}
 
@@ -395,7 +395,9 @@ Linear scale
   \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} 
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \FunctionTok{paste0}\NormalTok{(}\StringTok{"Exponential Growth }\SpecialCharTok{\textbackslash{}n}\StringTok{ (r = "}\NormalTok{, parms[}\StringTok{"r"}\NormalTok{], }\StringTok{")"}\NormalTok{)) }\SpecialCharTok{+}
   \FunctionTok{theme\_classic}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{))}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{limits =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{10.5}\NormalTok{), }\AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{limits =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{max}\NormalTok{(}\FunctionTok{as.data.frame}\NormalTok{(pop\_size)}\SpecialCharTok{$}\NormalTok{N)}\SpecialCharTok{*}\FloatTok{1.1}\NormalTok{), }\AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -410,8 +412,10 @@ Log scale
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \FunctionTok{paste0}\NormalTok{(}\StringTok{"Exponential Growth }\SpecialCharTok{\textbackslash{}n}\StringTok{ (r = "}\NormalTok{, parms[}\StringTok{"r"}\NormalTok{], }\StringTok{")"}\NormalTok{)) }\SpecialCharTok{+}
   \FunctionTok{theme\_classic}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+} 
   \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{)) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{limits =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{10.5}\NormalTok{), }\AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)) }\SpecialCharTok{+}
   \FunctionTok{scale\_y\_log10}\NormalTok{(}\AttributeTok{breaks =}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{trans\_breaks}\NormalTok{(}\StringTok{"log10"}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\DecValTok{10}\SpecialCharTok{\^{}}\NormalTok{x)(}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{10}\SpecialCharTok{\^{}}\DecValTok{7}\NormalTok{)),}
-                \AttributeTok{labels =}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{trans\_format}\NormalTok{(}\StringTok{"log10"}\NormalTok{, scales}\SpecialCharTok{::}\FunctionTok{math\_format}\NormalTok{(}\DecValTok{10}\SpecialCharTok{\^{}}\NormalTok{.x)))}
+                \AttributeTok{labels =}\NormalTok{ scales}\SpecialCharTok{::}\FunctionTok{trans\_format}\NormalTok{(}\StringTok{"log10"}\NormalTok{, scales}\SpecialCharTok{::}\FunctionTok{math\_format}\NormalTok{(}\DecValTok{10}\SpecialCharTok{\^{}}\NormalTok{.x)),}
+                \AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -425,6 +429,157 @@ Log scale
 
 \hypertarget{assignments-1}{%
 \section*{Assignments}\label{assignments-1}}
+\addcontentsline{toc}{section}{Assignments}
+
+\hypertarget{week-3}{%
+\chapter*{Week 3}\label{week-3}}
+\addcontentsline{toc}{chapter}{Week 3}
+
+\textbf{\emph{Age-structured population models}}
+
+\hypertarget{lecture-in-a-nutshell-2}{%
+\section*{Lecture in a nutshell}\label{lecture-in-a-nutshell-2}}
+\addcontentsline{toc}{section}{Lecture in a nutshell}
+
+\hypertarget{lab-demonstration-1}{%
+\section*{Lab demonstration}\label{lab-demonstration-1}}
+\addcontentsline{toc}{section}{Lab demonstration}
+
+\hypertarget{additional-readings-2}{%
+\section*{Additional readings}\label{additional-readings-2}}
+\addcontentsline{toc}{section}{Additional readings}
+
+\hypertarget{assignments-2}{%
+\section*{Assignments}\label{assignments-2}}
+\addcontentsline{toc}{section}{Assignments}
+
+\hypertarget{week-4}{%
+\chapter*{Week 4}\label{week-4}}
+\addcontentsline{toc}{chapter}{Week 4}
+
+\textbf{\emph{Density-dependence and logistic population growth}}
+
+\hypertarget{lecture-in-a-nutshell-3}{%
+\section*{Lecture in a nutshell}\label{lecture-in-a-nutshell-3}}
+\addcontentsline{toc}{section}{Lecture in a nutshell}
+
+\hypertarget{lab-demonstration-2}{%
+\section*{Lab demonstration}\label{lab-demonstration-2}}
+\addcontentsline{toc}{section}{Lab demonstration}
+
+In this lab, we will solve the differential equation for logistic population growth and visualize how the population sizes change over time. Have a quick review of the {[}lab section{]}{[}\#week2lab{]} in Week 2.
+
+We will also take a look at how population growth rate (\(\frac{dN}{dt}\)) and per capita growth rate (\(\frac{dN}{dtN}\)) change with population size (\(N\)).
+
+\textbf{Part 1 - Solving the logistic growth equation and visualize the results}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(deSolve)}
+
+\DocumentationTok{\#\#\# Model specification}
+\NormalTok{logistic\_model }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(times, state, parms) \{}
+  \FunctionTok{with}\NormalTok{(}\FunctionTok{as.list}\NormalTok{(}\FunctionTok{c}\NormalTok{(state, parms)), \{}
+\NormalTok{    dN\_dt }\OtherTok{=}\NormalTok{ r}\SpecialCharTok{*}\NormalTok{N}\SpecialCharTok{*}\NormalTok{(K}\SpecialCharTok{{-}}\NormalTok{N)}\SpecialCharTok{/}\NormalTok{K  }\CommentTok{\# logistic growth equation}
+    \FunctionTok{return}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\FunctionTok{c}\NormalTok{(dN\_dt)))  }\CommentTok{\# return the results  }
+\NormalTok{  \})}
+\NormalTok{\}}
+
+\DocumentationTok{\#\#\# Model application}
+\NormalTok{times }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{, }\AttributeTok{by =} \FloatTok{0.1}\NormalTok{)  }\CommentTok{\# time steps to integrate over}
+\NormalTok{state }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{N =} \DecValTok{10}\NormalTok{)  }\CommentTok{\# initial population size}
+\NormalTok{parms }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{r =} \FloatTok{1.5}\NormalTok{, }\AttributeTok{K =} \DecValTok{500}\NormalTok{)  }\CommentTok{\# intrinsic growth rate and carrying capacity}
+
+\CommentTok{\# run the ode solver}
+\NormalTok{pop\_size }\OtherTok{\textless{}{-}} \FunctionTok{ode}\NormalTok{(}\AttributeTok{func =}\NormalTok{ logistic\_model, }\AttributeTok{times =}\NormalTok{ times, }\AttributeTok{y =}\NormalTok{ state, }\AttributeTok{parms =}\NormalTok{ parms)}
+
+\DocumentationTok{\#\#\# Visualize the results}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =} \FunctionTok{as.data.frame}\NormalTok{(pop\_size), }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ time, }\AttributeTok{y =}\NormalTok{ N)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \FunctionTok{paste0}\NormalTok{(}\StringTok{"Logistic Growth }\SpecialCharTok{\textbackslash{}n}\StringTok{ (r = "}\NormalTok{, parms[}\StringTok{"r"}\NormalTok{], }\StringTok{", K = "}\NormalTok{, parms[}\StringTok{"K"}\NormalTok{], }\StringTok{")"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{theme\_classic}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{limits =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{10.5}\NormalTok{), }\AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{limits =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{max}\NormalTok{(}\FunctionTok{as.data.frame}\NormalTok{(pop\_size)}\SpecialCharTok{$}\NormalTok{N)}\SpecialCharTok{*}\FloatTok{1.1}\NormalTok{), }\AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-1-1} \end{center}
+
+Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
+
+\textbf{Part 2 - The relationship between population growth rate (\(\frac{dN}{dt}\))/per capita growth rate (\(\frac{dN}{dtN}\)) and population size (\(N\))}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# parameters}
+\NormalTok{r }\OtherTok{\textless{}{-}} \FloatTok{1.5}
+\NormalTok{K }\OtherTok{\textless{}{-}} \DecValTok{500}
+
+\CommentTok{\# a vector of population sizes}
+\NormalTok{N }\OtherTok{\textless{}{-}} \DecValTok{0}\SpecialCharTok{:}\DecValTok{600}
+
+\CommentTok{\# calculate the population growth rates and per capita growth rates}
+\NormalTok{dN\_dt }\OtherTok{\textless{}{-}}\NormalTok{ r}\SpecialCharTok{*}\NormalTok{N}\SpecialCharTok{*}\NormalTok{(K}\SpecialCharTok{{-}}\NormalTok{N)}\SpecialCharTok{/}\NormalTok{K }
+\NormalTok{dN\_dtN }\OtherTok{\textless{}{-}}\NormalTok{ r}\SpecialCharTok{*}\NormalTok{(K}\SpecialCharTok{{-}}\NormalTok{N)}\SpecialCharTok{/}\NormalTok{K}
+
+\CommentTok{\# organize into a dataframe}
+\NormalTok{logistic\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(N, dN\_dt, dN\_dtN) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\AttributeTok{cols =} \FunctionTok{c}\NormalTok{(dN\_dt, dN\_dtN), }
+               \AttributeTok{names\_to =} \StringTok{"vars"}\NormalTok{, }
+               \AttributeTok{values\_to =} \StringTok{"values"}\NormalTok{)}
+
+\CommentTok{\# plot }
+\NormalTok{K\_df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{xend =} \FunctionTok{c}\NormalTok{(}\DecValTok{500}\NormalTok{, }\DecValTok{500}\NormalTok{),}
+                   \AttributeTok{yend =} \FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\FloatTok{0.1}\NormalTok{),}
+                   \AttributeTok{xstart =} \FunctionTok{c}\NormalTok{(}\DecValTok{500}\NormalTok{, }\DecValTok{500}\NormalTok{),}
+                   \AttributeTok{ystart =} \FunctionTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\FloatTok{0.5}\NormalTok{),}
+                   \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"italic(K)"}\NormalTok{, }\StringTok{"italic(K)"}\NormalTok{),}
+                   \AttributeTok{vars =} \FunctionTok{c}\NormalTok{(}\StringTok{"dN\_dt"}\NormalTok{, }\StringTok{"dN\_dtN"}\NormalTok{))}
+
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ logistic\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ N, }\AttributeTok{y =}\NormalTok{ values)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{size =} \FloatTok{1.2}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{x =} \DecValTok{500}\NormalTok{, }\AttributeTok{y =} \DecValTok{0}\NormalTok{, }\AttributeTok{size =} \DecValTok{4}\NormalTok{, }\AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =} \DecValTok{0}\NormalTok{, }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\AttributeTok{color =} \StringTok{"red"}\NormalTok{, }\AttributeTok{size =} \FloatTok{1.2}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"N"}\NormalTok{, }\AttributeTok{y =} \StringTok{""}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{vars, }
+             \AttributeTok{ncol =} \DecValTok{2}\NormalTok{, }
+             \AttributeTok{scales =} \StringTok{"free\_y"}\NormalTok{,}
+             \AttributeTok{strip.position =} \StringTok{"left"}\NormalTok{, }
+             \AttributeTok{labeller =} \FunctionTok{as\_labeller}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\AttributeTok{dN\_dt =} \StringTok{"dN/dt"}\NormalTok{, }
+                                      \AttributeTok{dN\_dtN =} \StringTok{"dN/dtN"}\NormalTok{))) }\SpecialCharTok{+} 
+  \FunctionTok{theme\_bw}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{strip.background =} \FunctionTok{element\_blank}\NormalTok{(),}
+        \AttributeTok{strip.placement =} \StringTok{"outside"}\NormalTok{,}
+        \AttributeTok{legend.position =} \StringTok{"top"}\NormalTok{,}
+        \AttributeTok{legend.title =} \FunctionTok{element\_blank}\NormalTok{()) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{limits =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{610}\NormalTok{), }\AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_segment}\NormalTok{(}\AttributeTok{data =}\NormalTok{ K\_df, }
+               \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ xstart, }\AttributeTok{y =}\NormalTok{ ystart, }\AttributeTok{xend =}\NormalTok{ xend, }\AttributeTok{yend =}\NormalTok{ yend), }
+               \AttributeTok{arrow =} \FunctionTok{arrow}\NormalTok{(}\AttributeTok{length =} \FunctionTok{unit}\NormalTok{(}\FloatTok{0.03}\NormalTok{, }\StringTok{"npc"}\NormalTok{)), }
+               \AttributeTok{size =} \FloatTok{1.2}\NormalTok{,}
+               \AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_text}\NormalTok{(}\AttributeTok{data =}\NormalTok{ K\_df, }
+            \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ xstart, }\AttributeTok{y =}\NormalTok{ ystart}\SpecialCharTok{*}\FloatTok{1.2}\NormalTok{, }\AttributeTok{label =}\NormalTok{ labels),}
+            \AttributeTok{size =} \DecValTok{5}\NormalTok{, }
+            \AttributeTok{color =} \StringTok{"blue"}\NormalTok{,}
+            \AttributeTok{parse =}\NormalTok{ T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.95\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-2-1} \end{center}
+
+\url{http://raven.wrrb.uaf.edu/~ntakebay/teaching/programming/logistic/node1.html}
+
+\url{http://equation-of-the-month.blogspot.com/2012/01/logistic-growth.html}
+
+\hypertarget{additional-readings-3}{%
+\section*{Additional readings}\label{additional-readings-3}}
+\addcontentsline{toc}{section}{Additional readings}
+
+\hypertarget{assignments-3}{%
+\section*{Assignments}\label{assignments-3}}
 \addcontentsline{toc}{section}{Assignments}
 
   \bibliography{book.bib,packages.bib}
