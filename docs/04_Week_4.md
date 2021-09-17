@@ -13,7 +13,7 @@
 
 ## Lab demonstration {-}
 
-In this lab, we will solve the differential equation for logistic population growth and visualize how the population sizes change over time. Have a quick review of the [lab section][week2lab] in Week 2.
+In this lab, we will solve the differential equation for logistic population growth and visualize how the population sizes change over time. Have a quick review of the [lab section](https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/week-2.html#week2lab){target="_blank"} in Week 2.
 
 We will also take a look at how population growth rate ($\frac{dN}{dt}$) and per capita growth rate ($\frac{dN}{dtN}$) change with population size ($N$). 
 <br>
@@ -52,7 +52,9 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
   scale_y_continuous(limits = c(0, max(as.data.frame(pop_size)$N)*1.1), expand = c(0, 0))
 ```
 
-<img src="04_Week_4_files/figure-html/unnamed-chunk-1-1.png" width="70%" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics[width=0.7\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-1-1} \end{center}
 <br>
 
 Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
@@ -119,7 +121,9 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
             parse = T)
 ```
 
-<img src="04_Week_4_files/figure-html/unnamed-chunk-3-1.png" width="95%" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics[width=0.95\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-3-1} \end{center}
 
 <br>
 

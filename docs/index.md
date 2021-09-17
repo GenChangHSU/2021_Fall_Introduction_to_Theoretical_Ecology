@@ -69,129 +69,61 @@ Below are the textbook references:
 
 # Syllabus {-}
 
-<table class=" lightable-paper table table-bordered" style="font-size: 17px; font-family: Arial; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
- <thead>
-  <tr>
-   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> Date </th>
-   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> Lecture topic </th>
-   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> Lab </th>
-   <th style="text-align:left;font-weight: bold;color: black !important;font-size: 20px;"> Reading </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 1** <span style="vertical-align:-30%"> </span>
-           <br> 28-Sept-2021 </td>
-   <td style="text-align:center;width: 20em; "> Introduction: what is theoretical ecology? </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; ">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 2** <span style="vertical-align:-30%"> </span>
-           <br> 05-Oct-2021 </td>
-   <td style="text-align:center;width: 20em; "> Exponential and geometric population growth </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Gotelli [Ch.1] <br> Case [Ch.1] </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 3** <span style="vertical-align:-30%"> </span>
-           <br> 12-Oct-2021 </td>
-   <td style="text-align:center;width: 20em; "> Age-structured population models </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Gotelli [Ch.3] <br> Case [Ch.3] </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 4** <span style="vertical-align:-30%"> </span>
-           <br> 19-Oct-2021 </td>
-   <td style="text-align:center;width: 20em; "> Density-dependence and logistic population growth </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Gotelli [Ch.2] <br> Case [Ch.5] </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 5** <span style="vertical-align:-30%"> </span>
-           <br> 26-Oct-2021 </td>
-   <td style="text-align:center;width: 20em; "> Stability analysis of single population dynamics </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Otto &amp; Day [Ch.5] </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 6** <span style="vertical-align:-30%"> </span>
-           <br> 02-Nov-2021 </td>
-   <td style="text-align:center;width: 20em; "> Metapopulations and patch occupancy models </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Gotelli [Ch.4] <br> Case [Ch.16] </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 7** <span style="vertical-align:-30%"> </span>
-           <br> 09-Nov-2021 </td>
-   <td style="text-align:center;width: 20em; "> Lotka-Volterra model of competition: graphical analysis </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Gotelli [Ch.5] <br> Case [Ch.14] </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 8** <span style="vertical-align:-30%"> </span>
-           <br> 16-Nov-2021 </td>
-   <td style="text-align:center;width: 20em; "> Lotka-Volterra model of competition: linear stability analysis </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Otto &amp; Day [Ch.8] </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 9** <span style="vertical-align:-30%"> </span>
-           <br> 23-Nov-2021 </td>
-   <td style="text-align:center;width: 20em; "> Midterm exam </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; ">  </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 10** <span style="vertical-align:-30%"> </span>
-           <br> 30-Nov-2021 </td>
-   <td style="text-align:center;width: 20em; "> Predator-prey interactions </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Gotelli [Ch.6] <br> Case [Ch.12 &amp; 13] </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 11** <span style="vertical-align:-30%"> </span>
-           <br> 07-Dec-2021 </td>
-   <td style="text-align:center;width: 20em; "> Mutualisms </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Vandermeer &amp; Boucher, 1978. </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 12** <span style="vertical-align:-30%"> </span>
-           <br> 14-Dec-2021 </td>
-   <td style="text-align:center;width: 20em; "> Multispecies models of competition: apparent and exploitative competition </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Holt, 1977. </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 13** <span style="vertical-align:-30%"> </span>
-           <br> 21-Dec-2021 </td>
-   <td style="text-align:center;width: 20em; "> Multispecies models of predation: food chains and intraguild predation </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Holt &amp; Polis, 1997. </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 14** <span style="vertical-align:-30%"> </span>
-           <br> 28-Dec-2021 </td>
-   <td style="text-align:center;width: 20em; "> Disease dynamics and SIR models </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Anderson &amp; May, 1979. </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 15** <span style="vertical-align:-30%"> </span>
-           <br> 04-Jan-2022 </td>
-   <td style="text-align:center;width: 20em; "> Ecosystem models and feedbacks </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Pastor [Ch.11 &amp; 12] </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 16** <span style="vertical-align:-30%"> </span>
-           <br> 11-Jan-2022 </td>
-   <td style="text-align:center;width: 20em; "> Final exam </td>
-   <td style="text-align:center;width: 14em; ">  </td>
-   <td style="text-align:left;width: 13em; ">  </td>
-  </tr>
-</tbody>
-</table>
+\begingroup\fontsize{17}{19}\selectfont
+
+\begin{tabu} to \linewidth {>{\centering}X>{\centering}X>{\centering}X>{\raggedright}X}
+\hline
+\begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Date}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lecture topic}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lab}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Reading}}\endgroup\\
+\hline
+**Week 1** <span style='vertical-align:-30%'> </span>
+           <br> 28-Sept-2021 & Introduction: what is theoretical ecology? &  & \\
+\hline
+**Week 2** <span style='vertical-align:-30%'> </span>
+           <br> 05-Oct-2021 & Exponential and geometric population growth &  & Gotelli [Ch.1] <br> Case [Ch.1]\\
+\hline
+**Week 3** <span style='vertical-align:-30%'> </span>
+           <br> 12-Oct-2021 & Age-structured population models &  & Gotelli [Ch.3] <br> Case [Ch.3]\\
+\hline
+**Week 4** <span style='vertical-align:-30%'> </span>
+           <br> 19-Oct-2021 & Density-dependence and logistic population growth &  & Gotelli [Ch.2] <br> Case [Ch.5]\\
+\hline
+**Week 5** <span style='vertical-align:-30%'> </span>
+           <br> 26-Oct-2021 & Stability analysis of single population dynamics &  & Otto & Day [Ch.5]\\
+\hline
+**Week 6** <span style='vertical-align:-30%'> </span>
+           <br> 02-Nov-2021 & Metapopulations and patch occupancy models &  & Gotelli [Ch.4] <br> Case [Ch.16]\\
+\hline
+**Week 7** <span style='vertical-align:-30%'> </span>
+           <br> 09-Nov-2021 & Lotka-Volterra model of competition: graphical analysis &  & Gotelli [Ch.5] <br> Case [Ch.14]\\
+\hline
+**Week 8** <span style='vertical-align:-30%'> </span>
+           <br> 16-Nov-2021 & Lotka-Volterra model of competition: linear stability analysis &  & Otto & Day [Ch.8]\\
+\hline
+**Week 9** <span style='vertical-align:-30%'> </span>
+           <br> 23-Nov-2021 & Midterm exam &  & \\
+\hline
+**Week 10** <span style='vertical-align:-30%'> </span>
+           <br> 30-Nov-2021 & Predator-prey interactions &  & Gotelli [Ch.6] <br> Case [Ch.12 & 13]\\
+\hline
+**Week 11** <span style='vertical-align:-30%'> </span>
+           <br> 07-Dec-2021 & Mutualisms &  & Vandermeer & Boucher, 1978.\\
+\hline
+**Week 12** <span style='vertical-align:-30%'> </span>
+           <br> 14-Dec-2021 & Multispecies models of competition: apparent and exploitative competition &  & Holt, 1977.\\
+\hline
+**Week 13** <span style='vertical-align:-30%'> </span>
+           <br> 21-Dec-2021 & Multispecies models of predation: food chains and intraguild predation &  & Holt & Polis, 1997.\\
+\hline
+**Week 14** <span style='vertical-align:-30%'> </span>
+           <br> 28-Dec-2021 & Disease dynamics and SIR models &  & Anderson & May, 1979.\\
+\hline
+**Week 15** <span style='vertical-align:-30%'> </span>
+           <br> 04-Jan-2022 & Ecosystem models and feedbacks &  & Pastor [Ch.11 & 12]\\
+\hline
+**Week 16** <span style='vertical-align:-30%'> </span>
+           <br> 11-Jan-2022 & Final exam &  & \\
+\hline
+\end{tabu}
+\endgroup{}
 
 
