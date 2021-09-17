@@ -18,7 +18,7 @@ knitr::opts_chunk$set(message = F,
 
 ## Lab demonstration {-}
 
-In this lab, we will solve the differential equation for logistic population growth and visualize how the population sizes change over time. Have a quick review of the [lab section](https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/week-2.html#week2lab){target="_blank"} in Week 2.
+In this lab, we will solve the differential equation for logistic population growth and visualize how the population sizes change over time. Have a quick review of the [lab section](https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/week-2.html#lab-demonstration-1){target="_blank"} in Week 2.
 
 We will also take a look at how population growth rate ($\frac{dN}{dt}$) and per capita growth rate ($\frac{dN}{dtN}$) change with population size ($N$). 
 <br>

@@ -86,10 +86,10 @@ Below are the textbook references:
            <br> 28-Sept-2021 & Introduction: what is theoretical ecology? &  & Grainger et al., 2021\\
 \hline
 **Week 2** <span style='vertical-align:-30%'> </span>
-           <br> 05-Oct-2021 & Exponential population growth & Solving exponential growth equation using `deSolve` & visualization & Gotelli [Ch.1] <br> Case [Ch.1]\\
+           <br> 05-Oct-2021 & Exponential population growth & Solving exponential growth equation using "deSolve" & Visualization & Gotelli [Ch.1] <br> Case [Ch.1]\\
 \hline
 **Week 3** <span style='vertical-align:-30%'> </span>
-           <br> 12-Oct-2021 & Density-dependence and logistic population growth & Solving logistic growth equation using `deSolve` & visualization & Gotelli [Ch.2] <br> Case [Ch.5]\\
+           <br> 12-Oct-2021 & Density-dependence and logistic population growth & Solving logistic growth equation using "deSolve" & Visualization & Gotelli [Ch.2] <br> Case [Ch.5]\\
 \hline
 **Week 4** <span style='vertical-align:-30%'> </span>
            <br> 19-Oct-2021 & Stability analysis of single population dynamics &  & Otto & Day [Ch.5]\\
@@ -327,7 +327,7 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 
 ## Lab demonstration {-}
 
-In this lab, we will solve the differential equation for logistic population growth and visualize how the population sizes change over time. Have a quick review of the [lab section](https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/week-2.html#week2lab){target="_blank"} in Week 2.
+In this lab, we will solve the differential equation for logistic population growth and visualize how the population sizes change over time. Have a quick review of the [lab section](https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/week-2.html#lab-demonstration-1){target="_blank"} in Week 2.
 
 We will also take a look at how population growth rate ($\frac{dN}{dt}$) and per capita growth rate ($\frac{dN}{dtN}$) change with population size ($N$). 
 <br>

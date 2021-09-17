@@ -86,10 +86,10 @@ Below are the textbook references:
            <br> 28-Sept-2021 & Introduction: what is theoretical ecology? &  & Grainger et al., 2021\\
 \hline
 **Week 2** <span style='vertical-align:-30%'> </span>
-           <br> 05-Oct-2021 & Exponential population growth & Solving exponential growth equation using `deSolve` & visualization & Gotelli [Ch.1] <br> Case [Ch.1]\\
+           <br> 05-Oct-2021 & Exponential population growth & Solving exponential growth equation using "deSolve" & Visualization & Gotelli [Ch.1] <br> Case [Ch.1]\\
 \hline
 **Week 3** <span style='vertical-align:-30%'> </span>
-           <br> 12-Oct-2021 & Density-dependence and logistic population growth & Solving logistic growth equation using `deSolve` & visualization & Gotelli [Ch.2] <br> Case [Ch.5]\\
+           <br> 12-Oct-2021 & Density-dependence and logistic population growth & Solving logistic growth equation using "deSolve" & Visualization & Gotelli [Ch.2] <br> Case [Ch.5]\\
 \hline
 **Week 4** <span style='vertical-align:-30%'> </span>
            <br> 19-Oct-2021 & Stability analysis of single population dynamics &  & Otto & Day [Ch.5]\\
