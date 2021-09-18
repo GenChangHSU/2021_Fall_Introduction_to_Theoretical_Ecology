@@ -168,7 +168,7 @@ Below are the textbook references:
 
 <span style="display: block; margin-top: -10px; margin-left: 50px">**_Approach 4_**. Test model assumptions</span>
 
-* Some relevant math techniques
+* Some relevant math techniques: Derivatives and Taylor expansion
 
 ## Lab demonstration {-}
 
