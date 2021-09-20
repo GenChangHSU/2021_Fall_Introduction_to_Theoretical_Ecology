@@ -57,6 +57,13 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 ```
 <br>
 
+<style>
+
+iframe {border: 0;}
+
+</style>
+
+
 Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
 
 ```{r, out.width="800px", echo = F}

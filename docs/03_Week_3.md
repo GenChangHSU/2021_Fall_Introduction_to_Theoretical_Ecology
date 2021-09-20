@@ -57,6 +57,13 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 \begin{center}\includegraphics[width=0.7\linewidth]{03_Week_3_files/figure-latex/unnamed-chunk-1-1} \end{center}
 <br>
 
+<style>
+
+iframe {border: 0;}
+
+</style>
+
+
 Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
 
 
