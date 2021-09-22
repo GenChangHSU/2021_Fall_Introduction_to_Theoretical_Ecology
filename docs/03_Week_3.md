@@ -22,39 +22,6 @@ We will also take a look at how population growth rate ($\frac{dN}{dt}$) and per
 **Part 1 - Solving the logistic growth equation and visualize the results**
 
 
-```r
-library(tidyverse)
-library(deSolve)
-
-### Model specification
-logistic_model <- function(times, state, parms) {
-  with(as.list(c(state, parms)), {
-    dN_dt = r*N*(K-N)/K  # logistic growth equation
-    return(list(c(dN_dt)))  # return the results  
-  })
-}
-
-### Model application
-times <- seq(0, 10, by = 0.1)  # time steps to integrate over
-state <- c(N = 10)  # initial population size
-parms <- c(r = 1.5, K = 500)  # intrinsic growth rate and carrying capacity
-
-# run the ode solver
-pop_size <- ode(func = logistic_model, times = times, y = state, parms = parms)
-
-### Visualize the results
-ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) + 
-  geom_point() + 
-  labs(title = paste0("Logistic Growth \n (r = ", parms["r"], ", K = ", parms["K"], ")")) +
-  theme_classic(base_size = 12) + 
-  theme(plot.title = element_text(hjust = 0.5)) +
-  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0)) +
-  scale_y_continuous(limits = c(0, max(as.data.frame(pop_size)$N)*1.1), expand = c(0, 0))
-```
-
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{03_Week_3_files/figure-latex/unnamed-chunk-1-1} \end{center}
 <br>
 
 <style>
@@ -66,8 +33,9 @@ iframe {border: 0;}
 
 Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
 
+Please select a set of parameters of your choice and reproduce the output figure you see in this app (hint: you can modify the code in Week 2).
 
-\href{https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/}{\includegraphics[width=800px]{03_Week_3_files/figure-latex/unnamed-chunk-2-1} }
+<iframe src="https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/?showcase=0" width="800px" height="450px" data-external="1"></iframe>
 
 <br>
 

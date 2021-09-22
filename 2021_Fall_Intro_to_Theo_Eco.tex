@@ -498,43 +498,9 @@ We will also take a look at how population growth rate (\(\frac{dN}{dt}\)) and p
 
 \textbf{Part 1 - Solving the logistic growth equation and visualize the results}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\FunctionTok{library}\NormalTok{(deSolve)}
-
-\DocumentationTok{\#\#\# Model specification}
-\NormalTok{logistic\_model }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(times, state, parms) \{}
-  \FunctionTok{with}\NormalTok{(}\FunctionTok{as.list}\NormalTok{(}\FunctionTok{c}\NormalTok{(state, parms)), \{}
-\NormalTok{    dN\_dt }\OtherTok{=}\NormalTok{ r}\SpecialCharTok{*}\NormalTok{N}\SpecialCharTok{*}\NormalTok{(K}\SpecialCharTok{{-}}\NormalTok{N)}\SpecialCharTok{/}\NormalTok{K  }\CommentTok{\# logistic growth equation}
-    \FunctionTok{return}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\FunctionTok{c}\NormalTok{(dN\_dt)))  }\CommentTok{\# return the results  }
-\NormalTok{  \})}
-\NormalTok{\}}
-
-\DocumentationTok{\#\#\# Model application}
-\NormalTok{times }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{, }\AttributeTok{by =} \FloatTok{0.1}\NormalTok{)  }\CommentTok{\# time steps to integrate over}
-\NormalTok{state }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{N =} \DecValTok{10}\NormalTok{)  }\CommentTok{\# initial population size}
-\NormalTok{parms }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{r =} \FloatTok{1.5}\NormalTok{, }\AttributeTok{K =} \DecValTok{500}\NormalTok{)  }\CommentTok{\# intrinsic growth rate and carrying capacity}
-
-\CommentTok{\# run the ode solver}
-\NormalTok{pop\_size }\OtherTok{\textless{}{-}} \FunctionTok{ode}\NormalTok{(}\AttributeTok{func =}\NormalTok{ logistic\_model, }\AttributeTok{times =}\NormalTok{ times, }\AttributeTok{y =}\NormalTok{ state, }\AttributeTok{parms =}\NormalTok{ parms)}
-
-\DocumentationTok{\#\#\# Visualize the results}
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =} \FunctionTok{as.data.frame}\NormalTok{(pop\_size), }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ time, }\AttributeTok{y =}\NormalTok{ N)) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} 
-  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \FunctionTok{paste0}\NormalTok{(}\StringTok{"Logistic Growth }\SpecialCharTok{\textbackslash{}n}\StringTok{ (r = "}\NormalTok{, parms[}\StringTok{"r"}\NormalTok{], }\StringTok{", K = "}\NormalTok{, parms[}\StringTok{"K"}\NormalTok{], }\StringTok{")"}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{theme\_classic}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{12}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{limits =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{10.5}\NormalTok{), }\AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)) }\SpecialCharTok{+}
-  \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{limits =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FunctionTok{max}\NormalTok{(}\FunctionTok{as.data.frame}\NormalTok{(pop\_size)}\SpecialCharTok{$}\NormalTok{N)}\SpecialCharTok{*}\FloatTok{1.1}\NormalTok{), }\AttributeTok{expand =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{center}\includegraphics[width=0.7\linewidth]{03_Week_3_files/figure-latex/unnamed-chunk-1-1} \end{center}
-
 Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
 
-\href{https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/}{\includegraphics[width=800px]{03_Week_3_files/figure-latex/unnamed-chunk-2-1} }
+Please select a set of parameters of your choice and reproduce the output figure you see in this app (hint: you can modify the code in Week 2).
 
 \textbf{Part 2 - The relationship between population growth rate (\(\frac{dN}{dt}\))/per capita growth rate (\(\frac{dN}{dtN}\)) and population size (\(N\))}
 

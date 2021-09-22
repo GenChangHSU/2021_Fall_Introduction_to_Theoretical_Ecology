@@ -26,7 +26,7 @@ We will also take a look at how population growth rate ($\frac{dN}{dt}$) and per
 
 **Part 1 - Solving the logistic growth equation and visualize the results**
 
-```{r, fig.width = 5, fig.height = 4, out.width = "70%", fig.align = "center"}
+```{r, fig.width = 5, fig.height = 4, out.width = "70%", fig.align = "center", echo = FALSE, include = FALSE}
 library(tidyverse)
 library(deSolve)
 
@@ -65,6 +65,8 @@ iframe {border: 0;}
 
 
 Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
+
+Please select a set of parameters of your choice and reproduce the output figure you see in this app (hint: you can modify the code in Week 2).
 
 ```{r, out.width="800px", echo = F}
 knitr::include_app("https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/", height = "450px")
