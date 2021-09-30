@@ -116,6 +116,16 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 
 [Package deSolve: Solving Initial Value Differential Equations in R](./Additional readings/Package deSolve - Solving Initial Value Differential Equations in R.pdf){target="_blank"}
 
+<br>
+
 ## Assignments {-}
+
+[Exponential Population Growth with Constant Immigration](./Assignments/Week2_Exponential Growth.pdf){target="_blank"}
+
+
+
+
+
+
 
 
