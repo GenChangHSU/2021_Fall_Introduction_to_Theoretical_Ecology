@@ -5,9 +5,9 @@ account: genchanghsu
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4782953
-bundleId: 5097651
+bundleId: 5098517
 url: https://genchanghsu.shinyapps.io/Logistic_mod_shinyapp/
-when: 1633197232.86908
-lastSyncTime: 1633197232.86908
+when: 1633233792.84446
+lastSyncTime: 1633233792.84446
 asMultiple: FALSE
 asStatic: FALSE
