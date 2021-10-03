@@ -31,8 +31,8 @@ ui <- fluidPage(
                         max = 1000,
                         value = 500,
                         step = 10),
-            sliderInput("Time",
-                        "Time = ",
+            sliderInput("time",
+                        "time = ",
                         min = 0,
                         max = 20,
                         value = 10,
@@ -60,7 +60,7 @@ server <- function(input, output) {
             })
         }
         
-        times <- seq(0, input$Time, by = 0.1)  
+        times <- seq(0, input$time, by = 0.1)  
         state <- c(N = input$N)  
         parms <- c(r = input$r, K = input$K) 
         pop_size <- ode(func = logistic_model, times = times, y = state, parms = parms)
@@ -68,11 +68,11 @@ server <- function(input, output) {
         ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) + 
             geom_point() + 
             geom_hline(yintercept = input$K, linetype = "dotted", color = "red", size = 1) + 
-            annotate(geom = "text", x = input$Time/2, y = input$K*1.075, label = "italic(K)", color = "red", size = 8, parse = T) +
+            annotate(geom = "text", x = input$time/2, y = input$K*1.075, label = "italic(K)", color = "red", size = 8, parse = T) +
             labs(title = paste0("Logistic Growth \n (N0 = ", state["N"], ", r = ", parms["r"], ", K = ", parms["K"], ")")) +
             theme_classic(base_size = 20) + 
             theme(plot.title = element_text(hjust = 0.5)) +
-            scale_x_continuous(limits = c(0, input$Time + 0.5), expand = c(0, 0)) +
+            scale_x_continuous(limits = c(0, input$time + 0.5), expand = c(0, 0)) +
             scale_y_continuous(limits = c(0, max(as.data.frame(pop_size)$N)*1.2), expand = c(0, 0))
     })
 }

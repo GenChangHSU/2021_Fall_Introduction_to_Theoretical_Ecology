@@ -139,7 +139,7 @@ syllabus <- tibble(
                       "Ecosystem models and feedbacks",
                       "Final exam"),
     
-  Lab = c("",
+  Lab = c(" - ",
           'Solving exponential growth equation using "deSolve" & Visualization',
           'Solving logistic growth equation using "deSolve" & Visualization',
           "",
