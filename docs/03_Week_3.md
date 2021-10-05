@@ -35,7 +35,8 @@ Here is an interactive web app for the logistic growth model. Feel free to play 
 
 Please select a set of parameters of your choice and reproduce the output figure you see in this app (hint: you can modify the code in Week 2).
 
-<iframe src="https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/?showcase=0" width="800px" height="550px" data-external="1"></iframe>
+
+\href{https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/}{\includegraphics[width=800px]{03_Week_3_files/figure-latex/unnamed-chunk-2-1} }
 
 <br>
 

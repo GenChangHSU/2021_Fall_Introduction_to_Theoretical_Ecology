@@ -26,7 +26,7 @@
 
 <div style="height:1px ;"><br></div>
 
-* **Related concepts:**
+* **Related concept:**
   1. Doubling time $t_d = \frac{ln(2)}{r}$
 
 <div style="height:1px ;"><br></div>
