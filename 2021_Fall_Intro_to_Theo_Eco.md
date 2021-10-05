@@ -21,7 +21,7 @@ description: "This is the course website for **_Introduction to Theoretical Ecol
 # Course Information {-}
 
 <p style = "font-size: 24pt; margin-bottom: 5px; margin-top: 25px; text-align: center"> **IMPORTANT ANOUNCEMENT!!!** </p>
-The first three weeks of this course will be online. We will host the two modules of this course (i.e., 2-hr lecture and 1-hr practice) on different platforms. We will use Google Meet for the lecture section [(link here)](https://meet.google.com/nzd-cdjp-kbt){target="_blank"}. To mimic an environment where we can provide one-on-one coding advice, we will use Gather Town for the hands-on practice section [(link here)](https://gather.town/app/osrqFSf0a7q0I6uo/TheoreticalEcology){target="_blank"}. Please login in advance to make sure it is working; learn how to use Gather Town [here](https://www.youtube.com/watch?v=89at5EvCEvk){target="_blank"}.
+The first two weeks of this course will be online. We will host the two modules of this course (i.e., 2-hr lecture and 1-hr practice) on different platforms. We will use Google Meet for the lecture section [(link here)](https://meet.google.com/nzd-cdjp-kbt){target="_blank"}. To mimic an environment where we can provide one-on-one coding advice, we will use Gather Town for the hands-on practice section [(link here)](https://gather.town/app/osrqFSf0a7q0I6uo/TheoreticalEcology){target="_blank"}. Please login in advance to make sure it is working; learn how to use Gather Town [here](https://www.youtube.com/watch?v=89at5EvCEvk){target="_blank"}.
 
 For those who wish to enroll manually, please join the first lecture and stay online afterward. Since we have moved to a larger classroom due to COVID-19 regulation, we can accommodate more students. We have asked students to introduce themselves (e.g., research interest and familiarity with R; 1-2 minutes) during the first time we meet online, so please also be prepared if you wish to enroll.
 
@@ -202,10 +202,51 @@ Please review the study material and make sure you understand the basic R syntax
 
 ## Lecture in a nutshell {-}
 
-<br>
-<br>
-<br>
-<br>
+* **Model derivation:** 
+  1. Population growth rate: $Birth - Death + Immigration - Emigration$
+  2. Per capita growth rate: $(birth - death + immigration - emigration)\times N$.
+
+<div style="height:1px ;"><br></div>
+
+* **Assumptions:**
+  1. Closed population: $Immigration$ = $Emigration = 0$
+  2. All individuals are identical: no genetic/age/stage structure
+  3. Continuous population growth: no time lag
+  4. Per capita birth and death rates are constant: time- and density-independent
+
+<div style="height:1px ;"><br></div>
+
+* **Solving the differential equation $\frac{dN}{dt} = (b-d)N$:**
+  1. Use separation of variables and integrate both sides
+  2. Plug in the initial condition $N_0$ at $t = 0$
+  3. Integration result: $N_{(t)} = N_0e^{(b-d)t} = N_0e^{rt}$
+
+<div style="height:1px ;"><br></div>
+
+* **Related concepts:**
+  1. Doubling time $t_d = \frac{ln(2)}{r}$
+
+<div style="height:1px ;"><br></div>
+
+* **Average (expected) lifetime for an exponential decay function $N_{(t)} = N_0e^{-\delta t}$:**
+  1. Probability density function (PDF): $\frac{N_0e^{-\delta t} - N_0e^{-\delta (t+\Delta t)}}{N_0} \approx \delta e^{-\delta t}$ (linear approximation)
+  2. Expected value: $\int_{0}^{\infty}t\delta e^{-\delta t}dt$
+  3. Use integration by parts to evaluate the integral
+  4. Integration result: $\frac{1}{\delta}$
+
+<div style="height:1px ;"><br></div>
+
+* **Relaxation of assumption 1:**
+  1. Net immigration/emigration is not zero: $\frac{dN}{dt} = rN + I_{(t)}$
+  2. Solve the equation using the general solution to first-order linear differential equations
+
+<div style="height:1px ;"><br></div>
+
+* **Relaxation of assumption 4:**
+  1. Per capita growth rate $r$ is not a constant but rather a function of time: $\frac{dN}{dt} = r_{(t)}N$
+  2. An example of $r_{(t)}$: $r_{(t)} = \overline{r} + \frac{\sigma}{2}sin(\omega t + \phi)$
+  3. Biological interpretation of $r_{(t)}$: seasonality, environmental fluctuations, etc.
+
 <br>
 
 ## Lab demonstration {-}
@@ -379,8 +420,7 @@ Here is an interactive web app for the logistic growth model. Feel free to play 
 
 Please select a set of parameters of your choice and reproduce the output figure you see in this app (hint: you can modify the code in Week 2).
 
-
-\href{https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/}{\includegraphics[width=800px]{03_Week_3_files/figure-latex/unnamed-chunk-2-1} }
+<iframe src="https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/?showcase=0" width="800px" height="550px" data-external="1"></iframe>
 
 <br>
 

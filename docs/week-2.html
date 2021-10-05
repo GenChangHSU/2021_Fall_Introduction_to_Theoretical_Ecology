@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Week 2 | Introduction to Theoretical Ecology</title>
   <meta name="description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Week 2 | Introduction to Theoretical Ecology" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/" />
-  <meta property="og:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology//bifurcation.gif" />
+  <meta property="og:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/bifurcation.gif" />
   <meta property="og:description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
   <meta name="github-repo" content="GenChangHSU/2021_Fall_Introduction_to_Theoretical_Ecology" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Week 2 | Introduction to Theoretical Ecology" />
   
   <meta name="twitter:description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
-  <meta name="twitter:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology//bifurcation.gif" />
+  <meta name="twitter:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/bifurcation.gif" />
 
 <meta name="author" content="Instructor: Po-Ju Ke ~~~~~ Teaching Assistant: Gen-Chang Hsu" />
 
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="week-1.html"/>
 <link rel="next" href="week-3.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -195,11 +195,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="lecture-in-a-nutshell-1" class="section level2 unnumbered">
 <h2>Lecture in a nutshell</h2>
-<p><br>
+<ul>
+<li><strong>Model derivation:</strong>
+<ol style="list-style-type: decimal">
+<li>Population growth rate: <span class="math inline">\(Birth - Death + Immigration - Emigration\)</span></li>
+<li>Per capita growth rate: <span class="math inline">\((birth - death + immigration - emigration)\times N\)</span>.</li>
+</ol></li>
+</ul>
+<div style="height:1px ;">
 <br>
+</div>
+<ul>
+<li><strong>Assumptions:</strong>
+<ol style="list-style-type: decimal">
+<li>Closed population: <span class="math inline">\(Immigration\)</span> = <span class="math inline">\(Emigration = 0\)</span></li>
+<li>All individuals are identical: no genetic/age/stage structure</li>
+<li>Continuous population growth: no time lag</li>
+<li>Per capita birth and death rates are constant: time- and density-independent</li>
+</ol></li>
+</ul>
+<div style="height:1px ;">
 <br>
+</div>
+<ul>
+<li><strong>Solving the differential equation <span class="math inline">\(\frac{dN}{dt} = (b-d)N\)</span>:</strong>
+<ol style="list-style-type: decimal">
+<li>Use separation of variables and integrate both sides</li>
+<li>Plug in the initial condition <span class="math inline">\(N_0\)</span> at <span class="math inline">\(t = 0\)</span></li>
+<li>Integration result: <span class="math inline">\(N_{(t)} = N_0e^{(b-d)t} = N_0e^{rt}\)</span></li>
+</ol></li>
+</ul>
+<div style="height:1px ;">
 <br>
-<br></p>
+</div>
+<ul>
+<li><strong>Related concepts:</strong>
+<ol style="list-style-type: decimal">
+<li>Doubling time <span class="math inline">\(t_d = \frac{ln(2)}{r}\)</span></li>
+</ol></li>
+</ul>
+<div style="height:1px ;">
+<br>
+</div>
+<ul>
+<li><strong>Average (expected) lifetime for an exponential decay function <span class="math inline">\(N_{(t)} = N_0e^{-\delta t}\)</span>:</strong>
+<ol style="list-style-type: decimal">
+<li>Probability density function (PDF): <span class="math inline">\(\frac{N_0e^{-\delta t} - N_0e^{-\delta (t+\Delta t)}}{N_0} \approx \delta e^{-\delta t}\)</span> (linear approximation)</li>
+<li>Expected value: <span class="math inline">\(\int_{0}^{\infty}t\delta e^{-\delta t}dt\)</span></li>
+<li>Use integration by parts to evaluate the integral</li>
+<li>Integration result: <span class="math inline">\(\frac{1}{\delta}\)</span></li>
+</ol></li>
+</ul>
+<div style="height:1px ;">
+<br>
+</div>
+<ul>
+<li><strong>Relaxation of assumption 1:</strong>
+<ol style="list-style-type: decimal">
+<li>Net immigration/emigration is not zero: <span class="math inline">\(\frac{dN}{dt} = rN + I_{(t)}\)</span></li>
+<li>Solve the equation using the general solution to first-order linear differential equations</li>
+</ol></li>
+</ul>
+<div style="height:1px ;">
+<br>
+</div>
+<ul>
+<li><strong>Relaxation of assumption 4:</strong>
+<ol style="list-style-type: decimal">
+<li>Per capita growth rate <span class="math inline">\(r\)</span> is not a constant but rather a function of time: <span class="math inline">\(\frac{dN}{dt} = r_{(t)}N\)</span></li>
+<li>An example of <span class="math inline">\(r_{(t)}\)</span>: <span class="math inline">\(r_{(t)} = \overline{r} + \frac{\sigma}{2}sin(\omega t + \phi)\)</span></li>
+<li>Biological interpretation of <span class="math inline">\(r_{(t)}\)</span>: seasonality, environmental fluctuations, etc.</li>
+</ol></li>
+</ul>
+<p><br></p>
 </div>
 <div id="lab-demonstration-1" class="section level2 unnumbered">
 <h2>Lab demonstration</h2>
@@ -307,7 +375,6 @@ d-article table.lightable-paper {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -347,6 +414,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

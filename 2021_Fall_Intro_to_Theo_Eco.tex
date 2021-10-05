@@ -146,7 +146,7 @@
 
 \textbf{IMPORTANT ANOUNCEMENT!!!}
 
-The first three weeks of this course will be online. We will host the two modules of this course (i.e., 2-hr lecture and 1-hr practice) on different platforms. We will use Google Meet for the lecture section \href{https://meet.google.com/nzd-cdjp-kbt}{(link here)}. To mimic an environment where we can provide one-on-one coding advice, we will use Gather Town for the hands-on practice section \href{https://gather.town/app/osrqFSf0a7q0I6uo/TheoreticalEcology}{(link here)}. Please login in advance to make sure it is working; learn how to use Gather Town \href{https://www.youtube.com/watch?v=89at5EvCEvk}{here}.
+The first two weeks of this course will be online. We will host the two modules of this course (i.e., 2-hr lecture and 1-hr practice) on different platforms. We will use Google Meet for the lecture section \href{https://meet.google.com/nzd-cdjp-kbt}{(link here)}. To mimic an environment where we can provide one-on-one coding advice, we will use Gather Town for the hands-on practice section \href{https://gather.town/app/osrqFSf0a7q0I6uo/TheoreticalEcology}{(link here)}. Please login in advance to make sure it is working; learn how to use Gather Town \href{https://www.youtube.com/watch?v=89at5EvCEvk}{here}.
 
 For those who wish to enroll manually, please join the first lecture and stay online afterward. Since we have moved to a larger classroom due to COVID-19 regulation, we can accommodate more students. We have asked students to introduce themselves (e.g., research interest and familiarity with R; 1-2 minutes) during the first time we meet online, so please also be prepared if you wish to enroll.
 
@@ -379,6 +379,121 @@ Please review the study material and make sure you understand the basic R syntax
 \section*{Lecture in a nutshell}\label{lecture-in-a-nutshell-1}}
 \addcontentsline{toc}{section}{Lecture in a nutshell}
 
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Model derivation:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Population growth rate: \(Birth - Death + Immigration - Emigration\)
+  \item
+    Per capita growth rate: \((birth - death + immigration - emigration)\times N\).
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Assumptions:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Closed population: \(Immigration\) = \(Emigration = 0\)
+  \item
+    All individuals are identical: no genetic/age/stage structure
+  \item
+    Continuous population growth: no time lag
+  \item
+    Per capita birth and death rates are constant: time- and density-independent
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Solving the differential equation \(\frac{dN}{dt} = (b-d)N\):}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Use separation of variables and integrate both sides
+  \item
+    Plug in the initial condition \(N_0\) at \(t = 0\)
+  \item
+    Integration result: \(N_{(t)} = N_0e^{(b-d)t} = N_0e^{rt}\)
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Related concepts:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Doubling time \(t_d = \frac{ln(2)}{r}\)
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Average (expected) lifetime for an exponential decay function \(N_{(t)} = N_0e^{-\delta t}\):}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Probability density function (PDF): \(\frac{N_0e^{-\delta t} - N_0e^{-\delta (t+\Delta t)}}{N_0} \approx \delta e^{-\delta t}\) (linear approximation)
+  \item
+    Expected value: \(\int_{0}^{\infty}t\delta e^{-\delta t}dt\)
+  \item
+    Use integration by parts to evaluate the integral
+  \item
+    Integration result: \(\frac{1}{\delta}\)
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Relaxation of assumption 1:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Net immigration/emigration is not zero: \(\frac{dN}{dt} = rN + I_{(t)}\)
+  \item
+    Solve the equation using the general solution to first-order linear differential equations
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Relaxation of assumption 4:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Per capita growth rate \(r\) is not a constant but rather a function of time: \(\frac{dN}{dt} = r_{(t)}N\)
+  \item
+    An example of \(r_{(t)}\): \(r_{(t)} = \overline{r} + \frac{\sigma}{2}sin(\omega t + \phi)\)
+  \item
+    Biological interpretation of \(r_{(t)}\): seasonality, environmental fluctuations, etc.
+  \end{enumerate}
+\end{itemize}
+
 \hypertarget{lab-demonstration-1}{%
 \section*{Lab demonstration}\label{lab-demonstration-1}}
 \addcontentsline{toc}{section}{Lab demonstration}
@@ -503,8 +618,6 @@ We will also take a look at how population growth rate (\(\frac{dN}{dt}\)) and p
 Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
 
 Please select a set of parameters of your choice and reproduce the output figure you see in this app (hint: you can modify the code in Week 2).
-
-\href{https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/}{\includegraphics[width=800px]{03_Week_3_files/figure-latex/unnamed-chunk-2-1} }
 
 \textbf{Part 2 - The relationship between population growth rate (\(\frac{dN}{dt}\))/per capita growth rate (\(\frac{dN}{dtN}\)) and population size (\(N\))}
 

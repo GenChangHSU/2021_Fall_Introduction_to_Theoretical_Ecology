@@ -5,10 +5,51 @@
 
 ## Lecture in a nutshell {-}
 
-<br>
-<br>
-<br>
-<br>
+* **Model derivation:** 
+  1. Population growth rate: $Birth - Death + Immigration - Emigration$
+  2. Per capita growth rate: $(birth - death + immigration - emigration)\times N$.
+
+<div style="height:1px ;"><br></div>
+
+* **Assumptions:**
+  1. Closed population: $Immigration$ = $Emigration = 0$
+  2. All individuals are identical: no genetic/age/stage structure
+  3. Continuous population growth: no time lag
+  4. Per capita birth and death rates are constant: time- and density-independent
+
+<div style="height:1px ;"><br></div>
+
+* **Solving the differential equation $\frac{dN}{dt} = (b-d)N$:**
+  1. Use separation of variables and integrate both sides
+  2. Plug in the initial condition $N_0$ at $t = 0$
+  3. Integration result: $N_{(t)} = N_0e^{(b-d)t} = N_0e^{rt}$
+
+<div style="height:1px ;"><br></div>
+
+* **Related concepts:**
+  1. Doubling time $t_d = \frac{ln(2)}{r}$
+
+<div style="height:1px ;"><br></div>
+
+* **Average (expected) lifetime for an exponential decay function $N_{(t)} = N_0e^{-\delta t}$:**
+  1. Probability density function (PDF): $\frac{N_0e^{-\delta t} - N_0e^{-\delta (t+\Delta t)}}{N_0} \approx \delta e^{-\delta t}$ (linear approximation)
+  2. Expected value: $\int_{0}^{\infty}t\delta e^{-\delta t}dt$
+  3. Use integration by parts to evaluate the integral
+  4. Integration result: $\frac{1}{\delta}$
+
+<div style="height:1px ;"><br></div>
+
+* **Relaxation of assumption 1:**
+  1. Net immigration/emigration is not zero: $\frac{dN}{dt} = rN + I_{(t)}$
+  2. Solve the equation using the general solution to first-order linear differential equations
+
+<div style="height:1px ;"><br></div>
+
+* **Relaxation of assumption 4:**
+  1. Per capita growth rate $r$ is not a constant but rather a function of time: $\frac{dN}{dt} = r_{(t)}N$
+  2. An example of $r_{(t)}$: $r_{(t)} = \overline{r} + \frac{\sigma}{2}sin(\omega t + \phi)$
+  3. Biological interpretation of $r_{(t)}$: seasonality, environmental fluctuations, etc.
+
 <br>
 
 ## Lab demonstration {-}
