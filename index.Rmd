@@ -165,14 +165,14 @@ syllabus <- tibble(
                "Gotelli [Ch.4] <br> Case [Ch.16]",
                "Gotelli [Ch.5] <br> Case [Ch.14]",
                "Otto & Day [Ch.8]",
-               " \\- ",
+               " $~~~~~~~~~~~~$ \\- ",
                "Gotelli [Ch.6] <br> Case [Ch.12 & 13]",
                "Vandermeer & Boucher, 1978.",
                "Holt, 1977.",
                "Holt & Polis, 1997.",
                "Anderson & May, 1979.",
                "Pastor [Ch.11 & 12]",
-               " \\- ")  
+               " $~~~~~~~~~~~~$ \\- ")  
   
 )
 
