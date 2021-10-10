@@ -159,9 +159,9 @@ syllabus <- tibble(
     
   Reading = c("Grainger et al., 2021",
               "Gotelli [Ch.1] <br> Case [Ch.1]",
-              "Gotelli [Ch.2] <br> Case [Ch.5]",
-              "Otto & Day [Ch.5]",
+              "Gotelli [Ch.2] <br> Case [Ch.5] <br> Otto & Day [Ch.5]",
               "Gotelli [Ch.3] <br> Case[Ch.3]",
+              "TBD",
               "Gotelli [Ch.4] <br> Case [Ch.16]",
               "Gotelli [Ch.5] <br> Case [Ch.14]",
               "Otto & Day [Ch.8]",
