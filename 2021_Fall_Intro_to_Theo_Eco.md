@@ -80,7 +80,7 @@ Below are the textbook references:
 
 \begin{tabu} to \linewidth {>{\centering}X>{\centering}X>{\centering}X>{\raggedright}X}
 \hline
-\begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Date}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lecture topic}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lab}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Reading}}\endgroup\\
+\begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Date}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lecture topic}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Lab}}\endgroup & \begingroup\fontsize{20}{22}\selectfont \textcolor{black}{\textbf{Readings}}\endgroup\\
 \hline
 **Week 1** <span style='vertical-align:-30%'> </span>
            <br> 28-Sept-2021 & Introduction: what is theoretical ecology? & \- & Grainger et al., 2021\\
@@ -107,7 +107,7 @@ Below are the textbook references:
            <br> 16-Nov-2021 & Lotka-Volterra model of competition: linear stability analysis &  & Otto & Day [Ch.8]\\
 \hline
 **Week 9** <span style='vertical-align:-30%'> </span>
-           <br> 23-Nov-2021 & Midterm exam &  & \\
+           <br> 23-Nov-2021 & Midterm exam & \- & \-\\
 \hline
 **Week 10** <span style='vertical-align:-30%'> </span>
            <br> 30-Nov-2021 & Predator-prey interactions &  & Gotelli [Ch.6] <br> Case [Ch.12 & 13]\\
@@ -128,7 +128,7 @@ Below are the textbook references:
            <br> 04-Jan-2022 & Ecosystem models and feedbacks &  & Pastor [Ch.11 & 12]\\
 \hline
 **Week 16** <span style='vertical-align:-30%'> </span>
-           <br> 11-Jan-2022 & Final exam &  & \\
+           <br> 11-Jan-2022 & Final exam & \- & \-\\
 \hline
 \end{tabu}
 \endgroup{}
