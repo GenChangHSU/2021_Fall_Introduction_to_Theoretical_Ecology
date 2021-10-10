@@ -373,7 +373,7 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 
 [Exponential Population Growth with Constant Immigration](./Assignments/Week2_Exponential Growth.pdf){target="_blank"}
 
-
+<!-- [Suggested Solutions](./Assignments/Week2_Exponential Growth_with_Solutions.pdf){target="_blank"} -->
 
 
 
@@ -390,10 +390,20 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 
 ## Lecture in a nutshell {-}
 
-<br>
-<br>
-<br>
-<br>
+<!-- * **Model derivation:**  -->
+<!--   1. Population growth rate: $Birth - Death + Immigration - Emigration$ -->
+<!--   2. Per capita growth rate: $(birth - death + immigration - emigration)\times N$. -->
+
+<!-- <div style="height:1px ;"><br></div> -->
+
+<!-- * **Assumptions:** -->
+<!--   1. Closed population: $Immigration$ = $Emigration = 0$ -->
+<!--   2. All individuals are identical: no genetic/age/stage structure -->
+<!--   3. Continuous population growth: no time lag -->
+<!--   4. Per capita birth and death rates are constant: time- and density-independent -->
+
+<div style="height:1px ;"><br></div>
+
 <br>
 
 ## Lab demonstration {-}
@@ -496,6 +506,16 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
 <br>
 
 ## Assignments {-}
+
+[Population Growth with Allee Effects](./Assignments/Week3_Logistic Growth.pdf){target="_blank"}
+
+<!-- [Suggested Solutions](./Assignments/Week3_Logistic Growth_with_Solutions.pdf){target="_blank"} -->
+
+
+
+
+
+
 
 
 
