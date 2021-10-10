@@ -254,13 +254,13 @@ Below are the textbook references:
            <br> 05-Oct-2021 & Exponential population growth & Solving exponential growth equation using "deSolve" & Visualization & Gotelli [Ch.1] <br> Case [Ch.1]\\
 \hline
 **Week 3** <span style='vertical-align:-30%'> </span>
-           <br> 12-Oct-2021 & Density-dependence and logistic population growth & Solving logistic growth equation using "deSolve" & Visualization & Gotelli [Ch.2] <br> Case [Ch.5]\\
+           <br> 12-Oct-2021 & Logistic population growth and stability analysis & Solving logistic growth equation using "deSolve" & Visualization & Gotelli [Ch.2] <br> Case [Ch.5]\\
 \hline
 **Week 4** <span style='vertical-align:-30%'> </span>
-           <br> 19-Oct-2021 & Stability analysis of single population dynamics &  & Otto & Day [Ch.5]\\
+           <br> 19-Oct-2021 & Discrete-time and age-structured population models & Analyzing Leslie matrix using for loops and eigenanalysis & Otto & Day [Ch.5]\\
 \hline
 **Week 5** <span style='vertical-align:-30%'> </span>
-           <br> 26-Oct-2021 & Geometric growth and age-structured population models &  & Gotelli [Ch.3] <br> Case[Ch.3]\\
+           <br> 26-Oct-2021 & TBD &  & Gotelli [Ch.3] <br> Case[Ch.3]\\
 \hline
 **Week 6** <span style='vertical-align:-30%'> </span>
            <br> 02-Nov-2021 & Metapopulations and patch occupancy models &  & Gotelli [Ch.4] <br> Case [Ch.16]\\
@@ -599,7 +599,7 @@ Log scale
 \chapter*{Week 3}\label{week-3}}
 \addcontentsline{toc}{chapter}{Week 3}
 
-\textbf{\emph{Density-dependence and logistic population growth}}
+\textbf{\emph{Logistic population growth and stability analysis}}
 
 \hypertarget{lecture-in-a-nutshell-2}{%
 \section*{Lecture in a nutshell}\label{lecture-in-a-nutshell-2}}
@@ -696,7 +696,7 @@ Please select a set of parameters of your choice and reproduce the output figure
 \chapter*{Week 4}\label{week-4}}
 \addcontentsline{toc}{chapter}{Week 4}
 
-\textbf{\emph{Stability analysis of single population dynamics}}
+\textbf{\emph{Discrete-time and age-structured population models}}
 
 \hypertarget{lecture-in-a-nutshell-3}{%
 \section*{Lecture in a nutshell}\label{lecture-in-a-nutshell-3}}
@@ -706,12 +706,78 @@ Please select a set of parameters of your choice and reproduce the output figure
 \section*{Lab demonstration}\label{lab-demonstration-3}}
 \addcontentsline{toc}{section}{Lab demonstration}
 
+\textbf{Part 1 - Analyzing Leslie matrix using for loops}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+\CommentTok{\# Create a Leslie matrix}
+
+\CommentTok{\# Set an initial size for each age class}
+
+\CommentTok{\# for loop and matrix algebra}
+
+\CommentTok{\# Visualize the results (animation of age distribution dynamics + total pop size)}
+
+\CommentTok{\# Summary of age structure and pop growth}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Part 2 - Analyzing Leslie matrix using eigenanalysis}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+\CommentTok{\# Eigenanalysis on the Leslie matrix}
+
+\CommentTok{\# Compare with the for loop results}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Part 3 - Advanced topic: Incorporating density-dependence into Leslie matrix }
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+\CommentTok{\# Incorporate density{-}dependence transitions}
+
+\CommentTok{\# For loop and matrix algebra}
+
+\CommentTok{\# Visualize the results (animation of age distribution dynamics + total pop size)}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{additional-readings-3}{%
 \section*{Additional readings}\label{additional-readings-3}}
 \addcontentsline{toc}{section}{Additional readings}
 
 \hypertarget{assignments-3}{%
 \section*{Assignments}\label{assignments-3}}
+\addcontentsline{toc}{section}{Assignments}
+
+\hypertarget{week-5}{%
+\chapter*{Week 5}\label{week-5}}
+\addcontentsline{toc}{chapter}{Week 5}
+
+\textbf{\emph{TBD}}
+
+\hypertarget{lecture-in-a-nutshell-4}{%
+\section*{Lecture in a nutshell}\label{lecture-in-a-nutshell-4}}
+\addcontentsline{toc}{section}{Lecture in a nutshell}
+
+\hypertarget{lab-demonstration-4}{%
+\section*{Lab demonstration}\label{lab-demonstration-4}}
+\addcontentsline{toc}{section}{Lab demonstration}
+
+\hypertarget{additional-readings-4}{%
+\section*{Additional readings}\label{additional-readings-4}}
+\addcontentsline{toc}{section}{Additional readings}
+
+\hypertarget{assignments-4}{%
+\section*{Assignments}\label{assignments-4}}
 \addcontentsline{toc}{section}{Assignments}
 
   \bibliography{book.bib,packages.bib}

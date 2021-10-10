@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="week-3.html"/>
-
+<link rel="next" href="week-5.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -168,6 +168,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="week-4.html"><a href="week-4.html#additional-readings-3"><i class="fa fa-check"></i>Additional readings</a></li>
 <li class="chapter" data-level="" data-path="week-4.html"><a href="week-4.html#assignments-3"><i class="fa fa-check"></i>Assignments</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="week-5.html"><a href="week-5.html"><i class="fa fa-check"></i>Week 5</a>
+<ul>
+<li class="chapter" data-level="" data-path="week-5.html"><a href="week-5.html#lecture-in-a-nutshell-4"><i class="fa fa-check"></i>Lecture in a nutshell</a></li>
+<li class="chapter" data-level="" data-path="week-5.html"><a href="week-5.html#lab-demonstration-4"><i class="fa fa-check"></i>Lab demonstration</a></li>
+<li class="chapter" data-level="" data-path="week-5.html"><a href="week-5.html#additional-readings-4"><i class="fa fa-check"></i>Additional readings</a></li>
+<li class="chapter" data-level="" data-path="week-5.html"><a href="week-5.html#assignments-4"><i class="fa fa-check"></i>Assignments</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Site built with bookdown</a></li>
 
@@ -191,7 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="week-4" class="section level1 unnumbered">
 <h1>Week 4</h1>
 <div style="font-size: 28pt">
-<strong><em>Stability analysis of single population dynamics</em></strong>
+<strong><em>Discrete-time and age-structured population models</em></strong>
 </div>
 <div id="lecture-in-a-nutshell-3" class="section level2 unnumbered">
 <h2>Lecture in a nutshell</h2>
@@ -203,6 +210,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="lab-demonstration-3" class="section level2 unnumbered">
 <h2>Lab demonstration</h2>
+<p><strong>Part 1 - Analyzing Leslie matrix using for loops</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="week-4.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-2"><a href="week-4.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="week-4.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Leslie matrix</span></span>
+<span id="cb6-4"><a href="week-4.html#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="week-4.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Set an initial size for each age class</span></span>
+<span id="cb6-6"><a href="week-4.html#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="week-4.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># for loop and matrix algebra</span></span>
+<span id="cb6-8"><a href="week-4.html#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="week-4.html#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the results (animation of age distribution dynamics + total pop size)</span></span>
+<span id="cb6-10"><a href="week-4.html#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="week-4.html#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of age structure and pop growth</span></span></code></pre></div>
+<p><strong>Part 2 - Analyzing Leslie matrix using eigenanalysis</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="week-4.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-2"><a href="week-4.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="week-4.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Eigenanalysis on the Leslie matrix</span></span>
+<span id="cb7-4"><a href="week-4.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="week-4.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare with the for loop results</span></span></code></pre></div>
+<p><strong>Part 3 - Advanced topic: Incorporating density-dependence into Leslie matrix </strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="week-4.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-2"><a href="week-4.html#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="week-4.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Incorporate density-dependence transitions</span></span>
+<span id="cb8-4"><a href="week-4.html#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="week-4.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># For loop and matrix algebra</span></span>
+<span id="cb8-6"><a href="week-4.html#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="week-4.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the results (animation of age distribution dynamics + total pop size)</span></span></code></pre></div>
 <p><br>
 <br>
 <br>
@@ -232,8 +265,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="week-3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="week-3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="week-5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

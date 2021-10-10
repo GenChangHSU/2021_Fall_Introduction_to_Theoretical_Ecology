@@ -89,13 +89,13 @@ Below are the textbook references:
            <br> 05-Oct-2021 & Exponential population growth & Solving exponential growth equation using "deSolve" & Visualization & Gotelli [Ch.1] <br> Case [Ch.1]\\
 \hline
 **Week 3** <span style='vertical-align:-30%'> </span>
-           <br> 12-Oct-2021 & Density-dependence and logistic population growth & Solving logistic growth equation using "deSolve" & Visualization & Gotelli [Ch.2] <br> Case [Ch.5]\\
+           <br> 12-Oct-2021 & Logistic population growth and stability analysis & Solving logistic growth equation using "deSolve" & Visualization & Gotelli [Ch.2] <br> Case [Ch.5]\\
 \hline
 **Week 4** <span style='vertical-align:-30%'> </span>
-           <br> 19-Oct-2021 & Stability analysis of single population dynamics &  & Otto & Day [Ch.5]\\
+           <br> 19-Oct-2021 & Discrete-time and age-structured population models & Analyzing Leslie matrix using for loops and eigenanalysis & Otto & Day [Ch.5]\\
 \hline
 **Week 5** <span style='vertical-align:-30%'> </span>
-           <br> 26-Oct-2021 & Geometric growth and age-structured population models &  & Gotelli [Ch.3] <br> Case[Ch.3]\\
+           <br> 26-Oct-2021 & TBD &  & Gotelli [Ch.3] <br> Case[Ch.3]\\
 \hline
 **Week 6** <span style='vertical-align:-30%'> </span>
            <br> 02-Nov-2021 & Metapopulations and patch occupancy models &  & Gotelli [Ch.4] <br> Case [Ch.16]\\
@@ -386,7 +386,7 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 
 
 # Week 3 {-} 
-<div style = "font-size: 28pt"> **_Density-dependence and logistic population growth_**</div>
+<div style = "font-size: 28pt"> **_Logistic population growth and stability analysis_**</div>
 
 ## Lecture in a nutshell {-}
 
@@ -501,8 +501,98 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
 
 <!--chapter:end:03_Week_3.Rmd-->
 
+
+
 # Week 4 {-} 
-<div style = "font-size: 28pt"> **_Stability analysis of single population dynamics_**</div>
+<div style = "font-size: 28pt"> **_Discrete-time and age-structured population models_**</div>
+
+## Lecture in a nutshell {-}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Lab demonstration {-}
+
+**Part 1 - Analyzing Leslie matrix using for loops**
+
+
+```r
+library(tidyverse)
+
+# Create a Leslie matrix
+
+# Set an initial size for each age class
+
+# for loop and matrix algebra
+
+# Visualize the results (animation of age distribution dynamics + total pop size)
+
+# Summary of age structure and pop growth
+```
+
+
+**Part 2 - Analyzing Leslie matrix using eigenanalysis**
+
+
+```r
+library(tidyverse)
+
+# Eigenanalysis on the Leslie matrix
+
+# Compare with the for loop results
+```
+
+
+**Part 3 - Advanced topic: Incorporating density-dependence into Leslie matrix **
+
+
+```r
+library(tidyverse)
+
+# Incorporate density-dependence transitions
+
+# For loop and matrix algebra
+
+# Visualize the results (animation of age distribution dynamics + total pop size)
+```
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Additional readings {-}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Assignments {-}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<!--chapter:end:04_Week_4.Rmd-->
+
+
+
+# Week 5 {-} 
+<div style = "font-size: 28pt"> **_TBD_**</div>
 
 ## Lecture in a nutshell {-}
 
@@ -538,5 +628,5 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
 
 
 
-<!--chapter:end:04_Week_4.Rmd-->
+<!--chapter:end:05_Week_5.Rmd-->
 

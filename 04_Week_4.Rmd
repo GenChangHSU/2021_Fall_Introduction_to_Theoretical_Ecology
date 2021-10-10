@@ -1,5 +1,12 @@
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(message = F, 
+                      error = F, 
+                      warning = F)
+
+```
+
 # Week 4 {-} 
-<div style = "font-size: 28pt"> **_Stability analysis of single population dynamics_**</div>
+<div style = "font-size: 28pt"> **_Discrete-time and age-structured population models_**</div>
 
 ## Lecture in a nutshell {-}
 
@@ -10,6 +17,57 @@
 <br>
 
 ## Lab demonstration {-}
+
+**Part 1 - Analyzing Leslie matrix using for loops**
+
+```{r, fig.width = 5, fig.height = 4, out.width = "70%", fig.align = "center"}
+library(tidyverse)
+
+# Create a Leslie matrix
+
+# Set an initial size for each age class
+
+# for loop and matrix algebra
+
+# Visualize the results (animation of age distribution dynamics + total pop size)
+
+# Summary of age structure and pop growth
+
+```
+
+
+**Part 2 - Analyzing Leslie matrix using eigenanalysis**
+
+```{r, fig.width = 5, fig.height = 4, out.width = "70%", fig.align = "center"}
+library(tidyverse)
+
+# Eigenanalysis on the Leslie matrix
+
+# Compare with the for loop results
+
+
+```
+
+
+**Part 3 - Advanced topic: Incorporating density-dependence into Leslie matrix **
+
+```{r, fig.width = 5, fig.height = 4, out.width = "70%", fig.align = "center"}
+library(tidyverse)
+
+# Incorporate density-dependence transitions
+
+# For loop and matrix algebra
+
+# Visualize the results (animation of age distribution dynamics + total pop size)
+
+
+
+
+```
+
+
+
+
 
 <br>
 <br>

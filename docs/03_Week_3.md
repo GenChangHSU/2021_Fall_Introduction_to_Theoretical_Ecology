@@ -1,7 +1,7 @@
 
 
 # Week 3 {-} 
-<div style = "font-size: 28pt"> **_Density-dependence and logistic population growth_**</div>
+<div style = "font-size: 28pt"> **_Logistic population growth and stability analysis_**</div>
 
 ## Lecture in a nutshell {-}
 
