@@ -92,10 +92,10 @@ Below are the textbook references:
            <br> 12-Oct-2021 & Logistic population growth and stability analysis & Solving logistic growth equation using "deSolve" & Visualization & Gotelli [Ch.2] <br> Case [Ch.5] <br> Otto & Day [Ch.5]\\
 \hline
 **Week 4** <span style='vertical-align:-30%'> </span>
-           <br> 19-Oct-2021 & Discrete-time and age-structured population models & Analyzing Leslie matrix using for loops and eigenanalysis & Gotelli [Ch.3] <br> Case[Ch.3]\\
+           <br> 19-Oct-2021 & Discrete exponential and logistic models &  & \\
 \hline
 **Week 5** <span style='vertical-align:-30%'> </span>
-           <br> 26-Oct-2021 & TBD &  & TBD\\
+           <br> 26-Oct-2021 & Age-structured models & Analyzing Leslie matrix using for loops and eigenanalysis & Gotelli [Ch.3] <br> Case[Ch.3]\\
 \hline
 **Week 6** <span style='vertical-align:-30%'> </span>
            <br> 02-Nov-2021 & Metapopulations and patch occupancy models &  & Gotelli [Ch.4] <br> Case [Ch.16]\\
@@ -524,7 +524,7 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
 
 
 # Week 4 {-} 
-<div style = "font-size: 28pt"> **_Discrete-time and age-structured population models_**</div>
+<div style = "font-size: 28pt"> **_Discrete exponential and logistic models_**</div>
 
 ## Lecture in a nutshell {-}
 
@@ -535,6 +535,48 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
 <br>
 
 ## Lab demonstration {-}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Additional readings {-}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Assignments {-}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<!--chapter:end:04_Week_4.Rmd-->
+
+
+
+# Week 5 {-} 
+<div style = "font-size: 28pt"> **_Age-structured models_**</div>
+
+## Lecture in a nutshell {-}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+## Lab demonstration {-}
+
 
 **Part 1 - Analyzing Leslie matrix using for loops**
 
@@ -580,54 +622,6 @@ library(tidyverse)
 ```
 
 
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## Additional readings {-}
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## Assignments {-}
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-<!--chapter:end:04_Week_4.Rmd-->
-
-
-
-# Week 5 {-} 
-<div style = "font-size: 28pt"> **_TBD_**</div>
-
-## Lecture in a nutshell {-}
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## Lab demonstration {-}
-
-<br>
-<br>
-<br>
-<br>
 <br>
 
 ## Additional readings {-}
