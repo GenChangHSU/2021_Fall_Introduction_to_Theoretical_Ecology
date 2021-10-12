@@ -176,7 +176,7 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 
 [Exponential Population Growth with Constant Immigration](./Assignments/Week2_Exponential Growth.pdf){target="_blank"}
 
-<!-- [Suggested Solutions](./Assignments/Week2_Exponential Growth_with_Solutions.pdf){target="_blank"} -->
+[Suggested Solutions](./Assignments/Week2_Exponential Growth_with_Solutions.pdf){target="_blank"}
 
 
 

@@ -595,6 +595,8 @@ Log scale
 
 \href{./Assignments/Week2_Exponential\%20Growth.pdf}{Exponential Population Growth with Constant Immigration}
 
+\href{./Assignments/Week2_Exponential\%20Growth_with_Solutions.pdf}{Suggested Solutions}
+
 \hypertarget{week-3}{%
 \chapter*{Week 3}\label{week-3}}
 \addcontentsline{toc}{chapter}{Week 3}
@@ -604,6 +606,104 @@ Log scale
 \hypertarget{lecture-in-a-nutshell-2}{%
 \section*{Lecture in a nutshell}\label{lecture-in-a-nutshell-2}}
 \addcontentsline{toc}{section}{Lecture in a nutshell}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Model derivation:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Population growth rate: \(Birth - Death + Immigration - Emigration\)
+  \item
+    Per capita growth rate: \((birth - death + immigration - emigration)\times N\).
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Assumptions:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Closed population: \(Immigration\) = \(Emigration = 0\)
+  \item
+    All individuals are identical: no genetic/age/stage structure
+  \item
+    Continuous population growth without time lag
+  \item
+    Per capita birth and death rates are time-independent \textbf{BUT} density-dependent
+  \item
+    Resource is limited: negative density-dependence (NDD)
+    \(\frac{dr_{(N)}}{dt} < 0\)
+  \item
+    Linear density-dependence: \(b_{(n)} = b_{0}-b_{N}N\); \(d_{(n)} = d_{0}+d_{N}N\)
+    \(\begin{aligned}\frac{dN}{dt}&=(b_{0}-b_{N}N-d_{0}-d_{N}N)N\\&=((b_{0}-d_{0})-(d_{N}+b_{N})N)N\\&=(r_{0}-\alpha N)N\\&=r_{0}N(1-\frac{N}{K})\end{aligned}\)
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Integration of the differential equation}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    \(N_{(t)} = \frac{K}{1-\frac{N_{0}-K}{N_{0}}e^{-r_{0}t}}\)
+  \item
+    Equilibrium \(N^*\): fixed point; good candidates where the system will end up \(\frac{dN}{dt} = f_{(N^*)} = 0\)
+  \item
+    For logistic growth equation: \(\frac{dN}{dt} = r_{0}N(1-\frac{N}{K})\); \(N^* = 0, K\)
+  \item
+    Attracting (Stable) vs.~Repelling (Unstable) vs.~Saddle
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Graphical analysis}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Plot the function \(\frac{dN}{dt} = f(N)\) and determine the direction of change (positive/negative) on both sides of the equilibrium points \(N_{0}\)
+  \end{enumerate}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Local stability analysis}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    A small ``displacement'' from the equilibrium: \(\epsilon_{(t)} = N - N^*\)
+  \item
+    Examine how \(\epsilon_{(t)}\) changes over time (i.e., the behavior of the small displacement)
+  \item
+  \item
+    General procedure: take derivative of the differential equation with respect to \(N\) and evaluate it at the equilibrium point \(N^*\):
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(\frac{dN}{dt}|_{N = N^*} = \lambda > 0\): unstable equilibrium
+  \item
+    \(\frac{dN}{dt}|_{N = N^*} = \lambda < 0\): stable equilibrium
+  \end{itemize}
+\end{itemize}
 
 \hypertarget{lab-demonstration-2}{%
 \section*{Lab demonstration}\label{lab-demonstration-2}}
@@ -618,8 +718,6 @@ We will also take a look at how population growth rate (\(\frac{dN}{dt}\)) and p
 Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
 
 Please select a set of parameters of your choice and reproduce the output figure you see in this app (hint: you can modify the code in Week 2).
-
-\href{https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/}{\includegraphics[width=800px]{03_Week_3_files/figure-latex/unnamed-chunk-2-1} }
 
 \textbf{Part 2 - The relationship between population growth rate (\(\frac{dN}{dt}\))/per capita growth rate (\(\frac{dN}{dtN}\)) and population size (\(N\))}
 

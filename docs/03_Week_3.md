@@ -5,23 +5,44 @@
 
 ## Lecture in a nutshell {-}
 
-<!-- * **Model derivation:**  -->
-<!--   1. Population growth rate: $Birth - Death + Immigration - Emigration$ -->
-<!--   2. Per capita growth rate: $(birth - death + immigration - emigration)\times N$. -->
-
-<!-- <div style="height:1px ;"><br></div> -->
-
-<!-- * **Assumptions:** -->
-<!--   1. Closed population: $Immigration$ = $Emigration = 0$ -->
-<!--   2. All individuals are identical: no genetic/age/stage structure -->
-<!--   3. Continuous population growth: no time lag -->
-<!--   4. Per capita birth and death rates are constant: time- and density-independent -->
+* **Model derivation:**
+  1. Population growth rate: $Birth - Death + Immigration - Emigration$
+  2. Per capita growth rate: $(birth - death + immigration - emigration)\times N$.
 
 <div style="height:1px ;"><br></div>
 
-<!-- $\frac{dN}{dt} = (b-d)N$ -->
-<!-- $N_{(t)} = N_0e^{(b-d)t} = N_0e^{rt}$ -->
+* **Assumptions:**
+  1. Closed population: $Immigration$ = $Emigration = 0$
+  2. All individuals are identical: no genetic/age/stage structure
+  3. Continuous population growth without time lag
+  4. Per capita birth and death rates are time-independent **BUT** density-dependent
+  5. Resource is limited: negative density-dependence (NDD) 
+  $\frac{dr_{(N)}}{dt} < 0$
+  6. Linear density-dependence: $b_{(n)} = b_{0}-b_{N}N$; $d_{(n)} = d_{0}+d_{N}N$
+  $\begin{aligned}\frac{dN}{dt}&=(b_{0}-b_{N}N-d_{0}-d_{N}N)N\\&=((b_{0}-d_{0})-(d_{N}+b_{N})N)N\\&=(r_{0}-\alpha N)N\\&=r_{0}N(1-\frac{N}{K})\end{aligned}$
 
+<div style="height:1px ;"><br></div>
+
+* **Integration of the differential equation**
+  1. $N_{(t)} = \frac{K}{1-\frac{N_{0}-K}{N_{0}}e^{-r_{0}t}}$
+  2. Equilibrium $N^*$: good candidates where the system will end up
+  3. $\frac{dN}{dt} = f_{(N^*)} = r_{0}N^{*}(1-\frac{N^*}{K}) = 0$; $N^* = 0, K$
+  4. Attracting (Stable) vs. Repelling (Unstable) vs. Saddle 
+
+<div style="height:1px ;"><br></div>
+
+* **Graphical analysis**  
+  1. Plot the function $\frac{dN}{dt} = f(N)$ and determine the direction of change (positive/negative) on both sides of the equilibrium points $N^*$
+
+<div style="height:1px ;"><br></div>
+
+* **Local stability analysis**
+  1. A small "displacement" from the equilibrium: $\epsilon_{(t)} = N - N^*$
+  2. Examine how $\epsilon_{(t)}$ changes over time (i.e., the behavior of the small displacement): $\frac{d\epsilon_{(t)}}{dt} = f(N-N^*) = f(N^*) + \epsilon \frac{dN}{dt}|_{N = N^*} + \theta_{(\epsilon^2)} \approx \epsilon\frac{dN}{dt}|_{N = N^*} = \lambda \epsilon$; $\epsilon_{(t)} = \epsilon_{0}e^{\lambda t}$\
+  (the behavior of $\epsilon_{(t)}$ is determined by the sign of $\lambda$)
+  3. General procedure: take derivative of the differential equation with respect to $N$ and evaluate it at the equilibrium point $N^*$: 
+  * $\frac{dN}{dt}|_{N = N^*} = \lambda > 0$: unstable equilibrium
+  * $\frac{dN}{dt}|_{N = N^*} = \lambda < 0$: stable equilibrium
 
 <br>
 
@@ -36,21 +57,46 @@ We will also take a look at how population growth rate ($\frac{dN}{dt}$) and per
 **Part 1 - Solving the logistic growth equation and visualize the results**
 
 
+```r
+library(tidyverse)
+library(deSolve)
+
+### Model specification
+logistic_model <- function(times, state, parms) {
+  with(as.list(c(state, parms)), {
+    dN_dt = r*N*(K-N)/K  # logistic growth equation
+    return(list(c(dN_dt)))  # return the results  
+  })
+}
+
+### Model application
+times <- seq(0, 10, by = 0.1)  # time steps to integrate over
+state <- c(N = 10)  # initial population size
+parms <- c(r = 1.5, K = 500)  # intrinsic growth rate and carrying capacity
+
+# run the ode solver
+pop_size <- ode(func = logistic_model, times = times, y = state, parms = parms)
+
+### Visualize the results
+ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) + 
+  geom_point() + 
+  labs(title = paste0("Logistic Growth \n (r = ", parms["r"], ", K = ", parms["K"], ")")) +
+  theme_classic(base_size = 12) + 
+  theme(plot.title = element_text(hjust = 0.5)) +
+  scale_x_continuous(limits = c(0, 10.5), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, max(as.data.frame(pop_size)$N)*1.1), expand = c(0, 0))
+```
+
+<img src="03_Week_3_files/figure-html/unnamed-chunk-1-1.png" width="70%" style="display: block; margin: auto;" />
 <br>
 
 <style>
-
 iframe {border: 0;}
-
 </style>
 
+Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change. Please select a set of parameters of your choice and reproduce the output figure you see in this app.
 
-Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change.
-
-Please select a set of parameters of your choice and reproduce the output figure you see in this app (hint: you can modify the code in Week 2).
-
-
-\href{https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/}{\includegraphics[width=800px]{03_Week_3_files/figure-latex/unnamed-chunk-2-1} }
+<iframe src="https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/?showcase=0" width="800px" height="550px" data-external="1"></iframe>
 
 <br>
 
@@ -112,9 +158,7 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
             parse = T)
 ```
 
-
-
-\begin{center}\includegraphics[width=0.95\linewidth]{03_Week_3_files/figure-latex/unnamed-chunk-3-1} \end{center}
+<img src="03_Week_3_files/figure-html/unnamed-chunk-3-1.png" width="95%" style="display: block; margin: auto;" />
 
 <br>
 

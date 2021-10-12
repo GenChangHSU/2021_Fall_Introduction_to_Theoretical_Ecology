@@ -18,10 +18,23 @@ knitr::opts_chunk$set(message = F,
 
 ## Lab demonstration {-}
 
-<br>
-<br>
-<br>
-<br>
+```{r, fig.width = 5, fig.height = 4, out.width = "70%", fig.align = "center"}
+library(tidyverse)
+
+# Discrete logistic growth using for loops
+
+# Visualize the population dynamics
+
+```
+
+<style>
+iframe {border: 0;}
+</style>
+
+```{r, out.width="800px", echo = F}
+knitr::include_app("https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/", height = "550px")
+```
+
 <br>
 
 ## Additional readings {-}
