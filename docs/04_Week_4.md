@@ -21,10 +21,8 @@
 
 ## Additional readings {-}
 
-<br>
-<br>
-<br>
-<br>
+[Simple mathematical models with very complicated dynamics](./Additional readings/May_1976_Nature.pdf){target="_blank"}
+
 <br>
 
 ## Assignments {-}

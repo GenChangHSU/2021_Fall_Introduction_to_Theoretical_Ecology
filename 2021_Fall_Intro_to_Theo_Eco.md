@@ -92,7 +92,7 @@ Below are the textbook references:
            <br> 12-Oct-2021 & Logistic population growth and stability analysis & Solving logistic growth equation using "deSolve" & Visualization & Gotelli [Ch.2] <br> Case [Ch.5] <br> Otto & Day [Ch.5]\\
 \hline
 **Week 4** <span style='vertical-align:-30%'> </span>
-           <br> 19-Oct-2021 & Discrete exponential and logistic models &  & \\
+           <br> 19-Oct-2021 & Discrete exponential and logistic models &  & May, 1976\\
 \hline
 **Week 5** <span style='vertical-align:-30%'> </span>
            <br> 26-Oct-2021 & Age-structured models & Analyzing Leslie matrix using for loops and eigenanalysis & Gotelli [Ch.3] <br> Case[Ch.3]\\
@@ -113,16 +113,16 @@ Below are the textbook references:
            <br> 30-Nov-2021 & Predator-prey interactions &  & Gotelli [Ch.6] <br> Case [Ch.12 & 13]\\
 \hline
 **Week 11** <span style='vertical-align:-30%'> </span>
-           <br> 07-Dec-2021 & Mutualisms &  & Vandermeer & Boucher, 1978.\\
+           <br> 07-Dec-2021 & Mutualisms &  & Vandermeer & Boucher, 1978\\
 \hline
 **Week 12** <span style='vertical-align:-30%'> </span>
            <br> 14-Dec-2021 & Multispecies models of competition: apparent and exploitative competition &  & Holt, 1977.\\
 \hline
 **Week 13** <span style='vertical-align:-30%'> </span>
-           <br> 21-Dec-2021 & Multispecies models of predation: food chains and intraguild predation &  & Holt & Polis, 1997.\\
+           <br> 21-Dec-2021 & Multispecies models of predation: food chains and intraguild predation &  & Holt & Polis, 1997\\
 \hline
 **Week 14** <span style='vertical-align:-30%'> </span>
-           <br> 28-Dec-2021 & Disease dynamics and SIR models &  & Anderson & May, 1979.\\
+           <br> 28-Dec-2021 & Disease dynamics and SIR models &  & Anderson & May, 1979\\
 \hline
 **Week 15** <span style='vertical-align:-30%'> </span>
            <br> 04-Jan-2022 & Ecosystem models and feedbacks &  & Pastor [Ch.11 & 12]\\
@@ -176,7 +176,7 @@ No lab demonstration this week.
 
 ## Additional readings {-}
 
-[Grainger et al. (2021). An empiricist’s guide to using ecological theory. *American Naturalist*.](./Additional readings/Week1_Reading_Grainger_et_al_2021_AmNat.pdf){target="_blank"} 
+[Grainger et al. (2021). An empiricist’s guide to using ecological theory. *American Naturalist*.](./Additional readings/Grainger_et_al_2021_AmNat.pdf){target="_blank"} 
 
 ## Assignments {-}
 
@@ -544,10 +544,8 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
 
 ## Additional readings {-}
 
-<br>
-<br>
-<br>
-<br>
+[Simple mathematical models with very complicated dynamics](./Additional readings/May_1976_Nature.pdf){target="_blank"}
+
 <br>
 
 ## Assignments {-}

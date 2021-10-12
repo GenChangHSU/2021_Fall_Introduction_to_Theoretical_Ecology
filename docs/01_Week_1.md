@@ -37,7 +37,7 @@ No lab demonstration this week.
 
 ## Additional readings {-}
 
-[Grainger et al. (2021). An empiricist’s guide to using ecological theory. *American Naturalist*.](./Additional readings/Week1_Reading_Grainger_et_al_2021_AmNat.pdf){target="_blank"} 
+[Grainger et al. (2021). An empiricist’s guide to using ecological theory. *American Naturalist*.](./Additional readings/Grainger_et_al_2021_AmNat.pdf){target="_blank"} 
 
 ## Assignments {-}
 
