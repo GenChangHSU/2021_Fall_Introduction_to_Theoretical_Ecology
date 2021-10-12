@@ -404,6 +404,10 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
 
 <div style="height:1px ;"><br></div>
 
+<!-- $\frac{dN}{dt} = (b-d)N$ -->
+<!-- $N_{(t)} = N_0e^{(b-d)t} = N_0e^{rt}$ -->
+
+
 <br>
 
 ## Lab demonstration {-}

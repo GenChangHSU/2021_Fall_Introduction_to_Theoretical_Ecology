@@ -19,6 +19,10 @@
 
 <div style="height:1px ;"><br></div>
 
+<!-- $\frac{dN}{dt} = (b-d)N$ -->
+<!-- $N_{(t)} = N_0e^{(b-d)t} = N_0e^{rt}$ -->
+
+
 <br>
 
 ## Lab demonstration {-}
