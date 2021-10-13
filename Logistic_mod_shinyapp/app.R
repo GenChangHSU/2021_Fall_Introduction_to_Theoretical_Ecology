@@ -5,9 +5,6 @@ library(deSolve)
 # Define UI for application
 ui <- fluidPage(
 
-    # Application title
-    titlePanel(""),
-
     sidebarLayout(
         fluid = F,
         
@@ -42,7 +39,7 @@ ui <- fluidPage(
 
         # Main plot panel
         mainPanel(
-           plotOutput("Logostic_plot")
+           plotOutput("Logistic_plot")
         )
     )
 )
@@ -50,7 +47,7 @@ ui <- fluidPage(
 # Define server
 server <- function(input, output) {
 
-    output$Logostic_plot <- renderPlot({
+    output$Logistic_plot <- renderPlot({
         
         # Run the ode based on ui inputs
         logistic_model <- function(times, state, parms) {

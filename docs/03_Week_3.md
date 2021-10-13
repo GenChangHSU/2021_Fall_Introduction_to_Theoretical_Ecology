@@ -87,7 +87,9 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
   scale_y_continuous(limits = c(0, max(as.data.frame(pop_size)$N)*1.1), expand = c(0, 0))
 ```
 
-<img src="03_Week_3_files/figure-html/unnamed-chunk-1-1.png" width="70%" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics[width=0.7\linewidth]{03_Week_3_files/figure-latex/unnamed-chunk-1-1} \end{center}
 <br>
 
 <style>
@@ -96,7 +98,8 @@ iframe {border: 0;}
 
 Here is an interactive web app for the logistic growth model. Feel free to play around with the parameters/values and see how the population trajectories change. Please select a set of parameters of your choice and reproduce the output figure you see in this app.
 
-<iframe src="https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/?showcase=0" width="800px" height="550px" data-external="1"></iframe>
+
+\href{https://genchanghsu0115.shinyapps.io/Logistic_mod_shinyapp/}{\includegraphics[width=800px]{03_Week_3_files/figure-latex/unnamed-chunk-2-1} }
 
 <br>
 
@@ -158,7 +161,9 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
             parse = T)
 ```
 
-<img src="03_Week_3_files/figure-html/unnamed-chunk-3-1.png" width="95%" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics[width=0.95\linewidth]{03_Week_3_files/figure-latex/unnamed-chunk-3-1} \end{center}
 
 <br>
 
