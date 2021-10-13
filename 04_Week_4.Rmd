@@ -86,7 +86,9 @@ ggplot() +
         panel.grid = element_blank())
 
 ```
-\*The name "logistic map" comes from the fact that it maps the population size at one time step *N~t~* to the value at the next time step *N~t+1~*:
+\*The name "logistic map" comes from the fact that it maps the population size at one time step *N~t~* to the value at the next time step *N~t+1~*.
+
+<br>
 
 <style>
 iframe {border: 0;}
@@ -95,7 +97,7 @@ iframe {border: 0;}
 Here is a shiny app for the discrete logistic growth model. Feel free to play around with different inputs and see how the system dynamics change accordingly.
 
 ```{r, out.width="800px", echo = F}
-knitr::include_app("https://genchanghsu0115.shinyapps.io/Discrete_logistic_mod_shinyapp/", height = "800px")
+knitr::include_app("https://genchanghsu0115.shinyapps.io/Discrete_logistic_mod_shinyapp/", height = "750px")
 ```
 
 ## Additional readings {-}

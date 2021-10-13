@@ -678,7 +678,9 @@ ggplot() +
 
 
 \begin{center}\includegraphics[width=0.7\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-2-2} \end{center}
-\*The name "logistic map" comes from the fact that it maps the population size at one time step *N~t~* to the value at the next time step *N~t+1~*:
+\*The name "logistic map" comes from the fact that it maps the population size at one time step *N~t~* to the value at the next time step *N~t+1~*.
+
+<br>
 
 <style>
 iframe {border: 0;}
