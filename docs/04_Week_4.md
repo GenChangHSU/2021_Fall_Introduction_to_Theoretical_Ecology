@@ -113,8 +113,6 @@ Here is a shiny app for the discrete logistic growth model. Feel free to play ar
 
 \href{https://genchanghsu0115.shinyapps.io/Discrete_logistic_mod_shinyapp/}{\includegraphics[width=800px]{04_Week_4_files/figure-latex/unnamed-chunk-3-1} }
 
-<br>
-
 ## Additional readings {-}
 
 [Simple mathematical models with very complicated dynamics](./Additional readings/May_1976_Nature.pdf){target="_blank"}

@@ -142,7 +142,7 @@ syllabus <- tibble(
   Lab = c(" \\- ",
           'Solving exponential growth equation using "deSolve" & Visualization',
           'Solving logistic growth equation using "deSolve" & Visualization',
-          "",
+          "Modeling discrete logistic growth using for loops & Visualization",
           "Analyzing Leslie matrix using for loops and eigenanalysis",
           "",
           "",

@@ -92,7 +92,7 @@ Below are the textbook references:
            <br> 12-Oct-2021 & Logistic population growth and stability analysis & Solving logistic growth equation using "deSolve" & Visualization & Gotelli [Ch.2] <br> Case [Ch.5] <br> Otto & Day [Ch.5]\\
 \hline
 **Week 4** <span style='vertical-align:-30%'> </span>
-           <br> 19-Oct-2021 & Discrete exponential and logistic models &  & May, 1976\\
+           <br> 19-Oct-2021 & Discrete exponential and logistic models & Modeling discrete logistic growth using for loops & Visualization & May, 1976\\
 \hline
 **Week 5** <span style='vertical-align:-30%'> </span>
            <br> 26-Oct-2021 & Age-structured models & Analyzing Leslie matrix using for loops and eigenanalysis & Gotelli [Ch.3] <br> Case[Ch.3]\\
@@ -688,8 +688,6 @@ Here is a shiny app for the discrete logistic growth model. Feel free to play ar
 
 
 \href{https://genchanghsu0115.shinyapps.io/Discrete_logistic_mod_shinyapp/}{\includegraphics[width=800px]{04_Week_4_files/figure-latex/unnamed-chunk-3-1} }
-
-<br>
 
 ## Additional readings {-}
 
