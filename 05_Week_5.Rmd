@@ -25,15 +25,37 @@ knitr::opts_chunk$set(message = F,
 library(tidyverse)
 
 # Create a Leslie matrix
+leslie_mtrx <- matrix(data = c(0, 0, 10,
+                               0.6, 0, 0,
+                               0, 0.3, 0.1),
+                      nrow = 3, 
+                      ncol = 3,
+                      byrow = T)
 
 # Set an initial size for each age class
+initial_N <- c(20, 0, 0)
 
 # for loop and matrix algebra
+time <- 150
+pop_size <- data.frame(stage1 = numeric(time+1),
+                       stage2 = numeric(time+1),
+                       stage3 = numeric(time+1))
+pop_size[1, ] <- initial_N
+
+for (i in 1:time) {
+  pop_size[i+1, ] <- leslie_mtrx %*% as.matrix(t(pop_size[i, ]))
+}
 
 # Visualize the results (animation of age distribution dynamics + total pop size)
 
+
+
+
+
 # Summary of age structure and pop growth
 
+age_distribution <- (pop_size[150, ])/sum(pop_size[150, ])
+sum(pop_size[150, ])/sum(pop_size[150, ])
 ```
 
 
@@ -43,7 +65,9 @@ library(tidyverse)
 library(tidyverse)
 
 # Eigenanalysis on the Leslie matrix
-
+eigen(leslie_mtrx)$values[1] %>% as.numeric() %>% round(., 2)
+eigen(leslie_mtrx)$vectors[, 1] %>% as.numeric() %>% round(., 2) %>% `/`(1.44)
+eigen(leslie_mtrx)$vectors[, 1] %>% as.numeric() %>% round(., 2) %>% sum()
 # Compare with the for loop results
 
 
