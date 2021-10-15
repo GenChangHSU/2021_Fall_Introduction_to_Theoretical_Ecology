@@ -13,7 +13,7 @@
 
 ## Lab demonstration {-}
 
-In this lab, we will be analyzing a simple Leslie matrix using for loops + matrix algebra and visualizing the population dynamics (total population size and age distribution). We will also compare the for loops results with the results obtained via eigenanalysis.
+In this lab, we will be analyzing a simple Leslie matrix using for loops + matrix algebra, comparing what we get with the results obtained via eigenanalysis, and visualizing the population dynamics (total population size and age distribution).
 
 **Part 1 - Analyzing Leslie matrix**
 
@@ -107,7 +107,6 @@ The asymptotic growth rate and stable age distribution are pretty much the same 
 **Part 2 - Visualizing population dynamics**
 
 
-
 ```r
 ### Total population size
 ggplot(data = pop_size, aes(x = Time, y = Total_N)) + 
@@ -142,13 +141,22 @@ age_animate <- pop_size %>%
 anim_save("age_distribution.gif", age_animate, nframes = time + 1, fps = 4, width = 5, height = 4, units = "in", res = 300)
 ```
 
-![](./age_distribution.gif)
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+</style>
+
+<img src="./age_distribution.gif" class="center"/>
 
 <br>
 
 **Part 3 - Advanced topic: Incorporating density-dependence into Leslie matrix **
 
-The cell values in a standard Leslie matrix are fixed and independent of population density, leading to an exponential population growth. This assumption can be relaxed by incorporating density-dependence into the transitions (survival probability, fecundity). Here, we will make the fecundity of individuals in Age3 class negatively density-dependent and see how this affects the long-term dynamics of the population.
+The cell values in a standard Leslie matrix are fixed and independent of population density, leading to an exponential population growth. This assumption can be relaxed by incorporating density-dependence into the transitions (survival probability, fecundity). Here, we will include negative density-dependence for the fecundity of individuals in Age3 class and see how this might affect the long-term population dynamics.
 
 
 ```r
@@ -174,7 +182,7 @@ for (i in 1:time) {
   N <- sum(pop_size_dens_dep[i, ])  # the current population size
   leslie_mtrx_dens_dep <- leslie_mtrx
   
-  # negative density-dependence of fecundity for individuals in Age3 class
+  # negative density-dependence for the fecundity of individuals in Age3 class
   ifelse((1-N/K) > 0,  
          leslie_mtrx_dens_dep[1, 3] <- leslie_mtrx_dens_dep[1, 3]*(1-N/K),
          leslie_mtrx_dens_dep[1, 3] <- 0)   
@@ -244,9 +252,7 @@ age_animate_dens_dep <- pop_size_dens_dep %>%
 anim_save("age_distribution_dens_dep.gif", age_animate_dens_dep, nframes = time + 1, fps = 4, width = 5, height = 4, units = "in", res = 300)
 ```
 
-![](./age_distribution_dens_dep.gif)
-
-<br>
+<img src="./age_distribution_dens_dep.gif" class="center"/>
 
 ## Additional readings {-}
 

@@ -74,9 +74,7 @@ ggplot(pop_data, aes(x = time, y = pop_size)) +
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-2-1} \end{center}
+<img src="04_Week_4_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" />
 
 ```r
 ### Cobweb plot/logistic map
@@ -89,6 +87,7 @@ logistic_map <- data.frame(Nt = seq(0, (r+1)/r*K, by = 0.1)) %>%
 ggplot() + 
   geom_line(data = logistic_map, aes(x = Nt, y = Nt1), color = "green", size = 1.2) + 
   geom_path(data = cobweb_data, aes(x = Nt, y = Nt1), color = "blue", size = 0.5) + 
+  geom_abline(slope = 1, intercept = 0, color = "red", size = 1) + 
   labs(x = expression(italic(N[t])),
        y = expression(italic(N[t+1])), 
        title = paste0("Cobweb plot/logistic map", "\n", "(r = ", r, ", K = ", K, ", N0 = ", N0, ")")) + 
@@ -99,9 +98,7 @@ ggplot() +
         panel.grid = element_blank())
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-2-2} \end{center}
+<img src="04_Week_4_files/figure-html/unnamed-chunk-2-2.png" width="70%" style="display: block; margin: auto;" />
 \*The name "logistic map" comes from the fact that it maps the population size at one time step *N~t~* to the value at the next time step *N~t+1~*.
 
 <br>
@@ -112,8 +109,7 @@ iframe {border: 0;}
 
 Here is a shiny app for the discrete logistic growth model. Feel free to play around with different inputs and see how the system dynamics change accordingly.
 
-
-\href{https://genchanghsu0115.shinyapps.io/Discrete_logistic_mod_shinyapp/}{\includegraphics[width=800px]{04_Week_4_files/figure-latex/unnamed-chunk-3-1} }
+<iframe src="https://genchanghsu0115.shinyapps.io/Discrete_logistic_mod_shinyapp/?showcase=0" width="800px" height="750px" data-external="1"></iframe>
 
 ## Additional readings {-}
 

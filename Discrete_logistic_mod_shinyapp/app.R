@@ -21,13 +21,13 @@ ui <- fluidPage(
             sliderInput("N",
                         "N0 = ",
                         min = 0,
-                        max = 1200,
+                        max = 120,
                         value = 10,
                         step = 10),
             sliderInput("K",
                         "K = ",
-                        min = 0,
-                        max = 1000,
+                        min = 100,
+                        max = 600,
                         value = 500,
                         step = 10)
         ),  
@@ -86,6 +86,7 @@ server <- function(input, output) {
         P2 <- ggplot() + 
             geom_line(data = logistic_map, aes(x = Nt, y = Nt1), color = "green", size = 1.2) + 
             geom_path(data = cobweb_data, aes(x = Nt, y = Nt1), color = "blue", size = 0.5) + 
+            geom_abline(slope = 1, intercept = 0, color = "red", size = 1) + 
             labs(x = expression(italic(N[t])),
                  y = expression(italic(N[t+1])), 
                  title = paste0("Cobweb plot/logistic map", "\n", "(r = ", r, ", K = ", K, ", N0 = ", N0, ")")) + 

@@ -106,7 +106,17 @@ anim_save("age_distribution.gif", age_animate, nframes = time + 1, fps = 4, widt
 
 ```
 
-![](./age_distribution.gif){width = 70%}
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+</style>
+
+<img src="./age_distribution.gif" class="center"/>
+
 <br>
 
 **Part 3 - Advanced topic: Incorporating density-dependence into Leslie matrix **
@@ -184,7 +194,7 @@ anim_save("age_distribution_dens_dep.gif", age_animate_dens_dep, nframes = time 
 
 ```
 
-![](./age_distribution_dens_dep.gif){width = 70%}
+<img src="./age_distribution_dens_dep.gif" class="center"/>
 
 ## Additional readings {-}
 

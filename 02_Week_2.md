@@ -142,7 +142,9 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
   scale_y_continuous(limits = c(0, max(as.data.frame(pop_size)$N)*1.1), expand = c(0, 0))
 ```
 
-<img src="02_Week_2_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics[width=0.7\linewidth]{02_Week_2_files/figure-latex/unnamed-chunk-2-1} \end{center}
 <br>
 
 Log scale
@@ -159,7 +161,9 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
                 expand = c(0, 0))
 ```
 
-<img src="02_Week_2_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" />
+
+
+\begin{center}\includegraphics[width=0.7\linewidth]{02_Week_2_files/figure-latex/unnamed-chunk-3-1} \end{center}
 <br>
 
 ## Additional readings {-}

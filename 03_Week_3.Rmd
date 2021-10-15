@@ -43,7 +43,7 @@ knitr::opts_chunk$set(message = F,
 
 * **Local stability analysis**
   1. A small "displacement" from the equilibrium: $\epsilon_{(t)} = N - N^*$
-  2. Examine how $\epsilon_{(t)}$ changes over time (i.e., the behavior of the small displacement): $\frac{d\epsilon_{(t)}}{dt} = f(N-N^*) = f(N^*) + \epsilon \frac{dN}{dt}|_{N = N^*} + \theta_{(\epsilon^2)} \approx \epsilon\frac{dN}{dt}|_{N = N^*} = \lambda \epsilon$; $\epsilon_{(t)} = \epsilon_{0}e^{\lambda t}$\
+  2. Examine how $\epsilon_{(t)}$ changes over time (i.e., the behavior of the small displacement): $\frac{d\epsilon_{(t)}}{dt} = f(N-N^*) = f(N^*) + \epsilon \frac{dN}{dt}|_{N = N^*} + O_{(\epsilon^2)} \approx \epsilon\frac{dN}{dt}|_{N = N^*} = \lambda \epsilon$; $\epsilon_{(t)} = \epsilon_{0}e^{\lambda t}$\
   (the behavior of $\epsilon_{(t)}$ is determined by the sign of $\lambda$)
   3. General procedure: take derivative of the differential equation with respect to $N$ and evaluate it at the equilibrium point $N^*$: 
   * $\frac{dN}{dt}|_{N = N^*} = \lambda > 0$: unstable equilibrium
