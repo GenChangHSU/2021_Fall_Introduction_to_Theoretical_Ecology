@@ -113,7 +113,8 @@ iframe {border: 0;}
 
 Here is a shiny app for the discrete logistic growth model. Feel free to play around with different inputs and see how the system dynamics change accordingly.
 
-<iframe src="https://genchanghsu0115.shinyapps.io/Discrete_logistic_mod_shinyapp/?showcase=0" width="800px" height="750px" data-external="1"></iframe>
+
+\href{https://genchanghsu0115.shinyapps.io/Discrete_logistic_mod_shinyapp/}{\includegraphics[width=800px]{04_Week_4_files/figure-latex/unnamed-chunk-3-1} }
 
 ## Additional readings {-}
 
@@ -123,10 +124,8 @@ Here is a shiny app for the discrete logistic growth model. Feel free to play ar
 
 ## Assignments {-}
 
-<br>
-<br>
-<br>
-<br>
-<br>
+[Ricker Logistic Gowth Model](./Assignments/Week4_Discrete Logistic Growth.pdf){target="_blank"}
+
+<!-- [Suggested Solutions](./Assignments/Week4_Discrete Logistic Growth_with_Solutions.pdf){target="_blank"} -->
 
 

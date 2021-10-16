@@ -206,10 +206,8 @@ anim_save("age_distribution_dens_dep.gif", age_animate_dens_dep, nframes = time 
 
 ## Assignments {-}
 
-<br>
-<br>
-<br>
-<br>
-<br>
+[](./Assignments/.pdf){target="_blank"}
+
+<!-- [Suggested Solutions](./Assignments/.pdf){target="_blank"} -->
 
 
