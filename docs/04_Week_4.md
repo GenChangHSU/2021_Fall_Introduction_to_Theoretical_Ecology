@@ -24,7 +24,7 @@
     2. The equilibrium $N^* = N_{t+1} = N_{t}; N^* = 0, K$
     3. Local stability analysis:
         - A small displacement at time $t$: $\epsilon_{t} = N_{t} - N^{*}$
-        - The behavior of this small displacement at the next time step $t+1$:   $\begin{aligned}\epsilon_{t+1}&=N_{t+1}-N^{*}\\&=F_{(N_{t+1})}-N^{*}\\&=F_{(N^{*}+\epsilon_{t})}-N^{*}\\&=f(N^*)+\epsilon \frac{dF}{dN}|_{N=N^*}+O_{(\epsilon^2)}-N^{*} \\&\approx \epsilon\frac{dF}{dN}|_{N = N^*}\\&=\lambda \epsilon\end{aligned}$
+        - The behavior of this small displacement at next time step $t+1$:   $\begin{aligned}\epsilon_{t+1}&=N_{t+1}-N^{*}\\&=F_{(N_{t+1})}-N^{*}\\&=F_{(N^{*}+\epsilon_{t})}-N^{*}\\&=f(N^*)+\epsilon \frac{dF}{dN}|_{N=N^*}+O_{(\epsilon^2)}-N^{*} \\&\approx \epsilon\frac{dF}{dN}|_{N = N^*}\\&=\lambda \epsilon\end{aligned}$
     4. Stability criteria:
         - $\lambda > 1$: unstable (smoothly moving away from the equilibrium)
         - $0 < \lambda < 1$: stable (smoothly approaching the equilibrium)
