@@ -5,10 +5,37 @@
 
 ## Lecture in a nutshell {-}
 
-<br>
-<br>
-<br>
-<br>
+* **Discrete exponential growth (geometric growth):**
+    1. $N_{t+1} = RN_{t}; N_{t+1} = R^{t}N_{0}$
+    2. Assumptions: 
+        - Closed population
+        - Identical individuals
+        - Unlimited resources: critical rates are constant
+        - Discrete growth and census
+    3. Pre-breeding census: $N_{t+1} = (1 + \beta)(1-\delta) N_{t} = RN_{t}$
+    4. Cobweb plot: $N_{t+1}$ vs. $N_{t}$
+    5. Connection to the continuous model:$N_{t+\Delta t} = (1+\beta \Delta t)(1-\delta \Delta t) N_{t}; \\\frac {dN}{dt} = \lim_{\Delta t \to 0} \frac {N(t+\Delta t)-N(t)}{\Delta t} = \lim_{\Delta t \to 0} (\beta N_{t}-\delta N_{t} - \beta \delta \Delta t) = (\beta-\delta)N_{t}$
+    6. Relationship between the intrinsic population growth rate _r_ and the finite rate of increase _R_: $r = \frac {ln(R)}{h}$. $h$ is the time interval between to population growth events. Note that _R_ is unit-less and cannot be directly manipulated; any math computations should be done on _r_ (which is a rate) and later back-converted to _R_.
+
+<div style="height:1px ;"><br></div>
+
+* **Discrete logistic growth:**
+    1. $N_{t+1} = N_{t} + rN_{t}(1-\frac {N_{t}}{K}) = N_{t}(1+r(1- \frac {N_{t}}{K})) = F_{(N_{t})}$
+    2. The equilibrium $N^* = N_{t+1} = N_{t}; N^* = 0, K$
+    3. Local stability analysis:
+        - A small displacement at time $t$: $\epsilon_{t} = N_{t} - N^{*}$
+        - The behavior of this small displacement at the next time step $t+1$: $\begin{aligned}\epsilon_{t+1}&=N_{t+1}-N^{*}\\&=F_{(N_{t+1})}-N^{*}\\&=F_{(N^{*}+\epsilon_{t})}-N^{*}\\&=f(N^*)+\epsilon \frac{dF}{dN}|_{N=N^*}+O_{(\epsilon^2)}-N^{*} \\&\approx \epsilon\frac{dF}{dN}|_{N = N^*}\\&=\lambda \epsilon\end{aligned}$
+    4. Stability criteria:
+        - $\lambda > 1$: unstable (smoothly moving away from the equilibrium)
+        - $0 < \lambda < 1$: stable (smoothly approaching the equilibrium)
+        - $-1 < \lambda < 0$: stable (damped oscillations converging towards the equilibrium)
+        - $\lambda < -1$: unstable (oscillations around the equilibrium)
+    5. For the discrete logistic model: 
+        - $N^{*} = 0$ is unstable ($\lambda = 1+r > 1$)
+        - $K$ is stable only if $0 < r < 2$ ($\lambda = 1-r ~\&~ |\lambda| < 1$)
+
+<div style="height:1px ;"><br></div>
+
 <br>
 
 ## Lab demonstration {-}
@@ -80,8 +107,8 @@ ggplot(pop_data, aes(x = time, y = pop_size)) +
 
 ```r
 ### Cobweb plot/logistic map
-cobweb_data <- data.frame(Nt = rep(pop_size[-time], each = 2)[-1], 
-                          Nt1 = rep(pop_size[-1], each = 2)[-length(rep(pop_size[-1], each = 2))])
+cobweb_data <- data.frame(Nt = rep(pop_size[-time], each = 2), 
+                          Nt1 = c(0, rep(pop_size[-1], each = 2)[-length(rep(pop_size[-1], each = 2))]))
 
 logistic_map <- data.frame(Nt = seq(0, (r+1)/r*K, by = 0.1)) %>%
   mutate(Nt1 = Nt + r*Nt*(1-Nt/K))
@@ -113,8 +140,7 @@ iframe {border: 0;}
 
 Here is a shiny app for the discrete logistic growth model. Feel free to play around with different inputs and see how the system dynamics change accordingly.
 
-
-\href{https://genchanghsu0115.shinyapps.io/Discrete_logistic_mod_shinyapp/}{\includegraphics[width=800px]{04_Week_4_files/figure-latex/unnamed-chunk-3-1} }
+<iframe src="https://genchanghsu0115.shinyapps.io/Discrete_logistic_mod_shinyapp/?showcase=0" width="800px" height="750px" data-external="1"></iframe>
 
 ## Additional readings {-}
 

@@ -77,8 +77,8 @@ server <- function(input, output) {
             theme_bw(base_size = 15) +
             theme(plot.title = element_text(hjust = 0.5))
         
-        cobweb_data <- data.frame(Nt = rep(pop_size[-time], each = 2)[-1], 
-                                  Nt1 = rep(pop_size[-1], each = 2)[-length(rep(pop_size[-1], each = 2))])
+        cobweb_data <- data.frame(Nt = rep(pop_size[-time], each = 2), 
+                                  Nt1 = c(0, rep(pop_size[-1], each = 2)[-length(rep(pop_size[-1], each = 2))]))
         
         logistic_map <- data.frame(Nt = seq(0, (r+1)/r*K, by = 0.1)) %>%
             mutate(Nt1 = Nt + r*Nt*(1-Nt/K))
