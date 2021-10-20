@@ -172,7 +172,7 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
 
 [Population Growth with Allee Effects](./Assignments/Week3_Logistic Growth.pdf){target="_blank"}
 
-<!-- [Suggested Solutions](./Assignments/Week3_Logistic Growth_with_Solutions.pdf){target="_blank"} -->
+[Suggested Solutions](./Assignments/Week3_Logistic Growth_with_Solutions.pdf){target="_blank"}
 
 
 
