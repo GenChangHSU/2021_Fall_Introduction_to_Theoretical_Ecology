@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Week 5 | Introduction to Theoretical Ecology</title>
   <meta name="description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Week 5 | Introduction to Theoretical Ecology" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/" />
-  <meta property="og:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/bifurcation.gif" />
+  <meta property="og:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology//bifurcation.gif" />
   <meta property="og:description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
   <meta name="github-repo" content="GenChangHSU/2021_Fall_Introduction_to_Theoretical_Ecology" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Week 5 | Introduction to Theoretical Ecology" />
   
   <meta name="twitter:description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
-  <meta name="twitter:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/bifurcation.gif" />
+  <meta name="twitter:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology//bifurcation.gif" />
 
 <meta name="author" content="Instructor: Po-Ju Ke ~~~~~ Teaching Assistant: Gen-Chang Hsu" />
 
@@ -32,9 +32,8 @@
   
 <link rel="prev" href="week-4.html"/>
 
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -207,7 +207,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="lab-demonstration-4" class="section level2 unnumbered">
 <h2>Lab demonstration</h2>
-<p>In this lab, we will be analyzing a simple Leslie matrix using for loops + matrix algebra, comparing what we get with the results obtained via eigenanalysis, and visualizing the population dynamics (total population size and stable age distribution).</p>
+<p>In this lab, we will be analyzing a simple Leslie matrix using for loops + matrix algebra, comparing the results with those obtained via eigenanalysis, and visualizing the population dynamics and age distribution.</p>
 <p><strong>Part 1 - Analyzing Leslie matrix</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="week-5.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="week-5.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -261,9 +261,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-5.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(eigen_out<span class="sc">$</span>vectors[, <span class="dv">1</span>]<span class="sc">/</span><span class="fu">sum</span>(eigen_out<span class="sc">$</span>vectors[, <span class="dv">1</span>])) <span class="sc">%&gt;%</span> </span>
 <span id="cb9-2"><a href="week-5.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(., <span class="dv">3</span>)  <span class="co"># stable age distribution</span></span></code></pre></div>
 <pre><code>## [1] 0.631 0.289 0.080</code></pre>
-<p>The asymptotic growth rate and stable age distribution are pretty much the same for both for loops and eigenanalysis.</p>
+<p>The asymptotic growth rate and stable age distribution obtained from for loops and eigenanalysis are pretty much the same.</p>
 <p><br></p>
-<p><strong>Part 2 - Visualizing population dynamics</strong></p>
+<p><strong>Part 2 - Visualizing population dynamics and age disctibution</strong></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-5.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Population sizes for each age class</span></span>
 <span id="cb11-2"><a href="week-5.html#cb11-2" aria-hidden="true" tabindex="-1"></a>pop_size <span class="sc">%&gt;%</span></span>
 <span id="cb11-3"><a href="week-5.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Time, <span class="at">names_to =</span> <span class="st">&quot;Age_class&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">%&gt;%</span></span>
@@ -295,9 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-15"><a href="week-5.html#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Time {frame}&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb12-16"><a href="week-5.html#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))</span>
 <span id="cb12-17"><a href="week-5.html#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-18"><a href="week-5.html#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(<span class="st">&quot;age_distribution.gif&quot;</span>, age_animate, <span class="at">nframes =</span> time <span class="sc">+</span> <span class="dv">1</span>, <span class="at">fps =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">res =</span> <span class="dv">300</span>)</span>
-<span id="cb12-19"><a href="week-5.html#cb12-19" aria-hidden="true" tabindex="-1"></a>RColorBrewer<span class="sc">::</span><span class="fu">brewer.pal</span>(<span class="dv">3</span>, <span class="st">&quot;Set1&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;#E41A1C&quot; &quot;#377EB8&quot; &quot;#4DAF4A&quot;</code></pre>
+<span id="cb12-18"><a href="week-5.html#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(<span class="st">&quot;age_distribution.gif&quot;</span>, age_animate, <span class="at">nframes =</span> time <span class="sc">+</span> <span class="dv">1</span>, <span class="at">fps =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">res =</span> <span class="dv">300</span>)</span></code></pre></div>
 <style>
 .center {
   display: block;
@@ -308,85 +306,95 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 <p><img src="age_distribution.gif" class="center"/></p>
 <p><br></p>
+<p><strong>Part 3 - In-class exercise: Analyzing population matrix of common teasel</strong></p>
+<p><a href="https://en.wikipedia.org/wiki/Dipsacus_fullonum">Common teasel (<em>Dipsacus sylvestris</em>)</a> is a herbaceous plant commonly found in abandoned fields and meadows in North America. It has a complex life cycle consisting of various stages. The seeds may lie dormant for one or two years. Seeds that germinate form small rosettes, which will gradually transit into medium and eventually large rosettes. These rosettes (all three sizes) may remain in the same stage for years before entering the next stage. After undergoing vernalization, large rosettes will form stalks and flower in the upcoming summer, set seeds once, and die.</p>
+<p>Here is a transition diagram for the teasel. Please convert this diagram into a stage-based transition matrix (Lefkovitch matrix) and derive the asymptotic growth rate <span class="math inline">\(\lambda\)</span> in R.</p>
+<p><img src="Teasel%20Diagram.png" width= "100%"/></p>
+<p><br></p>
 <p><strong>Part 4 - Advanced topic: Incorporating density-dependence into Leslie matrix </strong></p>
 <p>The cell values in a standard Leslie matrix are fixed and independent of population density, leading to an exponential population growth. This assumption can be relaxed by incorporating density-dependence into the transitions (survival probability, fecundity). Here, we will include negative density-dependence for the fecundity of individuals in Age3 class and see how this might affect the long-term population dynamics.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="week-5.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Leslie matrix, initial age classes, and carrying capacity</span></span>
-<span id="cb14-2"><a href="week-5.html#cb14-2" aria-hidden="true" tabindex="-1"></a>leslie_mtrx <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">10</span>,</span>
-<span id="cb14-3"><a href="week-5.html#cb14-3" aria-hidden="true" tabindex="-1"></a>                               <span class="fl">0.6</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
-<span id="cb14-4"><a href="week-5.html#cb14-4" aria-hidden="true" tabindex="-1"></a>                               <span class="dv">0</span>, <span class="fl">0.3</span>, <span class="fl">0.1</span>),</span>
-<span id="cb14-5"><a href="week-5.html#cb14-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">nrow =</span> <span class="dv">3</span>, </span>
-<span id="cb14-6"><a href="week-5.html#cb14-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ncol =</span> <span class="dv">3</span>,</span>
-<span id="cb14-7"><a href="week-5.html#cb14-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">byrow =</span> T)</span>
-<span id="cb14-8"><a href="week-5.html#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="week-5.html#cb14-9" aria-hidden="true" tabindex="-1"></a>initial_age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb14-10"><a href="week-5.html#cb14-10" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb14-11"><a href="week-5.html#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-12"><a href="week-5.html#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="do">### for loop and matrix algebra</span></span>
-<span id="cb14-13"><a href="week-5.html#cb14-13" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="dv">150</span></span>
-<span id="cb14-14"><a href="week-5.html#cb14-14" aria-hidden="true" tabindex="-1"></a>pop_size_dens_dep <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Age1 =</span> <span class="fu">numeric</span>(time<span class="sc">+</span><span class="dv">1</span>),</span>
-<span id="cb14-15"><a href="week-5.html#cb14-15" aria-hidden="true" tabindex="-1"></a>                                <span class="at">Age2 =</span> <span class="fu">numeric</span>(time<span class="sc">+</span><span class="dv">1</span>),</span>
-<span id="cb14-16"><a href="week-5.html#cb14-16" aria-hidden="true" tabindex="-1"></a>                                <span class="at">Age3 =</span> <span class="fu">numeric</span>(time<span class="sc">+</span><span class="dv">1</span>))</span>
-<span id="cb14-17"><a href="week-5.html#cb14-17" aria-hidden="true" tabindex="-1"></a>pop_size_dens_dep[<span class="dv">1</span>, ] <span class="ot">&lt;-</span> initial_age</span>
-<span id="cb14-18"><a href="week-5.html#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-19"><a href="week-5.html#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>time) {</span>
-<span id="cb14-20"><a href="week-5.html#cb14-20" aria-hidden="true" tabindex="-1"></a>  N <span class="ot">&lt;-</span> <span class="fu">sum</span>(pop_size_dens_dep[i, ])  <span class="co"># the current population size</span></span>
-<span id="cb14-21"><a href="week-5.html#cb14-21" aria-hidden="true" tabindex="-1"></a>  leslie_mtrx_dens_dep <span class="ot">&lt;-</span> leslie_mtrx</span>
-<span id="cb14-22"><a href="week-5.html#cb14-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-23"><a href="week-5.html#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># negative density-dependence for the fecundity of individuals in Age3 class</span></span>
-<span id="cb14-24"><a href="week-5.html#cb14-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>((<span class="dv">1</span><span class="sc">-</span>N<span class="sc">/</span>K) <span class="sc">&gt;</span> <span class="dv">0</span>,  </span>
-<span id="cb14-25"><a href="week-5.html#cb14-25" aria-hidden="true" tabindex="-1"></a>         leslie_mtrx_dens_dep[<span class="dv">1</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> leslie_mtrx_dens_dep[<span class="dv">1</span>, <span class="dv">3</span>]<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>N<span class="sc">/</span>K),</span>
-<span id="cb14-26"><a href="week-5.html#cb14-26" aria-hidden="true" tabindex="-1"></a>         leslie_mtrx_dens_dep[<span class="dv">1</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">0</span>)   </span>
-<span id="cb14-27"><a href="week-5.html#cb14-27" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-28"><a href="week-5.html#cb14-28" aria-hidden="true" tabindex="-1"></a>  pop_size_dens_dep[i<span class="sc">+</span><span class="dv">1</span>, ] <span class="ot">&lt;-</span> leslie_mtrx_dens_dep <span class="sc">%*%</span> <span class="fu">as.matrix</span>(<span class="fu">t</span>(pop_size_dens_dep[i, ]))</span>
-<span id="cb14-29"><a href="week-5.html#cb14-29" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb14-30"><a href="week-5.html#cb14-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-31"><a href="week-5.html#cb14-31" aria-hidden="true" tabindex="-1"></a>pop_size_dens_dep <span class="ot">&lt;-</span> pop_size_dens_dep <span class="sc">%&gt;%</span> </span>
-<span id="cb14-32"><a href="week-5.html#cb14-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb14-33"><a href="week-5.html#cb14-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Total_N =</span> <span class="fu">rowSums</span>(.), </span>
-<span id="cb14-34"><a href="week-5.html#cb14-34" aria-hidden="true" tabindex="-1"></a>         <span class="at">Time =</span> <span class="dv">0</span><span class="sc">:</span>time) <span class="sc">%&gt;%</span></span>
-<span id="cb14-35"><a href="week-5.html#cb14-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Time)</span>
-<span id="cb14-36"><a href="week-5.html#cb14-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-37"><a href="week-5.html#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">round</span>(pop_size_dens_dep)) </span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="week-5.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Leslie matrix, initial age classes, and carrying capacity</span></span>
+<span id="cb13-2"><a href="week-5.html#cb13-2" aria-hidden="true" tabindex="-1"></a>leslie_mtrx <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">5</span>,</span>
+<span id="cb13-3"><a href="week-5.html#cb13-3" aria-hidden="true" tabindex="-1"></a>                               <span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb13-4"><a href="week-5.html#cb13-4" aria-hidden="true" tabindex="-1"></a>                               <span class="dv">0</span>, <span class="fl">0.3</span>, <span class="dv">0</span>),</span>
+<span id="cb13-5"><a href="week-5.html#cb13-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">nrow =</span> <span class="dv">3</span>, </span>
+<span id="cb13-6"><a href="week-5.html#cb13-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ncol =</span> <span class="dv">3</span>,</span>
+<span id="cb13-7"><a href="week-5.html#cb13-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">byrow =</span> T)</span>
+<span id="cb13-8"><a href="week-5.html#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="week-5.html#cb13-9" aria-hidden="true" tabindex="-1"></a>initial_age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb13-10"><a href="week-5.html#cb13-10" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb13-11"><a href="week-5.html#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="week-5.html#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="do">### for loop and matrix algebra</span></span>
+<span id="cb13-13"><a href="week-5.html#cb13-13" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="dv">150</span></span>
+<span id="cb13-14"><a href="week-5.html#cb13-14" aria-hidden="true" tabindex="-1"></a>pop_size_dens_dep <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Age1 =</span> <span class="fu">numeric</span>(time<span class="sc">+</span><span class="dv">1</span>),</span>
+<span id="cb13-15"><a href="week-5.html#cb13-15" aria-hidden="true" tabindex="-1"></a>                                <span class="at">Age2 =</span> <span class="fu">numeric</span>(time<span class="sc">+</span><span class="dv">1</span>),</span>
+<span id="cb13-16"><a href="week-5.html#cb13-16" aria-hidden="true" tabindex="-1"></a>                                <span class="at">Age3 =</span> <span class="fu">numeric</span>(time<span class="sc">+</span><span class="dv">1</span>))</span>
+<span id="cb13-17"><a href="week-5.html#cb13-17" aria-hidden="true" tabindex="-1"></a>pop_size_dens_dep[<span class="dv">1</span>, ] <span class="ot">&lt;-</span> initial_age</span>
+<span id="cb13-18"><a href="week-5.html#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="week-5.html#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>time) {</span>
+<span id="cb13-20"><a href="week-5.html#cb13-20" aria-hidden="true" tabindex="-1"></a>  N <span class="ot">&lt;-</span> <span class="fu">sum</span>(pop_size_dens_dep[i, ])  <span class="co"># the current population size</span></span>
+<span id="cb13-21"><a href="week-5.html#cb13-21" aria-hidden="true" tabindex="-1"></a>  leslie_mtrx_dens_dep <span class="ot">&lt;-</span> leslie_mtrx</span>
+<span id="cb13-22"><a href="week-5.html#cb13-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-23"><a href="week-5.html#cb13-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># negative density-dependence for the fecundity of individuals in Age3 class</span></span>
+<span id="cb13-24"><a href="week-5.html#cb13-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>((<span class="dv">1</span><span class="sc">-</span>N<span class="sc">/</span>K) <span class="sc">&gt;</span> <span class="dv">0</span>,  </span>
+<span id="cb13-25"><a href="week-5.html#cb13-25" aria-hidden="true" tabindex="-1"></a>         leslie_mtrx_dens_dep[<span class="dv">1</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> leslie_mtrx_dens_dep[<span class="dv">1</span>, <span class="dv">3</span>]<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>N<span class="sc">/</span>K),</span>
+<span id="cb13-26"><a href="week-5.html#cb13-26" aria-hidden="true" tabindex="-1"></a>         leslie_mtrx_dens_dep[<span class="dv">1</span>, <span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">0</span>)   </span>
+<span id="cb13-27"><a href="week-5.html#cb13-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-28"><a href="week-5.html#cb13-28" aria-hidden="true" tabindex="-1"></a>  pop_size_dens_dep[i<span class="sc">+</span><span class="dv">1</span>, ] <span class="ot">&lt;-</span> leslie_mtrx_dens_dep <span class="sc">%*%</span> <span class="fu">as.matrix</span>(<span class="fu">t</span>(pop_size_dens_dep[i, ]))</span>
+<span id="cb13-29"><a href="week-5.html#cb13-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-30"><a href="week-5.html#cb13-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-31"><a href="week-5.html#cb13-31" aria-hidden="true" tabindex="-1"></a>pop_size_dens_dep <span class="ot">&lt;-</span> pop_size_dens_dep <span class="sc">%&gt;%</span> </span>
+<span id="cb13-32"><a href="week-5.html#cb13-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb13-33"><a href="week-5.html#cb13-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Total_N =</span> <span class="fu">rowSums</span>(.), </span>
+<span id="cb13-34"><a href="week-5.html#cb13-34" aria-hidden="true" tabindex="-1"></a>         <span class="at">Time =</span> <span class="dv">0</span><span class="sc">:</span>time) <span class="sc">%&gt;%</span></span>
+<span id="cb13-35"><a href="week-5.html#cb13-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Time)</span>
+<span id="cb13-36"><a href="week-5.html#cb13-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-37"><a href="week-5.html#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">round</span>(pop_size_dens_dep)) </span></code></pre></div>
 <pre><code>##   Time Age1 Age2 Age3 Total_N
-## 1    0   20    0    0      20
-## 2    1    0   12    0      12
-## 3    2    0    0    4       4
-## 4    3   36    0    0      36
-## 5    4    4   22    0      26
-## 6    5    0    2    6       8</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="week-5.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Age distribution</span></span>
-<span id="cb16-2"><a href="week-5.html#cb16-2" aria-hidden="true" tabindex="-1"></a>age_distribution_dens_dep <span class="ot">&lt;-</span> <span class="fu">round</span>(pop_size_dens_dep[time<span class="sc">+</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]<span class="sc">/</span><span class="fu">sum</span>(pop_size_dens_dep[time<span class="sc">+</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]), <span class="dv">3</span>)</span>
-<span id="cb16-3"><a href="week-5.html#cb16-3" aria-hidden="true" tabindex="-1"></a>age_distribution_dens_dep</span></code></pre></div>
-<pre><code>##      Age1 Age2  Age3
-## 151 0.982    0 0.018</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="week-5.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Total population size</span></span>
-<span id="cb18-2"><a href="week-5.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pop_size_dens_dep, <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> Total_N)) <span class="sc">+</span> </span>
-<span id="cb18-3"><a href="week-5.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb18-4"><a href="week-5.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb18-5"><a href="week-5.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;time&quot;</span>, <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(N))) <span class="sc">+</span></span>
-<span id="cb18-6"><a href="week-5.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb18-7"><a href="week-5.html#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, time<span class="sc">*</span><span class="fl">1.05</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb18-8"><a href="week-5.html#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(pop_size_dens_dep<span class="sc">$</span>Total_N)<span class="sc">*</span><span class="fl">1.05</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
+## 1    0   10    0    0      10
+## 2    1    0    5    0       5
+## 3    2    5    0    2       7
+## 4    3    7    2    0       9
+## 5    4    2    4    1       7
+## 6    5    7    1    1       9</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-5.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Age distribution</span></span>
+<span id="cb15-2"><a href="week-5.html#cb15-2" aria-hidden="true" tabindex="-1"></a>age_distribution_dens_dep <span class="ot">&lt;-</span> <span class="fu">round</span>(pop_size_dens_dep[time<span class="sc">+</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]<span class="sc">/</span><span class="fu">sum</span>(pop_size_dens_dep[time<span class="sc">+</span><span class="dv">1</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]), <span class="dv">3</span>)</span>
+<span id="cb15-3"><a href="week-5.html#cb15-3" aria-hidden="true" tabindex="-1"></a>age_distribution_dens_dep</span></code></pre></div>
+<pre><code>##     Age1 Age2 Age3
+## 151 0.61  0.3 0.09</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="week-5.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Total population size</span></span>
+<span id="cb17-2"><a href="week-5.html#cb17-2" aria-hidden="true" tabindex="-1"></a>pop_size_dens_dep <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="week-5.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Time, <span class="at">names_to =</span> <span class="st">&quot;Age_class&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-4"><a href="week-5.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> N, <span class="at">color =</span> Age_class)) <span class="sc">+</span> </span>
+<span id="cb17-5"><a href="week-5.html#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb17-6"><a href="week-5.html#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb17-7"><a href="week-5.html#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;time&quot;</span>, <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(N))) <span class="sc">+</span></span>
+<span id="cb17-8"><a href="week-5.html#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="week-5.html#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, time<span class="sc">*</span><span class="fl">1.05</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb17-10"><a href="week-5.html#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(pop_size_dens_dep<span class="sc">$</span>Total_N)<span class="sc">*</span><span class="fl">1.05</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> </span>
+<span id="cb17-11"><a href="week-5.html#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#E41A1C&quot;</span>, <span class="st">&quot;#377EB8&quot;</span>, <span class="st">&quot;#4DAF4A&quot;</span>, <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb17-12"><a href="week-5.html#cb17-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">name =</span> <span class="cn">NULL</span>,</span>
+<span id="cb17-13"><a href="week-5.html#cb17-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">label =</span> <span class="fu">c</span>(<span class="st">&quot;Age1&quot;</span>, <span class="st">&quot;Age2&quot;</span>, <span class="st">&quot;Age3&quot;</span>, <span class="st">&quot;Total&quot;</span>))</span></code></pre></div>
 <p><img src="05_Week_5_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="week-5.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Stable age distribution</span></span>
-<span id="cb19-2"><a href="week-5.html#cb19-2" aria-hidden="true" tabindex="-1"></a>age_animate_dens_dep <span class="ot">&lt;-</span> pop_size_dens_dep <span class="sc">%&gt;%</span> </span>
-<span id="cb19-3"><a href="week-5.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(Age1<span class="sc">:</span>Age3, <span class="cf">function</span>(x){x<span class="sc">/</span>Total_N})) <span class="sc">%&gt;%</span></span>
-<span id="cb19-4"><a href="week-5.html#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Time, Age1<span class="sc">:</span>Age3) <span class="sc">%&gt;%</span></span>
-<span id="cb19-5"><a href="week-5.html#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(Age1<span class="sc">:</span>Age3, <span class="at">names_to =</span> <span class="st">&quot;Age&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Proportion&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb19-6"><a href="week-5.html#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> Proportion, <span class="at">fill =</span> Age)) <span class="sc">+</span> </span>
-<span id="cb19-7"><a href="week-5.html#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
-<span id="cb19-8"><a href="week-5.html#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
-<span id="cb19-9"><a href="week-5.html#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb19-10"><a href="week-5.html#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb19-11"><a href="week-5.html#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span> </span>
-<span id="cb19-12"><a href="week-5.html#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_manual</span>(Time) <span class="sc">+</span> </span>
-<span id="cb19-13"><a href="week-5.html#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Time {frame}&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb19-14"><a href="week-5.html#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))</span>
-<span id="cb19-15"><a href="week-5.html#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-16"><a href="week-5.html#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(<span class="st">&quot;age_distribution_dens_dep.gif&quot;</span>, age_animate_dens_dep, <span class="at">nframes =</span> time <span class="sc">+</span> <span class="dv">1</span>, <span class="at">fps =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">res =</span> <span class="dv">300</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="week-5.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Stable age distribution</span></span>
+<span id="cb18-2"><a href="week-5.html#cb18-2" aria-hidden="true" tabindex="-1"></a>age_animate_dens_dep <span class="ot">&lt;-</span> pop_size_dens_dep <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="week-5.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(Age1<span class="sc">:</span>Age3, <span class="cf">function</span>(x){x<span class="sc">/</span>Total_N})) <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="week-5.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Time, Age1<span class="sc">:</span>Age3) <span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a href="week-5.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(Age1<span class="sc">:</span>Age3, <span class="at">names_to =</span> <span class="st">&quot;Age&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Proportion&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-6"><a href="week-5.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> Proportion, <span class="at">fill =</span> Age)) <span class="sc">+</span> </span>
+<span id="cb18-7"><a href="week-5.html#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
+<span id="cb18-8"><a href="week-5.html#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="week-5.html#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb18-10"><a href="week-5.html#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb18-11"><a href="week-5.html#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span> </span>
+<span id="cb18-12"><a href="week-5.html#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_manual</span>(Time) <span class="sc">+</span> </span>
+<span id="cb18-13"><a href="week-5.html#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Time {frame}&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb18-14"><a href="week-5.html#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))</span>
+<span id="cb18-15"><a href="week-5.html#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="week-5.html#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(<span class="st">&quot;age_distribution_dens_dep.gif&quot;</span>, age_animate_dens_dep, <span class="at">nframes =</span> time <span class="sc">+</span> <span class="dv">1</span>, <span class="at">fps =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">res =</span> <span class="dv">300</span>)</span></code></pre></div>
 <p><img src="age_distribution_dens_dep.gif" class="center"/></p>
 <p><strong>Part 5 - COM(P)ADRE: A global database of population matrices</strong>
-<a href="https://compadre-db.org/">COM(P)ADRE</a> is an online repository containing matrix population models on hundreds of plants, animals, algae, fungi, bacteria, and viruses around the world, as well as their associated metadata. Take a look at the website: You will be exploring the population dynamics of a species (of your choice) in your assignment!</p>
+<a href="https://compadre-db.org/ExploreDatabase">COM(P)ADRE</a> is an online repository containing matrix population models on hundreds of plants, animals, algae, fungi, bacteria, and viruses around the world, as well as their associated metadata. Take a look at the website: You will be exploring the population dynamics of a species (of your choice) in your assignment!</p>
 <p><br></p>
 </div>
 <div id="additional-readings-4" class="section level2 unnumbered">
@@ -414,6 +422,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -453,10 +462,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

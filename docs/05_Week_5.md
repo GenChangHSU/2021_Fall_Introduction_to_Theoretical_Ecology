@@ -13,7 +13,7 @@
 
 ## Lab demonstration {-}
 
-In this lab, we will be analyzing a simple Leslie matrix using for loops + matrix algebra, comparing what we get with the results obtained via eigenanalysis, and visualizing the population dynamics (total population size and stable age distribution).
+In this lab, we will be analyzing a simple Leslie matrix using for loops + matrix algebra, comparing the results with those obtained via eigenanalysis, and visualizing the population dynamics and age distribution.
 
 **Part 1 - Analyzing Leslie matrix**
 
@@ -100,11 +100,11 @@ as.numeric(eigen_out$vectors[, 1]/sum(eigen_out$vectors[, 1])) %>%
 ## [1] 0.631 0.289 0.080
 ```
 
-The asymptotic growth rate and stable age distribution are pretty much the same for both for loops and eigenanalysis.
+The asymptotic growth rate and stable age distribution obtained from for loops and eigenanalysis are pretty much the same.
 
 <br>
 
-**Part 2 - Visualizing population dynamics**
+**Part 2 - Visualizing population dynamics and age disctibution**
 
 
 ```r
@@ -144,11 +144,6 @@ age_animate <- pop_size %>%
   theme(title = element_text(size = 15))
 
 anim_save("age_distribution.gif", age_animate, nframes = time + 1, fps = 4, width = 5, height = 4, units = "in", res = 300)
-RColorBrewer::brewer.pal(3, "Set1")
-```
-
-```
-## [1] "#E41A1C" "#377EB8" "#4DAF4A"
 ```
 
 <style>
@@ -164,6 +159,16 @@ RColorBrewer::brewer.pal(3, "Set1")
 
 <br>
 
+**Part 3 - In-class exercise: Analyzing population matrix of common teasel**
+
+[Common teasel (_Dipsacus sylvestris_)](https://en.wikipedia.org/wiki/Dipsacus_fullonum) is a herbaceous plant commonly found in abandoned fields and meadows in North America. It has a complex life cycle consisting of various stages. The seeds may lie dormant for one or two years. Seeds that germinate form small rosettes, which will gradually transit into medium and eventually large rosettes. These rosettes (all three sizes) may remain in the same stage for years before entering the next stage. After undergoing vernalization, large rosettes will form stalks and flower in the upcoming summer, set seeds once, and die.
+
+Here is a transition diagram for the teasel. Please convert this diagram into a stage-based transition matrix (Lefkovitch matrix) and derive the asymptotic growth rate $\lambda$ in R. 
+
+<img src="./Teasel Diagram.png" width= "100%"/>
+
+<br>
+
 **Part 4 - Advanced topic: Incorporating density-dependence into Leslie matrix **
 
 The cell values in a standard Leslie matrix are fixed and independent of population density, leading to an exponential population growth. This assumption can be relaxed by incorporating density-dependence into the transitions (survival probability, fecundity). Here, we will include negative density-dependence for the fecundity of individuals in Age3 class and see how this might affect the long-term population dynamics.
@@ -171,15 +176,15 @@ The cell values in a standard Leslie matrix are fixed and independent of populat
 
 ```r
 ### Leslie matrix, initial age classes, and carrying capacity
-leslie_mtrx <- matrix(data = c(0, 0, 10,
-                               0.6, 0, 0,
-                               0, 0.3, 0.1),
+leslie_mtrx <- matrix(data = c(0, 1, 5,
+                               0.5, 0, 0,
+                               0, 0.3, 0),
                       nrow = 3, 
                       ncol = 3,
                       byrow = T)
 
-initial_age <- c(20, 0, 0)
-K <- 10000
+initial_age <- c(10, 0, 0)
+K <- 300
 
 ### for loop and matrix algebra
 time <- 150
@@ -211,12 +216,12 @@ head(round(pop_size_dens_dep))
 
 ```
 ##   Time Age1 Age2 Age3 Total_N
-## 1    0   20    0    0      20
-## 2    1    0   12    0      12
-## 3    2    0    0    4       4
-## 4    3   36    0    0      36
-## 5    4    4   22    0      26
-## 6    5    0    2    6       8
+## 1    0   10    0    0      10
+## 2    1    0    5    0       5
+## 3    2    5    0    2       7
+## 4    3    7    2    0       9
+## 5    4    2    4    1       7
+## 6    5    7    1    1       9
 ```
 
 ```r
@@ -226,19 +231,24 @@ age_distribution_dens_dep
 ```
 
 ```
-##      Age1 Age2  Age3
-## 151 0.982    0 0.018
+##     Age1 Age2 Age3
+## 151 0.61  0.3 0.09
 ```
 
 ```r
 ### Total population size
-ggplot(data = pop_size_dens_dep, aes(x = Time, y = Total_N)) + 
+pop_size_dens_dep %>%
+  pivot_longer(cols = -Time, names_to = "Age_class", values_to = "N") %>%
+  ggplot(aes(x = Time, y = N, color = Age_class)) + 
   geom_point() + 
   geom_line() + 
   labs(x = "time", y = expression(italic(N))) +
   theme_classic(base_size = 12) +
   scale_x_continuous(limits = c(0, time*1.05), expand = c(0, 0)) +
-  scale_y_continuous(limits = c(0, max(pop_size_dens_dep$Total_N)*1.05), expand = c(0, 0))
+  scale_y_continuous(limits = c(0, max(pop_size_dens_dep$Total_N)*1.05), expand = c(0, 0)) + 
+    scale_color_manual(values = c("#E41A1C", "#377EB8", "#4DAF4A", "black"),
+                     name = NULL,
+                     label = c("Age1", "Age2", "Age3", "Total"))
 ```
 
 <img src="05_Week_5_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" />
@@ -265,7 +275,7 @@ anim_save("age_distribution_dens_dep.gif", age_animate_dens_dep, nframes = time 
 <img src="./age_distribution_dens_dep.gif" class="center"/>
 
 **Part 5 - COM(P)ADRE: A global database of population matrices**
-[COM(P)ADRE](https://compadre-db.org/) is an online repository containing matrix population models on hundreds of plants, animals, algae, fungi, bacteria, and viruses around the world, as well as their associated metadata. Take a look at the website: You will be exploring the population dynamics of a species (of your choice) in your assignment!
+[COM(P)ADRE](https://compadre-db.org/ExploreDatabase) is an online repository containing matrix population models on hundreds of plants, animals, algae, fungi, bacteria, and viruses around the world, as well as their associated metadata. Take a look at the website: You will be exploring the population dynamics of a species (of your choice) in your assignment!
 
 <br>
 
