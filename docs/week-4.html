@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Week 4 | Introduction to Theoretical Ecology</title>
   <meta name="description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Week 4 | Introduction to Theoretical Ecology" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/" />
-  <meta property="og:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology//bifurcation.gif" />
+  <meta property="og:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/bifurcation.gif" />
   <meta property="og:description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
   <meta name="github-repo" content="GenChangHSU/2021_Fall_Introduction_to_Theoretical_Ecology" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Week 4 | Introduction to Theoretical Ecology" />
   
   <meta name="twitter:description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
-  <meta name="twitter:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology//bifurcation.gif" />
+  <meta name="twitter:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/bifurcation.gif" />
 
 <meta name="author" content="Instructor: Po-Ju Ke ~~~~~ Teaching Assistant: Gen-Chang Hsu" />
 
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="week-3.html"/>
 <link rel="next" href="week-5.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,11 +50,8 @@
 
 
 
-
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -139,7 +137,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course Information</a></li>
-<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i>Syllabus</a></li>
 <li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html"><i class="fa fa-check"></i>Week 1</a>
 <ul>
 <li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html#lecture-in-a-nutshell"><i class="fa fa-check"></i>Lecture in a nutshell</a></li>
@@ -230,7 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Local stability analysis:
 <ul>
 <li>A small displacement from the equilibrium point at time <span class="math inline">\(t\)</span>: <span class="math inline">\(\epsilon_{t} = N_{t} - N^{*}\)</span></li>
-<li>The behavior of this small displacement at next time step <span class="math inline">\(t+1\)</span>: <span class="math inline">\(\begin{aligned}\epsilon_{t+1}&amp;=N_{t+1}-N^{*}\\&amp;=F_{(N_{t+1})}-N^{*}\\&amp;=F_{(N^{*}+\epsilon_{t})}-N^{*}\\&amp;=F(N^*)+\epsilon \frac{dF}{dN}|_{N=N^*}+O_{(\epsilon^2)}-N^{*} \\&amp;\approx \epsilon\frac{dF}{dN}|_{N = N^*}\\&amp;=\lambda \epsilon\end{aligned}\)</span></li>
+<li>The behavior of this small displacement at next time step <span class="math inline">\(t+1\)</span>: <span class="math inline">\(\begin{aligned}\epsilon_{t+1}&amp;=N_{t+1}-N^{*}\\&amp;=F_{(N_{t+1})}-N^{*}\\&amp;=F_{(N^{*}+\epsilon_{t})}-N^{*}\\&amp;=F(N^*)+\epsilon_{t} \frac{dF}{dN}|_{N=N^*}+O_{(\epsilon_{t}^2)}-N^{*} \\&amp;\approx \epsilon_{t}\frac{dF}{dN}|_{N = N^*}\\&amp;=\lambda \epsilon\end{aligned}\)</span></li>
 </ul></li>
 <li>Stability criteria:
 <ul>
@@ -255,30 +252,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Lab demonstration</h2>
 <p>In this lab, we are going to model the discrete logistic population growth and visualize the system dynamics.</p>
 <p><strong>Part 1 - Model the discrete logistic population growth using for loops</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="week-4.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb7-2"><a href="week-4.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="week-4.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">### (1) Set the parameters</span></span>
-<span id="cb7-4"><a href="week-4.html#cb7-4" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">1.8</span></span>
-<span id="cb7-5"><a href="week-4.html#cb7-5" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">500</span></span>
-<span id="cb7-6"><a href="week-4.html#cb7-6" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb7-7"><a href="week-4.html#cb7-7" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb7-8"><a href="week-4.html#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="week-4.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="do">### (2) Define the discrete logistic growth equation</span></span>
-<span id="cb7-10"><a href="week-4.html#cb7-10" aria-hidden="true" tabindex="-1"></a>log_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(r, N, K){N <span class="sc">+</span> r<span class="sc">*</span>N<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>N<span class="sc">/</span>K)}  </span>
-<span id="cb7-11"><a href="week-4.html#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="week-4.html#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="do">### (3) Use for loop to iterate over the time sequence</span></span>
-<span id="cb7-13"><a href="week-4.html#cb7-13" aria-hidden="true" tabindex="-1"></a>pop_size <span class="ot">&lt;-</span> <span class="fu">numeric</span>(time)</span>
-<span id="cb7-14"><a href="week-4.html#cb7-14" aria-hidden="true" tabindex="-1"></a>pop_size[<span class="dv">1</span>] <span class="ot">&lt;-</span> N0</span>
-<span id="cb7-15"><a href="week-4.html#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="week-4.html#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>time) {pop_size[i] <span class="ot">&lt;-</span> <span class="fu">log_fun</span>(<span class="at">r =</span> r, <span class="at">N =</span> pop_size[i <span class="sc">-</span> <span class="dv">1</span>], <span class="at">K =</span> K)}</span>
-<span id="cb7-17"><a href="week-4.html#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-18"><a href="week-4.html#cb7-18" aria-hidden="true" tabindex="-1"></a>pop_data <span class="ot">&lt;-</span> pop_size <span class="sc">%&gt;%</span> </span>
-<span id="cb7-19"><a href="week-4.html#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb7-20"><a href="week-4.html#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(., <span class="at">pop_size =</span> <span class="st">`</span><span class="at">.</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-21"><a href="week-4.html#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="dv">0</span><span class="sc">:</span>(time<span class="dv">-1</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb7-22"><a href="week-4.html#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(time)</span>
-<span id="cb7-23"><a href="week-4.html#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-24"><a href="week-4.html#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pop_data)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="week-4.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="week-4.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="week-4.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">### (1) Set the parameters</span></span>
+<span id="cb1-4"><a href="week-4.html#cb1-4" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">1.8</span></span>
+<span id="cb1-5"><a href="week-4.html#cb1-5" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb1-6"><a href="week-4.html#cb1-6" aria-hidden="true" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb1-7"><a href="week-4.html#cb1-7" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb1-8"><a href="week-4.html#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="week-4.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="do">### (2) Define the discrete logistic growth equation</span></span>
+<span id="cb1-10"><a href="week-4.html#cb1-10" aria-hidden="true" tabindex="-1"></a>log_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(r, N, K){N <span class="sc">+</span> r<span class="sc">*</span>N<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>N<span class="sc">/</span>K)}  </span>
+<span id="cb1-11"><a href="week-4.html#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="week-4.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="do">### (3) Use for loop to iterate over the time sequence</span></span>
+<span id="cb1-13"><a href="week-4.html#cb1-13" aria-hidden="true" tabindex="-1"></a>pop_size <span class="ot">&lt;-</span> <span class="fu">numeric</span>(time)</span>
+<span id="cb1-14"><a href="week-4.html#cb1-14" aria-hidden="true" tabindex="-1"></a>pop_size[<span class="dv">1</span>] <span class="ot">&lt;-</span> N0</span>
+<span id="cb1-15"><a href="week-4.html#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="week-4.html#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>time) {pop_size[i] <span class="ot">&lt;-</span> <span class="fu">log_fun</span>(<span class="at">r =</span> r, <span class="at">N =</span> pop_size[i <span class="sc">-</span> <span class="dv">1</span>], <span class="at">K =</span> K)}</span>
+<span id="cb1-17"><a href="week-4.html#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="week-4.html#cb1-18" aria-hidden="true" tabindex="-1"></a>pop_data <span class="ot">&lt;-</span> pop_size <span class="sc">%&gt;%</span> </span>
+<span id="cb1-19"><a href="week-4.html#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1-20"><a href="week-4.html#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(., <span class="at">pop_size =</span> <span class="st">`</span><span class="at">.</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-21"><a href="week-4.html#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="dv">0</span><span class="sc">:</span>(time<span class="dv">-1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-22"><a href="week-4.html#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(time)</span>
+<span id="cb1-23"><a href="week-4.html#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="week-4.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pop_data)</span></code></pre></div>
 <pre><code>##   time  pop_size
 ## 1    0  10.00000
 ## 2    1  27.64000
@@ -288,37 +285,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6    5 543.95762</code></pre>
 <p><br></p>
 <p><strong>Part 2. Visualize the population dynamics:</strong></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-4.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Population trajectory</span></span>
-<span id="cb9-2"><a href="week-4.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pop_data, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> pop_size)) <span class="sc">+</span> </span>
-<span id="cb9-3"><a href="week-4.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb9-4"><a href="week-4.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb9-5"><a href="week-4.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> K, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb9-6"><a href="week-4.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> time<span class="sc">*</span><span class="fl">1.02</span>, <span class="at">y =</span> K<span class="sc">+</span><span class="dv">50</span>, <span class="at">label =</span> <span class="st">&quot;italic(K)&quot;</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="fl">6.5</span>, <span class="at">parse =</span> T) <span class="sc">+</span></span>
-<span id="cb9-7"><a href="week-4.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(N)), <span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">&quot;Discrete logistic growth&quot;</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="st">&quot;(r = &quot;</span>, r, <span class="st">&quot;, K = &quot;</span>, K, <span class="st">&quot;, N0 = &quot;</span>, N0, <span class="st">&quot;)&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb9-8"><a href="week-4.html#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, time<span class="sc">*</span><span class="fl">1.05</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> </span>
-<span id="cb9-9"><a href="week-4.html#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(pop_size)<span class="sc">*</span><span class="fl">1.1</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> </span>
-<span id="cb9-10"><a href="week-4.html#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
-<span id="cb9-11"><a href="week-4.html#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="week-4.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Population trajectory</span></span>
+<span id="cb3-2"><a href="week-4.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pop_data, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> pop_size)) <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="week-4.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="week-4.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb3-5"><a href="week-4.html#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> K, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb3-6"><a href="week-4.html#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">x =</span> time<span class="sc">*</span><span class="fl">1.02</span>, <span class="at">y =</span> K<span class="sc">+</span><span class="dv">50</span>, <span class="at">label =</span> <span class="st">&quot;italic(K)&quot;</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="fl">6.5</span>, <span class="at">parse =</span> T) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="week-4.html#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(N)), <span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">&quot;Discrete logistic growth&quot;</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="st">&quot;(r = &quot;</span>, r, <span class="st">&quot;, K = &quot;</span>, K, <span class="st">&quot;, N0 = &quot;</span>, N0, <span class="st">&quot;)&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb3-8"><a href="week-4.html#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, time<span class="sc">*</span><span class="fl">1.05</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> </span>
+<span id="cb3-9"><a href="week-4.html#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(pop_size)<span class="sc">*</span><span class="fl">1.1</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> </span>
+<span id="cb3-10"><a href="week-4.html#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="week-4.html#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span></code></pre></div>
 <p><img src="04_Week_4_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="week-4.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Cobweb plot/logistic map</span></span>
-<span id="cb10-2"><a href="week-4.html#cb10-2" aria-hidden="true" tabindex="-1"></a>cobweb_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Nt =</span> <span class="fu">rep</span>(pop_size[<span class="sc">-</span>time], <span class="at">each =</span> <span class="dv">2</span>), </span>
-<span id="cb10-3"><a href="week-4.html#cb10-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">Nt1 =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">rep</span>(pop_size[<span class="sc">-</span><span class="dv">1</span>], <span class="at">each =</span> <span class="dv">2</span>)[<span class="sc">-</span><span class="fu">length</span>(<span class="fu">rep</span>(pop_size[<span class="sc">-</span><span class="dv">1</span>], <span class="at">each =</span> <span class="dv">2</span>))]))</span>
-<span id="cb10-4"><a href="week-4.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="week-4.html#cb10-5" aria-hidden="true" tabindex="-1"></a>logistic_map <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Nt =</span> <span class="fu">seq</span>(<span class="dv">0</span>, (r<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span>r<span class="sc">*</span>K, <span class="at">by =</span> <span class="fl">0.1</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb10-6"><a href="week-4.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Nt1 =</span> Nt <span class="sc">+</span> r<span class="sc">*</span>Nt<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>Nt<span class="sc">/</span>K))</span>
-<span id="cb10-7"><a href="week-4.html#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="week-4.html#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb10-9"><a href="week-4.html#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> logistic_map, <span class="fu">aes</span>(<span class="at">x =</span> Nt, <span class="at">y =</span> Nt1), <span class="at">color =</span> <span class="st">&quot;green&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span> </span>
-<span id="cb10-10"><a href="week-4.html#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">data =</span> cobweb_data, <span class="fu">aes</span>(<span class="at">x =</span> Nt, <span class="at">y =</span> Nt1), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb10-11"><a href="week-4.html#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb10-12"><a href="week-4.html#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(N[t])),</span>
-<span id="cb10-13"><a href="week-4.html#cb10-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(N[t<span class="sc">+</span><span class="dv">1</span>])), </span>
-<span id="cb10-14"><a href="week-4.html#cb10-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">&quot;Cobweb plot/logistic map&quot;</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="st">&quot;(r = &quot;</span>, r, <span class="st">&quot;, K = &quot;</span>, K, <span class="st">&quot;, N0 = &quot;</span>, N0, <span class="st">&quot;)&quot;</span>)) <span class="sc">+</span> </span>
-<span id="cb10-15"><a href="week-4.html#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, (r<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span>r<span class="sc">*</span>K<span class="sc">*</span><span class="fl">1.05</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> </span>
-<span id="cb10-16"><a href="week-4.html#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(pop_size)<span class="sc">*</span><span class="fl">1.1</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> </span>
-<span id="cb10-17"><a href="week-4.html#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
-<span id="cb10-18"><a href="week-4.html#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb10-19"><a href="week-4.html#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="week-4.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Cobweb plot/logistic map</span></span>
+<span id="cb4-2"><a href="week-4.html#cb4-2" aria-hidden="true" tabindex="-1"></a>cobweb_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Nt =</span> <span class="fu">rep</span>(pop_size[<span class="sc">-</span>time], <span class="at">each =</span> <span class="dv">2</span>), </span>
+<span id="cb4-3"><a href="week-4.html#cb4-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">Nt1 =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">rep</span>(pop_size[<span class="sc">-</span><span class="dv">1</span>], <span class="at">each =</span> <span class="dv">2</span>)[<span class="sc">-</span><span class="fu">length</span>(<span class="fu">rep</span>(pop_size[<span class="sc">-</span><span class="dv">1</span>], <span class="at">each =</span> <span class="dv">2</span>))]))</span>
+<span id="cb4-4"><a href="week-4.html#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="week-4.html#cb4-5" aria-hidden="true" tabindex="-1"></a>logistic_map <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Nt =</span> <span class="fu">seq</span>(<span class="dv">0</span>, (r<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span>r<span class="sc">*</span>K, <span class="at">by =</span> <span class="fl">0.1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href="week-4.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Nt1 =</span> Nt <span class="sc">+</span> r<span class="sc">*</span>Nt<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>Nt<span class="sc">/</span>K))</span>
+<span id="cb4-7"><a href="week-4.html#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="week-4.html#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb4-9"><a href="week-4.html#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> logistic_map, <span class="fu">aes</span>(<span class="at">x =</span> Nt, <span class="at">y =</span> Nt1), <span class="at">color =</span> <span class="st">&quot;green&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span> </span>
+<span id="cb4-10"><a href="week-4.html#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">data =</span> cobweb_data, <span class="fu">aes</span>(<span class="at">x =</span> Nt, <span class="at">y =</span> Nt1), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb4-11"><a href="week-4.html#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb4-12"><a href="week-4.html#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(N[t])),</span>
+<span id="cb4-13"><a href="week-4.html#cb4-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(N[t<span class="sc">+</span><span class="dv">1</span>])), </span>
+<span id="cb4-14"><a href="week-4.html#cb4-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">&quot;Cobweb plot/logistic map&quot;</span>, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="st">&quot;(r = &quot;</span>, r, <span class="st">&quot;, K = &quot;</span>, K, <span class="st">&quot;, N0 = &quot;</span>, N0, <span class="st">&quot;)&quot;</span>)) <span class="sc">+</span> </span>
+<span id="cb4-15"><a href="week-4.html#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, (r<span class="sc">+</span><span class="dv">1</span>)<span class="sc">/</span>r<span class="sc">*</span>K<span class="sc">*</span><span class="fl">1.05</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> </span>
+<span id="cb4-16"><a href="week-4.html#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(pop_size)<span class="sc">*</span><span class="fl">1.1</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span> </span>
+<span id="cb4-17"><a href="week-4.html#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb4-18"><a href="week-4.html#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb4-19"><a href="week-4.html#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span></code></pre></div>
 <p><img src="04_Week_4_files/figure-html/unnamed-chunk-2-2.png" width="70%" style="display: block; margin: auto;" />
 *The name “logistic map” comes from the fact that it maps the population size at one time step <em>N<sub>t</sub></em> to the value at the next time step <em>N<sub>t+1</sub></em>.</p>
 <p><br></p>
@@ -351,7 +348,6 @@ iframe {border: 0;}
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -391,6 +387,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

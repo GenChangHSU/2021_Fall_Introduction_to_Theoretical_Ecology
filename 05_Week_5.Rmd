@@ -18,7 +18,7 @@ knitr::opts_chunk$set(message = F,
 
 ## Lab demonstration {-}
 
-In this lab, we will be analyzing a simple Leslie matrix using for loops + matrix algebra, comparing what we get with the results obtained via eigenanalysis, and visualizing the population dynamics (total population size and age distribution).
+In this lab, we will be analyzing a simple Leslie matrix using for loops + matrix algebra, comparing what we get with the results obtained via eigenanalysis, and visualizing the population dynamics (total population size and stable age distribution).
 
 **Part 1 - Analyzing Leslie matrix**
 
@@ -26,17 +26,17 @@ In this lab, we will be analyzing a simple Leslie matrix using for loops + matri
 library(tidyverse)
 
 ### Leslie matrix and initial age classes
-leslie_mtrx <- matrix(data = c(0, 0, 10,
-                               0.6, 0, 0,
-                               0, 0.3, 0.1),
+leslie_mtrx <- matrix(data = c(0, 1, 5,
+                               0.5, 0, 0,
+                               0, 0.3, 0),
                       nrow = 3, 
                       ncol = 3,
                       byrow = T)
 
-initial_age <- c(20, 0, 0)
+initial_age <- c(10, 0, 0)
 
 ### for loop and matrix algebra
-time <- 150
+time <- 50
 pop_size <- data.frame(Age1 = numeric(time+1),
                        Age2 = numeric(time+1),
                        Age3 = numeric(time+1))
@@ -55,7 +55,7 @@ pop_size <- pop_size %>%
 head(round(pop_size)) 
 
 ### Asymptotic growth rate and stable age distribution 
-asymptotic_growth <- round(pop_size[time+1, 4]/pop_size[time, 4], 3)
+asymptotic_growth <- round(pop_size[time+1, 5]/pop_size[time, 5], 3)
 asymptotic_growth
 
 age_distribution <- round(pop_size[time+1, 2:4]/sum(pop_size[time+1, 2:4]), 3)
@@ -75,15 +75,20 @@ The asymptotic growth rate and stable age distribution are pretty much the same 
 
 **Part 2 - Visualizing population dynamics**
 
-```{r, fig.width = 4, fig.height = 3, out.width = "70%", fig.align = "center"}
-### Total population size
-ggplot(data = pop_size, aes(x = Time, y = Total_N)) + 
+```{r, fig.width = 5, fig.height = 3, out.width = "70%", fig.align = "center"}
+### Population sizes for each age class
+pop_size %>%
+  pivot_longer(cols = -Time, names_to = "Age_class", values_to = "N") %>%
+  ggplot(aes(x = Time, y = N, color = Age_class)) + 
   geom_point() + 
   geom_line() + 
   labs(x = "time", y = expression(italic(N))) +
   theme_classic(base_size = 12) +
   scale_x_continuous(limits = c(0, time*1.05), expand = c(0, 0)) +
-  scale_y_continuous(limits = c(0, max(pop_size$Total_N)*1.05), expand = c(0, 0))
+  scale_y_log10(limits = c(1, max(pop_size$Total_N)*1.05), expand = c(0, 0)) + 
+  scale_color_manual(values = c("#E41A1C", "#377EB8", "#4DAF4A", "black"),
+                     name = NULL,
+                     label = c("Age1", "Age2", "Age3", "Total"))
 
 ### Stable age distribution
 library(gganimate)
@@ -103,7 +108,7 @@ age_animate <- pop_size %>%
   theme(title = element_text(size = 15))
 
 anim_save("age_distribution.gif", age_animate, nframes = time + 1, fps = 4, width = 5, height = 4, units = "in", res = 300)
-
+RColorBrewer::brewer.pal(3, "Set1")
 ```
 
 <style>
@@ -119,24 +124,24 @@ anim_save("age_distribution.gif", age_animate, nframes = time + 1, fps = 4, widt
 
 <br>
 
-**Part 3 - Advanced topic: Incorporating density-dependence into Leslie matrix **
+**Part 4 - Advanced topic: Incorporating density-dependence into Leslie matrix **
 
 The cell values in a standard Leslie matrix are fixed and independent of population density, leading to an exponential population growth. This assumption can be relaxed by incorporating density-dependence into the transitions (survival probability, fecundity). Here, we will include negative density-dependence for the fecundity of individuals in Age3 class and see how this might affect the long-term population dynamics.
 
 ```{r, fig.width = 5, fig.height = 4, out.width = "70%", fig.align = "center"}
 ### Leslie matrix, initial age classes, and carrying capacity
-leslie_mtrx <- matrix(data = c(0, 0, 10,
-                               0.6, 0, 0,
-                               0, 0.3, 0.1),
+leslie_mtrx <- matrix(data = c(0, 1, 5,
+                               0.5, 0, 0,
+                               0, 0.3, 0),
                       nrow = 3, 
                       ncol = 3,
                       byrow = T)
 
-initial_age <- c(20, 0, 0)
-K <- 10000
+initial_age <- c(10, 0, 0)
+K <- 300
 
 ### for loop and matrix algebra
-time <- 150
+time <- 50
 pop_size_dens_dep <- data.frame(Age1 = numeric(time+1),
                                 Age2 = numeric(time+1),
                                 Age3 = numeric(time+1))
@@ -195,6 +200,11 @@ anim_save("age_distribution_dens_dep.gif", age_animate_dens_dep, nframes = time 
 ```
 
 <img src="./age_distribution_dens_dep.gif" class="center"/>
+
+**Part 5 - COM(P)ADRE: A global database of population matrices**
+[COM(P)ADRE](https://compadre-db.org/) is an online repository containing matrix population models on hundreds of plants, animals, algae, fungi, bacteria, and viruses around the world, as well as their associated metadata. Take a look at the website: You will be exploring the population dynamics of a species (of your choice) in your assignment!
+
+<br>
 
 ## Additional readings {-}
 
