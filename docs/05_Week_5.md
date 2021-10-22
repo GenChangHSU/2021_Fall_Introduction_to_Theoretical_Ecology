@@ -292,8 +292,6 @@ anim_save("age_distribution_dens_dep.gif", age_animate_dens_dep, nframes = time 
 
 ## Assignments {-}
 
-[](./Assignments/.pdf){target="_blank"}
-
-<!-- [Suggested Solutions](./Assignments/.pdf){target="_blank"} -->
+[Age-Structured Models](./Assignments/Week5_Age-Structured Models.pdf){target="_blank"}
 
 
