@@ -32,14 +32,14 @@ $$\begin{vmatrix}a & b\\
 c & d
 \end{vmatrix}=ad-bc$$
 
-\begin{equation} 
+$$\begin{equation} 
   f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
   (\#eq:binom)
-\end{equation} 
+\end{equation}$$ 
 
-\begin{equation*} 
+$$\begin{equation*} 
 \frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
-\end{equation*} 
+\end{equation*}$$ 
 
 
 Text references

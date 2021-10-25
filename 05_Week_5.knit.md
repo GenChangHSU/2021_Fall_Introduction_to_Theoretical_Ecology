@@ -5,10 +5,19 @@
 
 ## Lecture in a nutshell {-}
 
-<br>
-<br>
-<br>
-<br>
+* **Topic:**
+    1. 
+    2. 
+    3. 
+    
+<div style="height:1px ;"><br></div>
+
+* **Topic:**
+    1. 
+    2. 
+    3.
+
+<div style="height:1px ;"><br></div>    
 <br>
 
 ## Lab demonstration {-}
