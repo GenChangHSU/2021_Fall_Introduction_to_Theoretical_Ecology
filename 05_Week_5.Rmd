@@ -235,10 +235,7 @@ anim_save("age_distribution_dens_dep.gif", age_animate_dens_dep, nframes = time 
 
 ## Additional readings {-}
 
-<br>
-<br>
-<br>
-<br>
+[Otto & Day Box 9.1 - Long-Term Dynamics and the Role of the Leading Eigenvalue](./Additional readings/Otto_&_Day_Box_9-1.pdf){target="_blank"}
 <br>
 
 ## Assignments {-}
