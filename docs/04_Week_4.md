@@ -148,6 +148,6 @@ Here is a shiny app for the discrete logistic growth model. Feel free to play ar
 
 [Ricker Logistic Gowth Model](./Assignments/Week4_Discrete Logistic Growth.pdf){target="_blank"}
 
-<!-- [Suggested Solutions](./Assignments/Week4_Discrete Logistic Growth_with_Solutions.pdf){target="_blank"} -->
+[Suggested Solutions](./Assignments/Week4_Discrete Logistic Growth_with_Solutions.pdf){target="_blank"}
 
 

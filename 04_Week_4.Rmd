@@ -138,6 +138,6 @@ knitr::include_app("https://genchanghsu0115.shinyapps.io/Discrete_logistic_mod_s
 
 [Ricker Logistic Gowth Model](./Assignments/Week4_Discrete Logistic Growth.pdf){target="_blank"}
 
-<!-- [Suggested Solutions](./Assignments/Week4_Discrete Logistic Growth_with_Solutions.pdf){target="_blank"} -->
+[Suggested Solutions](./Assignments/Week4_Discrete Logistic Growth_with_Solutions.pdf){target="_blank"}
 
 
