@@ -6,7 +6,7 @@
 ## Lecture in a nutshell {-}
 
 * **Model derivation:**
-    1. Model diagram: a sequence of age classes connected through arrows of survival probability and fecundity
+    1. Model diagram: a sequence of age classes connected through arrows of survival probability ($Si$) and fecundity ($fi$)
     2. Assumptions:
         * Closed population
         * Individuals within each age class are identical
@@ -17,19 +17,19 @@
 
 * **Model dynamics (linear algebra):**
     1. A simple example:
-        * Initial age class: $\vec{n}_{t} = \begin{vmatrix}n_{1.t} \\ n_{2.t} \\ n_{3.t} \end{vmatrix}$
+        * Age class at time _t_: $\vec{n}_{t} = \begin{vmatrix}n_{1.t} \\ n_{2.t} \\ n_{3.t} \end{vmatrix}$
         * Leslie matrix $L$ (transition matrix): $\begin{vmatrix}f_{1} & f_{2} & f_{3}\\S_{1} & 0 & 0\\0 & S_{2} & 0 \end{vmatrix}$
-        * Age class at next time step: $\vec{n}_{t+1} = L \cdot \vec{n}_{t}$
+        * Age class at time _t+1_: $\vec{n}_{t+1} = L \cdot \vec{n}_{t}$
     2. Eigenanalysis: eigenvalues ($\lambda$) and eigenvectors ($\vec{u}$)
         * $L\vec{u} = \lambda\vec{u}; (L - \lambda I)\vec{u} = 0; det|L - \lambda I| = 0$ 
         * Solve for $\lambda$ and find the corresponding $\vec{u}$
     3. Eigendecomposition (for diagonalizable matrix): $L = ADA^{-1}; A = \begin{vmatrix}\vec{u}_{1} & \vec{u}_{2} & \vec{u}_{3} \end{vmatrix}; D = \begin{vmatrix}\lambda_{1} & 0 & 0\\0 & \lambda_{2} & 0\\0 & 0 & \lambda_{3} \end{vmatrix}$
     4.  $L^{t} = AD^{t}A^{-1} \approx A\lambda_{1}^{t}A^{-1}$ ($\lambda_{1}$ is the dominant eigenvalue)
-    5. The long-term dynamics of Leslie matrix is determined by:
+    5. The long-term dynamics of Leslie matrix are determined by:
         * The dominant eigenvalue $\lambda_{1}$: finite rate of increase (asymptotic growth rate)
         * The dominant eigenvector $\vec{u}_{1}$: stable age distribution
 <div style="height:1px ;"><br></div>
-    6. For $n \times n$ Leslie matrix, the characteristic equation (Euler-Lotka equation) can be written as: $\sum_{i}^{n} S_{i}f{i}\lambda^{-i} = 1$ 
+    6. For an $n \times n$ Leslie matrix, the characteristic equation (Euler-Lotka equation) can be written as: $\sum_{i}^{n} S_{i}f{i}\lambda^{-i} = 1$ 
 
 <div style="height:1px ;"><br></div>
 
