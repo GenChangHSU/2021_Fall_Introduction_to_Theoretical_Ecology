@@ -10,19 +10,40 @@ knitr::opts_chunk$set(message = F,
 
 ## Lecture in a nutshell {-}
 
-* **Topic:**
-    1. 
-    2. 
-    3. 
+* **Model derivation:**
+    1. Model diagram: a sequence of age classes connected through arrows of survival probability and fecundity
+    2. Assumptions:
+        * Closed population
+        * Individuals within each age class are identical
+        * Critical rates are age-dependent **BUT** not time- or density-dependent (unlimited resources)
+        * Discrete age classes; individuals do not remain in the same age class over time
     
 <div style="height:1px ;"><br></div>
 
-* **Topic:**
-    1. 
-    2. 
-    3.
+* **Model dynamics (linear algebra):**
+    1. A simple example:
+        * Initial age class: $\vec{n}_{t} = \begin{vmatrix}n_{1.t} \\ n_{2.t} \\ n_{3.t} \end{vmatrix}$
+        * Leslie matrix $L$ (transition matrix): $\begin{vmatrix}f_{1} & f_{2} & f_{3}\\S_{1} & 0 & 0\\0 & S_{2} & 0 \end{vmatrix}$
+        * Age class at next time step: $\vec{n}_{t+1} = L \cdot \vec{n}_{t}$
+    2. Eigenanalysis: eigenvalues ($\lambda$) and eigenvectors ($\vec{u}$)
+        * $L\vec{u} = \lambda\vec{u}; (L - \lambda I)\vec{u} = 0; det|L - \lambda I| = 0$ 
+        * Solve for $\lambda$ and find the corresponding $\vec{u}$
+    3. Eigendecomposition (for diagonalizable matrix): $L = ADA^{-1}; A = \begin{vmatrix}\vec{u}_{1} & \vec{u}_{2} & \vec{u}_{3} \end{vmatrix}; D = \begin{vmatrix}\lambda_{1} & 0 & 0\\0 & \lambda_{2} & 0\\0 & 0 & \lambda_{3} \end{vmatrix}$
+    4.  $L^{t} = AD^{t}A^{-1} \approx A\lambda_{1}^{t}A^{-1}$ ($\lambda_{1}$ is the dominant eigenvalue)
+    5. The long-term dynamics of Leslie matrix is determined by:
+        * The dominant eigenvalue $\lambda_{1}$: finite rate of increase (asymptotic growth rate)
+        * The dominant eigenvector $\vec{u}_{1}$: stable age distribution
+<div style="height:1px ;"><br></div>
+    6. For $n \times n$ Leslie matrix, the characteristic equation (Euler-Lotka equation) can be written as: $\sum_{i}^{n} S_{i}f{i}\lambda^{-i} = 1$ 
 
-<div style="height:1px ;"><br></div>    
+<div style="height:1px ;"><br></div>
+
+* **Stage-structured models:**
+    1. Stages are arbitrarily defined by the user
+    2. Individuals can remain in the same stage class or even regress back to previous stage class
+
+<div style="height:1px ;"><br></div> 
+
 <br>
 
 ## Lab demonstration {-}
@@ -135,7 +156,7 @@ anim_save("age_distribution.gif", age_animate, nframes = time + 1, fps = 4, widt
 
 **Part 3 - In-class exercise: Analyzing population matrix of common teasel**
 
-[Common teasel (_Dipsacus sylvestris_)](https://en.wikipedia.org/wiki/Dipsacus_fullonum) is a herbaceous plant commonly found in abandoned fields and meadows in North America. It has a complex life cycle consisting of various stages. The seeds may lie dormant for one or two years. Seeds that germinate form small rosettes, which will gradually transit into medium and eventually large rosettes. These rosettes (all three sizes) may remain in the same stage for years before entering the next stage. After undergoing vernalization, large rosettes will form stalks and flower in the upcoming summer, set seeds once, and die. Occasionally, the flowering plants will produce seeds that directly germinate into small/medium/large rosettes without entering dormancy.
+[Common teasel (_Dipsacus sylvestris_)](https://en.wikipedia.org/wiki/Dipsacus_fullonum) is a herbaceous plant commonly found in abandoned fields and meadows in North America. It has a complex life cycle consisting of various stages. The seeds may lie dormant for one or two years. Seeds that germinate form small rosettes, which will gradually transit into medium and eventually large rosettes. These rosettes (all three sizes) may remain in the same stage for years before entering the next stage. After undergoing vernalization, large (and a few medium) rosettes will form stalks and flower in the upcoming summer, set seeds once, and die. Occasionally, the flowering plants will produce seeds that directly germinate into small/medium/large rosettes without entering dormancy.
 
 Here is a transition diagram for the teasel. Please convert this diagram into a stage-based transition matrix (Lefkovitch matrix) and derive the asymptotic growth rate $\lambda$ in R. 
 
