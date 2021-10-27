@@ -58,7 +58,7 @@ patch_prop <- ode(func = plant_soil_model, times = times, y = state, parms = par
 patch_prop %>%
   as.data.frame() %>%
   pivot_longer(cols = -time, names_to = "patch", values_to = "prop") %>%
-  ggplot(aes(x = time, y = prop, color = patch)) + 
+  ggplot(aes(x = time, y = prop, color = fct_reorder(patch, prop, last,  .desc = T))) + 
   geom_line(size = 1.5) +
   theme_classic(base_size = 12) +
   labs(x = "Time", y = "Proportion") +
