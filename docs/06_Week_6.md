@@ -33,18 +33,18 @@ library(tidyverse)
 ### Model specification
 plant_soil_model <- function(times, state, parms) {
   with(as.list(c(state, parms)), {
-    dPoo_dt = PoA*dA + PAo*mA - Poo*(PAo + PAA)*RA
-    dPAo_dt = Poo*(PAo + PAA)*RA - PAo*mA - PAo*CA
-    dPAA_dt = PAo*CA - PAA*mA + PoA*(PAo + PAA)*RA*a
-    dPoA_dt = PAA*mA - PoA*(PAo + PAA)*RA*a - PoA*dA
+    dP00_dt = P0A*dA + PA0*mA - P00*(PA0 + PAA)*RA
+    dPA0_dt = P00*(PA0 + PAA)*RA - PA0*mA - PA0*CA
+    dPAA_dt = PA0*CA - PAA*mA + P0A*(PA0 + PAA)*RA*a
+    dP0A_dt = PAA*mA - P0A*(PA0 + PAA)*RA*a - P0A*dA
     
-    return(list(c(dPoo_dt, dPAo_dt, dPAA_dt, dPoA_dt)))
+    return(list(c(dP00_dt, dPA0_dt, dPAA_dt, dP0A_dt)))
   })
 }
 
 ### Model parameters
 times <- seq(0, 20, by = 0.1)
-state <- c(Poo = 0.25, PAo = 0.25, PAA = 0.25, PoA = 0.25)
+state <- c(P00 = 0.25, PA0 = 0.25, PAA = 0.25, P0A = 0.25)
 parms <- c(RA = 0.5, mA = 0.1, CA = 0.5, dA = 0.4, a = 0.7)
 
 ### ODE solver
