@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Week 6 | Introduction to Theoretical Ecology</title>
   <meta name="description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Week 6 | Introduction to Theoretical Ecology" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/" />
-  <meta property="og:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/bifurcation.gif" />
+  <meta property="og:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology//bifurcation.gif" />
   <meta property="og:description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
   <meta name="github-repo" content="GenChangHSU/2021_Fall_Introduction_to_Theoretical_Ecology" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Week 6 | Introduction to Theoretical Ecology" />
   
   <meta name="twitter:description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
-  <meta name="twitter:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/bifurcation.gif" />
+  <meta name="twitter:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology//bifurcation.gif" />
 
 <meta name="author" content="Instructor: Po-Ju Ke ~~~~~ Teaching Assistant: Gen-Chang Hsu" />
 
@@ -32,9 +32,8 @@
   
 <link rel="prev" href="week-5.html"/>
 
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,8 +49,11 @@
 
 
 
+
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -137,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course Information</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i>Syllabus</a></li>
 <li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html"><i class="fa fa-check"></i>Week 1</a>
 <ul>
 <li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html#lecture-in-a-nutshell"><i class="fa fa-check"></i>Lecture in a nutshell</a></li>
@@ -233,40 +236,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lab-demonstration-5" class="section level2 unnumbered">
 <h2>Lab demonstration</h2>
 <p><img src="Plant_soil_model.png" width= "100%"/></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="week-6.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span>
-<span id="cb1-2"><a href="week-6.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="week-6.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="week-6.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Model specification</span></span>
-<span id="cb1-5"><a href="week-6.html#cb1-5" aria-hidden="true" tabindex="-1"></a>plant_soil_model <span class="ot">&lt;-</span> <span class="cf">function</span>(times, state, parms) {</span>
-<span id="cb1-6"><a href="week-6.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
-<span id="cb1-7"><a href="week-6.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    dPoo_dt <span class="ot">=</span> PoA<span class="sc">*</span>dA <span class="sc">+</span> PAo<span class="sc">*</span>mA <span class="sc">-</span> Poo<span class="sc">*</span>(PAo <span class="sc">+</span> PAA)<span class="sc">*</span>RA</span>
-<span id="cb1-8"><a href="week-6.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    dPAo_dt <span class="ot">=</span> Poo<span class="sc">*</span>(PAo <span class="sc">+</span> PAA)<span class="sc">*</span>RA <span class="sc">-</span> PAo<span class="sc">*</span>mA <span class="sc">-</span> PAo<span class="sc">*</span>CA</span>
-<span id="cb1-9"><a href="week-6.html#cb1-9" aria-hidden="true" tabindex="-1"></a>    dPAA_dt <span class="ot">=</span> PAo<span class="sc">*</span>CA <span class="sc">-</span> PAA<span class="sc">*</span>mA <span class="sc">+</span> PoA<span class="sc">*</span>(PAo <span class="sc">+</span> PAA)<span class="sc">*</span>RA<span class="sc">*</span>a</span>
-<span id="cb1-10"><a href="week-6.html#cb1-10" aria-hidden="true" tabindex="-1"></a>    dPoA_dt <span class="ot">=</span> PAA<span class="sc">*</span>mA <span class="sc">-</span> PoA<span class="sc">*</span>(PAo <span class="sc">+</span> PAA)<span class="sc">*</span>RA<span class="sc">*</span>a <span class="sc">-</span> PoA<span class="sc">*</span>dA</span>
-<span id="cb1-11"><a href="week-6.html#cb1-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-12"><a href="week-6.html#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dPoo_dt, dPAo_dt, dPAA_dt, dPoA_dt)))</span>
-<span id="cb1-13"><a href="week-6.html#cb1-13" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb1-14"><a href="week-6.html#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-15"><a href="week-6.html#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="week-6.html#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="do">### Model parameters</span></span>
-<span id="cb1-17"><a href="week-6.html#cb1-17" aria-hidden="true" tabindex="-1"></a>times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
-<span id="cb1-18"><a href="week-6.html#cb1-18" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Poo =</span> <span class="fl">0.25</span>, <span class="at">PAo =</span> <span class="fl">0.25</span>, <span class="at">PAA =</span> <span class="fl">0.25</span>, <span class="at">PoA =</span> <span class="fl">0.25</span>)</span>
-<span id="cb1-19"><a href="week-6.html#cb1-19" aria-hidden="true" tabindex="-1"></a>parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">RA =</span> <span class="fl">0.5</span>, <span class="at">mA =</span> <span class="fl">0.1</span>, <span class="at">CA =</span> <span class="fl">0.5</span>, <span class="at">dA =</span> <span class="fl">0.4</span>, <span class="at">a =</span> <span class="fl">0.7</span>)</span>
-<span id="cb1-20"><a href="week-6.html#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="week-6.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="do">### ODE solver</span></span>
-<span id="cb1-22"><a href="week-6.html#cb1-22" aria-hidden="true" tabindex="-1"></a>patch_prop <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">func =</span> plant_soil_model, <span class="at">times =</span> times, <span class="at">y =</span> state, <span class="at">parms =</span> parms)</span>
-<span id="cb1-23"><a href="week-6.html#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="week-6.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="do">### Visualization</span></span>
-<span id="cb1-25"><a href="week-6.html#cb1-25" aria-hidden="true" tabindex="-1"></a>patch_prop <span class="sc">%&gt;%</span></span>
-<span id="cb1-26"><a href="week-6.html#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb1-27"><a href="week-6.html#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>time, <span class="at">names_to =</span> <span class="st">&quot;patch&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;prop&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-28"><a href="week-6.html#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> prop, <span class="at">color =</span> <span class="fu">fct_reorder</span>(patch, prop, last,  <span class="at">.desc =</span> T))) <span class="sc">+</span> </span>
-<span id="cb1-29"><a href="week-6.html#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb1-30"><a href="week-6.html#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb1-31"><a href="week-6.html#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Proportion&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1-32"><a href="week-6.html#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">20.5</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb1-33"><a href="week-6.html#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.8</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb1-34"><a href="week-6.html#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)    </span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="week-6.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span>
+<span id="cb29-2"><a href="week-6.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb29-3"><a href="week-6.html#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="week-6.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Model specification</span></span>
+<span id="cb29-5"><a href="week-6.html#cb29-5" aria-hidden="true" tabindex="-1"></a>plant_soil_model <span class="ot">&lt;-</span> <span class="cf">function</span>(times, state, parms) {</span>
+<span id="cb29-6"><a href="week-6.html#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
+<span id="cb29-7"><a href="week-6.html#cb29-7" aria-hidden="true" tabindex="-1"></a>    dPoo_dt <span class="ot">=</span> PoA<span class="sc">*</span>dA <span class="sc">+</span> PAo<span class="sc">*</span>mA <span class="sc">-</span> Poo<span class="sc">*</span>(PAo <span class="sc">+</span> PAA)<span class="sc">*</span>RA</span>
+<span id="cb29-8"><a href="week-6.html#cb29-8" aria-hidden="true" tabindex="-1"></a>    dPAo_dt <span class="ot">=</span> Poo<span class="sc">*</span>(PAo <span class="sc">+</span> PAA)<span class="sc">*</span>RA <span class="sc">-</span> PAo<span class="sc">*</span>mA <span class="sc">-</span> PAo<span class="sc">*</span>CA</span>
+<span id="cb29-9"><a href="week-6.html#cb29-9" aria-hidden="true" tabindex="-1"></a>    dPAA_dt <span class="ot">=</span> PAo<span class="sc">*</span>CA <span class="sc">-</span> PAA<span class="sc">*</span>mA <span class="sc">+</span> PoA<span class="sc">*</span>(PAo <span class="sc">+</span> PAA)<span class="sc">*</span>RA<span class="sc">*</span>a</span>
+<span id="cb29-10"><a href="week-6.html#cb29-10" aria-hidden="true" tabindex="-1"></a>    dPoA_dt <span class="ot">=</span> PAA<span class="sc">*</span>mA <span class="sc">-</span> PoA<span class="sc">*</span>(PAo <span class="sc">+</span> PAA)<span class="sc">*</span>RA<span class="sc">*</span>a <span class="sc">-</span> PoA<span class="sc">*</span>dA</span>
+<span id="cb29-11"><a href="week-6.html#cb29-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-12"><a href="week-6.html#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dPoo_dt, dPAo_dt, dPAA_dt, dPoA_dt)))</span>
+<span id="cb29-13"><a href="week-6.html#cb29-13" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb29-14"><a href="week-6.html#cb29-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-15"><a href="week-6.html#cb29-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-16"><a href="week-6.html#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="do">### Model parameters</span></span>
+<span id="cb29-17"><a href="week-6.html#cb29-17" aria-hidden="true" tabindex="-1"></a>times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb29-18"><a href="week-6.html#cb29-18" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Poo =</span> <span class="fl">0.25</span>, <span class="at">PAo =</span> <span class="fl">0.25</span>, <span class="at">PAA =</span> <span class="fl">0.25</span>, <span class="at">PoA =</span> <span class="fl">0.25</span>)</span>
+<span id="cb29-19"><a href="week-6.html#cb29-19" aria-hidden="true" tabindex="-1"></a>parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">RA =</span> <span class="fl">0.5</span>, <span class="at">mA =</span> <span class="fl">0.1</span>, <span class="at">CA =</span> <span class="fl">0.5</span>, <span class="at">dA =</span> <span class="fl">0.4</span>, <span class="at">a =</span> <span class="fl">0.7</span>)</span>
+<span id="cb29-20"><a href="week-6.html#cb29-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-21"><a href="week-6.html#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="do">### ODE solver</span></span>
+<span id="cb29-22"><a href="week-6.html#cb29-22" aria-hidden="true" tabindex="-1"></a>patch_prop <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">func =</span> plant_soil_model, <span class="at">times =</span> times, <span class="at">y =</span> state, <span class="at">parms =</span> parms)</span>
+<span id="cb29-23"><a href="week-6.html#cb29-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-24"><a href="week-6.html#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="do">### Visualization</span></span>
+<span id="cb29-25"><a href="week-6.html#cb29-25" aria-hidden="true" tabindex="-1"></a>patch_prop <span class="sc">%&gt;%</span></span>
+<span id="cb29-26"><a href="week-6.html#cb29-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb29-27"><a href="week-6.html#cb29-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>time, <span class="at">names_to =</span> <span class="st">&quot;patch&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;prop&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-28"><a href="week-6.html#cb29-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> prop, <span class="at">color =</span> <span class="fu">fct_reorder</span>(patch, prop, last,  <span class="at">.desc =</span> T))) <span class="sc">+</span> </span>
+<span id="cb29-29"><a href="week-6.html#cb29-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb29-30"><a href="week-6.html#cb29-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb29-31"><a href="week-6.html#cb29-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Proportion&quot;</span>) <span class="sc">+</span></span>
+<span id="cb29-32"><a href="week-6.html#cb29-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">20.5</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb29-33"><a href="week-6.html#cb29-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.8</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb29-34"><a href="week-6.html#cb29-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)    </span></code></pre></div>
 <p><img src="06_Week_6_files/figure-html/unnamed-chunk-1-1.png" width="70%" style="display: block; margin: auto;" />
 <br></p>
 </div>
@@ -291,6 +294,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -330,10 +334,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
