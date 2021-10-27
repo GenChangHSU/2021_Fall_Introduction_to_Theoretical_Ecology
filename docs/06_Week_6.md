@@ -23,22 +23,57 @@
 
 ## Lab demonstration {-}
 
-<br>
-<br>
-<br>
-<br>
+<img src="./Plant_soil_model.png" width= "100%"/>
+
+
+```r
+library(deSolve)
+library(tidyverse)
+
+### Model specification
+plant_soil_model <- function(times, state, parms) {
+  with(as.list(c(state, parms)), {
+    dPoo_dt = PoA*dA + PAo*mA - Poo*(PAo + PAA)*RA
+    dPAo_dt = Poo*(PAo + PAA)*RA - PAo*mA - PAo*CA
+    dPAA_dt = PAo*CA - PAA*mA + PoA*(PAo + PAA)*RA*a
+    dPoA_dt = PAA*mA - PoA*(PAo + PAA)*RA*a - PoA*dA
+    
+    return(list(c(dPoo_dt, dPAo_dt, dPAA_dt, dPoA_dt)))
+  })
+}
+
+### Model parameters
+times <- seq(0, 20, by = 0.1)
+state <- c(Poo = 0.25, PAo = 0.25, PAA = 0.25, PoA = 0.25)
+parms <- c(RA = 0.5, mA = 0.1, CA = 0.5, dA = 0.4, a = 0.7)
+
+### ODE solver
+patch_prop <- ode(func = plant_soil_model, times = times, y = state, parms = parms)
+
+### Visualization
+patch_prop %>%
+  as.data.frame() %>%
+  pivot_longer(cols = -time, names_to = "patch", values_to = "prop") %>%
+  ggplot(aes(x = time, y = prop, color = patch)) + 
+  geom_line(size = 1.5) +
+  theme_classic(base_size = 12) +
+  labs(x = "Time", y = "Proportion") +
+  scale_x_continuous(limits = c(0, 20.5), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, 0.8), expand = c(0, 0)) +
+  scale_color_brewer(name = NULL, palette = "Set1")    
+```
+
+<img src="06_Week_6_files/figure-html/unnamed-chunk-1-1.png" width="70%" style="display: block; margin: auto;" />
 <br>
 
 ## Additional readings {-}
 
-<br>
-<br>
-<br>
-<br>
+[Otto & Day Chapter 2 - How to Construct a Model](./Additional readings/Otto_&_Day_Chapter2.pdf){target="_blank"}
+
 <br>
 
 ## Assignments {-}
 
-[](./Assignments/.pdf){target="_blank"}
+No assignments this week.
 
 
