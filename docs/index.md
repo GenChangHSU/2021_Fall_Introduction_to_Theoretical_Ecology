@@ -125,7 +125,7 @@ Below are the textbook references:
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 6** <span style="vertical-align:-30%"> </span>
            <br> 02-Nov-2021 </td>
    <td style="text-align:center;width: 17em; "> Metapopulations and patch occupancy models </td>
-   <td style="text-align:center;width: 17em; ">  </td>
+   <td style="text-align:center;width: 17em; "> Building and analyzing a model on plant-soil dynamics </td>
    <td style="text-align:left;width: 13em; "> Gotelli [Ch.4] <br> Case [Ch.16] </td>
   </tr>
   <tr>

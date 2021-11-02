@@ -10,21 +10,60 @@ knitr::opts_chunk$set(message = F,
 
 ## Lecture in a nutshell {-}
 
-* **Topic:**
-    1. 
-    2. 
-    3. 
-    
+* **Metapopulations:**
+    1. A group of local populations linked by dispersal
+    2. Timescale separation: "patch" as the basic model unit; ignoring the population dynamics within each patch
+    3. Assumptions:
+        1. Homogeneous patches
+        2. No explicit spatial structure (global dispersal; distance-independent)
+        3. No time lag
+        4. Colonization/extinction rates are time-independent but can depend on current occupancy
+        5. Sufficiently large numbers of patches
+    4. Modeling the probability (fraction) of patches being occupied $P_{(t)}$: $\\\begin{aligned}\frac{dP}{dt}&=I-E\\&=C_{(P)}(1-P)-e_{(P)}P \\&= local~colonization - local~extinction \end{aligned}$ 
+        
 <div style="height:1px ;"><br></div>
 
-* **Topic:**
-    1. 
-    2. 
-    3.
+* **Mainland-island model:**
+    1. Mainland as a permanent external source of propagules
+    2. Constant immigration from mainland (i.e., constant colonization rate): $C_{(P)} = C_{0}$ 
+    3. Constant extinction rate of occupied islands: $e_{(P)} = e_{0}$
+    4. No dispersal among islands
+    5. Modeling the patch dynamics:
+        * System equation: $\frac{dP}{dt}=C_{0}(1-P)-e_{0}P$
+        * Equilibrium point $P^{*} = \frac {C_{0}}{C_{0} + e_{0}}$
+        * Local stability analysis: $\frac {d}{dP}(\frac {dP}{dt})|_{P = P*} = - (C_{0} + e_{0}) < 0$
+        * Equilibrium is stable: metapopulations always persist even if $C_{0} < e_{0}$ because mainland is the constant stable propagule source 
 
-<div style="height:1px ;"><br></div>    
+<div style="height:1px ;"><br></div>
+
+* **Internal colonization model:**
+    1. No mainland; occupied patches are progagule sources
+    2. No dispersal among patches
+    3. Colonization rate depends on current patch occupancy: $C_{(P)} = C_{1}P ~ (C_{1} > 0)$
+    4. Constant extinction rate of occupied patches: $e_{(P)} = e_{0}$
+    5. Modeling the patch dynamics:
+        * System equation: $\frac{dP}{dt}=C_{1}P(1-P)-e_{0}P$
+        * Equilibrium point $P^{*} = 0$ and $1- \frac {e_{0}}{C_{1}}$
+        * Local stability analysis: $\frac {d}{dP}(\frac {dP}{dt})|_{P = P*} = C_{1}(1-P^{*}) - e_{0} - P^{*}C_{1}$
+        * Equilibrium $P^{*} = 1- \frac {e_{0}}{C_{1}}$ is stable when $C_{1} > e_{0}$ ($P^{*} = 0$ is unstable)
+        * Equilibrium $P^{*} = 1- \frac {e_{0}}{C_{1}}$ is unstable when $C_{1} < e_{0}$ ($P^{*} = 0$ is stable)
+        * Metapopulations may not always persist depending on the relative magnitude of colonization and extinction rate
+
+<div style="height:1px ;"><br></div>
+
+* **Mainland-island model with rescue effect:**
+    1. Rescue effect: higher overall occupancy will reduce the extinction rate of the islands
+    2. Constant immigration from mainland: $C_{(P)} = C_{0}$ 
+    3. Extinction rate depends on the fraction of unoccupied islands: $e_{(P)} = e_{1}(1-P)$
+    4. Modeling the patch dynamics:
+        * System equation: $\frac{dP}{dt}=C_{0}(1-P)-e_{1}(1-P)P$
+        * Equilibrium point $P^{*} = 1$ and $\frac {C_{0}}{e_{1}}$
+        * Local stability analysis: $\frac {d}{dP}(\frac {dP}{dt})|_{P = P*} = -(C_{0}-(e_{1}P^{*}) - (1-P^{*})e_{1}$
+        * Equilibrium $P^{*} = \frac {C_{0}}{e_{1}}$ is unstable when $C_{0} > e_{1}$ ($P^{*} = 1$ is stable)
+        * Equilibrium $P^{*} = \frac {C_{0}}{e_{1}}$ is stable when $C_{0} < e_{1}$ ($P^{*} = 1$ is unstable)
+        * Metapopulations always persist regardless of the colonization and extinction rate
+
 <br>
-
 
 ## Lab demonstration {-}
 
@@ -45,7 +84,7 @@ Here, $P_{00}$ can be colonized by plant $A$ when propagules arrive, transitioni
 
 In this lab, we are going to model the dynamics of this plant-soil system. We will start by converting the flow diagram into a set of differential equations and then solve them numerically using the package `deSolve`. 
 
-```{r, fig.width = 6, fig.height = 4, out.width = "70%", fig.align = "center", eval=FALSE, echo=F, include=F}
+```{r, fig.width = 6, fig.height = 4, out.width = "70%", fig.align = "center"}
 library(deSolve)
 library(tidyverse)
 

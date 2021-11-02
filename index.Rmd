@@ -144,7 +144,7 @@ syllabus <- tibble(
           'Solving logistic growth equation using "deSolve" & Visualization',
           "Modeling discrete logistic growth using for loops & Visualization",
           "Analyzing Leslie matrix using for loops and eigenanalysis",
-          "",
+          "Building and analyzing a model on plant-soil dynamics",
           "",
           "",
           " \\- ",
