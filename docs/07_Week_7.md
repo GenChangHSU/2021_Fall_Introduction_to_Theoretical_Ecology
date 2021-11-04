@@ -28,7 +28,7 @@ In this lab, we are going to analyze the two-species Lotka-Volterra competition 
 
 <br>
 
-Here are the phase planes of the systems in which (1) two species exhibit stable coexistence and (2) two species exhibit unstable coexistence (saddle point).
+Here are the phase planes of the systems in which (1) two species exhibit stable coexistence and (2) two species exhibit unstable coexistence (saddle).
 
 
 ```r
@@ -78,13 +78,13 @@ phase_plane <- function(r1, r2, a11, a21, a22, a12, title, shape){
     labs(title = title)
 }
 
-phase_plane(r1 = 1.2, r2 = 1.2, a11 = 1/200, a21 = 1/300, a22 = 1/200, a12 = 1/300, title = "Stable Coexistence", shape = 16)
+phase_plane(r1 = 1.2, r2 = 1.2, a11 = 1/200, a21 = 1/300, a22 = 1/200, a12 = 1/300, title = "Stable coexistence", shape = 16)
 ```
 
 <img src="07_Week_7_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" />
 
 ```r
-phase_plane(r1 = 1.2, r2 = 1.2, a11 = 1/300, a21 = 1/200, a22 = 1/300, a12 = 1/200, title = "Unstable Coexistence (saddle)", shape = 1)
+phase_plane(r1 = 1.2, r2 = 1.2, a11 = 1/300, a21 = 1/200, a22 = 1/300, a12 = 1/200, title = "Unstable coexistence (saddle)", shape = 1)
 ```
 
 <img src="07_Week_7_files/figure-html/unnamed-chunk-2-2.png" width="70%" style="display: block; margin: auto;" />
