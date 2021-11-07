@@ -101,7 +101,7 @@ Below are the textbook references:
            <br> 02-Nov-2021 & Metapopulations and patch occupancy models & Building and analyzing a model on plant-soil dynamics & Gotelli [Ch.4] <br> Case [Ch.16]\\
 \hline
 **Week 7** <span style='vertical-align:-30%'> </span>
-           <br> 09-Nov-2021 & Lotka-Volterra model of competition: graphical analysis &  & Gotelli [Ch.5] <br> Case [Ch.14]\\
+           <br> 09-Nov-2021 & Lotka-Volterra model of competition: graphical analysis & Analyzing the system dynamics of Lotka-Volterra competition model & Gotelli [Ch.5] <br> Case [Ch.14]\\
 \hline
 **Week 8** <span style='vertical-align:-30%'> </span>
            <br> 16-Nov-2021 & Lotka-Volterra model of competition: linear stability analysis &  & Otto & Day [Ch.8]\\
