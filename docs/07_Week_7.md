@@ -39,11 +39,16 @@
 Four cases:
     1. Species A wins: $E_{A} = (\frac {r_{A}}{\alpha_{AA}}, 0)$ when $\frac {r_{A}}{\alpha_{AA}} > \frac {r_{B}}{\alpha_{BA}}$ and $\frac {r_{A}}{\alpha_{AB}} > \frac {r_{B}}{\alpha_{BB}}$
     
+    <img src="./LV_Comp1.png" width = "70%"/>
     2. Species B wins: $E_{B} = (0, \frac {r_{B}}{\alpha_{BB}})$ when $\frac {r_{A}}{\alpha_{AA}} < \frac {r_{B}}{\alpha_{BA}}$ and $\frac {r_{A}}{\alpha_{AB}} < \frac {r_{B}}{\alpha_{BB}}$
     
+    <img src="./LV_Comp2.png" width = "70%"/>
     3. Species A and B coexist (stable): $E_{AB} = (\frac {r_{A}r_{B}(\frac {\alpha_{BB}}{r_{B}}-\frac {\alpha_{AB}}{r_{A}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}}, \frac {r_{A}r_{B}(\frac {\alpha_{AA}}{r_{A}}-\frac {\alpha_{BA}}{r_{B}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}})$ when $\frac {r_{B}}{\alpha_{BA}} > \frac {r_{A}}{\alpha_{AA}}$ and $\frac {r_{A}}{\alpha_{AB}} > \frac {r_{B}}{\alpha_{BB}}$
     
+    <img src="./LV_Comp3.png" width = "70%"/>
     4. Species A and B coexist (unstable; there are alternative stable states $E_{A}$ and $E_{B}$ depending on the initial condition): $E_{AB} = (\frac {r_{A}r_{B}(\frac {\alpha_{BB}}{r_{B}}-\frac {\alpha_{AB}}{r_{A}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}}, \frac {r_{A}r_{B}(\frac {\alpha_{AA}}{r_{A}}-\frac {\alpha_{BA}}{r_{B}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}})$ when $\frac {r_{B}}{\alpha_{BA}} < \frac {r_{A}}{\alpha_{AA}}$ and $\frac {r_{A}}{\alpha_{AB}} < \frac {r_{B}}{\alpha_{BB}}$
+    
+    <img src="./LV_Comp4.png" width = "70%"/>
 
 **Take-home message**: For the two species to coexist stably, the (intraspecific) effect each species imposes on itself should be greater than the (interspecific) effect it imposes on the other species.
 
