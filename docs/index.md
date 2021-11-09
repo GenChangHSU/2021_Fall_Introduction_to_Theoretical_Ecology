@@ -132,14 +132,14 @@ Below are the textbook references:
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 7** <span style="vertical-align:-30%"> </span>
            <br> 09-Nov-2021 </td>
    <td style="text-align:center;width: 17em; "> Lotka-Volterra model of competition: graphical analysis </td>
-   <td style="text-align:center;width: 17em; "> Analyzing the system dynamics of Lotka-Volterra competition model </td>
+   <td style="text-align:center;width: 17em; "> Visualizing state-phase diagrams of Lotka-Volterra competition model </td>
    <td style="text-align:left;width: 13em; "> Gotelli [Ch.5] <br> Case [Ch.14] </td>
   </tr>
   <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 8** <span style="vertical-align:-30%"> </span>
            <br> 16-Nov-2021 </td>
    <td style="text-align:center;width: 17em; "> Lotka-Volterra model of competition: linear stability analysis </td>
-   <td style="text-align:center;width: 17em; ">  </td>
+   <td style="text-align:center;width: 17em; "> Analyzing system dynamics of Lotka-Volterra competition model </td>
    <td style="text-align:left;width: 13em; "> Otto &amp; Day [Ch.8] </td>
   </tr>
   <tr>

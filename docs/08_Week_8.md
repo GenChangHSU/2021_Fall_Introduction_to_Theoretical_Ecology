@@ -23,10 +23,9 @@
 
 ## Lab demonstration {-}
 
-<br>
-<br>
-<br>
-<br>
+In this lab, we are going to analyze the two-species Lotka-Volterra competition model numerically and visualize the population dynamics under different parameter settings.
+
+
 <br>
 
 ## Additional readings {-}

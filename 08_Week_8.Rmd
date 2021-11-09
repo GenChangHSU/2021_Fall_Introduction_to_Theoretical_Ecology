@@ -28,10 +28,50 @@ knitr::opts_chunk$set(message = F,
 
 ## Lab demonstration {-}
 
-<br>
-<br>
-<br>
-<br>
+In this lab, we are going to analyze the two-species Lotka-Volterra competition model numerically and visualize the population dynamics under different parameter settings.
+
+```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center", include=F, echo=F}
+library(tidyverse)
+library(deSolve)
+
+LV_pop_dynamics <- function(r1 = 1.4, r2 = 1.2, a11 = 1/200, a21 = 1/400, a22 = 1/200, a12 = 1/300, N1_0 = 10, N2_0 = 10) {
+    
+### Model specification
+LV_competition_model <- function(times, state, parms) {
+  with(as.list(c(state, parms)), {
+    dN1_dt = N1*(r1-a11*N1-a12*N2)  
+    dN2_dt = N2*(r2-a22*N2-a21*N1)
+    return(list(c(dN1_dt, dN2_dt)))
+  })
+}
+
+### Model parameters
+times <- seq(0, 100, by = 0.1)
+state <- c(N1 = N1_0, N2 = N2_0)
+parms <- c(r1 = r1, r2 = r2, a11 = a11, a21 = a21, a22 = a22, a12 = a12)
+
+### Model application
+pop_size <- ode(func = LV_competition_model, times = times, y = state, parms = parms)
+
+### Visualize the population dynamics
+pop_size %>%
+  as.data.frame() %>%
+  pivot_longer(cols = -time, names_to = "species", values_to = "N") %>%
+  ggplot(aes(x = time, y = N, color = species)) + 
+  geom_line(size = 1.5) +
+  theme_classic(base_size = 12) +
+  labs(x = "Time", y = "Population size") +
+  scale_x_continuous(limits = c(0, 100.5), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, max(pop_size)*1.2), expand = c(0, 0)) +
+  scale_color_brewer(name = NULL, palette = "Set1")
+}
+
+### Different parameter settings
+LV_pop_dynamics(r1 = 1.4, r2 = 1.2, a11 = 1/200, a21 = 1/400, a22 = 1/200, a12 = 1/300, N1_0 = 10, N2_0 = 10)  # stable coexistence
+LV_pop_dynamics(r1 = 1.2, r2 = 1.2, a11 = 1/200, a21 = 1/100, a22 = 1/100, a12 = 1/300, N1_0 = 10, N2_0 = 10)  # N1 wins
+LV_pop_dynamics(r1 = 1.2, r2 = 1.2, a11 = 1/200, a21 = 1/500, a22 = 1/500, a12 = 1/300, N1_0 = 10, N2_0 = 10)  # N2 wins
+
+```
 <br>
 
 ## Additional readings {-}
