@@ -38,9 +38,9 @@ In this lab, we are going to analyze the two-species Lotka-Volterra competition 
 
 ## Assignments {-}
 
-<!-- [](./Assignments/.pdf){target="_blank"} -->
+[Linear Stability Analysis of Lotka-Volterra Competition Model](./Assignments/Week8_LV Competition Model.pdf){target="_blank"}
 
-<!-- [Suggested Solutions](./Assignments/.pdf){target="_blank"} -->
+<!-- [Suggested Solutions](./Assignments/Week8_LV Competition Model_with_Solutions.pdf){target="_blank"} -->
 
 
 
