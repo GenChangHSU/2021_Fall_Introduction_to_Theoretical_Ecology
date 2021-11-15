@@ -5,7 +5,7 @@ knitr::opts_chunk$set(message = F,
 
 ```
 
-# Week 8  {-} 
+# Week 8 {-} 
 <div style = "font-size: 28pt"> **_Lotka-Volterra model of competition: linear stability analysis_**</div>
 
 ## Lecture in a nutshell {-}
@@ -14,6 +14,13 @@ knitr::opts_chunk$set(message = F,
     1. 
     2. 
     3. 
+
+$\frac {dN_{A}}{dt} = N_{A}(r_{A}-\alpha_{AA}N_{A}-\alpha_{AB}N_{B})$
+$\frac {dN_{B}}{dt} = N_{B}(r_{B}-\alpha_{BB}N_{B}-\alpha_{BA}N_{A})$
+
+$J = \begin{vmatrix}\frac {\partial }{\partial N_{A}} \frac {dN_{A}}{dt} & 0\\0 & 0\end{vmatrix}$
+$J = \begin{vmatrix}0 & 0\\0 & 0\end{vmatrix}$
+
     
 <div style="height:1px ;"><br></div>
 
