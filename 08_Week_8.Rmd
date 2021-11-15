@@ -21,6 +21,17 @@ $\frac {dN_{B}}{dt} = N_{B}(r_{B}-\alpha_{BB}N_{B}-\alpha_{BA}N_{A})$
 $J = \begin{vmatrix}\frac {\partial }{\partial N_{A}} \frac {dN_{A}}{dt} & 0\\0 & 0\end{vmatrix}$
 $J = \begin{vmatrix}0 & 0\\0 & 0\end{vmatrix}$
 
+Four cases:
+    1. Species A wins: $E_{A} = (\frac {r_{A}}{\alpha_{AA}}, 0)$ 
+        * Jacobian matrix: $J = \begin{vmatrix}0 & 0\\0 & 0\end{vmatrix}$
+        * Eigenvalues: $\lambda_{1} = and~\lambda_{2} = $
+        * Stability criteria: $\frac {r_{A}}{\alpha_{AA}} > \frac {r_{B}}{\alpha_{BA}}$ and $\frac {r_{A}}{\alpha_{AB}} > \frac {r_{B}}{\alpha_{BB}}$
+    
+    2. Species B wins: $E_{B} = (0, \frac {r_{B}}{\alpha_{BB}})$ when $\frac {r_{A}}{\alpha_{AA}} < \frac {r_{B}}{\alpha_{BA}}$ and $\frac {r_{A}}{\alpha_{AB}} < \frac {r_{B}}{\alpha_{BB}}$
+    
+    3. Species A and B coexist (stable): $E_{AB} = (\frac {r_{A}r_{B}(\frac {\alpha_{BB}}{r_{B}}-\frac {\alpha_{AB}}{r_{A}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}}, \frac {r_{A}r_{B}(\frac {\alpha_{AA}}{r_{A}}-\frac {\alpha_{BA}}{r_{B}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}})$ when $\frac {r_{B}}{\alpha_{BA}} > \frac {r_{A}}{\alpha_{AA}}$ and $\frac {r_{A}}{\alpha_{AB}} > \frac {r_{B}}{\alpha_{BB}}$
+    
+    4. Species A and B coexist (unstable; there are alternative stable states $E_{A}$ and $E_{B}$ depending on the initial condition): $E_{AB} = (\frac {r_{A}r_{B}(\frac {\alpha_{BB}}{r_{B}}-\frac {\alpha_{AB}}{r_{A}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}}, \frac {r_{A}r_{B}(\frac {\alpha_{AA}}{r_{A}}-\frac {\alpha_{BA}}{r_{B}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}})$ when $\frac {r_{B}}{\alpha_{BA}} < \frac {r_{A}}{\alpha_{AA}}$ and $\frac {r_{A}}{\alpha_{AB}} < \frac {r_{B}}{\alpha_{BB}}$
     
 <div style="height:1px ;"><br></div>
 
