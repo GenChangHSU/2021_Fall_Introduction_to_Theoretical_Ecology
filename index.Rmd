@@ -133,7 +133,7 @@ syllabus <- tibble(
                       "Midterm exam",
                       "Modern coexistence theory & Mutualism",
                       "Predator-prey interactions",
-                      "Resorce competition: R^*^ models",
+                      "Resorce competition: R* models",
                       "Multispecies models of competition: apparent competition",
                       "Disease dynamics and SIR models",
                       "Ecosystem models and feedbacks",

@@ -220,16 +220,35 @@ where <span class="math inline">\(\lambda_{1}\)</span> and <span class="math inl
 <ul>
 <li><strong>Local stability analysis of the four equilibrium points</strong>
 <ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(E_{0} = (0, 0)\)</span></p></li>
-<li><p><span class="math inline">\(E_{A} = (\frac {r_{A}}{\alpha_{AA}}, 0)\)</span></p>
+<li><span class="math inline">\(E_{0} = (0, 0)\)</span>:
 <ul>
-<li>Jacobian matrix: <span class="math inline">\(J|_{E_{0}} = \begin{vmatrix}0 &amp; 0\\0 &amp; 0\end{vmatrix}\)</span></li>
-<li>Eigenvalues: $<em>{1} = and~</em>{2} = $</li>
-<li>Stability criteria: <span class="math inline">\(\frac {r_{A}}{\alpha_{AA}} &gt; \frac {r_{B}}{\alpha_{BA}}\)</span> and <span class="math inline">\(\frac {r_{A}}{\alpha_{AB}} &gt; \frac {r_{B}}{\alpha_{BB}}\)</span></li>
+<li><span class="math inline">\(J_{E_{0}} = \begin{vmatrix}r_{A} &amp; 0 \\ 0 &amp; r_{B}\end{vmatrix}\)</span></li>
+<li><span class="math inline">\(\lambda&#39;s = r_{A}\)</span> and <span class="math inline">\(r_{B}\)</span> (both &gt; 0)</li>
+<li>Unstable</li>
 </ul></li>
-<li><p><span class="math inline">\(E_{B} = (0, \frac {r_{B}}{\alpha_{BB}})\)</span> when <span class="math inline">\(\frac {r_{A}}{\alpha_{AA}} &lt; \frac {r_{B}}{\alpha_{BA}}\)</span> and <span class="math inline">\(\frac {r_{A}}{\alpha_{AB}} &lt; \frac {r_{B}}{\alpha_{BB}}\)</span></p></li>
-<li><p><span class="math inline">\(E_{AB} = (\frac {r_{A}r_{B}(\frac {\alpha_{BB}}{r_{B}}-\frac {\alpha_{AB}}{r_{A}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}}, \frac {r_{A}r_{B}(\frac {\alpha_{AA}}{r_{A}}-\frac {\alpha_{BA}}{r_{B}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}})\)</span> when <span class="math inline">\(\frac {r_{B}}{\alpha_{BA}} &gt; \frac {r_{A}}{\alpha_{AA}}\)</span> and <span class="math inline">\(\frac {r_{A}}{\alpha_{AB}} &gt; \frac {r_{B}}{\alpha_{BB}}\)</span></p></li>
-<li><p>ecies A and B coexist (unstable; there are alternative stable states <span class="math inline">\(E_{A}\)</span> and <span class="math inline">\(E_{B}\)</span> depending on the initial condition): <span class="math inline">\(E_{AB} = (\frac {r_{A}r_{B}(\frac {\alpha_{BB}}{r_{B}}-\frac {\alpha_{AB}}{r_{A}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}}, \frac {r_{A}r_{B}(\frac {\alpha_{AA}}{r_{A}}-\frac {\alpha_{BA}}{r_{B}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}})\)</span> when <span class="math inline">\(\frac {r_{B}}{\alpha_{BA}} &lt; \frac {r_{A}}{\alpha_{AA}}\)</span> and <span class="math inline">\(\frac {r_{A}}{\alpha_{AB}} &lt; \frac {r_{B}}{\alpha_{BB}}\)</span></p></li>
+<li><span class="math inline">\(E_{A} = (\frac {r_{A}}{\alpha_{AA}}, 0)\)</span>:
+<ul>
+<li><span class="math inline">\(J_{E_{A}} = \begin{vmatrix}-r_{A} &amp; -\alpha_{AB}(\frac {r_{A}}{\alpha_{AA}}) \\ 0 &amp; r_{B}-\alpha_{BA}(\frac {r_{A}}{\alpha_{AA}})\end{vmatrix}\)</span></li>
+<li><span class="math inline">\(\lambda&#39;s = -r_{A}\)</span> and <span class="math inline">\(r_{B}-\alpha_{BA}(\frac {r_{A}}{\alpha_{AA}})\)</span></li>
+<li>Stability criteria: <span class="math inline">\(\frac {\alpha_{BA}}{r_{B}} &gt; \frac {\alpha_{AA}}{r_{A}}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(E_{B} = (0, \frac {r_{B}}{\alpha_{BB}})\)</span>:
+<ul>
+<li><span class="math inline">\(J_{E_{B}} = \begin{vmatrix}r_{A}-\alpha_{AB}(\frac {r_{B}}{\alpha_{BB}}) &amp; 0 \\ -\alpha_{BA}(\frac {r_{B}}{\alpha_{BB}}) &amp; -r_{B} \end{vmatrix}\)</span></li>
+<li><span class="math inline">\(\lambda&#39;s = -r_{B}\)</span> and <span class="math inline">\(r_{A}-\alpha_{AB}(\frac {r_{B}}{\alpha_{BB}})\)</span></li>
+<li>Stability criteria: <span class="math inline">\(\frac {\alpha_{AB}}{r_{A}} &gt; \frac {\alpha_{BB}}{r_{B}}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(E_{AB} = (\frac {r_{A}r_{B}(\frac {\alpha_{BB}}{r_{B}}-\frac {\alpha_{AB}}{r_{A}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}}, \frac {r_{A}r_{B}(\frac {\alpha_{AA}}{r_{A}}-\frac {\alpha_{BA}}{r_{B}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}}) = (N_{A}^*, N_{B}^*)\)</span>:
+<ul>
+<li><span class="math inline">\(J_{E_{AB}} = \begin{vmatrix}-\alpha_{AA}N_{A}^* &amp; -\alpha_{AB}N_{B}^* \\ -\alpha_{BA}N_{B}^* &amp; -\alpha_{BB}N_{B}^* \end{vmatrix}\)</span></li>
+<li>Characteristic equation: <span class="math inline">\(\lambda^2+(\alpha_{AA}N_{A}^*+\alpha_{BB}N_{B}^*)\lambda+N_{A}^*N_{B}^*(\alpha_{AA}\alpha_{BB}-\alpha_{AB}\alpha_{BA}) = 0\)</span></li>
+<li><span class="math inline">\(\lambda_{1} + \lambda_{2}=\frac {-b}{a} = -(\alpha_{AA}N_{A}^*+\alpha_{BB}N_{B}^*)\)</span>; <span class="math inline">\(\lambda_{1}\lambda_{2}=\frac {c}{a} = N_{A}^*N_{B}^*(\alpha_{AA}\alpha_{BB}-\alpha_{AB}\alpha_{BA})\)</span></li>
+<li>For both <span class="math inline">\(\lambda&#39;s &lt; 0\)</span>, we need <span class="math inline">\(\lambda_{1} + \lambda_{2} &lt; 0\)</span> and <span class="math inline">\(\lambda_{1}\lambda_{2} &gt; 0\)</span>:
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\lambda_{1} + \lambda_{2} &lt; 0\)</span> <span class="math inline">\(\to\)</span> <span class="math inline">\(N_{A}^*\)</span> and <span class="math inline">\(N_{B}^* &gt; 0\)</span> <span class="math inline">\(\to\)</span> <span class="math inline">\(\frac {\alpha_{BB}}{r_{B}} &gt; \frac {\alpha_{AB}}{r_{A}}\)</span> and <span class="math inline">\(\frac {\alpha_{AA}}{r_{A}} &gt; \frac {\alpha_{BA}}{r_{B}}\)</span> [feasibility]</li>
+<li><span class="math inline">\(\lambda_{1}\lambda_{2} &gt; 0\)</span> <span class="math inline">\(\to\)</span> <span class="math inline">\(\alpha_{AA}\alpha_{BB}-\alpha_{AB}\alpha_{BA} &gt; 0\)</span> [stabilization]</li>
+</ol></li>
+</ul></li>
 </ol></li>
 </ul>
 <div style="height:1px ;">
@@ -245,7 +264,7 @@ where <span class="math inline">\(\lambda_{1}\)</span> and <span class="math inl
 </th>
 <th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
 <div style="border-bottom: 1px solid #00000020; padding-bottom: 5px; ">
-Model
+a2-b2
 </div>
 </th>
 </tr>
@@ -257,38 +276,26 @@ Model
 2
 </th>
 <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;">
-a-b
-</th>
+<ul>
+<li></th>
 <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;">
-4
-</th>
+<ul>
+<li></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center;width: 5em; ">
-</td>
-<td style="text-align:center;width: 5em; ">
-</td>
-<td style="text-align:center;width: 15em; border-right:1px solid;">
-<ul>
-<li></td>
-<td style="text-align:center;width: 15em; ">
-<ul>
-<li></td>
-</tr>
-<tr>
-<td style="text-align:center;width: 5em; ">
-a-b
+a1-b1
 </td>
 <td style="text-align:center;width: 5em; ">
 <ul>
 <li></td>
 <td style="text-align:center;width: 15em; border-right:1px solid;">
-1
+EA and EB unstable <br> EAB feasible and stable <br> IGRA &gt; 0 and IGRB &gt; 0 <br> Stable coexistence
 </td>
 <td style="text-align:center;width: 15em; ">
-3
+EA unstable and EB stable <br> EAB unfeasible <br> IGRA &lt; 0 and IGRB &gt; 0 <br> Species B wins
 </td>
 </tr>
 <tr>
@@ -298,10 +305,10 @@ a-b
 <ul>
 <li></td>
 <td style="text-align:center;width: 15em; border-right:1px solid;">
-2
+EA stable and EB unstable <br> EAB unfeasible <br> IGRA &gt; 0 and IGRB &lt; 0 <br> Species A wins
 </td>
 <td style="text-align:center;width: 15em; ">
-4
+EA and EB unstable <br> EAB feasible but unstable <br> IGRA &lt; 0 and IGRB &lt; 0 <br> Priority effect
 </td>
 </tr>
 </tbody>

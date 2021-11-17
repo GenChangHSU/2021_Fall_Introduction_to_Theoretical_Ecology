@@ -43,16 +43,26 @@
 <div style="height:1px ;"><br></div> 
 
 * **Local stability analysis of the four equilibrium points**
-    1. $E_{0} = (0, 0)$
-    2. $E_{A} = (\frac {r_{A}}{\alpha_{AA}}, 0)$ 
-        * Jacobian matrix: $J|_{E_{0}} = \begin{vmatrix}0 & 0\\0 & 0\end{vmatrix}$
-        * Eigenvalues: $\lambda_{1} = and~\lambda_{2} = $
-        * Stability criteria: $\frac {r_{A}}{\alpha_{AA}} > \frac {r_{B}}{\alpha_{BA}}$ and $\frac {r_{A}}{\alpha_{AB}} > \frac {r_{B}}{\alpha_{BB}}$
-    3. $E_{B} = (0, \frac {r_{B}}{\alpha_{BB}})$ when $\frac {r_{A}}{\alpha_{AA}} < \frac {r_{B}}{\alpha_{BA}}$ and $\frac {r_{A}}{\alpha_{AB}} < \frac {r_{B}}{\alpha_{BB}}$
-    4. $E_{AB} = (\frac {r_{A}r_{B}(\frac {\alpha_{BB}}{r_{B}}-\frac {\alpha_{AB}}{r_{A}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}}, \frac {r_{A}r_{B}(\frac {\alpha_{AA}}{r_{A}}-\frac {\alpha_{BA}}{r_{B}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}})$ when $\frac {r_{B}}{\alpha_{BA}} > \frac {r_{A}}{\alpha_{AA}}$ and $\frac {r_{A}}{\alpha_{AB}} > \frac {r_{B}}{\alpha_{BB}}$
-    
-    5. ecies A and B coexist (unstable; there are alternative stable states $E_{A}$ and $E_{B}$ depending on the initial condition): $E_{AB} = (\frac {r_{A}r_{B}(\frac {\alpha_{BB}}{r_{B}}-\frac {\alpha_{AB}}{r_{A}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}}, \frac {r_{A}r_{B}(\frac {\alpha_{AA}}{r_{A}}-\frac {\alpha_{BA}}{r_{B}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}})$ when $\frac {r_{B}}{\alpha_{BA}} < \frac {r_{A}}{\alpha_{AA}}$ and $\frac {r_{A}}{\alpha_{AB}} < \frac {r_{B}}{\alpha_{BB}}$
-    
+    1. $E_{0} = (0, 0)$:
+        * $J_{E_{0}} = \begin{vmatrix}r_{A} & 0 \\ 0 & r_{B}\end{vmatrix}$
+        * $\lambda's = r_{A}$ and $r_{B}$ (both > 0)
+        * Unstable
+    2. $E_{A} = (\frac {r_{A}}{\alpha_{AA}}, 0)$: 
+        * $J_{E_{A}} = \begin{vmatrix}-r_{A} & -\alpha_{AB}(\frac {r_{A}}{\alpha_{AA}}) \\ 0 & r_{B}-\alpha_{BA}(\frac {r_{A}}{\alpha_{AA}})\end{vmatrix}$
+        * $\lambda's = -r_{A}$ and $r_{B}-\alpha_{BA}(\frac {r_{A}}{\alpha_{AA}})$
+        * Stability criteria: $\frac {\alpha_{BA}}{r_{B}} > \frac {\alpha_{AA}}{r_{A}}$
+    3. $E_{B} = (0, \frac {r_{B}}{\alpha_{BB}})$:
+        * $J_{E_{B}} = \begin{vmatrix}r_{A}-\alpha_{AB}(\frac {r_{B}}{\alpha_{BB}}) & 0 \\ -\alpha_{BA}(\frac {r_{B}}{\alpha_{BB}}) & -r_{B} \end{vmatrix}$
+        * $\lambda's = -r_{B}$ and $r_{A}-\alpha_{AB}(\frac {r_{B}}{\alpha_{BB}})$
+        * Stability criteria: $\frac {\alpha_{AB}}{r_{A}} > \frac {\alpha_{BB}}{r_{B}}$
+    4. $E_{AB} = (\frac {r_{A}r_{B}(\frac {\alpha_{BB}}{r_{B}}-\frac {\alpha_{AB}}{r_{A}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}}, \frac {r_{A}r_{B}(\frac {\alpha_{AA}}{r_{A}}-\frac {\alpha_{BA}}{r_{B}})}{\alpha_{AA} \alpha_{BB} - \alpha_{AB}\alpha_{BA}}) = (N_{A}^*, N_{B}^*)$:
+        * $J_{E_{AB}} = \begin{vmatrix}-\alpha_{AA}N_{A}^* & -\alpha_{AB}N_{B}^* \\ -\alpha_{BA}N_{B}^* & -\alpha_{BB}N_{B}^* \end{vmatrix}$
+        * Characteristic equation: $\lambda^2+(\alpha_{AA}N_{A}^*+\alpha_{BB}N_{B}^*)\lambda+N_{A}^*N_{B}^*(\alpha_{AA}\alpha_{BB}-\alpha_{AB}\alpha_{BA}) = 0$
+        * $\lambda_{1} + \lambda_{2}=\frac {-b}{a} = -(\alpha_{AA}N_{A}^*+\alpha_{BB}N_{B}^*)$; $\lambda_{1}\lambda_{2}=\frac {c}{a} = N_{A}^*N_{B}^*(\alpha_{AA}\alpha_{BB}-\alpha_{AB}\alpha_{BA})$
+        * For both $\lambda's < 0$, we need $\lambda_{1} + \lambda_{2} < 0$ and $\lambda_{1}\lambda_{2} > 0$:
+            1. $\lambda_{1} + \lambda_{2} < 0$ $\to$ $N_{A}^*$ and $N_{B}^* > 0$ $\to$ $\frac {\alpha_{BB}}{r_{B}} > \frac {\alpha_{AB}}{r_{A}}$ and $\frac {\alpha_{AA}}{r_{A}} > \frac {\alpha_{BA}}{r_{B}}$ [feasibility]
+            2. $\lambda_{1}\lambda_{2} > 0$ $\to$ $\alpha_{AA}\alpha_{BB}-\alpha_{AB}\alpha_{BA} > 0$ [stabilization]
+
 <div style="height:1px ;"><br></div>
 
 * **Summary of stability criteria**
@@ -61,38 +71,30 @@
  <thead>
 <tr>
 <th style="empty-cells: hide;" colspan="2"></th>
-<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #00000020; padding-bottom: 5px; ">Model</div></th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #00000020; padding-bottom: 5px; ">a2-b2</div></th>
 </tr>
   <tr>
    <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> 1 </th>
    <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> 2 </th>
-   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> a-b </th>
-   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> 4 </th>
+   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> + </th>
+   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> - </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;width: 5em; ">  </td>
-   <td style="text-align:center;width: 5em; ">  </td>
-   <td style="text-align:center;width: 15em; border-right:1px solid;"> + </td>
-   <td style="text-align:center;width: 15em; "> - </td>
-  </tr>
-  <tr>
-   <td style="text-align:center;width: 5em; "> a-b </td>
+   <td style="text-align:center;width: 5em; "> a1-b1 </td>
    <td style="text-align:center;width: 5em; "> + </td>
-   <td style="text-align:center;width: 15em; border-right:1px solid;"> 1 </td>
-   <td style="text-align:center;width: 15em; "> 3 </td>
+   <td style="text-align:center;width: 15em; border-right:1px solid;"> EA and EB unstable <br> EAB feasible and stable <br> IGRA &gt; 0 and IGRB &gt; 0 <br> Stable coexistence </td>
+   <td style="text-align:center;width: 15em; "> EA unstable and EB stable <br> EAB unfeasible <br> IGRA &lt; 0 and IGRB &gt; 0 <br> Species B wins </td>
   </tr>
   <tr>
    <td style="text-align:center;width: 5em; ">  </td>
    <td style="text-align:center;width: 5em; "> - </td>
-   <td style="text-align:center;width: 15em; border-right:1px solid;"> 2 </td>
-   <td style="text-align:center;width: 15em; "> 4 </td>
+   <td style="text-align:center;width: 15em; border-right:1px solid;"> EA stable and EB unstable <br> EAB unfeasible <br> IGRA &gt; 0 and IGRB &lt; 0 <br> Species A wins </td>
+   <td style="text-align:center;width: 15em; "> EA and EB unstable <br> EAB feasible but unstable <br> IGRA &lt; 0 and IGRB &lt; 0 <br> Priority effect </td>
   </tr>
 </tbody>
 </table>
-
-
 
 <div style="height:1px ;"><br></div>    
 <br>
