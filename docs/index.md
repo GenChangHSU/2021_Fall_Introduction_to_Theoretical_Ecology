@@ -152,30 +152,30 @@ Below are the textbook references:
   <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 10** <span style="vertical-align:-30%"> </span>
            <br> 30-Nov-2021 </td>
+   <td style="text-align:center;width: 17em; "> Modern coexistence theory &amp; Mutualism </td>
+   <td style="text-align:center;width: 17em; ">  </td>
+   <td style="text-align:left;width: 13em; "> TBA <br> Vandermeer &amp; Boucher, 1978 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 11** <span style="vertical-align:-30%"> </span>
+           <br> 07-Dec-2021 </td>
    <td style="text-align:center;width: 17em; "> Predator-prey interactions </td>
    <td style="text-align:center;width: 17em; ">  </td>
    <td style="text-align:left;width: 13em; "> Gotelli [Ch.6] <br> Case [Ch.12 &amp; 13] </td>
   </tr>
   <tr>
-   <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 11** <span style="vertical-align:-30%"> </span>
-           <br> 07-Dec-2021 </td>
-   <td style="text-align:center;width: 17em; "> Mutualisms </td>
-   <td style="text-align:center;width: 17em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Vandermeer &amp; Boucher, 1978 </td>
-  </tr>
-  <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 12** <span style="vertical-align:-30%"> </span>
            <br> 14-Dec-2021 </td>
-   <td style="text-align:center;width: 17em; "> Multispecies models of competition: apparent and exploitative competition </td>
+   <td style="text-align:center;width: 17em; "> Resorce competition: R^*^ models </td>
    <td style="text-align:center;width: 17em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Holt, 1977. </td>
+   <td style="text-align:left;width: 13em; "> TBA </td>
   </tr>
   <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 13** <span style="vertical-align:-30%"> </span>
            <br> 21-Dec-2021 </td>
-   <td style="text-align:center;width: 17em; "> Multispecies models of predation: food chains and intraguild predation </td>
+   <td style="text-align:center;width: 17em; "> Multispecies models of competition: apparent competition </td>
    <td style="text-align:center;width: 17em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Holt &amp; Polis, 1997 </td>
+   <td style="text-align:left;width: 13em; "> Holt, 1977. </td>
   </tr>
   <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 14** <span style="vertical-align:-30%"> </span>

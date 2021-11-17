@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Week 8 | Introduction to Theoretical Ecology</title>
   <meta name="description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Week 8 | Introduction to Theoretical Ecology" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/" />
-  <meta property="og:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/bifurcation.gif" />
+  <meta property="og:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology//bifurcation.gif" />
   <meta property="og:description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
   <meta name="github-repo" content="GenChangHSU/2021_Fall_Introduction_to_Theoretical_Ecology" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Week 8 | Introduction to Theoretical Ecology" />
   
   <meta name="twitter:description" content="This is the course website for Introduction to Theoretical Ecology 2021 Fall at National Taiwan University." />
-  <meta name="twitter:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology/bifurcation.gif" />
+  <meta name="twitter:image" content="https://genchanghsu.github.io/2021_Fall_Introduction_to_Theoretical_Ecology//bifurcation.gif" />
 
 <meta name="author" content="Instructor: Po-Ju Ke ~~~~~ Teaching Assistant: Gen-Chang Hsu" />
 
@@ -32,9 +32,8 @@
   
 <link rel="prev" href="week-7.html"/>
 <link rel="next" href="week-9.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,8 +49,11 @@
 
 
 
+
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 
@@ -174,14 +176,17 @@
 <li>Invasion growth rate (IGR): the growth rate of focal species when rare
 <span class="math inline">\(IGR_{i} = \lim_{N_{i} \to 0} \frac {1}{N_{i}} \frac {dN_{i}}{dt}|_{N_{j}}\)</span>
 <ul>
-<li><span class="math inline">\(IGR_{A} &gt; 0\)</span> and <span class="math inline">\(IGR_{B} &lt; 0\)</span>: Species A wins</li>
-<li><span class="math inline">\(IGR_{A} &lt; 0\)</span> and <span class="math inline">\(IGR_{B} &gt; 0\)</span>: Species B wins</li>
-<li><span class="math inline">\(IGR_{A} &gt; 0\)</span> and <span class="math inline">\(IGR_{B} &gt; 0\)</span>: Two species coexist (mutual invasibility)</li>
-<li><span class="math inline">\(IGR_{A} &lt; 0\)</span> and <span class="math inline">\(IGR_{B} &lt; 0\)</span>: Priority effect</li>
-</ul></li>
 <li><span class="math inline">\(IGR_{A} = \lim_{N_{A} \to 0} \frac {1}{N_{A}} \frac {dN_{A}}{dt}|_{E_{B}} = r_{A}-r_{B}(\frac{\alpha_{AB}}{\alpha_{BB}})\rightarrow\)</span> Species A can invade when <span class="math inline">\(\frac{\alpha_{BB}}{r_{B}} &gt; \frac{\alpha_{AB}}{r_{A}}\)</span><br />
 </li>
 <li><span class="math inline">\(IGR_{B} = \lim_{N_{B} \to 0} \frac {1}{N_{B}} \frac {dN_{B}}{dt}|_{E_{A}} = r_{B}-r_{A}(\frac{\alpha_{BA}}{\alpha_{AA}}) \rightarrow\)</span> Species B can invade when <span class="math inline">\(\frac{\alpha_{AA}}{r_{A}} &gt; \frac{\alpha_{BA}}{r_{B}}\)</span></li>
+</ul></li>
+<li>System dynamics:
+<ul>
+<li><span class="math inline">\(IGR_{A} &gt; 0\)</span> and <span class="math inline">\(IGR_{B} &lt; 0\)</span>: Species A wins</li>
+<li><span class="math inline">\(IGR_{A} &lt; 0\)</span> and <span class="math inline">\(IGR_{B} &gt; 0\)</span>: Species B wins</li>
+<li><span class="math inline">\(IGR_{A} &gt; 0\)</span> and <span class="math inline">\(IGR_{B} &gt; 0\)</span>: Two species coexist (mutual invasibility)</li>
+<li><span class="math inline">\(IGR_{A} &lt; 0\)</span> and <span class="math inline">\(IGR_{B} &lt; 0\)</span>: Priority effect (founder control)</li>
+</ul></li>
 </ol></li>
 </ul>
 <div style="height:1px ;">
@@ -190,21 +195,25 @@
 <ul>
 <li><strong>Analytical analysis (2): Local stability analysis</strong>
 <ol style="list-style-type: decimal">
-<li>A small displacement from the equilibrium:</li>
-<li>Dynamics of displacement: <span class="math inline">\(\frac{d}{dt} \begin{vmatrix}0\\ 0\end{vmatrix}\)</span></li>
-<li>Eigenvalues of J</li>
-<li>General solution</li>
-<li>J =</li>
-<li>Steps:
+<li>Behavior of a small displacement <span class="math inline">\(\epsilon\)</span> near the equilibrium: <span class="math inline">\(\frac{d\epsilon}{dt} = \frac{d}{dt} \begin{vmatrix}\epsilon_{A}\\ \epsilon_{B}\end{vmatrix} = \begin{vmatrix}\frac {\partial f_{A}}{\partial N_{A}} &amp; \frac {\partial f_{A}}{\partial N_{B}}\\\frac {\partial f_{B}}{\partial N_{A}} &amp; \frac {\partial f_{B}}{\partial N_{B}}\end{vmatrix}_{(N_{A}^{*}, N_{B}^{*})} \begin{vmatrix}\epsilon_{A}\\ \epsilon_{B}\end{vmatrix} = J\begin{vmatrix}\epsilon_{A}\\ \epsilon_{B}\end{vmatrix}\)</span></li>
+<li>General solution for <span class="math inline">\(\begin{vmatrix}\epsilon_{A}\\ \epsilon_{B}\end{vmatrix}\)</span>: <span class="math inline">\(w1\begin{vmatrix}C_{1}\\ D_{1}\end{vmatrix}e^{\lambda_{1}t} + w2\begin{vmatrix}C_{2}\\ D_{2}\end{vmatrix}e^{\lambda_{2}t} \\\)</span>
+where <span class="math inline">\(\lambda_{1}\)</span> and <span class="math inline">\(\lambda_{2}\)</span> are the two eigenvalues of <span class="math inline">\(J\)</span>, <span class="math inline">\(w1\)</span> and <span class="math inline">\(w2\)</span> are constant, and <span class="math inline">\(\begin{vmatrix}C_{1}\\ D_{1}\end{vmatrix}\)</span> and <span class="math inline">\(\begin{vmatrix}C_{2}\\ D_{2}\end{vmatrix}\)</span> are the corresponding eigenvectors
+<span class="math inline">\(\to \lambda&#39;s\)</span> govern the dynamics of the displacement</li>
+<li>In our example model, <span class="math inline">\(J = \begin{vmatrix}-N_{A}\alpha_{AA}+r_{A}-\alpha_{AA}N_{A}-\alpha_{AB}N_{B} &amp; -N_{A}\alpha_{AB}\\-N_{B}\alpha_{BA} &amp; -N_{B}\alpha_{BB}+r_{B}-\alpha_{BB}N_{B}-\alpha_{BA}N_{A}\end{vmatrix}\)</span></li>
+<li>Steps for local stability analysis:
 <ol style="list-style-type: decimal">
-<li></li>
-<li></li>
-<li></li>
+<li>Find the equilibrium points <span class="math inline">\(E^{*}\)</span></li>
+<li>Evaluate <span class="math inline">\(J\)</span> at <span class="math inline">\(E^{*}\)</span></li>
+<li>Find the eigenvalues of <span class="math inline">\(J|_{E^{*}}\)</span></li>
+<li>Determine the stability of <span class="math inline">\(E^{*}\)</span>:
+<ul>
+<li>Stable if all real parts of <span class="math inline">\(\lambda&#39;s\)</span> &lt; 0</li>
+<li>Unstable if at least one real part of <span class="math inline">\(\lambda&#39;s\)</span> &gt; 0</li>
+<li>Spiral trajectory if the imaginary parts of <span class="math inline">\(\lambda&#39;s\)</span> is non-zero (this can be proven by the Euler’s equation <span class="math inline">\(e^{ix} = cos(x) + isin(x)\)</span>)</li>
+</ul></li>
 </ol></li>
 </ol></li>
 </ul>
-<p><span class="math inline">\(J = \begin{vmatrix}\frac {\partial }{\partial N_{A}} \frac {dN_{A}}{dt} &amp; 0\\0 &amp; 0\end{vmatrix}\)</span>
-<span class="math inline">\(J = \begin{vmatrix}0\\ 0\end{vmatrix}\)</span></p>
 <div style="height:1px ;">
 <br>
 </div>
@@ -227,13 +236,79 @@
 <br>
 </div>
 <ul>
-<li><strong>Summary of stability criteria</strong>
-<ol style="list-style-type: decimal">
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-</ol></li>
+<li><strong>Summary of stability criteria</strong></li>
+</ul>
+<table class=" lightable-paper table table-bordered" style="font-size: 17px; font-family: Arial; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="empty-cells: hide;" colspan="2">
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #00000020; padding-bottom: 5px; ">
+Model
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;">
+1
+</th>
+<th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;">
+2
+</th>
+<th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;">
+a-b
+</th>
+<th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;">
+4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 5em; ">
+</td>
+<td style="text-align:center;width: 5em; ">
+</td>
+<td style="text-align:center;width: 15em; border-right:1px solid;">
+<ul>
+<li></td>
+<td style="text-align:center;width: 15em; ">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5em; ">
+a-b
+</td>
+<td style="text-align:center;width: 5em; ">
+<ul>
+<li></td>
+<td style="text-align:center;width: 15em; border-right:1px solid;">
+1
+</td>
+<td style="text-align:center;width: 15em; ">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 5em; ">
+</td>
+<td style="text-align:center;width: 5em; ">
+<ul>
+<li></td>
+<td style="text-align:center;width: 15em; border-right:1px solid;">
+2
+</td>
+<td style="text-align:center;width: 15em; ">
+4
+</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul>
 <div style="height:1px ;">
 <br>
@@ -247,10 +322,7 @@
 </div>
 <div id="additional-readings-7" class="section level2 unnumbered">
 <h2>Additional readings</h2>
-<p><br>
-<br>
-<br>
-<br>
+<p>No additional readings this week.
 <br></p>
 </div>
 <div id="assignments-7" class="section level2 unnumbered">
@@ -270,6 +342,7 @@
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -309,10 +382,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

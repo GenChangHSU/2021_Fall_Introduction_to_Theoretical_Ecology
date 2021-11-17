@@ -1,6 +1,6 @@
 
 
-# Week 7  {-} 
+# Week 7 {-} 
 <div style = "font-size: 28pt"> **_Lotka-Volterra model of competition: graphical analysis_**</div>
 
 ## Lecture in a nutshell {-}
@@ -132,7 +132,7 @@ phase_plane(r1 = 1.2, r2 = 1.2, a11 = 1/300, a21 = 1/200, a22 = 1/300, a12 = 1/2
 
 [Graphical Analysis of Lotka-Volterra Competition Model](./Assignments/Week7_LV Competition Model.pdf){target="_blank"}
 
-<!-- [Suggested Solutions](./Assignments/Week7_LV Competition Model_with_Solutions.pdf){target="_blank"} -->
+[Suggested Solutions](./Assignments/Week7_LV Competition Model_with_Solutions.pdf){target="_blank"}
 
 
 
