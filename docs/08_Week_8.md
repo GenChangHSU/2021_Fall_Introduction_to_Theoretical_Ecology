@@ -67,34 +67,46 @@
 
 * **Summary of stability criteria**
 
+<style>
+.book-body .page-wrapper .page-inner section.normal table th {
+    border: 1px solid white !important;
+}
+
+.book-body .page-wrapper .page-inner section.normal table th div {
+    border: 1px solid white !important;
+}
+
+</style>
+
 <table class="table" style="font-size: 17px; font-family: Arial; margin-left: auto; margin-right: auto;">
  <thead>
 <tr>
 <th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-size: 25px;" colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">$\frac {\alpha_{BB}}{r_{B}} - \frac {\alpha_{AB}}{r_{A}}$</div></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-size: 25px;background-color: white; border-top: 2px solid white; border-bottom: 2px solid white;" colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">$\frac {\alpha_{BB}}{r_{B}} - \frac {\alpha_{AB}}{r_{A}}$</div></th>
 </tr>
   <tr>
-   <th style="text-align:center;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white">   </th>
-   <th style="text-align:center;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white">    </th>
-   <th style="text-align:left;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white"> $+$ </th>
-   <th style="text-align:left;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white"> $-$ </th>
+   <th style="text-align:center;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white;">   </th>
+   <th style="text-align:center;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white;">    </th>
+   <th style="text-align:left;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white;"> $+$ </th>
+   <th style="text-align:left;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white;"> $-$ </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;width: 3em; font-size: 25px; border-color: white; position: relative; top: 0%;"> $\frac {\alpha_{AA}}{r_{A}} - \frac {\alpha_{BA}}{r_{B}}$ </td>
-   <td style="text-align:center;width: 3em; font-size: 30px; border-color: white; font-weight: bold; vertical-align: middle"> $+$ </td>
+   <td style="text-align:center;width: 3em; font-size: 25px; border-color: white; vertical-align: bottom;"> $\frac {\alpha_{AA}}{r_{A}} - \frac {\alpha_{BA}}{r_{B}}$ </td>
+   <td style="text-align:center;width: 3em; font-size: 30px; border-color: white; border-top: 5px; font-weight: bold; vertical-align: middle;"> $+$ </td>
    <td style="text-align:left;width: 17em; border-right:2px solid;"> $\bullet$ $E_{A}$ and $E_{B}$ unstable <br> $\bullet$ $E_{AB}$ feasible and stable <br> $\bullet$ $IGR_{A}$ &gt; 0 and $IGR_{B}$ &gt; 0 <br> $\bullet$ Stable coexistence </td>
    <td style="text-align:left;width: 17em; "> $\bullet$ $E_{A}$ unstable and $E_{B}$ stable <br> $\bullet$ $E_{AB}$ unfeasible <br> $\bullet$ $IGR_{A}$ &lt; 0 and $IGR_{B}$ &gt; 0 <br> $\bullet$ Species B wins </td>
   </tr>
   <tr>
-   <td style="text-align:center;border-color: white; background-color: whitewidth: 3em; font-size: 25px; border-color: white; position: relative; top: 0%;">  </td>
-   <td style="text-align:center;border-color: white; background-color: whitewidth: 3em; font-size: 30px; border-color: white; font-weight: bold; vertical-align: middle"> $-$ </td>
-   <td style="text-align:left;border-color: white; background-color: whitewidth: 17em; border-right:2px solid;"> $\bullet$ $E_{A}$ stable and $E_{B}$ unstable <br> $\bullet$ $E_{AB}$ unfeasible <br> $\bullet$ $IGR_{A}$ &gt; 0 and $IGR_{B}$ &lt; 0 <br> $\bullet$ Species A wins </td>
-   <td style="text-align:left;border-color: white; background-color: whitewidth: 17em; "> $\bullet$ $E_{A}$ and $E_{B}$ unstable <br> $\bullet$ $E_{AB}$ feasible but unstable <br> $\bullet$ $IGR_{A}$ &lt; 0 and $IGR_{B}$ &lt; 0 <br> $\bullet$ Priority effect </td>
+   <td style="text-align:center;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 3em; font-size: 25px; border-color: white; vertical-align: bottom;">  </td>
+   <td style="text-align:center;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 3em; font-size: 30px; border-color: white; border-top: 5px; font-weight: bold; vertical-align: middle;"> $-$ </td>
+   <td style="text-align:left;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 17em; border-right:2px solid;"> $\bullet$ $E_{A}$ stable and $E_{B}$ unstable <br> $\bullet$ $E_{AB}$ unfeasible <br> $\bullet$ $IGR_{A}$ &gt; 0 and $IGR_{B}$ &lt; 0 <br> $\bullet$ Species A wins </td>
+   <td style="text-align:left;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 17em; "> $\bullet$ $E_{A}$ and $E_{B}$ unstable <br> $\bullet$ $E_{AB}$ feasible but unstable <br> $\bullet$ $IGR_{A}$ &lt; 0 and $IGR_{B}$ &lt; 0 <br> $\bullet$ Priority effect </td>
   </tr>
 </tbody>
 </table>
+
 
 <div style="height:1px ;"><br></div>    
 <br>
@@ -105,6 +117,59 @@
 In this lab, we are going to analyze the two-species Lotka-Volterra competition model numerically and visualize the population dynamics under different parameter settings.
 
 
+```r
+library(tidyverse)
+library(deSolve)
+
+LV_pop_dynamics <- function(r1 = 1.4, r2 = 1.2, a11 = 1/200, a21 = 1/400, a22 = 1/200, a12 = 1/300, N1_0 = 10, N2_0 = 10) {
+    
+### Model specification
+LV_competition_model <- function(times, state, parms) {
+  with(as.list(c(state, parms)), {
+    dN1_dt = N1*(r1-a11*N1-a12*N2)  
+    dN2_dt = N2*(r2-a22*N2-a21*N1)
+    return(list(c(dN1_dt, dN2_dt)))
+  })
+}
+
+### Model parameters
+times <- seq(0, 100, by = 0.1)
+state <- c(N1 = N1_0, N2 = N2_0)
+parms <- c(r1 = r1, r2 = r2, a11 = a11, a21 = a21, a22 = a22, a12 = a12)
+
+### Model application
+pop_size <- ode(func = LV_competition_model, times = times, y = state, parms = parms)
+
+### Visualize the population dynamics
+pop_size %>%
+  as.data.frame() %>%
+  pivot_longer(cols = -time, names_to = "species", values_to = "N") %>%
+  ggplot(aes(x = time, y = N, color = species)) + 
+  geom_line(size = 1.5) +
+  theme_classic(base_size = 12) +
+  labs(x = "Time", y = "Population size") +
+  scale_x_continuous(limits = c(0, 100.5), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, max(pop_size)*1.2), expand = c(0, 0)) +
+  scale_color_brewer(name = NULL, palette = "Set1")
+}
+
+### Different parameter settings
+LV_pop_dynamics(r1 = 1.4, r2 = 1.2, a11 = 1/200, a21 = 1/400, a22 = 1/200, a12 = 1/300, N1_0 = 10, N2_0 = 10)  # stable coexistence
+```
+
+<img src="08_Week_8_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" />
+
+```r
+LV_pop_dynamics(r1 = 1.2, r2 = 1.2, a11 = 1/200, a21 = 1/100, a22 = 1/100, a12 = 1/300, N1_0 = 10, N2_0 = 10)  # N1 wins
+```
+
+<img src="08_Week_8_files/figure-html/unnamed-chunk-2-2.png" width="70%" style="display: block; margin: auto;" />
+
+```r
+LV_pop_dynamics(r1 = 1.2, r2 = 1.2, a11 = 1/200, a21 = 1/500, a22 = 1/500, a12 = 1/300, N1_0 = 10, N2_0 = 10)  # N2 wins
+```
+
+<img src="08_Week_8_files/figure-html/unnamed-chunk-2-3.png" width="70%" style="display: block; margin: auto;" />
 <br>
 
 ## Additional readings {-}
