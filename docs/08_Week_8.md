@@ -67,31 +67,31 @@
 
 * **Summary of stability criteria**
 
-<table class=" lightable-paper table table-bordered" style="font-size: 17px; font-family: Arial; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 17px; font-family: Arial; margin-left: auto; margin-right: auto;">
  <thead>
 <tr>
-<th style="empty-cells: hide;" colspan="2"></th>
-<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2"><div style="border-bottom: 1px solid #00000020; padding-bottom: 5px; ">a2-b2</div></th>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="2"></th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-size: 25px;" colspan="2"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">$\frac {\alpha_{BB}}{r_{B}} - \frac {\alpha_{AB}}{r_{A}}$</div></th>
 </tr>
   <tr>
-   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> 1 </th>
-   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> 2 </th>
-   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> + </th>
-   <th style="text-align:center;font-weight: bold;color: black !important;font-size: 20px;"> - </th>
+   <th style="text-align:center;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white">   </th>
+   <th style="text-align:center;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white">    </th>
+   <th style="text-align:left;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white"> $+$ </th>
+   <th style="text-align:left;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white"> $-$ </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;width: 5em; "> a1-b1 </td>
-   <td style="text-align:center;width: 5em; "> + </td>
-   <td style="text-align:center;width: 15em; border-right:1px solid;"> EA and EB unstable <br> EAB feasible and stable <br> IGRA &gt; 0 and IGRB &gt; 0 <br> Stable coexistence </td>
-   <td style="text-align:center;width: 15em; "> EA unstable and EB stable <br> EAB unfeasible <br> IGRA &lt; 0 and IGRB &gt; 0 <br> Species B wins </td>
+   <td style="text-align:center;width: 3em; font-size: 25px; border-color: white; position: relative; top: 0%;"> $\frac {\alpha_{AA}}{r_{A}} - \frac {\alpha_{BA}}{r_{B}}$ </td>
+   <td style="text-align:center;width: 3em; font-size: 30px; border-color: white; font-weight: bold; vertical-align: middle"> $+$ </td>
+   <td style="text-align:left;width: 17em; border-right:2px solid;"> $\bullet$ $E_{A}$ and $E_{B}$ unstable <br> $\bullet$ $E_{AB}$ feasible and stable <br> $\bullet$ $IGR_{A}$ &gt; 0 and $IGR_{B}$ &gt; 0 <br> $\bullet$ Stable coexistence </td>
+   <td style="text-align:left;width: 17em; "> $\bullet$ $E_{A}$ unstable and $E_{B}$ stable <br> $\bullet$ $E_{AB}$ unfeasible <br> $\bullet$ $IGR_{A}$ &lt; 0 and $IGR_{B}$ &gt; 0 <br> $\bullet$ Species B wins </td>
   </tr>
   <tr>
-   <td style="text-align:center;width: 5em; ">  </td>
-   <td style="text-align:center;width: 5em; "> - </td>
-   <td style="text-align:center;width: 15em; border-right:1px solid;"> EA stable and EB unstable <br> EAB unfeasible <br> IGRA &gt; 0 and IGRB &lt; 0 <br> Species A wins </td>
-   <td style="text-align:center;width: 15em; "> EA and EB unstable <br> EAB feasible but unstable <br> IGRA &lt; 0 and IGRB &lt; 0 <br> Priority effect </td>
+   <td style="text-align:center;border-color: white; background-color: whitewidth: 3em; font-size: 25px; border-color: white; position: relative; top: 0%;">  </td>
+   <td style="text-align:center;border-color: white; background-color: whitewidth: 3em; font-size: 30px; border-color: white; font-weight: bold; vertical-align: middle"> $-$ </td>
+   <td style="text-align:left;border-color: white; background-color: whitewidth: 17em; border-right:2px solid;"> $\bullet$ $E_{A}$ stable and $E_{B}$ unstable <br> $\bullet$ $E_{AB}$ unfeasible <br> $\bullet$ $IGR_{A}$ &gt; 0 and $IGR_{B}$ &lt; 0 <br> $\bullet$ Species A wins </td>
+   <td style="text-align:left;border-color: white; background-color: whitewidth: 17em; "> $\bullet$ $E_{A}$ and $E_{B}$ unstable <br> $\bullet$ $E_{AB}$ feasible but unstable <br> $\bullet$ $IGR_{A}$ &lt; 0 and $IGR_{B}$ &lt; 0 <br> $\bullet$ Priority effect </td>
   </tr>
 </tbody>
 </table>

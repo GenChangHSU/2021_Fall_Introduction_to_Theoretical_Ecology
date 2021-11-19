@@ -77,24 +77,24 @@ library(tidyverse)
 library(knitr)
 library(kableExtra)
 
-summary_dat <- tibble(`1` = c("a1-b1", ""),
-                      `2` = c("+", "-"),
-                      `+` = c("EA and EB unstable <br> EAB feasible and stable <br> IGRA > 0 and IGRB > 0 <br> Stable coexistence", "EA stable and EB unstable <br> EAB unfeasible <br> IGRA > 0 and IGRB < 0 <br> Species A wins"), 
-                      `-` = c("EA unstable and EB stable <br> EAB unfeasible <br> IGRA < 0 and IGRB > 0 <br> Species B wins", "EA and EB unstable <br> EAB feasible but unstable <br> IGRA < 0 and IGRB < 0 <br> Priority effect"))
+summary_dat <- tibble(` ` = c("$\\frac {\\alpha_{AA}}{r_{A}} - \\frac {\\alpha_{BA}}{r_{B}}$", ""),
+                      `  ` = c("$+$", "$-$"),
+                      `$+$` = c("$\\bullet$ $E_{A}$ and $E_{B}$ unstable <br> $\\bullet$ $E_{AB}$ feasible and stable <br> $\\bullet$ $IGR_{A}$ > 0 and $IGR_{B}$ > 0 <br> $\\bullet$ Stable coexistence", "$\\bullet$ $E_{A}$ stable and $E_{B}$ unstable <br> $\\bullet$ $E_{AB}$ unfeasible <br> $\\bullet$ $IGR_{A}$ > 0 and $IGR_{B}$ < 0 <br> $\\bullet$ Species A wins"), 
+                      `$-$` = c("$\\bullet$ $E_{A}$ unstable and $E_{B}$ stable <br> $\\bullet$ $E_{AB}$ unfeasible <br> $\\bullet$ $IGR_{A}$ < 0 and $IGR_{B}$ > 0 <br> $\\bullet$ Species B wins", "$\\bullet$ $E_{A}$ and $E_{B}$ unstable <br> $\\bullet$ $E_{AB}$ feasible but unstable <br> $\\bullet$ $IGR_{A}$ < 0 and $IGR_{B}$ < 0 <br> $\\bullet$ Priority effect"))
 
-kbl(summary_dat, align = "cccc", escape = F) %>%  
-  kable_paper(full_width = T, 
-              html_font = "Arial",
-              font_size = 17) %>%
-  kable_styling(bootstrap_options = c("bordered")) %>%
-  row_spec(0, bold = T, color = "black", font_size = 20) %>%
-  row_spec(2) %>%
-  column_spec(1, width = "5em") %>%
-  column_spec(2, width = "5em") %>%
-  column_spec(3, width = "15em", border_right = T) %>%
-  column_spec(4, width = "15em") %>%
+kbl(summary_dat, align = "ccll", escape = F) %>%
+  kable_styling(full_width = T, 
+                html_font = "Arial",
+                font_size = 17) %>%
+  row_spec(0, bold = T, color = "black", font_size = 30, align = "c", extra_css = "border-color: white; background-color: white") %>%
+  row_spec(2, extra_css = "border-color: white; background-color: white") %>%
+  column_spec(1, width = "3em", extra_css = "font-size: 25px; border-color: white; position: relative; top: 0%;") %>%
+  column_spec(2, width = "3em", extra_css = "font-size: 30px; border-color: white; font-weight: bold; vertical-align: middle") %>%
+  column_spec(3, width = "17em", border_right = "2px solid") %>%
+  column_spec(4, width = "17em") %>%
   add_header_above(c(" " = 2, 
-                     "a2-b2" = 2))
+                     "$\\frac {\\alpha_{BB}}{r_{B}} - \\frac {\\alpha_{AB}}{r_{A}}$" = 2),
+                   font_size = 25)
 
 ```
 
