@@ -56,6 +56,70 @@
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -75,6 +139,7 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course Information</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i>Syllabus</a></li>
 <li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html"><i class="fa fa-check"></i>Week 1</a>
 <ul>
 <li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html#lecture-in-a-nutshell"><i class="fa fa-check"></i>Lecture in a nutshell</a></li>
@@ -257,36 +322,46 @@ where <span class="math inline">\(\lambda_{1}\)</span> and <span class="math inl
 <ul>
 <li><strong>Summary of stability criteria</strong></li>
 </ul>
+<style>
+.book-body .page-wrapper .page-inner section.normal table th {
+    border: 1px solid white !important;
+}
+
+.book-body .page-wrapper .page-inner section.normal table th div {
+    border: 1px solid white !important;
+}
+
+</style>
 <table class="table" style="font-size: 17px; font-family: Arial; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="empty-cells: hide;border-bottom:hidden;" colspan="2">
 </th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-size: 25px;" colspan="2">
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-size: 25px;background-color: white; border-top: 2px solid white; border-bottom: 2px solid white;" colspan="2">
 <div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
 <span class="math inline">\(\frac {\alpha_{BB}}{r_{B}} - \frac {\alpha_{AB}}{r_{A}}\)</span>
 </div>
 </th>
 </tr>
 <tr>
-<th style="text-align:center;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white">
+<th style="text-align:center;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white;">
 </th>
-<th style="text-align:center;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white">
+<th style="text-align:center;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white;">
 </th>
-<th style="text-align:left;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white">
+<th style="text-align:left;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white;">
 <span class="math inline">\(+\)</span>
 </th>
-<th style="text-align:left;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white">
+<th style="text-align:left;font-weight: bold;color: black !important;text-align: center;font-size: 30px;border-color: white; background-color: white;">
 <span class="math inline">\(-\)</span>
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;width: 3em; font-size: 25px; border-color: white; position: relative; top: 0%;">
+<td style="text-align:center;width: 3em; font-size: 25px; border-color: white; vertical-align: bottom;">
 <span class="math inline">\(\frac {\alpha_{AA}}{r_{A}} - \frac {\alpha_{BA}}{r_{B}}\)</span>
 </td>
-<td style="text-align:center;width: 3em; font-size: 30px; border-color: white; font-weight: bold; vertical-align: middle">
+<td style="text-align:center;width: 3em; font-size: 30px; border-color: white; border-top: 5px; font-weight: bold; vertical-align: middle;">
 <span class="math inline">\(+\)</span>
 </td>
 <td style="text-align:left;width: 17em; border-right:2px solid;">
@@ -297,15 +372,15 @@ where <span class="math inline">\(\lambda_{1}\)</span> and <span class="math inl
 </td>
 </tr>
 <tr>
-<td style="text-align:center;border-color: white; background-color: whitewidth: 3em; font-size: 25px; border-color: white; position: relative; top: 0%;">
+<td style="text-align:center;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 3em; font-size: 25px; border-color: white; vertical-align: bottom;">
 </td>
-<td style="text-align:center;border-color: white; background-color: whitewidth: 3em; font-size: 30px; border-color: white; font-weight: bold; vertical-align: middle">
+<td style="text-align:center;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 3em; font-size: 30px; border-color: white; border-top: 5px; font-weight: bold; vertical-align: middle;">
 <span class="math inline">\(-\)</span>
 </td>
-<td style="text-align:left;border-color: white; background-color: whitewidth: 17em; border-right:2px solid;">
+<td style="text-align:left;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 17em; border-right:2px solid;">
 <span class="math inline">\(\bullet\)</span> <span class="math inline">\(E_{A}\)</span> stable and <span class="math inline">\(E_{B}\)</span> unstable <br> <span class="math inline">\(\bullet\)</span> <span class="math inline">\(E_{AB}\)</span> unfeasible <br> <span class="math inline">\(\bullet\)</span> <span class="math inline">\(IGR_{A}\)</span> &gt; 0 and <span class="math inline">\(IGR_{B}\)</span> &lt; 0 <br> <span class="math inline">\(\bullet\)</span> Species A wins
 </td>
-<td style="text-align:left;border-color: white; background-color: whitewidth: 17em; ">
+<td style="text-align:left;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 17em; ">
 <span class="math inline">\(\bullet\)</span> <span class="math inline">\(E_{A}\)</span> and <span class="math inline">\(E_{B}\)</span> unstable <br> <span class="math inline">\(\bullet\)</span> <span class="math inline">\(E_{AB}\)</span> feasible but unstable <br> <span class="math inline">\(\bullet\)</span> <span class="math inline">\(IGR_{A}\)</span> &lt; 0 and <span class="math inline">\(IGR_{B}\)</span> &lt; 0 <br> <span class="math inline">\(\bullet\)</span> Priority effect
 </td>
 </tr>
@@ -319,7 +394,49 @@ where <span class="math inline">\(\lambda_{1}\)</span> and <span class="math inl
 <div id="lab-demonstration-7" class="section level2 unnumbered">
 <h2>Lab demonstration</h2>
 <p>In this lab, we are going to analyze the two-species Lotka-Volterra competition model numerically and visualize the population dynamics under different parameter settings.</p>
-<p><br></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="week-8.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb32-2"><a href="week-8.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span>
+<span id="cb32-3"><a href="week-8.html#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="week-8.html#cb32-4" aria-hidden="true" tabindex="-1"></a>LV_pop_dynamics <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">r1 =</span> <span class="fl">1.4</span>, <span class="at">r2 =</span> <span class="fl">1.2</span>, <span class="at">a11 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">200</span>, <span class="at">a21 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">400</span>, <span class="at">a22 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">200</span>, <span class="at">a12 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">300</span>, <span class="at">N1_0 =</span> <span class="dv">10</span>, <span class="at">N2_0 =</span> <span class="dv">10</span>) {</span>
+<span id="cb32-5"><a href="week-8.html#cb32-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-6"><a href="week-8.html#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="do">### Model specification</span></span>
+<span id="cb32-7"><a href="week-8.html#cb32-7" aria-hidden="true" tabindex="-1"></a>LV_competition_model <span class="ot">&lt;-</span> <span class="cf">function</span>(times, state, parms) {</span>
+<span id="cb32-8"><a href="week-8.html#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
+<span id="cb32-9"><a href="week-8.html#cb32-9" aria-hidden="true" tabindex="-1"></a>    dN1_dt <span class="ot">=</span> N1<span class="sc">*</span>(r1<span class="sc">-</span>a11<span class="sc">*</span>N1<span class="sc">-</span>a12<span class="sc">*</span>N2)  </span>
+<span id="cb32-10"><a href="week-8.html#cb32-10" aria-hidden="true" tabindex="-1"></a>    dN2_dt <span class="ot">=</span> N2<span class="sc">*</span>(r2<span class="sc">-</span>a22<span class="sc">*</span>N2<span class="sc">-</span>a21<span class="sc">*</span>N1)</span>
+<span id="cb32-11"><a href="week-8.html#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dN1_dt, dN2_dt)))</span>
+<span id="cb32-12"><a href="week-8.html#cb32-12" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb32-13"><a href="week-8.html#cb32-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-14"><a href="week-8.html#cb32-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-15"><a href="week-8.html#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="do">### Model parameters</span></span>
+<span id="cb32-16"><a href="week-8.html#cb32-16" aria-hidden="true" tabindex="-1"></a>times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb32-17"><a href="week-8.html#cb32-17" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">N1 =</span> N1_0, <span class="at">N2 =</span> N2_0)</span>
+<span id="cb32-18"><a href="week-8.html#cb32-18" aria-hidden="true" tabindex="-1"></a>parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">r1 =</span> r1, <span class="at">r2 =</span> r2, <span class="at">a11 =</span> a11, <span class="at">a21 =</span> a21, <span class="at">a22 =</span> a22, <span class="at">a12 =</span> a12)</span>
+<span id="cb32-19"><a href="week-8.html#cb32-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-20"><a href="week-8.html#cb32-20" aria-hidden="true" tabindex="-1"></a><span class="do">### Model application</span></span>
+<span id="cb32-21"><a href="week-8.html#cb32-21" aria-hidden="true" tabindex="-1"></a>pop_size <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">func =</span> LV_competition_model, <span class="at">times =</span> times, <span class="at">y =</span> state, <span class="at">parms =</span> parms)</span>
+<span id="cb32-22"><a href="week-8.html#cb32-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-23"><a href="week-8.html#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="do">### Visualize the population dynamics</span></span>
+<span id="cb32-24"><a href="week-8.html#cb32-24" aria-hidden="true" tabindex="-1"></a>pop_size <span class="sc">%&gt;%</span></span>
+<span id="cb32-25"><a href="week-8.html#cb32-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb32-26"><a href="week-8.html#cb32-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>time, <span class="at">names_to =</span> <span class="st">&quot;species&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-27"><a href="week-8.html#cb32-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> N, <span class="at">color =</span> species)) <span class="sc">+</span> </span>
+<span id="cb32-28"><a href="week-8.html#cb32-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb32-29"><a href="week-8.html#cb32-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb32-30"><a href="week-8.html#cb32-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Population size&quot;</span>) <span class="sc">+</span></span>
+<span id="cb32-31"><a href="week-8.html#cb32-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">100.5</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb32-32"><a href="week-8.html#cb32-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(pop_size)<span class="sc">*</span><span class="fl">1.2</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb32-33"><a href="week-8.html#cb32-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span>
+<span id="cb32-34"><a href="week-8.html#cb32-34" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-35"><a href="week-8.html#cb32-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-36"><a href="week-8.html#cb32-36" aria-hidden="true" tabindex="-1"></a><span class="do">### Different parameter settings</span></span>
+<span id="cb32-37"><a href="week-8.html#cb32-37" aria-hidden="true" tabindex="-1"></a><span class="fu">LV_pop_dynamics</span>(<span class="at">r1 =</span> <span class="fl">1.4</span>, <span class="at">r2 =</span> <span class="fl">1.2</span>, <span class="at">a11 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">200</span>, <span class="at">a21 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">400</span>, <span class="at">a22 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">200</span>, <span class="at">a12 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">300</span>, <span class="at">N1_0 =</span> <span class="dv">10</span>, <span class="at">N2_0 =</span> <span class="dv">10</span>)  <span class="co"># stable coexistence</span></span></code></pre></div>
+<p><img src="08_Week_8_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="week-8.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LV_pop_dynamics</span>(<span class="at">r1 =</span> <span class="fl">1.2</span>, <span class="at">r2 =</span> <span class="fl">1.2</span>, <span class="at">a11 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">200</span>, <span class="at">a21 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">100</span>, <span class="at">a22 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">100</span>, <span class="at">a12 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">300</span>, <span class="at">N1_0 =</span> <span class="dv">10</span>, <span class="at">N2_0 =</span> <span class="dv">10</span>)  <span class="co"># N1 wins</span></span></code></pre></div>
+<p><img src="08_Week_8_files/figure-html/unnamed-chunk-2-2.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="week-8.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LV_pop_dynamics</span>(<span class="at">r1 =</span> <span class="fl">1.2</span>, <span class="at">r2 =</span> <span class="fl">1.2</span>, <span class="at">a11 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">200</span>, <span class="at">a21 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">500</span>, <span class="at">a22 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">500</span>, <span class="at">a12 =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">300</span>, <span class="at">N1_0 =</span> <span class="dv">10</span>, <span class="at">N2_0 =</span> <span class="dv">10</span>)  <span class="co"># N2 wins</span></span></code></pre></div>
+<p><img src="08_Week_8_files/figure-html/unnamed-chunk-2-3.png" width="70%" style="display: block; margin: auto;" />
+<br></p>
 </div>
 <div id="additional-readings-7" class="section level2 unnumbered">
 <h2>Additional readings</h2>
