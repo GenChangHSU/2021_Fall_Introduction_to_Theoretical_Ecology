@@ -152,15 +152,15 @@ Below are the textbook references:
   <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 10** <span style="vertical-align:-30%"> </span>
            <br> 30-Nov-2021 </td>
-   <td style="text-align:center;width: 17em; "> Modern coexistence theory &amp; Mutualism </td>
-   <td style="text-align:center;width: 17em; ">  </td>
-   <td style="text-align:left;width: 13em; "> TBA <br> Vandermeer &amp; Boucher, 1978 </td>
+   <td style="text-align:center;width: 17em; "> Modern coexistence theory &amp; Lotka-Volterra model of predator-prey interactions (1) </td>
+   <td style="text-align:center;width: 17em; "> Analyzing Lotka-Volterra model of predator-prey interactions (basic) </td>
+   <td style="text-align:left;width: 13em; "> Broekman et al., 2019 </td>
   </tr>
   <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 11** <span style="vertical-align:-30%"> </span>
            <br> 07-Dec-2021 </td>
-   <td style="text-align:center;width: 17em; "> Predator-prey interactions </td>
-   <td style="text-align:center;width: 17em; ">  </td>
+   <td style="text-align:center;width: 17em; "> Lotka-Volterra model of predator-prey interactions (2) </td>
+   <td style="text-align:center;width: 17em; "> Analyzing Lotka-Volterra model of predator-prey interactions (variants) </td>
    <td style="text-align:left;width: 13em; "> Gotelli [Ch.6] <br> Case [Ch.12 &amp; 13] </td>
   </tr>
   <tr>

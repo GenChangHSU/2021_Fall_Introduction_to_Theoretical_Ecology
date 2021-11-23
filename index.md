@@ -110,10 +110,10 @@ Below are the textbook references:
            <br> 23-Nov-2021 & Midterm exam & \- & $~~~~~~~~~~~~$ \-\\
 \hline
 **Week 10** <span style='vertical-align:-30%'> </span>
-           <br> 30-Nov-2021 & Modern coexistence theory & Mutualism &  & TBA <br> Vandermeer & Boucher, 1978\\
+           <br> 30-Nov-2021 & Modern coexistence theory & Lotka-Volterra model of predator-prey interactions (1) & Analyzing Lotka-Volterra model of predator-prey interactions (basic) & Broekman et al., 2019\\
 \hline
 **Week 11** <span style='vertical-align:-30%'> </span>
-           <br> 07-Dec-2021 & Predator-prey interactions &  & Gotelli [Ch.6] <br> Case [Ch.12 & 13]\\
+           <br> 07-Dec-2021 & Lotka-Volterra model of predator-prey interactions (2) & Analyzing Lotka-Volterra model of predator-prey interactions (variants) & Gotelli [Ch.6] <br> Case [Ch.12 & 13]\\
 \hline
 **Week 12** <span style='vertical-align:-30%'> </span>
            <br> 14-Dec-2021 & Resorce competition: R* models &  & TBA\\
