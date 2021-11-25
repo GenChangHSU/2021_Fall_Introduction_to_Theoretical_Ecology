@@ -168,7 +168,7 @@ Below are the textbook references:
            <br> 14-Dec-2021 </td>
    <td style="text-align:center;width: 17em; "> Resorce competition: R* models </td>
    <td style="text-align:center;width: 17em; ">  </td>
-   <td style="text-align:left;width: 13em; "> TBA </td>
+   <td style="text-align:left;width: 13em; ">  </td>
   </tr>
   <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 13** <span style="vertical-align:-30%"> </span>

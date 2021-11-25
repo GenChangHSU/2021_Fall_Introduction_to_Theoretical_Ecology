@@ -37,7 +37,7 @@ Please simulate the model using the parameter set (_N_ = 10, _P_ = 2, _r_ = 1.0,
 
 What will happen if you add a perturbation to the system (i.e., change the initial conditions)? Try out different values of _N_ and _P_ and visualize the differences in the state-space diagram.
 
-```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center"}
+```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center", eval=F, include=F, echo=F}
 library(tidyverse)
 library(deSolve)
 
@@ -51,7 +51,7 @@ LV_predation_model <- function(times, state, parms) {
 }
 
 ### Model parameters
-times <- seq(0, 100, by = 0.1)
+times <- seq(0, 1000, by = 0.005)
 state <- c(N = 10, P = 2)
 parms <- c(r = 1.0, a = 0.1, e = 0.8, d = 0.5)
 
@@ -86,9 +86,9 @@ pop_size %>%
 iframe {border: 0;}
 </style>
 
-Here is a shiny app for the Lotka-Volterra predator-prey model. Feel free to play around with different parameter inputs and see how the system dynamics change accordingly.
+<!-- Here is a shiny app for the Lotka-Volterra predator-prey model. Feel free to play around with different parameter inputs and see how the system dynamics change accordingly. -->
 
-```{r, out.width = "800px", echo = F}
+```{r, out.width = "800px", echo = F, eval=F, include=F}
 knitr::include_app("https://genchanghsu0115.shinyapps.io/LV_predation_mod_shinyapp/", height = "700px")
 ```
 
@@ -99,6 +99,6 @@ knitr::include_app("https://genchanghsu0115.shinyapps.io/LV_predation_mod_shinya
 
 ## Assignments {-}
 
-[Lotka-Volterra Predator-Prey Model with Logistic Prey Growth](./Assignments/Week10_LV Predation Model.pdf){target="_blank"}
+[Stabilizing Lotka-Volterra Predator-Prey Model](./Assignments/Week10_LV Predation Model.pdf){target="_blank"}
 
 <!-- [Suggested Solutions](./Assignments/Week10_LV Predation Model_with_Solutions.pdf){target="_blank"} -->

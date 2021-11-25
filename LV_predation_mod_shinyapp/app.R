@@ -61,7 +61,7 @@ server <- function(input, output) {
     }
     
     ### Model parameters
-    times <- seq(0, 100, by = 0.1)
+    times <- seq(0, 1000, by = 0.005)
     state <- c(N = input$N, P = input$P)
     parms <- c(r = 1.0, a = input$a, e = input$e, d = 0.5)
     

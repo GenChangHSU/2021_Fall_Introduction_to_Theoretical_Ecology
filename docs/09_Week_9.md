@@ -9,6 +9,6 @@
 
 <div style="height:1px ;"><br></div>
 
-<!-- [Suggested Solutions](./Assignments/Week9_Midterm_with_Solutions.pdf){target="_blank"} -->
+[Suggested Solutions](./Assignments/Week9_Midterm_with_Solutions.pdf){target="_blank"}
 
 
