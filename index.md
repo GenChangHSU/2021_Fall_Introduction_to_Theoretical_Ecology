@@ -116,7 +116,7 @@ Below are the textbook references:
            <br> 07-Dec-2021 & Lotka-Volterra model of predator-prey interactions (2) & Analyzing Lotka-Volterra model of predator-prey interactions (variants) & Gotelli [Ch.6] <br> Case [Ch.12 & 13]\\
 \hline
 **Week 12** <span style='vertical-align:-30%'> </span>
-           <br> 14-Dec-2021 & Resorce competition: R* models &  & \\
+           <br> 14-Dec-2021 & Resource competition: R* models &  & Armstrong & McGehee, 1980\\
 \hline
 **Week 13** <span style='vertical-align:-30%'> </span>
            <br> 21-Dec-2021 & Multispecies models of competition: apparent competition &  & Holt, 1977.\\
