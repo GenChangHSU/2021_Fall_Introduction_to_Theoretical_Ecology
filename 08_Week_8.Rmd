@@ -91,7 +91,7 @@ library(kableExtra)
 summary_dat <- tibble(` ` = c("$\\frac {\\alpha_{AA}}{r_{A}} - \\frac {\\alpha_{BA}}{r_{B}}$", ""),
                       `  ` = c("$+$", "$-$"),
                       `$+$` = c("$\\bullet$ $E_{A}$ and $E_{B}$ unstable <br> $\\bullet$ $E_{AB}$ feasible and stable <br> $\\bullet$ $IGR_{A}$ > 0 and $IGR_{B}$ > 0 <br> $\\bullet$ Stable coexistence", "$\\bullet$ $E_{A}$ stable and $E_{B}$ unstable <br> $\\bullet$ $E_{AB}$ unfeasible <br> $\\bullet$ $IGR_{A}$ > 0 and $IGR_{B}$ < 0 <br> $\\bullet$ Species A wins"), 
-                      `$-$` = c("$\\bullet$ $E_{A}$ unstable and $E_{B}$ stable <br> $\\bullet$ $E_{AB}$ unfeasible <br> $\\bullet$ $IGR_{A}$ < 0 and $IGR_{B}$ > 0 <br> $\\bullet$ Species B wins", "$\\bullet$ $E_{A}$ and $E_{B}$ unstable <br> $\\bullet$ $E_{AB}$ feasible but unstable <br> $\\bullet$ $IGR_{A}$ < 0 and $IGR_{B}$ < 0 <br> $\\bullet$ Priority effect"))
+                      `$-$` = c("$\\bullet$ $E_{A}$ unstable and $E_{B}$ stable <br> $\\bullet$ $E_{AB}$ unfeasible <br> $\\bullet$ $IGR_{A}$ < 0 and $IGR_{B}$ > 0 <br> $\\bullet$ Species B wins", "$\\bullet$ $E_{A}$ and $E_{B}$ stable <br> $\\bullet$ $E_{AB}$ feasible but unstable <br> $\\bullet$ $IGR_{A}$ < 0 and $IGR_{B}$ < 0 <br> $\\bullet$ Priority effect"))
 
 kbl(summary_dat, align = "ccll", escape = F) %>%
   kable_styling(full_width = T, 

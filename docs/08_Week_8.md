@@ -102,7 +102,7 @@
    <td style="text-align:center;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 3em; font-size: 25px; border-color: white; vertical-align: bottom;">  </td>
    <td style="text-align:center;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 3em; font-size: 30px; border-color: white; border-top: 5px; font-weight: bold; vertical-align: middle;"> $-$ </td>
    <td style="text-align:left;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 17em; border-right:2px solid;"> $\bullet$ $E_{A}$ stable and $E_{B}$ unstable <br> $\bullet$ $E_{AB}$ unfeasible <br> $\bullet$ $IGR_{A}$ &gt; 0 and $IGR_{B}$ &lt; 0 <br> $\bullet$ Species A wins </td>
-   <td style="text-align:left;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 17em; "> $\bullet$ $E_{A}$ and $E_{B}$ unstable <br> $\bullet$ $E_{AB}$ feasible but unstable <br> $\bullet$ $IGR_{A}$ &lt; 0 and $IGR_{B}$ &lt; 0 <br> $\bullet$ Priority effect </td>
+   <td style="text-align:left;border-top: 2px solid black; border-bottom: 2px solid white; background-color: white;width: 17em; "> $\bullet$ $E_{A}$ and $E_{B}$ stable <br> $\bullet$ $E_{AB}$ feasible but unstable <br> $\bullet$ $IGR_{A}$ &lt; 0 and $IGR_{B}$ &lt; 0 <br> $\bullet$ Priority effect </td>
   </tr>
 </tbody>
 </table>
