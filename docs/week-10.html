@@ -139,7 +139,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course Information</a></li>
-<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i>Syllabus</a></li>
 <li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html"><i class="fa fa-check"></i>Week 1</a>
 <ul>
 <li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html#lecture-in-a-nutshell"><i class="fa fa-check"></i>Lecture in a nutshell</a></li>
@@ -239,22 +238,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lecture-in-a-nutshell-8" class="section level2 unnumbered">
 <h2>Lecture in a nutshell</h2>
 <ul>
-<li><strong>Topic:</strong>
+<li><strong>Modern coexistence theory</strong>
 <ol style="list-style-type: decimal">
-<li></li>
-<li></li>
-<li></li>
+<li>From mutual invasion analysis for coexistence: <span class="math inline">\(\frac{\alpha_{AB}}{\alpha_{BB}}&lt;\frac{r_{A}}{r_{B}}&lt;\frac{\alpha_{AA}}{\alpha_{BA}}\)</span></li>
+<li>Multiplying all terms by <span class="math inline">\(\sqrt{\frac{\alpha_{BB}\alpha_{BA}}{\alpha_{AA}\alpha_{AB}}}\)</span>:
+<span class="math inline">\(\sqrt{\frac{\alpha_{AB}\alpha_{BA}}{\alpha_{AA}\alpha_{BB}}}&lt;\frac{r_{A}}{r_{B}}\sqrt{\frac{\alpha_{BB}\alpha_{BA}}{\alpha_{AA}\alpha_{AB}}}&lt;\sqrt{\frac{\alpha_{AA}\alpha_{BB}}{\alpha_{AB}\alpha_{BA}}}\)</span>
+<ul>
+<li><span class="math inline">\(\sqrt{\frac{\alpha_{AB}\alpha_{BA}}{\alpha_{AA}\alpha_{BB}}}\)</span>: niche overlap (<span class="math inline">\(\rho\)</span>) (niche difference: <span class="math inline">\(1-\rho\)</span>)</li>
+<li><span class="math inline">\(\frac{r_{A}}{r_{B}}\)</span>: demographic ratio</li>
+<li><span class="math inline">\(\sqrt{\frac{\alpha_{BB}\alpha_{BA}}{\alpha_{AA}\alpha_{AB}}}\)</span>: sensitivity to competition</li>
+<li><span class="math inline">\(\frac{r_{A}}{r_{B}}\sqrt{\frac{\alpha_{BB}\alpha_{BA}}{\alpha_{AA}\alpha_{AB}}}\)</span>: fitness ratio/competitive hierarchy (<span class="math inline">\(\frac{K_{A}}{K_{B}}\)</span>)</li>
+</ul></li>
+<li>Coexistence: fitness ratio <span class="math inline">\(\frac{K_{A}}{K_{B}}\)</span> should be bounded between <span class="math inline">\(\rho\)</span> and <span class="math inline">\(\frac{1}{\rho}\)</span></li>
+<li>Competition outcomes:</li>
 </ol></li>
 </ul>
 <div style="height:1px ;">
 <br>
 </div>
 <ul>
-<li><strong>Topic:</strong>
+<li><strong>Lotka-Volterra model of predator-prey interactions</strong>
 <ol style="list-style-type: decimal">
-<li></li>
-<li></li>
-<li></li>
+<li>Model derivation:
+<div style="margin-left: 30%;">
+<span class="math inline">\(\begin{align}\frac {dN}{dt} = g(N)-f(N,P)\end{align}\\\)</span>
+</div>
+<div style="margin-left: 30%; margin-bottom: 5px;">
+<span class="math inline">\(\begin{align}\frac {dP}{dt} = ef(N,P)-d(P)\end{align}\)</span>
+</div>
+<ul>
+<li><span class="math inline">\(g(N)\)</span>: prey growth</li>
+<li><span class="math inline">\(f(N,P)\)</span>: prey consumed by predator</li>
+<li><span class="math inline">\(ef(N,P)\)</span>: prey conversion into predator</li>
+<li><span class="math inline">\(d(P)\)</span>: predator mortality</li>
+</ul></li>
+<li>Functional response <span class="math inline">\(f(N,P)\)</span>:
+<ul>
+<li>Type I: <span class="math inline">\(f(N,P) = aN\)</span></li>
+<li>Type II: <span class="math inline">\(f(N,P) = \frac{aN}{1+ahN}\)</span> (<em>h</em> is the handling time) or <span class="math inline">\(\frac{uN}{K_{m}+N}\)</span></li>
+<li>Type III: <span class="math inline">\(f(N,P) = \frac{aN^{2}}{1+ahN^{2}}\)</span> or <span class="math inline">\(\frac{uN^{2}}{K_{m}+N^{2}}\)</span></li>
+</ul></li>
+<li>Various model forms:
+<ul>
+<li>Exponential growth of prey + Type I functional response</li>
+<li>Logistic growth of prey + Type I functional response</li>
+<li>Exponential growth of prey + Type II functional response</li>
+<li>Logistic growth of prey + Type II functional response</li>
+</ul></li>
+</ol></li>
+</ul>
+<div style="height:1px ;">
+<br>
+</div>
+<ul>
+<li><strong>Model 1. Exponential growth of prey + Type I functional response</strong>
+<ol style="list-style-type: decimal">
+<li>Model equations:
+<div style="margin-left: 30%;">
+<span class="math inline">\(\begin{align}\frac {dN}{dt} = rN-aNP\end{align}\\\)</span>
+</div>
+<div style="margin-left: 30%; margin-bottom: 5px;">
+<span class="math inline">\(\begin{align}\frac {dP}{dt} = eaNP-dP\end{align}\)</span>
+</div></li>
+<li>The equilibrium points <span class="math inline">\((N^{*}, P^{*})\)</span>:
+<ul>
+<li><span class="math inline">\(E_{0} = (0, 0)\)</span></li>
+<li><span class="math inline">\(E_{NP} = (\frac{d}{ea}, \frac{r}{a})\)</span></li>
+</ul></li>
+<li>Local stability analysis:
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(E_{0}\)</span>
+<ul>
+<li><span class="math inline">\(J_{E_{0}} = \begin{vmatrix}r &amp; 0 \\ 0 &amp; -d\end{vmatrix}\)</span></li>
+<li><span class="math inline">\(\lambda&#39;s = r\)</span> and <span class="math inline">\(-d\)</span> (one positive and one negative)</li>
+<li>Unstable</li>
+</ul></li>
+<li><span class="math inline">\(E_{NP}\)</span></li>
+</ol>
+<ul>
+<li><span class="math inline">\(J_{E_{NP}} = \begin{vmatrix}0 &amp; -a\frac{d}{ea} \\ ea\frac{r}{a} &amp; 0\end{vmatrix}\)</span></li>
+<li><span class="math inline">\(\lambda&#39;s = \sqrt{rd}*i\)</span></li>
+<li>Real part is zero (pure imaginary number): the equilibrium is a center; sensitive to non-linear terms/initial conditions)</li>
+<li>Lyapunov function (global stability analysis of the equilibrium) is useful for predicting the system dynamics in the situation where all real parts of the eigenvalues are zero</li>
+<li>In this case, the dynamics are neutral cycles</li>
+</ul></li>
 </ol></li>
 </ul>
 <div style="height:1px ;">
@@ -264,7 +331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="lab-demonstration-8" class="section level2 unnumbered">
 <h2>Lab demonstration</h2>
-<p>In this lab, we are going to analyze the basic Lotka-Volterra predator-prey model:</p>
+<p>In this lab, we are going to analyze the classic Lotka-Volterra predator-prey model:</p>
 <div style="margin-left: 30%;">
 <span class="math inline">\(\begin{align}\frac {dN}{dt} = rN-aNP\end{align}\\\)</span>
 </div>
@@ -273,11 +340,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Please simulate the model using the parameter set (<em>N</em> = 10, <em>P</em> = 2, <em>r</em> = 1.0, <em>a</em> = 0.1, <em>e</em> = 0.8, <em>d</em> = 0.5) and plot the population trajectories of predator and prey over time. Also show their population dynamics in the state-space diagram.</p>
 <p>What will happen if you add a perturbation to the system (i.e., change the initial conditions)? Try out different values of <em>N</em> and <em>P</em> and visualize the differences in the state-space diagram.</p>
-<p><br></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="week-10.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="week-10.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span>
+<span id="cb1-3"><a href="week-10.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="week-10.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Model specification</span></span>
+<span id="cb1-5"><a href="week-10.html#cb1-5" aria-hidden="true" tabindex="-1"></a>LV_predation_model <span class="ot">&lt;-</span> <span class="cf">function</span>(times, state, parms) {</span>
+<span id="cb1-6"><a href="week-10.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
+<span id="cb1-7"><a href="week-10.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    dN_dt <span class="ot">=</span> r<span class="sc">*</span>N <span class="sc">-</span> a<span class="sc">*</span>N<span class="sc">*</span>P</span>
+<span id="cb1-8"><a href="week-10.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    dP_dt <span class="ot">=</span> e<span class="sc">*</span>a<span class="sc">*</span>N<span class="sc">*</span>P <span class="sc">-</span> d<span class="sc">*</span>P</span>
+<span id="cb1-9"><a href="week-10.html#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dN_dt, dP_dt)))  </span>
+<span id="cb1-10"><a href="week-10.html#cb1-10" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb1-11"><a href="week-10.html#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-12"><a href="week-10.html#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="week-10.html#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="do">### Model parameters</span></span>
+<span id="cb1-14"><a href="week-10.html#cb1-14" aria-hidden="true" tabindex="-1"></a>times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1000</span>, <span class="at">by =</span> <span class="fl">0.005</span>)</span>
+<span id="cb1-15"><a href="week-10.html#cb1-15" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">N =</span> <span class="dv">10</span>, <span class="at">P =</span> <span class="dv">2</span>)</span>
+<span id="cb1-16"><a href="week-10.html#cb1-16" aria-hidden="true" tabindex="-1"></a>parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">r =</span> <span class="fl">1.0</span>, <span class="at">a =</span> <span class="fl">0.1</span>, <span class="at">e =</span> <span class="fl">0.8</span>, <span class="at">d =</span> <span class="fl">0.5</span>)</span>
+<span id="cb1-17"><a href="week-10.html#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="week-10.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="do">### Model application</span></span>
+<span id="cb1-19"><a href="week-10.html#cb1-19" aria-hidden="true" tabindex="-1"></a>pop_size <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">func =</span> LV_predation_model, <span class="at">times =</span> times, <span class="at">y =</span> state, <span class="at">parms =</span> parms)</span>
+<span id="cb1-20"><a href="week-10.html#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="week-10.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="do">### Visualize the population dynamics</span></span>
+<span id="cb1-22"><a href="week-10.html#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># (1) population trajectories</span></span>
+<span id="cb1-23"><a href="week-10.html#cb1-23" aria-hidden="true" tabindex="-1"></a>pop_size <span class="sc">%&gt;%</span></span>
+<span id="cb1-24"><a href="week-10.html#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-25"><a href="week-10.html#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>time, <span class="at">names_to =</span> <span class="st">&quot;species&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-26"><a href="week-10.html#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> N, <span class="at">color =</span> species)) <span class="sc">+</span> </span>
+<span id="cb1-27"><a href="week-10.html#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb1-28"><a href="week-10.html#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb1-29"><a href="week-10.html#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Population size&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1-30"><a href="week-10.html#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">100.5</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb1-31"><a href="week-10.html#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(pop_size[, <span class="sc">-</span><span class="dv">1</span>])<span class="sc">*</span><span class="fl">1.2</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb1-32"><a href="week-10.html#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Prey&quot;</span>, <span class="st">&quot;Predator&quot;</span>))</span></code></pre></div>
+<p><img src="10_Week_10_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="week-10.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (2) state-space diagram</span></span>
+<span id="cb2-2"><a href="week-10.html#cb2-2" aria-hidden="true" tabindex="-1"></a>pop_size <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="week-10.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="week-10.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> N, <span class="at">y =</span> P)) <span class="sc">+</span> </span>
+<span id="cb2-5"><a href="week-10.html#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span> </span>
+<span id="cb2-6"><a href="week-10.html#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="week-10.html#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Prey&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Predator&quot;</span>)</span></code></pre></div>
+<p><img src="10_Week_10_files/figure-html/unnamed-chunk-2-2.png" width="70%" style="display: block; margin: auto;" />
+<br></p>
 <style>
 iframe {border: 0;}
 </style>
 <!-- Here is a shiny app for the Lotka-Volterra predator-prey model. Feel free to play around with different parameter inputs and see how the system dynamics change accordingly. -->
+<iframe src="https://genchanghsu0115.shinyapps.io/LV_predation_mod_shinyapp/?showcase=0" width="800px" height="700px" data-external="1">
+</iframe>
 </div>
 <div id="additional-readings-8" class="section level2 unnumbered">
 <h2>Additional readings</h2>

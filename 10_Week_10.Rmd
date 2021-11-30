@@ -10,25 +10,72 @@ knitr::opts_chunk$set(message = F,
 
 ## Lecture in a nutshell {-}
 
-* **Topic:**
-    1. 
-    2. 
-    3. 
+* **Modern coexistence theory**
+    1. From mutual invasion analysis for coexistence: $\frac{\alpha_{AB}}{\alpha_{BB}}<\frac{r_{A}}{r_{B}}<\frac{\alpha_{AA}}{\alpha_{BA}}$ 
+    2. Multiplying all terms by $\sqrt{\frac{\alpha_{BB}\alpha_{BA}}{\alpha_{AA}\alpha_{AB}}}$: 
+    $\sqrt{\frac{\alpha_{AB}\alpha_{BA}}{\alpha_{AA}\alpha_{BB}}}<\frac{r_{A}}{r_{B}}\sqrt{\frac{\alpha_{BB}\alpha_{BA}}{\alpha_{AA}\alpha_{AB}}}<\sqrt{\frac{\alpha_{AA}\alpha_{BB}}{\alpha_{AB}\alpha_{BA}}}$
+        * $\sqrt{\frac{\alpha_{AB}\alpha_{BA}}{\alpha_{AA}\alpha_{BB}}}$: niche overlap ($\rho$) (niche difference: $1-\rho$)
+        * $\frac{r_{A}}{r_{B}}$: demographic ratio
+        * $\sqrt{\frac{\alpha_{BB}\alpha_{BA}}{\alpha_{AA}\alpha_{AB}}}$: sensitivity to competition
+        * $\frac{r_{A}}{r_{B}}\sqrt{\frac{\alpha_{BB}\alpha_{BA}}{\alpha_{AA}\alpha_{AB}}}$: fitness ratio/competitive hierarchy ($\frac{K_{A}}{K_{B}}$)
+    3. Coexistence: fitness ratio $\frac{K_{A}}{K_{B}}$ should be bounded between $\rho$ and $\frac{1}{\rho}$ 
+    4. Competition outcomes:
     
+```{r, fig.width = 5, fig.height = 5, out.width = "70%", fig.align = "center", echo = F}
+library(tidyverse)
+
+ggplot() + 
+  geom_abline(slope = -1, )
+
+
+```
+
 <div style="height:1px ;"><br></div>
 
-* **Topic:**
-    1. 
-    2. 
-    3.
+* **Lotka-Volterra model of predator-prey interactions**
+    1. Model derivation:
+<div style="margin-left: 30%;">$\begin{align}\frac {dN}{dt} = g(N)-f(N,P)\end{align}\\$</div>
+<div style="margin-left: 30%; margin-bottom: 5px;">$\begin{align}\frac {dP}{dt} = ef(N,P)-d(P)\end{align}$</div>
+        * $g(N)$: prey growth
+        * $f(N,P)$: prey consumed by predator
+        * $ef(N,P)$: prey conversion into predator
+        * $d(P)$: predator mortality
+    2. Functional response $f(N,P)$:
+        * Type I: $f(N,P) = aN$
+        * Type II: $f(N,P) = \frac{aN}{1+ahN}$ (_h_ is the handling time) or $\frac{uN}{K_{m}+N}$
+        * Type III: $f(N,P) = \frac{aN^{2}}{1+ahN^{2}}$ or $\frac{uN^{2}}{K_{m}+N^{2}}$
+    3. Various model forms:
+        * Exponential growth of prey + Type I functional response
+        * Logistic growth of prey + Type I functional response
+        * Exponential growth of prey + Type II functional response
+        * Logistic growth of prey + Type II functional response
+
+<div style="height:1px ;"><br></div>
+* **Model 1. Exponential growth of prey + Type I functional response**
+    1. Model equations:
+<div style="margin-left: 30%;">$\begin{align}\frac {dN}{dt} = rN-aNP\end{align}\\$</div>
+<div style="margin-left: 30%; margin-bottom: 5px;">$\begin{align}\frac {dP}{dt} = eaNP-dP\end{align}$</div>
+    2. The equilibrium points $(N^{*}, P^{*})$:
+        * $E_{0} = (0, 0)$
+        * $E_{NP} = (\frac{d}{ea}, \frac{r}{a})$
+    3. Local stability analysis:
+        1. $E_{0}$
+            * $J_{E_{0}} = \begin{vmatrix}r & 0 \\ 0 & -d\end{vmatrix}$
+            * $\lambda's = r$ and $-d$ (one positive and one negative)
+            * Unstable
+        2. $E_{NP}$
+        * $J_{E_{NP}} = \begin{vmatrix}0 &  -a\frac{d}{ea} \\ ea\frac{r}{a} & 0\end{vmatrix}$
+        * $\lambda's = \sqrt{rd}*i$ 
+        * Real part is zero (pure imaginary number): the equilibrium is a center; sensitive to non-linear terms/initial conditions)
+        * Lyapunov function (global stability analysis of the equilibrium) is useful for predicting the system dynamics in the situation where all real parts of the eigenvalues are zero 
+        * In this case, the dynamics are neutral cycles
 
 <div style="height:1px ;"><br></div>    
 <br>
 
-
 ## Lab demonstration {-}
 
-In this lab, we are going to analyze the basic Lotka-Volterra predator-prey model:
+In this lab, we are going to analyze the classic Lotka-Volterra predator-prey model:
 
 <div style="margin-left: 30%;">$\begin{align}\frac {dN}{dt} = rN-aNP\end{align}\\$</div>
 <div style="margin-left: 30%; margin-bottom: 5px;">$\begin{align}\frac {dP}{dt} = eaNP-dP\end{align}$</div>
@@ -37,7 +84,7 @@ Please simulate the model using the parameter set (_N_ = 10, _P_ = 2, _r_ = 1.0,
 
 What will happen if you add a perturbation to the system (i.e., change the initial conditions)? Try out different values of _N_ and _P_ and visualize the differences in the state-space diagram.
 
-```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center", eval=F, include=F, echo=F}
+```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center"}
 library(tidyverse)
 library(deSolve)
 
@@ -88,7 +135,7 @@ iframe {border: 0;}
 
 <!-- Here is a shiny app for the Lotka-Volterra predator-prey model. Feel free to play around with different parameter inputs and see how the system dynamics change accordingly. -->
 
-```{r, out.width = "800px", echo = F, eval=F, include=F}
+```{r, out.width = "800px", echo = F}
 knitr::include_app("https://genchanghsu0115.shinyapps.io/LV_predation_mod_shinyapp/", height = "700px")
 ```
 
