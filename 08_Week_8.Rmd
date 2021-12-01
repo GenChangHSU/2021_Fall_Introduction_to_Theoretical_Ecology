@@ -172,7 +172,7 @@ No additional readings this week.
 
 [Linear Stability Analysis of Lotka-Volterra Competition Model](./Assignments/Week8_LV Competition Model.pdf){target="_blank"}
 
-<!-- [Suggested Solutions](./Assignments/Week8_LV Competition Model_with_Solutions.pdf){target="_blank"} -->
+[Suggested Solutions](./Assignments/Week8_LV Competition Model_with_Solutions.pdf){target="_blank"}
 
 
 

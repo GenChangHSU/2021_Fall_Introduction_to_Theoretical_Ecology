@@ -5,7 +5,7 @@ knitr::opts_chunk$set(message = F,
 
 ```
 
-# Week  {-} 
+# Week 11 {-} 
 <div style = "font-size: 28pt"> **_Lotka-Volterra model of predator-prey interactions (2)_**</div>
 
 ## Lecture in a nutshell {-}
@@ -28,7 +28,16 @@ knitr::opts_chunk$set(message = F,
 
 ## Lab demonstration {-}
 
-```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center", eval=F, include=F, echo=F}
+Similar to what we've done in the previous class, in this lab we are going to analyze the Rosenzweig–MacArthur predator–prey model:
+
+<div style="margin-left: 30%;">$\begin{align}\frac {dN}{dt} = rN(1-\frac{N}{K})-a\frac{N}{h+N}P\end{align}\\$</div>
+<div style="margin-left: 30%; margin-bottom: 10px;">$\begin{align}\frac {dP}{dt} = ea\frac{N}{h+N}P-dP\end{align}$</div>
+
+Please simulate the model using the parameter set (_N_ = 10, _P_ = 2, _r_ = 1.0, _a_ = 0.1, _h_ = 1, _e_ = 0.8, _d_ = 0.5) and plot the population trajectories of predator and prey as well as show their population dynamics in the state-space diagram.
+
+What will happen if you add a perturbation to the system (i.e., change the initial conditions)? Try out different values of _N_ and _P_ and visualize the differences in the state-space diagram. Also compare the results of the Rosenzweig–MacArthur model and the original Lotka-Volterra model. What do you find regarding the final equilibrium cycles?
+
+```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center", eval = F, include = F, echo = F}
 library(tidyverse)
 library(deSolve)
 
@@ -72,6 +81,32 @@ pop_size %>%
 
 ```
 <br>
+
+<style>
+iframe {border: 0;}
+</style>
+
+<!-- Here is a shiny app for the Rosenzweig–MacArthur predator–prey model. Feel free to play around with different parameter inputs and see how the system dynamics change accordingly. -->
+
+```{r, out.width = "800px", echo = F}
+knitr::include_app("https://genchanghsu0115.shinyapps.io/LV_predation_mod_shinyapp/", height = "700px")
+```
+
+### Special topic: time-scale separation {-}
+
+Time-scale separation is a useful technique to reduce the dimension of the model system, where some state variables are assumed to be at a much shorter time scale (i.e., fast variables) compared with the others (i.e., slow variables). The fast variables will respond rapidly to a slight change in the slow variables so that the slow variables can be viewed as constants from the perspective of fast variables.
+
+In the Rosenzweig–MacArthur predator–prey model, one way to achieve time-scale separation is to increase the prey growth rate—prey will grow much faster than predator does, mimicking the shorter generation time of prey relative to that of predator.
+
+<style>
+iframe {border: 0;}
+</style>
+
+<!-- If you change _r_, you can see that the population dynamics of prey and predator change quite dramatically. Some interesting patterns will arise!-->
+
+```{r, out.width = "800px", echo = F}
+knitr::include_app("https://genchanghsu0115.shinyapps.io/LV_predation_mod_shinyapp/", height = "700px")
+```
 
 ## Additional readings {-}
 
