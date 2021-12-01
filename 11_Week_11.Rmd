@@ -42,7 +42,7 @@ library(tidyverse)
 library(deSolve)
 
 ### Model specification
-RW_predation_model <- function(times, state, parms) {
+RM_predation_model <- function(times, state, parms) {
   with(as.list(c(state, parms)), {
     dN_dt = r*N*(1-(N/K))-(a*N/(1+a*h*N))*P
     dP_dt = e*(a*N/(1+a*h*N))*P-d*P
@@ -56,7 +56,7 @@ state <- c(N = 5, P = 2)
 parms <- c(r = 1.0, K = 5.0, a = 1.3, h = 0.9, e = 0.6, d = 0.5) 
 
 ### Model application
-pop_size <- ode(func = RW_predation_model, times = times, y = state, parms = parms)
+pop_size <- ode(func = RM_predation_model, times = times, y = state, parms = parms)
 
 ### Visualize the population dynamics
 # (1) population trajectories
