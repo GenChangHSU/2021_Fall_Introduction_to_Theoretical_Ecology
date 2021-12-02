@@ -90,7 +90,7 @@ server <- function(input, output) {
             pivot_longer(cols = -time, names_to = "species", values_to = "N") %>%
             ggplot(aes(x = time, y = N, color = species)) + 
             geom_line(size = 1.5) +
-            theme_classic(base_size = 12) +
+            theme_classic(base_size = 14) +
             labs(x = "Time", y = "Population size") +
             scale_x_continuous(limits = c(0, 500.5), expand = c(0, 0)) +
             scale_y_continuous(limits = c(0, max(pop_size[, -1])*1.2), expand = c(0, 0)) +
