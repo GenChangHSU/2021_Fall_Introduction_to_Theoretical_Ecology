@@ -11,7 +11,7 @@ ui <- fluidPage(
         
         # Sidebar with a slider input
         sidebarPanel(
-            style = "margin-top: 200px;",
+            style = "margin-top: 100px;",
             sliderInput("a",
                         "a = ",
                         min = 0,

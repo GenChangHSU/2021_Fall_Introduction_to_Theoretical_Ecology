@@ -391,8 +391,8 @@ iframe {border: 0;}
 <span id="cb40-12"><a href="week-11.html#cb40-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">&quot;#377EB8&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>),</span>
 <span id="cb40-13"><a href="week-11.html#cb40-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line.y =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">&quot;#E41A1C&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>)) <span class="sc">+</span>            <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Prey&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Predator&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb40-14"><a href="week-11.html#cb40-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">100</span>))</span></code></pre></div>
-<p><img src="11_Week_11_files/figure-html/unnamed-chunk-3-2.png" width="70%" style="display: block; margin: auto;" />
-If we solve for the new predator growth equation derived under time-scale separation using the same parameter set and visualize the population trajectory, we will get almost exactly the same predator growth pattern as that in the original model.</p>
+<p><img src="11_Week_11_files/figure-html/unnamed-chunk-3-2.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>If we solve for the new predator growth equation derived under time-scale separation using the same parameter set and visualize the population trajectory, we will get almost exactly the same predator growth pattern as that in the original model.</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="week-11.html#cb41-1" aria-hidden="true" tabindex="-1"></a>Time_scale_logistic <span class="ot">&lt;-</span> <span class="cf">function</span>(times, state, parms) {</span>
 <span id="cb41-2"><a href="week-11.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
 <span id="cb41-3"><a href="week-11.html#cb41-3" aria-hidden="true" tabindex="-1"></a>    dP_dt <span class="ot">=</span> (e<span class="sc">*</span>a<span class="sc">*</span>K<span class="sc">-</span>d)<span class="sc">*</span>P<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>((e<span class="sc">*</span>a<span class="sc">*</span>K<span class="sc">*</span>(a<span class="sc">/</span>r))<span class="sc">/</span>(e<span class="sc">*</span>a<span class="sc">*</span>K<span class="sc">-</span>d))<span class="sc">*</span>P)</span>
@@ -421,10 +421,7 @@ If we solve for the new predator growth equation derived under time-scale separa
 <span id="cb41-26"><a href="week-11.html#cb41-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Original&quot;</span>, <span class="st">&quot;Time-scale&quot;</span>))</span></code></pre></div>
 <p><img src="11_Week_11_files/figure-html/unnamed-chunk-4-1.png" width="70%" style="display: block; margin: auto;" />
 <br></p>
-<p>If you gradually shift from small values of <em>r</em> to large values, you can see that the population dynamics of predator and prey change quite dramatically. Some interesting patterns will arise!</p>
-<style>
-iframe {border: 0;}
-</style>
+<p>When you gradually shift <em>r</em> from small to large values, you can see that the population dynamics of predator and prey change quite dramatically. Some interesting patterns will arise!</p>
 <iframe src="https://genchanghsu0115.shinyapps.io/Time_scale_sep_shinyapp/?showcase=0" width="800px" height="700px" data-external="1">
 </iframe>
 </div>
