@@ -88,7 +88,7 @@ server <- function(input, output) {
       labs(x = "Time", y = "Population size") +
       scale_x_continuous(limits = c(0, 100.5), expand = c(0, 0.05)) +
       scale_y_continuous(limits = limit_fun, expand = c(0, 0.05)) +
-      scale_color_brewer(name = NULL, palette = "Set1", labels = c("Prey", "Predator"))
+      scale_color_brewer(name = NULL, palette = "Set1", labels = c("Prey", "Predator"), direction = -1)
     
     ### State-space diagram
     P2 <- pop_size %>%
