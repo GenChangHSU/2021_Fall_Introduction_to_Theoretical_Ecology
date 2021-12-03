@@ -30,8 +30,8 @@ knitr::opts_chunk$set(message = F,
 
 Similar to what we've done in the previous class, in this lab we are going to analyze the Rosenzweig–MacArthur predator–prey model:
 
-<div style="margin-left: 30%;">$\begin{align}\frac {dN}{dt} = rN(1-\frac{N}{K})-a\frac{N}{h+N}P\end{align}\\$</div>
-<div style="margin-left: 30%; margin-bottom: 10px;">$\begin{align}\frac {dP}{dt} = ea\frac{N}{h+N}P-dP\end{align}$</div>
+<div style="margin-left: 30%;">$\begin{align}\frac {dN}{dt} = rN(1-\frac{N}{K})-a\frac{N}{1+ahN}P\end{align}\\$</div>
+<div style="margin-left: 30%; margin-bottom: 10px;">$\begin{align}\frac {dP}{dt} = ea\frac{N}{1+ahN}P-dP\end{align}$</div>
 
 Please simulate the model using the parameter set (_N_ = 5, _P_ = 2, _r_ = 1.0, _K_ = 5.0, _a_ = 1.3, _h_ = 0.9, _e_ = 0.6, _d_ = 0.5) and plot the population trajectories of predator and prey as well as show their population dynamics in the state-space diagram.
 
@@ -108,11 +108,11 @@ Here, we are going to use the Lotka-Volterra model with logistic prey growth to 
 <div style="margin-left: 30%;">$\begin{align}\frac {dN}{dt} = rN(1-\frac{N}{K})-aNP\end{align}\\$</div>
 <div style="margin-left: 30%; margin-bottom: 10px;">$\begin{align}\frac {dP}{dt} = eaNP-dP\end{align}$</div>
 
-We will treat prey as a fast variable and predator as a slow variable. First, we find the equilibrium of prey: 
+We will treat prey as a fast variable and predator as a slow variable. First, we find the quasi-equilibrium $N^{\wedge}$ of prey by setting the prey equation to zero: 
 
-<div style="margin-left: 30%;">$\begin{align}N^{*} = K(1-\frac{ap}{r}) \end{align}$</div>
+<div style="margin-left: 30%;">$\begin{align}N^{\wedge} = K(1-\frac{aP}{r}) \end{align}$</div>
 
-And then we plug $N^{*}$ into predator growth:
+And then we plug $N^{\wedge}$ into predator equation:
 
 <div style="margin-left: 30%; margin-bottom: 10px;">$\begin{align}\frac {dP}{dt} = (eaK-d)P(1-\frac{eaK(\frac{a}{r})}{eaK-d}P)\end{align}$</div>
 
