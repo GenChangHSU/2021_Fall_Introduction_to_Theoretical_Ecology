@@ -169,7 +169,7 @@ syllabus <- tibble(
                "Broekman et al., 2019",
                "Gotelli [Ch.6] <br> Case [Ch.12 & 13]",
                "Armstrong & McGehee, 1980",
-               "Holt, 1977.",
+               "Holt, 1977",
                "Anderson & May, 1979",
                "Pastor [Ch.11 & 12]",
                " $~~~~~~~~~~~~$ \\- ")  

@@ -10,21 +10,66 @@ knitr::opts_chunk$set(message = F,
 
 ## Lecture in a nutshell {-}
 
-* **Topic:**
-    1. 
-    2. 
-    3. 
+(Continued from Week 10)
+
+* **Model 2. Logistic growth of prey + Type I functional response**
+    1. Model equations:
+<div style="margin-left: 30%;">$\begin{align}\frac {dN}{dt} = rN(1-\frac{N}{K})-aNP\end{align}\\$</div>
+<div style="margin-left: 30%; margin-bottom: 5px;">$\begin{align}\frac {dP}{dt} = eaNP-dP\end{align}$</div>
+    2. The equilibrium points $(N^{*}, P^{*})$:
+        * $E_{0} = (0, 0)$
+        * $E_{N} = (K, 0)$
+        * $E_{NP} = (\frac{d}{ea}, \frac{r}{a}(1-\frac{d}{eak}))$
+    3. Local stability analysis:
+        1. $E_{0}$
+            * $J_{E_{0}} = \begin{vmatrix}r & 0 \\ 0 & -d\end{vmatrix}$
+            * $\lambda's = r$ and $-d$ (one positive and one negative)
+            * Unstable
+        2. $E_{N}$
+            * $J_{E_{N}} = \begin{vmatrix}-r & -aK \\ 0 & eaK-d\end{vmatrix}$
+            * $\lambda's = -r$ and $eaK-d$
+            * Stable if $eaK < d~(K < \frac{d}{ea})$    
+        3. $E_{NP}$
+            * $J_{E_{NP}} = \begin{vmatrix}-\frac{rd}{eaK} & -\frac{d}{e} \\ eaP^{*} & 0\end{vmatrix}$
+            * Characteristic equation: $\lambda^{2} - (\frac{rd}{eaK})\lambda + adP^{*} = 0$
+            * $\lambda_{1} + \lambda_{2} = -\frac{rd}{eaK} < 0~\&~\lambda_{1}\lambda_{2} = adP^{*} > 0$ 
+            * Stable if $P^{*} > 0$ (feasibility) and $K > \frac{d}{ea}$
     
 <div style="height:1px ;"><br></div>
 
-* **Topic:**
-    1. 
-    2. 
-    3.
+* **Model 3. Exponential growth of prey + Type II functional response**
+    1. Model equations:
+<div style="margin-left: 30%;">$\begin{align}\frac {dN}{dt} = rN-(\frac{aN}{1+ahN})P\end{align}\\$</div>
+<div style="margin-left: 30%; margin-bottom: 5px;">$\begin{align}\frac {dP}{dt} = e(\frac{aN}{1+ahN})P-dP\end{align}$</div>
+    2. Internal equilibrium is unstable (oscillations with increasing amplitude)
 
-<div style="height:1px ;"><br></div>    
+<div style="height:1px ;"><br></div>
+
+* **Model 4. Logistic growth of prey + Type II functional response**
+    1. Model equations:
+<div style="margin-left: 30%;">$\begin{align}\frac {dN}{dt} = rN(1-\frac{N}{K})-(\frac{aN}{1+ahN})P\end{align}\\$</div>
+<div style="margin-left: 30%; margin-bottom: 5px;">$\begin{align}\frac {dP}{dt} = e(\frac{aN}{1+ahN})P-dP\end{align}$</div>
+    2. The equilibrium points $(N^{*}, P^{*})$:
+        * $E_{0} = (0, 0)$
+        * $E_{N} = (K, 0)$
+        * $E_{NP} = (\frac{d}{a(e-dh)}, \frac{r}{a}(1-\frac{d}{a(e-dh)k})(1+ah\frac{d}{a(e-dh)}))$
+    3. Local stability analysis:
+        1. $E_{0}$
+            * $J_{E_{0}} = \begin{vmatrix}r & 0 \\ 0 & -d\end{vmatrix}$
+            * $\lambda's = r$ and $-d$
+            * Unstable
+        2. $E_{N}$
+            * $J_{E_{N}} = \begin{vmatrix}-r & \frac{-aK}{1+ahK} \\ 0 & \frac{eaK}{1+ahK}-d\end{vmatrix}$
+            * $\lambda's = -r$ and $\frac{eaK}{1+ahK}-d$
+            * Stable if $(K < \frac{d}{a(e-dh)})$    
+        3. $E_{NP}$
+            * $J_{E_{NP}} = \begin{vmatrix}N^{*}(\frac{-r}{K}+\frac{a^{2}hP^{*}}{(1+ahN^{*})^{2}}) & -\frac{aN^{*}}{1+ahN^{*}} \\ \frac{eaP^{*}}{(1+ahN^{*})^{2}} & 0\end{vmatrix}$
+            * Characteristic equation: $\lambda^{2} - N^{*}(\frac{-r}{K}+\frac{a^{2}hP^{*}}{(1+ahN^{*})^{2}})\lambda + \frac{ea^{2}N^{*}P^{*}}{(1+ahN^{*})^{3}} = 0$
+            * If feasible ($N^{*}, P^{*} > 0$), $E_{NP}$ is stable if $\frac{-r}{K}+\frac{a^{2}hP^{*}}{(1+ahN^{*})^{2}} < 0$ (or $N^{*} > \frac{-1+ahk}{2ah}$)
+            * Paradox of enrichment: increasing the carrying capacity K of prey will destabilize the system
+            * Poincaré–Bendixson theorem: the trajectory must exhibit sustained periodic motion in a bounded 2D state-space if there is no equilibrium within.
+            
 <br>
-
 
 ## Lab demonstration {-}
 
@@ -37,7 +82,7 @@ Please simulate the model using the parameter set (_N_ = 5, _P_ = 2, _r_ = 1.0, 
 
 What will happen if you add a perturbation to the system (i.e., change the initial conditions)? Try out different values of _N_ and _P_ and visualize the differences in the state-space diagram. Also compare the results of the Rosenzweig–MacArthur model and the original Lotka-Volterra model. What do you find regarding the final equilibrium cycles?
 
-```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center", echo=F, include=F, eval=F}
+```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center"}
 library(tidyverse)
 library(deSolve)
 
@@ -95,7 +140,7 @@ iframe {border: 0;}
 
 <!-- Here is a shiny app for the Rosenzweig–MacArthur predator–prey model. Feel free to play around with different parameter inputs and see how the system dynamics change accordingly. -->
 
-```{r, out.width = "800px", echo = F, include=F, eval=F}
+```{r, out.width = "800px", echo = F}
 knitr::include_app("https://genchanghsu0115.shinyapps.io/RM_predation_mod_shinyapp/", height = "700px")
 ```
 
@@ -211,10 +256,7 @@ knitr::include_app("https://genchanghsu0115.shinyapps.io/Time_scale_sep_shinyapp
 
 ## Additional readings {-}
 
-<br>
-<br>
-<br>
-<br>
+No additional readings this week.
 <br>
 
 ## Assignments {-}

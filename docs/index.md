@@ -175,7 +175,7 @@ Below are the textbook references:
            <br> 21-Dec-2021 </td>
    <td style="text-align:center;width: 17em; "> Multispecies models of competition: apparent competition </td>
    <td style="text-align:center;width: 17em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Holt, 1977. </td>
+   <td style="text-align:left;width: 13em; "> Holt, 1977 </td>
   </tr>
   <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 14** <span style="vertical-align:-30%"> </span>

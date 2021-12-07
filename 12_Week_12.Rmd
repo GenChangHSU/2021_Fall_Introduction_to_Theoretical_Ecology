@@ -36,10 +36,7 @@ knitr::opts_chunk$set(message = F,
 
 ## Additional readings {-}
 
-<br>
-<br>
-<br>
-<br>
+[Competitive Exclusion](./Additional readings/Armstrong_&_McGehee_1980_AmNat.pdf){target="_blank"}
 <br>
 
 ## Assignments {-}

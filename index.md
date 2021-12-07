@@ -119,7 +119,7 @@ Below are the textbook references:
            <br> 14-Dec-2021 & Resource competition: R* models &  & Armstrong & McGehee, 1980\\
 \hline
 **Week 13** <span style='vertical-align:-30%'> </span>
-           <br> 21-Dec-2021 & Multispecies models of competition: apparent competition &  & Holt, 1977.\\
+           <br> 21-Dec-2021 & Multispecies models of competition: apparent competition &  & Holt, 1977\\
 \hline
 **Week 14** <span style='vertical-align:-30%'> </span>
            <br> 28-Dec-2021 & Disease dynamics and SIR models &  & Anderson & May, 1979\\
