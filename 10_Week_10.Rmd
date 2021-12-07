@@ -198,4 +198,4 @@ knitr::include_app("https://genchanghsu0115.shinyapps.io/LV_predation_mod_shinya
 
 [Stabilizing Lotka-Volterra Predator-Prey Model](./Assignments/Week10_LV Predation Model.pdf){target="_blank"}
 
-<!-- [Suggested Solutions](./Assignments/Week10_LV Predation Model_with_Solutions.pdf){target="_blank"} -->
+[Suggested Solutions](./Assignments/Week10_LV Predation Model_with_Solutions.pdf){target="_blank"}
