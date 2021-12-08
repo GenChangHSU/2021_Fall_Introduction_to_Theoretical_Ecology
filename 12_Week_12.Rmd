@@ -208,6 +208,9 @@ pop_size %>%
 ## Additional readings {-}
 
 [Competitive Exclusion](./Additional readings/Armstrong_&_McGehee_1980_AmNat.pdf){target="_blank"}
+
+[A Graphical-Mechanistic Approach to Competition and Predation](./Additional readings/Tilman_1980_AmNat.pdf){target="_blank"}
+
 <br>
 
 ## Assignments {-}
