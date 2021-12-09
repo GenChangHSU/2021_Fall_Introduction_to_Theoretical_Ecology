@@ -29,7 +29,7 @@ knitr::opts_chunk$set(message = F,
 ## Lab demonstration {-}
 
 ### Part 1 - R* rule {-}
-In this part of the lab section, we are going to analyze the consumer-resource dynamics and demonstrate the R* rule:
+In this part of the lab section, we are going to analyze the consumer-resource dynamics with two consumers and one resource:
 
 <div style="margin-left: 30%;">$\begin{align}\frac {dN_{1}}{dt} = ea_{1}RN_{1}-dN_{1}\end{align}\\$</div>
 <div style="margin-left: 30%;">$\begin{align}\frac {dN_{2}}{dt} = ea_{2}RN_{2}-dN_{2}\end{align}\\$</div>
@@ -67,7 +67,7 @@ data.frame(R = seq(0, 0.1, 0.001)) %>%
 ```
 ```{r, fig.width = 6, fig.height = 3.5, out.width = "90%", fig.align = "center"}
 ### Model specification
-CR_model <- function(times, state, parms){
+CR_model_2C_1R <- function(times, state, parms){
   with(as.list(c(state, parms)), {
     dN1_dt = e*a1*R*N1 - d*N1
     dN2_dt = e*a2*R*N2 - d*N2
@@ -79,10 +79,10 @@ CR_model <- function(times, state, parms){
 ### Model parameters
 times <- seq(0.1, 1000, by = 0.1)  
 state <- c(N1 = 2, N2 = 2, R = 0.1)  
-parms <- c(a1 = 0.4, a2 = 0.6, e = 1, d = 0.01, S0 = 0.1) 
+parms <- c(a1 = 0.4, a2 = 0.6, e = 1, d = 0.01, S0 = 0.1)  # R and S0 should be the same in the chemostat
 
 ### Model application
-pop_size <- ode(func = CR_model, times = times, y = state, parms = parms)
+pop_size <- ode(func = CR_model_2C_1R, times = times, y = state, parms = parms)
 
 ### Visualize the population dynamics
 pop_size %>%
@@ -116,58 +116,125 @@ We can see that _N~1~_ goes extinct, as predicted by the R* rule; the remaining 
 
 ### Part 2 - Tilman’s resource ratio hypothesis {-}
 
+Now we will extend the model in Part 1. into two consumers and two resources:
+
+<div style="margin-left: 30%;">$\begin{align}\frac {dN_{1}}{dt} = ea_{1a}R_{a}N_{1}+ea_{1b}R_{b}N_{1}-dN_{1}\end{align}\\$</div>
+<div style="margin-left: 30%;">$\begin{align}\frac {dN_{2}}{dt} = ea_{2a}R_{a}N_{2}+ea_{2b}R_{b}N_{2}-dN_{2}\end{align}\\$</div>
+<div style="margin-left: 30%; margin-bottom: 15px;">$\begin{align}\frac {dR_{a}}{dt} = d(S_{0a}-R_{a})-a_{1a}R_{a}N_{1}-a_{2a}R_{a}N_{2}\end{align}$</div>
+<div style="margin-left: 30%; margin-bottom: 15px;">$\begin{align}\frac {dR_{b}}{dt} = d(S_{0b}-R_{b})-a_{1b}R_{b}N_{1}-a_{2b}R_{b}N_{2}\end{align}$</div>
+
+Here, the two consumers _N~1~_ and _N~2~_ compete for two substitutable resources _R~1~_ and _R~2~_. Under certain conditions, the two consumers are able to coexist:
+
 ```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center"}
 library(tidyverse)
 library(deSolve)
 
 ### Model specification
-RM_predation_model <- function(times, state, parms) {
+CR_model_2C_2R <- function(time, state, parms){
   with(as.list(c(state, parms)), {
-    dN_dt = r*N*(1-(N/K))-(a*N/(1+a*h*N))*P
-    dP_dt = e*(a*N/(1+a*h*N))*P-d*P
-    return(list(c(dN_dt, dP_dt)))  
+    dN1_dt = e*a1a*Ra*N1 + e*a1b*Rb*N1 - d*N1
+    dN2_dt = e*a2a*Ra*N2 + e*a2b*Rb*N2 - d*N2
+    dRa_dt = d*(S0_a-Ra) - (a1a*N1*Ra) - (a2a*N2*Ra) 
+    dRb_dt = d*(S0_b-Rb) - (a1b*N1*Rb) - (a2b*N2*Rb)
+    return(list(c(dN1_dt, dN2_dt, dRa_dt, dRb_dt)))
   })
 }
 
 ### Model parameters
-times <- seq(0, 200, by = 0.01)  
-state <- c(N = 5, P = 2)  
-parms <- c(r = 1.0, K = 5.0, a = 1.3, h = 0.9, e = 0.6, d = 0.5) 
+times <- seq(0.1, 2000, by = 0.01)
+state <- c(N1 = 0.05, N2 = 0.05, Ra = 0.3, Rb = 0.3)
+parms <- c(a1a = 0.4, a1b = 0.8, a2a = 0.6, a2b = 0.5, e = 1, d = 0.1, S0_a = 0.3, S0_b = 0.3)  # Ra/Rb and S0a/S0b should be the same in the chemostat
 
 ### Model application
-pop_size <- ode(func = RM_predation_model, times = times, y = state, parms = parms)
+pop_size <- ode(func = CR_model_2C_2R, times = times, y = state, parms = parms)
 
 ### Visualize the population dynamics
-# (1) population trajectories
 pop_size %>%
   as.data.frame() %>%
   pivot_longer(cols = -time, names_to = "species", values_to = "N") %>%
+  mutate(trophic = case_when(species %in% c("N1", "N2") ~ "Consumer",
+                             TRUE ~ "Resource")) %>%
   ggplot(aes(x = time, y = N, color = species)) + 
   geom_line(size = 1.5) +
-  theme_classic(base_size = 12) +
-  labs(x = "Time", y = "Population size") +
-  scale_x_continuous(limits = c(0, 200.5), expand = c(0, 0)) +
-  scale_y_continuous(limits = c(0, max(pop_size[, -1])*1.2), expand = c(0, 0)) +
-  scale_color_brewer(name = NULL, palette = "Set1", labels = c("Prey", "Predator"), direction = -1)
-
-# (2) state-space diagram
-pop_size %>%
-  as.data.frame() %>%
-  ggplot(aes(x = N, y = P)) + 
-  geom_path() + 
-  geom_vline(xintercept = with(as.list(parms), d/(e*a-a*d*h)), color = "#E41A1C", size = 1) +
-  geom_function(data = data.frame(x = seq(0, 5, 0.01)), aes(x = x), fun = function(n){with(as.list(parms), r*(1+a*h*n)*(1-n/K)/a)}, inherit.aes = F, color = "#377EB8", size = 1) + 
-  geom_point(aes(x = tail(N, 1), y = tail(P, 1)), size = 2) +
+  facet_wrap(~ trophic, 
+             ncol = 2, 
+             scales = "free_y",
+             strip.position = "left") +
   theme_classic(base_size = 14) +
-  theme(axis.line.x = element_line(color = "#E41A1C", size = 1),
-        axis.line.y = element_line(color = "#377EB8", size = 1)) + 
-  labs(x = "Prey", y = "Predator") + 
-  scale_x_continuous(limits = c(0, max(pop_size[, "N"]*1.05)), expand = c(0, 0)) + 
-  scale_y_continuous(limits = c(0, max(pop_size[, "P"]*1.05)), expand = c(0, 0)) 
+  theme(strip.background = element_blank(),
+        strip.placement = "outside",
+        legend.position = "top",
+        legend.title = element_blank(),
+        plot.margin = margin(r = 8)) + 
+  labs(x = "Time", y = NULL) +
+  scale_x_continuous(limits = c(0, 2050), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, NA), expand = c(0, 0)) +
+  scale_color_brewer(name = NULL, palette = "Set1")
+
+```
+<br>
+
+The phase-plane diagram also illustrates the stable coexistence of the two consumers: 
+
+```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center"}
+### Parameters
+a1a <- 0.4
+a1b <- 0.8
+a2a <- 0.6
+a2b <- 0.5
+e <- 1 
+d <- 0.1 
+S0_a <- 0.3
+S0_b <- 0.3
+
+### Slopes and intercepts of the ZNGI's
+ZNGI_slope_N1 <- -a1a/a1b
+ZNGI_intercept_N1 <- d/(e*a1b)  
+ZNGI_slope_N2 <- -a2a/a2b
+ZNGI_intercept_N2 <- d/(e*a2b)
+
+### Consumption vectors
+eqilibrium_Ra <- (d/e)*((a1b-a2b)/(a2a*a1b-a2b*a1a))
+eqilibrium_Rb <- (d/e)*((a1a-a2a)/(a2b*a1a-a2a*a1b))
+convec_slope_N1 <- (a1b*eqilibrium_Rb)/(a1a*eqilibrium_Ra)
+convec_slope_N2 <- (a2b*eqilibrium_Rb)/(a2a*eqilibrium_Ra)
+
+convec_df <- data.frame(R = seq(0.05, 0.35, by = 0.001)) %>%
+  mutate(convec_N1 = convec_slope_N1*(R-eqilibrium_Ra) + eqilibrium_Rb,
+         convec_N2 = convec_slope_N2*(R-eqilibrium_Ra) + eqilibrium_Rb) %>%
+  pivot_longer(-R, names_to = "species", values_to = "N") %>%
+  filter(species == "convec_N1")
+
+### Phase diagram
+ggplot() + 
+  geom_abline(slope = ZNGI_slope_N1, intercept = ZNGI_intercept_N1, color = "#E41A1C", size = 1.2) + 
+  geom_abline(slope = ZNGI_slope_N2, intercept = ZNGI_intercept_N2, color = "#377EB8", size = 1.2) + 
+  geom_line(data = convec_df, aes(x = R, y = N, color = species)) +
+  geom_path(data = as.data.frame(pop_size), aes(x = Ra, y = Rb)) +
+  geom_point(data = as.data.frame(pop_size), aes(x = last(Ra), y = last(Rb)), size = 2.5) +
+  theme_classic(base_size = 14) +
+  labs(x = expression(italic(R[a])), y = expression(italic(R[b]))) +
+  scale_x_continuous(limits = c(0, 0.4), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, 0.4), expand = c(0, 0)) +
+  scale_color_brewer(name = NULL, palette = "Set1") + 
+  coord_fixed(ratio = 1) 
+
 
 ```
 
-<br>
+
+
+In this case, if the initial resource levels fall within the upper area bounded by the two consumption vectors, then the two species are able to coexist.
+
+
+
+
+
+
+
+
+
+
 
 ### Part 3 - Relative nonlinearity {-}
 
