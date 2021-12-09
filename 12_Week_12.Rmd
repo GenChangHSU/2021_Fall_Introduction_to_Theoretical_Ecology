@@ -65,7 +65,8 @@ data.frame(R = seq(0, 0.1, 0.001)) %>%
   theme_classic(base_size = 14)
 
 ```
-```{r, fig.width = 6, fig.height = 3.5, out.width = "90%", fig.align = "center"}
+
+```{r, fig.width = 7, fig.height = 3.5, out.width = "90%", fig.align = "center"}
 ### Model specification
 CR_model_2C_1R <- function(times, state, parms){
   with(as.list(c(state, parms)), {
@@ -125,7 +126,7 @@ Now we will extend the model in Part 1. into two consumers and two resources:
 
 Here, the two consumers _N~1~_ and _N~2~_ compete for two substitutable resources _R~1~_ and _R~2~_. Under certain conditions, the two consumers are able to coexist:
 
-```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center"}
+```{r, fig.width = 7, fig.height = 3.5, out.width = "90%", fig.align = "center"}
 library(tidyverse)
 library(deSolve)
 
@@ -174,8 +175,7 @@ pop_size %>%
 ```
 <br>
 
-The phase-plane diagram also illustrates the stable coexistence of the two consumers: 
-
+The phase diagram also illustrates stable coexistence of the two consumers: 
 ```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center"}
 ### Parameters
 a1a <- 0.4
@@ -196,49 +196,42 @@ ZNGI_intercept_N2 <- d/(e*a2b)
 ### Consumption vectors
 eqilibrium_Ra <- (d/e)*((a1b-a2b)/(a2a*a1b-a2b*a1a))
 eqilibrium_Rb <- (d/e)*((a1a-a2a)/(a2b*a1a-a2a*a1b))
-convec_slope_N1 <- (a1b*eqilibrium_Rb)/(a1a*eqilibrium_Ra)
-convec_slope_N2 <- (a2b*eqilibrium_Rb)/(a2a*eqilibrium_Ra)
 
-convec_df <- data.frame(R = seq(0.05, 0.35, by = 0.001)) %>%
-  mutate(convec_N1 = convec_slope_N1*(R-eqilibrium_Ra) + eqilibrium_Rb,
-         convec_N2 = convec_slope_N2*(R-eqilibrium_Ra) + eqilibrium_Rb) %>%
-  pivot_longer(-R, names_to = "species", values_to = "N") %>%
-  filter(species == "convec_N1")
+convec_df <- data.frame(x = c(eqilibrium_Ra + 6*a1a*eqilibrium_Ra, 
+                              eqilibrium_Ra + 6*a2a*eqilibrium_Ra),
+                        y = c(eqilibrium_Rb + 6*a1b*eqilibrium_Rb, 
+                              eqilibrium_Rb + 6*a2b*eqilibrium_Rb),
+                        xend = c(eqilibrium_Ra - a1a*eqilibrium_Ra, 
+                              eqilibrium_Ra - a2a*eqilibrium_Ra),
+                        yend = c(eqilibrium_Rb - a1b*eqilibrium_Rb, 
+                              eqilibrium_Rb - a2b*eqilibrium_Rb),
+                        species = c("N1", "N2"))
 
 ### Phase diagram
 ggplot() + 
   geom_abline(slope = ZNGI_slope_N1, intercept = ZNGI_intercept_N1, color = "#E41A1C", size = 1.2) + 
   geom_abline(slope = ZNGI_slope_N2, intercept = ZNGI_intercept_N2, color = "#377EB8", size = 1.2) + 
-  geom_line(data = convec_df, aes(x = R, y = N, color = species)) +
+  geom_segment(data = convec_df, aes(x = x, y = y, xend = xend, yend = yend, color = species), linetype = "blank") + 
+  geom_segment(data = convec_df, aes(x = x, y = y, xend = xend, yend = yend, color = species), size = 0.5, linetype = "dashed", arrow = arrow(type = "closed", length = unit(0.1, "inches")), show.legend = F) +
   geom_path(data = as.data.frame(pop_size), aes(x = Ra, y = Rb)) +
   geom_point(data = as.data.frame(pop_size), aes(x = last(Ra), y = last(Rb)), size = 2.5) +
   theme_classic(base_size = 14) +
   labs(x = expression(italic(R[a])), y = expression(italic(R[b]))) +
-  scale_x_continuous(limits = c(0, 0.4), expand = c(0, 0)) +
-  scale_y_continuous(limits = c(0, 0.4), expand = c(0, 0)) +
-  scale_color_brewer(name = NULL, palette = "Set1") + 
-  coord_fixed(ratio = 1) 
+  scale_x_continuous(limits = c(0, 0.5), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(0, 0.5), expand = c(0, 0)) +
+  scale_color_brewer(name = NULL, palette = "Set1", 
+                     guide = guide_legend(override.aes = list(
+                       linetype = "solid", size = 1.2))) +
+  coord_fixed(ratio = 1)
 
 
 ```
 
-
-
-In this case, if the initial resource levels fall within the upper area bounded by the two consumption vectors, then the two species are able to coexist.
-
-
-
-
-
-
-
-
-
-
+In this particular case, if the initial resource levels _R~a0~_ and _R~b0~_ fall within the upper area bounded by the two consumption vectors, then the two species will coexist.
 
 ### Part 3 - Relative nonlinearity {-}
 
-```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center"}
+```{r, fig.width = 5, fig.height = 3.5, out.width = "70%", fig.align = "center", eval=F, include=F, echo=F}
 library(tidyverse)
 library(deSolve)
 
@@ -289,12 +282,6 @@ pop_size %>%
 
 ```
 
-
-
-
-
-
-
 ## Additional readings {-}
 
 [Competitive Exclusion](./Additional readings/Armstrong_&_McGehee_1980_AmNat.pdf){target="_blank"}
@@ -307,4 +294,5 @@ pop_size %>%
 
 [Apparent Competition and P* Rule](./Assignments/Week12_Apparent Competition.pdf){target="_blank"}
 
+<!-- [Suggested Solutions](./Assignments/Week12_Apparent Competition_with_Solutions.pdf){target="_blank"} -->
 
