@@ -167,8 +167,8 @@ Below are the textbook references:
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 12** <span style="vertical-align:-30%"> </span>
            <br> 14-Dec-2021 </td>
    <td style="text-align:center;width: 17em; "> Resource competition: R* models </td>
-   <td style="text-align:center;width: 17em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Armstrong &amp; McGehee, 1980 </td>
+   <td style="text-align:center;width: 17em; "> Analyzing the dynamics of various consumer-resource systems </td>
+   <td style="text-align:left;width: 13em; "> Armstrong &amp; McGehee, 1980 <br> Tilman, 1980 </td>
   </tr>
   <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 13** <span style="vertical-align:-30%"> </span>
