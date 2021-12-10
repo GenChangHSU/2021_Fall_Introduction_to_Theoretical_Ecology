@@ -35,7 +35,7 @@ In this part of the lab section, we are going to analyze the consumer-resource d
 <div style="margin-left: 30%;">$\begin{align}\frac {dN_{2}}{dt} = e_{2}a_{2}RN_{2}-dN_{2}\end{align}\\$</div>
 <div style="margin-left: 30%; margin-bottom: 15px;">$\begin{align}\frac {dR}{dt} = d(S_{0}-R)-a_{1}RN_{1}-a_{2}RN_{2}\end{align}$</div>
 
-Please simulate the model using the parameter set (_N1_ = 2, _N2_ = 2, _R_ = 0.1, _a1_ = 0.4, _a2_ = 0.6, _e1_ = 1, _e2_ = 1, _d_ = 0.01, _S~0~_ = 0.1) and visualize the population trajectories of the two consumers as well as the resource. 
+Please simulate the model using the parameter set (_N~1~_ = 2, _N~2~_ = 2, _R_ = 0.1, _a~1~_ = 0.4, _a~2~_ = 0.6, _e~1~_ = 1, _e~2~_ = 1, _d_ = 0.01, _S~0~_ = 0.1) and visualize the population trajectories of the two consumers as well as the resource. 
 
 Below is a plot of resource level vs. consumers' per capita growth rate. What would you predict about the system dynamics? 
 
@@ -67,7 +67,7 @@ data.frame(R = seq(0, 0.1, 0.001)) %>%
 
 ```
 
-```{r, fig.width = 7, fig.height = 3.5, out.width = "90%", fig.align = "center"}
+```{r, fig.width = 7, fig.height = 3.5, out.width = "90%", fig.align = "center", echo=F, include=F, eval=F}
 ### Model specification
 CR_model_2C_1R <- function(times, state, parms){
   with(as.list(c(state, parms)), {
@@ -110,9 +110,9 @@ pop_size %>%
   scale_color_manual(name = NULL, values = c("#377EB8", "#E41A1C", "#4DAF4A"))
 
 ```
-<div style="height:15px ;"><br></div>
+<!-- <div style="height:15px ;"><br></div> -->
 
-We can see that _N~1~_ goes extinct, as predicted by the R* rule; the remaining consumer _N~2~_ and the resource _R_ exhibit stable coexistence.
+<!-- We can see that _N~1~_ goes extinct, as predicted by the R* rule; the remaining consumer _N~2~_ and the resource _R_ exhibit stable coexistence. -->
 
 <br>
 
@@ -120,10 +120,10 @@ We can see that _N~1~_ goes extinct, as predicted by the R* rule; the remaining 
 
 Now we will extend the model in Part 1. into two consumers and two resources:
 
-<div style="margin-left: 30%;">$\begin{align}\frac {dN_{1}}{dt} = e_{1}a_{1a}R_{a}N_{1}+e_{1}a_{1b}R_{b}N_{1}-dN_{1}\end{align}\\$</div>
-<div style="margin-left: 30%;">$\begin{align}\frac {dN_{2}}{dt} = e_{2}a_{2a}R_{a}N_{2}+e_{2}a_{2b}R_{b}N_{2}-dN_{2}\end{align}\\$</div>
-<div style="margin-left: 30%; margin-bottom: 15px;">$\begin{align}\frac {dR_{a}}{dt} = d(S_{a}-R_{a})-a_{1a}R_{a}N_{1}-a_{2a}R_{a}N_{2}\end{align}$</div>
-<div style="margin-left: 30%; margin-bottom: 15px;">$\begin{align}\frac {dR_{b}}{dt} = d(S_{b}-R_{b})-a_{1b}R_{b}N_{1}-a_{2b}R_{b}N_{2}\end{align}$</div>
+<div style="margin-left: 15%;">$\begin{align}\frac {dN_{1}}{dt} = e_{1}a_{1a}R_{a}N_{1}+e_{1}a_{1b}R_{b}N_{1}-dN_{1}\end{align}\\$</div>
+<div style="margin-left: 15%;">$\begin{align}\frac {dN_{2}}{dt} = e_{2}a_{2a}R_{a}N_{2}+e_{2}a_{2b}R_{b}N_{2}-dN_{2}\end{align}\\$</div>
+<div style="margin-left: 15%; margin-bottom: 15px;">$\begin{align}\frac {dR_{a}}{dt} = d(S_{a}-R_{a})-a_{1a}R_{a}N_{1}-a_{2a}R_{a}N_{2}\end{align}$</div>
+<div style="margin-left: 15%; margin-bottom: 15px;">$\begin{align}\frac {dR_{b}}{dt} = d(S_{b}-R_{b})-a_{1b}R_{b}N_{1}-a_{2b}R_{b}N_{2}\end{align}$</div>
 
 Here, the two consumers _N~1~_ and _N~2~_ compete for two substitutable resources _R~1~_ and _R~2~_. Under certain conditions, the two consumers are able to coexist:
 
@@ -236,9 +236,9 @@ We have seen in Part 1. that two species cannot coexist on one resource if the c
 
 In this part of the lab section, we will introduce non-linear (type II) functional response into the consumer-resource model in Part 1. for one of the consumers. We also change the resource equation to logistic growth and allow the two consumers to have different conversion efficiencies and mortality rates:
 
-<div style="margin-left: 30%;">$\begin{align}\frac {dN_{1}}{dt} = e_{1}a_{1}RN_{1}-d_{1}N_{1}\end{align}\\$</div>
-<div style="margin-left: 30%;">$\begin{align}\frac {dN_{2}}{dt} = e_{2}\frac{a_{2}R}{k_{2}+R}N_{2}-d_{2}N_{2}\end{align}\\$</div>
-<div style="margin-left: 30%; margin-bottom: 15px;">$\begin{align}\frac {dR}{dt} = rR(1-\frac{R}{K})-a_{1}RN_{1}-\frac{a_{2}R}{k_{2}+R}N_{2}\end{align}$</div>
+<div style="margin-left: 25%;">$\begin{align}\frac {dN_{1}}{dt} = e_{1}a_{1}RN_{1}-d_{1}N_{1}\end{align}\\$</div>
+<div style="margin-left: 25%;">$\begin{align}\frac {dN_{2}}{dt} = e_{2}\frac{a_{2}R}{k_{2}+R}N_{2}-d_{2}N_{2}\end{align}\\$</div>
+<div style="margin-left: 25%; margin-bottom: 15px;">$\begin{align}\frac {dR}{dt} = rR(1-\frac{R}{K})-a_{1}RN_{1}-\frac{a_{2}R}{k_{2}+R}N_{2}\end{align}$</div>
 
 <div style="height:15px ;"><br></div>
 
