@@ -261,27 +261,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lecture-in-a-nutshell-10" class="section level2 unnumbered">
 <h2>Lecture in a nutshell</h2>
 <ul>
-<li><strong>Topic:</strong>
+<li><strong>Exploitative competition (consumer-resource dynamics)</strong>
 <ol style="list-style-type: decimal">
-<li></li>
-<li></li>
-<li></li>
-</ol></li>
-</ul>
-<div style="height:1px ;">
-<br>
-</div>
+<li>R* rule:
 <ul>
-<li><strong>Topic:</strong>
+<li>2 consumers + 1 resource
+<div style="margin-left: 15%; margin-top: 15px;">
+<span class="math inline">\(\begin{align}\frac {dN_{1}}{dt} = e_{1}a_{1}RN_{1}-dN_{1}\end{align}\\\)</span>
+</div>
+<div style="margin-left: 15%;">
+<span class="math inline">\(\begin{align}\frac {dN_{2}}{dt} = e_{2}a_{2}RN_{2}-dN_{2}\end{align}\\\)</span>
+</div>
+<div style="margin-left: 15%; margin-bottom: 15px;">
+<span class="math inline">\(\begin{align}\frac {dR}{dt} = d(S_{0}-R)-a_{1}RN_{1}-a_{2}RN_{2}\end{align}\)</span>
+</div></li>
+<li>The two consumers <strong>CANNOT</strong> coexist: the one with lower R* (the resource level at the monoculture equilibrium) will win</li>
+<li>Generalization: When multiple species are competing for a single resource, coexistence is not possible. The species with the lowest R* will win at equilibrium.</li>
+</ul></li>
+<li>Tilman’s resource ratio hypothesis:
+<ul>
+<li>2 consumers + 2 resources
+<div style="margin-left: 15%; margin-top: 15px;">
+<span class="math inline">\(\begin{align}\frac {dN_{1}}{dt} = e_{1}a_{1a}R_{a}N_{1}+e_{1}a_{1b}R_{b}N_{1}-dN_{1}\end{align}\\\)</span>
+</div>
+<div style="margin-left: 15%;">
+<span class="math inline">\(\begin{align}\frac {dN_{2}}{dt} = e_{2}a_{2a}R_{a}N_{2}+e_{2}a_{2b}R_{b}N_{2}-dN_{2}\end{align}\\\)</span>
+</div>
+<div style="margin-left: 15%; margin-bottom: 15px;">
+<span class="math inline">\(\begin{align}\frac {dR_{a}}{dt} = d(S_{a}-R_{a})-a_{1a}R_{a}N_{1}-a_{2a}R_{a}N_{2}\end{align}\)</span>
+</div>
+<div style="margin-left: 15%; margin-bottom: 15px;">
+<span class="math inline">\(\begin{align}\frac {dR_{b}}{dt} = d(S_{b}-R_{b})-a_{1b}R_{b}N_{1}-a_{2b}R_{b}N_{2}\end{align}\)</span>
+</div></li>
+<li>Outcomes:
 <ol style="list-style-type: decimal">
-<li></li>
-<li></li>
-<li></li>
+<li>Consumer 1 wins: <span class="math inline">\(ZNGI_{2}\)</span> lies above <span class="math inline">\(ZNGI_{1}\)</span> in the <span class="math inline">\(R_{a}\)</span>-<span class="math inline">\(R_{b}\)</span> state space</li>
+<li>Consumer 2 wins: <span class="math inline">\(ZNGI_{1}\)</span> lies above <span class="math inline">\(ZNGI_{2}\)</span> in the <span class="math inline">\(R_{a}\)</span>-<span class="math inline">\(R_{b}\)</span> state space</li>
+<li>Coexist: <span class="math inline">\(ZNGI_{1}\)</span> and <span class="math inline">\(ZNGI_{2}\)</span> cross (trade-off in competitiveness); species should consume more of the resource that limits its growth (i.e., the resource of which the decline leads to the largest reduction in growth); resource supply should be balanced</li>
+<li>Priority effect</li>
+</ol></li>
+</ul></li>
+<li>Armstrong &amp; McGehee relative nonlinearity
+<ul>
+<li>2 consumers + 1 resource</li>
+<li>Logistically-growing resource + type-II functional response</li>
+<li>Fluctuating resource generates stable limit cycles</li>
+</ul></li>
 </ol></li>
 </ul>
-<div style="height:1px ;">
-<br>
-</div>
 <p><br></p>
 </div>
 <div id="lab-demonstration-10" class="section level2 unnumbered">
@@ -325,8 +352,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb42-23"><a href="week-12.html#cb42-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span> </span>
 <span id="cb42-24"><a href="week-12.html#cb42-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code></pre></div>
 <p><img src="12_Week_12_files/figure-html/unnamed-chunk-1-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<!-- <div style="height:15px ;"><br></div> -->
-<!-- We can see that _N~1~_ goes extinct, as predicted by the R* rule; the remaining consumer _N~2~_ and the resource _R_ exhibit stable coexistence. -->
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="week-12.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Model specification</span></span>
+<span id="cb43-2"><a href="week-12.html#cb43-2" aria-hidden="true" tabindex="-1"></a>CR_model_2C_1R <span class="ot">&lt;-</span> <span class="cf">function</span>(times, state, parms){</span>
+<span id="cb43-3"><a href="week-12.html#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
+<span id="cb43-4"><a href="week-12.html#cb43-4" aria-hidden="true" tabindex="-1"></a>    dN1_dt <span class="ot">=</span> e1<span class="sc">*</span>a1<span class="sc">*</span>R<span class="sc">*</span>N1 <span class="sc">-</span> d<span class="sc">*</span>N1</span>
+<span id="cb43-5"><a href="week-12.html#cb43-5" aria-hidden="true" tabindex="-1"></a>    dN2_dt <span class="ot">=</span> e2<span class="sc">*</span>a2<span class="sc">*</span>R<span class="sc">*</span>N2 <span class="sc">-</span> d<span class="sc">*</span>N2</span>
+<span id="cb43-6"><a href="week-12.html#cb43-6" aria-hidden="true" tabindex="-1"></a>    dR_dt <span class="ot">=</span>  d<span class="sc">*</span>(S0<span class="sc">-</span>R) <span class="sc">-</span> a1<span class="sc">*</span>R<span class="sc">*</span>N1 <span class="sc">-</span> a2<span class="sc">*</span>R<span class="sc">*</span>N2</span>
+<span id="cb43-7"><a href="week-12.html#cb43-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dN1_dt, dN2_dt, dR_dt)))</span>
+<span id="cb43-8"><a href="week-12.html#cb43-8" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb43-9"><a href="week-12.html#cb43-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb43-10"><a href="week-12.html#cb43-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-11"><a href="week-12.html#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="do">### Model parameters</span></span>
+<span id="cb43-12"><a href="week-12.html#cb43-12" aria-hidden="true" tabindex="-1"></a>times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="dv">1000</span>, <span class="at">by =</span> <span class="fl">0.1</span>)  </span>
+<span id="cb43-13"><a href="week-12.html#cb43-13" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">N1 =</span> <span class="dv">2</span>, <span class="at">N2 =</span> <span class="dv">2</span>, <span class="at">R =</span> <span class="fl">0.1</span>)  </span>
+<span id="cb43-14"><a href="week-12.html#cb43-14" aria-hidden="true" tabindex="-1"></a>parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">a1 =</span> <span class="fl">0.4</span>, <span class="at">a2 =</span> <span class="fl">0.6</span>, <span class="at">e1 =</span> <span class="dv">1</span>, <span class="at">e2 =</span> <span class="dv">1</span>, <span class="at">d =</span> <span class="fl">0.01</span>, <span class="at">S0 =</span> <span class="fl">0.1</span>)  <span class="co"># R and S0 should be the same in the chemostat</span></span>
+<span id="cb43-15"><a href="week-12.html#cb43-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-16"><a href="week-12.html#cb43-16" aria-hidden="true" tabindex="-1"></a><span class="do">### Model application</span></span>
+<span id="cb43-17"><a href="week-12.html#cb43-17" aria-hidden="true" tabindex="-1"></a>pop_size <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">func =</span> CR_model_2C_1R, <span class="at">times =</span> times, <span class="at">y =</span> state, <span class="at">parms =</span> parms)</span>
+<span id="cb43-18"><a href="week-12.html#cb43-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-19"><a href="week-12.html#cb43-19" aria-hidden="true" tabindex="-1"></a><span class="do">### Visualize the population dynamics</span></span>
+<span id="cb43-20"><a href="week-12.html#cb43-20" aria-hidden="true" tabindex="-1"></a>pop_size <span class="sc">%&gt;%</span></span>
+<span id="cb43-21"><a href="week-12.html#cb43-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb43-22"><a href="week-12.html#cb43-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>time, <span class="at">names_to =</span> <span class="st">&quot;species&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb43-23"><a href="week-12.html#cb43-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trophic =</span> <span class="fu">case_when</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;N1&quot;</span>, <span class="st">&quot;N2&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Consumer&quot;</span>,</span>
+<span id="cb43-24"><a href="week-12.html#cb43-24" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Resource&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb43-25"><a href="week-12.html#cb43-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> N, <span class="at">color =</span> species)) <span class="sc">+</span> </span>
+<span id="cb43-26"><a href="week-12.html#cb43-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb43-27"><a href="week-12.html#cb43-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trophic, </span>
+<span id="cb43-28"><a href="week-12.html#cb43-28" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>, </span>
+<span id="cb43-29"><a href="week-12.html#cb43-29" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>,</span>
+<span id="cb43-30"><a href="week-12.html#cb43-30" aria-hidden="true" tabindex="-1"></a>             <span class="at">strip.position =</span> <span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
+<span id="cb43-31"><a href="week-12.html#cb43-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb43-32"><a href="week-12.html#cb43-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb43-33"><a href="week-12.html#cb43-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.placement =</span> <span class="st">&quot;outside&quot;</span>,</span>
+<span id="cb43-34"><a href="week-12.html#cb43-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>,</span>
+<span id="cb43-35"><a href="week-12.html#cb43-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb43-36"><a href="week-12.html#cb43-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">5</span>)) <span class="sc">+</span> </span>
+<span id="cb43-37"><a href="week-12.html#cb43-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb43-38"><a href="week-12.html#cb43-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1050</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb43-39"><a href="week-12.html#cb43-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb43-40"><a href="week-12.html#cb43-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#377EB8&quot;</span>, <span class="st">&quot;#E41A1C&quot;</span>, <span class="st">&quot;#4DAF4A&quot;</span>))</span></code></pre></div>
+<img src="12_Week_12_files/figure-html/unnamed-chunk-2-1.png" width="90%" style="display: block; margin: auto;" />
+<div style="height:15px ;">
+<br>
+</div>
+<p>We can see that <em>N<sub>1</sub></em> goes extinct, as predicted by the R* rule; the remaining consumer <em>N<sub>2</sub></em> and the resource <em>R</em> exhibit stable coexistence.</p>
 <p><br></p>
 </div>
 <div id="part-2---tilmans-resource-ratio-hypothesis" class="section level3 unnumbered">
@@ -345,98 +415,98 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math inline">\(\begin{align}\frac {dR_{b}}{dt} = d(S_{b}-R_{b})-a_{1b}R_{b}N_{1}-a_{2b}R_{b}N_{2}\end{align}\)</span>
 </div>
 <p>Here, the two consumers <em>N<sub>1</sub></em> and <em>N<sub>2</sub></em> compete for two substitutable resources <em>R<sub>1</sub></em> and <em>R<sub>2</sub></em>. Under certain conditions, the two consumers are able to coexist:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="week-12.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb43-2"><a href="week-12.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span>
-<span id="cb43-3"><a href="week-12.html#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="week-12.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Model specification</span></span>
-<span id="cb43-5"><a href="week-12.html#cb43-5" aria-hidden="true" tabindex="-1"></a>CR_model_2C_2R <span class="ot">&lt;-</span> <span class="cf">function</span>(time, state, parms){</span>
-<span id="cb43-6"><a href="week-12.html#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
-<span id="cb43-7"><a href="week-12.html#cb43-7" aria-hidden="true" tabindex="-1"></a>    dN1_dt <span class="ot">=</span> e1<span class="sc">*</span>a1a<span class="sc">*</span>Ra<span class="sc">*</span>N1 <span class="sc">+</span> e1<span class="sc">*</span>a1b<span class="sc">*</span>Rb<span class="sc">*</span>N1 <span class="sc">-</span> d<span class="sc">*</span>N1</span>
-<span id="cb43-8"><a href="week-12.html#cb43-8" aria-hidden="true" tabindex="-1"></a>    dN2_dt <span class="ot">=</span> e2<span class="sc">*</span>a2a<span class="sc">*</span>Ra<span class="sc">*</span>N2 <span class="sc">+</span> e2<span class="sc">*</span>a2b<span class="sc">*</span>Rb<span class="sc">*</span>N2 <span class="sc">-</span> d<span class="sc">*</span>N2</span>
-<span id="cb43-9"><a href="week-12.html#cb43-9" aria-hidden="true" tabindex="-1"></a>    dRa_dt <span class="ot">=</span> d<span class="sc">*</span>(Sa<span class="sc">-</span>Ra) <span class="sc">-</span> (a1a<span class="sc">*</span>N1<span class="sc">*</span>Ra) <span class="sc">-</span> (a2a<span class="sc">*</span>N2<span class="sc">*</span>Ra) </span>
-<span id="cb43-10"><a href="week-12.html#cb43-10" aria-hidden="true" tabindex="-1"></a>    dRb_dt <span class="ot">=</span> d<span class="sc">*</span>(Sb<span class="sc">-</span>Rb) <span class="sc">-</span> (a1b<span class="sc">*</span>N1<span class="sc">*</span>Rb) <span class="sc">-</span> (a2b<span class="sc">*</span>N2<span class="sc">*</span>Rb)</span>
-<span id="cb43-11"><a href="week-12.html#cb43-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dN1_dt, dN2_dt, dRa_dt, dRb_dt)))</span>
-<span id="cb43-12"><a href="week-12.html#cb43-12" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb43-13"><a href="week-12.html#cb43-13" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb43-14"><a href="week-12.html#cb43-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-15"><a href="week-12.html#cb43-15" aria-hidden="true" tabindex="-1"></a><span class="do">### Model parameters</span></span>
-<span id="cb43-16"><a href="week-12.html#cb43-16" aria-hidden="true" tabindex="-1"></a>times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="dv">2000</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
-<span id="cb43-17"><a href="week-12.html#cb43-17" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">N1 =</span> <span class="fl">0.05</span>, <span class="at">N2 =</span> <span class="fl">0.05</span>, <span class="at">Ra =</span> <span class="fl">0.3</span>, <span class="at">Rb =</span> <span class="fl">0.3</span>)</span>
-<span id="cb43-18"><a href="week-12.html#cb43-18" aria-hidden="true" tabindex="-1"></a>parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">a1a =</span> <span class="fl">0.4</span>, <span class="at">a1b =</span> <span class="fl">0.8</span>, <span class="at">a2a =</span> <span class="fl">0.6</span>, <span class="at">a2b =</span> <span class="fl">0.5</span>, <span class="at">e1 =</span> <span class="dv">1</span>, <span class="at">e2 =</span> <span class="dv">1</span>, <span class="at">d =</span> <span class="fl">0.1</span>, <span class="at">Sa =</span> <span class="fl">0.3</span>, <span class="at">Sb =</span> <span class="fl">0.3</span>)  <span class="co"># Ra/Rb and S0a/S0b should be the same in the chemostat</span></span>
-<span id="cb43-19"><a href="week-12.html#cb43-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-20"><a href="week-12.html#cb43-20" aria-hidden="true" tabindex="-1"></a><span class="do">### Model application</span></span>
-<span id="cb43-21"><a href="week-12.html#cb43-21" aria-hidden="true" tabindex="-1"></a>pop_size <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">func =</span> CR_model_2C_2R, <span class="at">times =</span> times, <span class="at">y =</span> state, <span class="at">parms =</span> parms)</span>
-<span id="cb43-22"><a href="week-12.html#cb43-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-23"><a href="week-12.html#cb43-23" aria-hidden="true" tabindex="-1"></a><span class="do">### Visualize the population dynamics</span></span>
-<span id="cb43-24"><a href="week-12.html#cb43-24" aria-hidden="true" tabindex="-1"></a>pop_size <span class="sc">%&gt;%</span></span>
-<span id="cb43-25"><a href="week-12.html#cb43-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb43-26"><a href="week-12.html#cb43-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>time, <span class="at">names_to =</span> <span class="st">&quot;species&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb43-27"><a href="week-12.html#cb43-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trophic =</span> <span class="fu">case_when</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;N1&quot;</span>, <span class="st">&quot;N2&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Consumer&quot;</span>,</span>
-<span id="cb43-28"><a href="week-12.html#cb43-28" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Resource&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb43-29"><a href="week-12.html#cb43-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> N, <span class="at">color =</span> species)) <span class="sc">+</span> </span>
-<span id="cb43-30"><a href="week-12.html#cb43-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb43-31"><a href="week-12.html#cb43-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trophic, </span>
-<span id="cb43-32"><a href="week-12.html#cb43-32" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>, </span>
-<span id="cb43-33"><a href="week-12.html#cb43-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>,</span>
-<span id="cb43-34"><a href="week-12.html#cb43-34" aria-hidden="true" tabindex="-1"></a>             <span class="at">strip.position =</span> <span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
-<span id="cb43-35"><a href="week-12.html#cb43-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb43-36"><a href="week-12.html#cb43-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb43-37"><a href="week-12.html#cb43-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.placement =</span> <span class="st">&quot;outside&quot;</span>,</span>
-<span id="cb43-38"><a href="week-12.html#cb43-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>,</span>
-<span id="cb43-39"><a href="week-12.html#cb43-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb43-40"><a href="week-12.html#cb43-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">8</span>)) <span class="sc">+</span> </span>
-<span id="cb43-41"><a href="week-12.html#cb43-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb43-42"><a href="week-12.html#cb43-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2050</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb43-43"><a href="week-12.html#cb43-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb43-44"><a href="week-12.html#cb43-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#377EB8&quot;</span>, <span class="st">&quot;#E41A1C&quot;</span>, <span class="st">&quot;#4DAF4A&quot;</span>, <span class="st">&quot;#984EA3&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="week-12.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb44-2"><a href="week-12.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span>
+<span id="cb44-3"><a href="week-12.html#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="week-12.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Model specification</span></span>
+<span id="cb44-5"><a href="week-12.html#cb44-5" aria-hidden="true" tabindex="-1"></a>CR_model_2C_2R <span class="ot">&lt;-</span> <span class="cf">function</span>(time, state, parms){</span>
+<span id="cb44-6"><a href="week-12.html#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
+<span id="cb44-7"><a href="week-12.html#cb44-7" aria-hidden="true" tabindex="-1"></a>    dN1_dt <span class="ot">=</span> e1<span class="sc">*</span>a1a<span class="sc">*</span>Ra<span class="sc">*</span>N1 <span class="sc">+</span> e1<span class="sc">*</span>a1b<span class="sc">*</span>Rb<span class="sc">*</span>N1 <span class="sc">-</span> d<span class="sc">*</span>N1</span>
+<span id="cb44-8"><a href="week-12.html#cb44-8" aria-hidden="true" tabindex="-1"></a>    dN2_dt <span class="ot">=</span> e2<span class="sc">*</span>a2a<span class="sc">*</span>Ra<span class="sc">*</span>N2 <span class="sc">+</span> e2<span class="sc">*</span>a2b<span class="sc">*</span>Rb<span class="sc">*</span>N2 <span class="sc">-</span> d<span class="sc">*</span>N2</span>
+<span id="cb44-9"><a href="week-12.html#cb44-9" aria-hidden="true" tabindex="-1"></a>    dRa_dt <span class="ot">=</span> d<span class="sc">*</span>(Sa<span class="sc">-</span>Ra) <span class="sc">-</span> (a1a<span class="sc">*</span>N1<span class="sc">*</span>Ra) <span class="sc">-</span> (a2a<span class="sc">*</span>N2<span class="sc">*</span>Ra) </span>
+<span id="cb44-10"><a href="week-12.html#cb44-10" aria-hidden="true" tabindex="-1"></a>    dRb_dt <span class="ot">=</span> d<span class="sc">*</span>(Sb<span class="sc">-</span>Rb) <span class="sc">-</span> (a1b<span class="sc">*</span>N1<span class="sc">*</span>Rb) <span class="sc">-</span> (a2b<span class="sc">*</span>N2<span class="sc">*</span>Rb)</span>
+<span id="cb44-11"><a href="week-12.html#cb44-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dN1_dt, dN2_dt, dRa_dt, dRb_dt)))</span>
+<span id="cb44-12"><a href="week-12.html#cb44-12" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb44-13"><a href="week-12.html#cb44-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb44-14"><a href="week-12.html#cb44-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-15"><a href="week-12.html#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="do">### Model parameters</span></span>
+<span id="cb44-16"><a href="week-12.html#cb44-16" aria-hidden="true" tabindex="-1"></a>times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="dv">2000</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb44-17"><a href="week-12.html#cb44-17" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">N1 =</span> <span class="fl">0.05</span>, <span class="at">N2 =</span> <span class="fl">0.05</span>, <span class="at">Ra =</span> <span class="fl">0.3</span>, <span class="at">Rb =</span> <span class="fl">0.3</span>)</span>
+<span id="cb44-18"><a href="week-12.html#cb44-18" aria-hidden="true" tabindex="-1"></a>parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">a1a =</span> <span class="fl">0.4</span>, <span class="at">a1b =</span> <span class="fl">0.8</span>, <span class="at">a2a =</span> <span class="fl">0.6</span>, <span class="at">a2b =</span> <span class="fl">0.5</span>, <span class="at">e1 =</span> <span class="dv">1</span>, <span class="at">e2 =</span> <span class="dv">1</span>, <span class="at">d =</span> <span class="fl">0.1</span>, <span class="at">Sa =</span> <span class="fl">0.3</span>, <span class="at">Sb =</span> <span class="fl">0.3</span>)  <span class="co"># Ra/Rb and S0a/S0b should be the same in the chemostat</span></span>
+<span id="cb44-19"><a href="week-12.html#cb44-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-20"><a href="week-12.html#cb44-20" aria-hidden="true" tabindex="-1"></a><span class="do">### Model application</span></span>
+<span id="cb44-21"><a href="week-12.html#cb44-21" aria-hidden="true" tabindex="-1"></a>pop_size <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">func =</span> CR_model_2C_2R, <span class="at">times =</span> times, <span class="at">y =</span> state, <span class="at">parms =</span> parms)</span>
+<span id="cb44-22"><a href="week-12.html#cb44-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-23"><a href="week-12.html#cb44-23" aria-hidden="true" tabindex="-1"></a><span class="do">### Visualize the population dynamics</span></span>
+<span id="cb44-24"><a href="week-12.html#cb44-24" aria-hidden="true" tabindex="-1"></a>pop_size <span class="sc">%&gt;%</span></span>
+<span id="cb44-25"><a href="week-12.html#cb44-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb44-26"><a href="week-12.html#cb44-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>time, <span class="at">names_to =</span> <span class="st">&quot;species&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb44-27"><a href="week-12.html#cb44-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trophic =</span> <span class="fu">case_when</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;N1&quot;</span>, <span class="st">&quot;N2&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Consumer&quot;</span>,</span>
+<span id="cb44-28"><a href="week-12.html#cb44-28" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Resource&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb44-29"><a href="week-12.html#cb44-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> N, <span class="at">color =</span> species)) <span class="sc">+</span> </span>
+<span id="cb44-30"><a href="week-12.html#cb44-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb44-31"><a href="week-12.html#cb44-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trophic, </span>
+<span id="cb44-32"><a href="week-12.html#cb44-32" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>, </span>
+<span id="cb44-33"><a href="week-12.html#cb44-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>,</span>
+<span id="cb44-34"><a href="week-12.html#cb44-34" aria-hidden="true" tabindex="-1"></a>             <span class="at">strip.position =</span> <span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
+<span id="cb44-35"><a href="week-12.html#cb44-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb44-36"><a href="week-12.html#cb44-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb44-37"><a href="week-12.html#cb44-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.placement =</span> <span class="st">&quot;outside&quot;</span>,</span>
+<span id="cb44-38"><a href="week-12.html#cb44-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>,</span>
+<span id="cb44-39"><a href="week-12.html#cb44-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb44-40"><a href="week-12.html#cb44-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">8</span>)) <span class="sc">+</span> </span>
+<span id="cb44-41"><a href="week-12.html#cb44-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb44-42"><a href="week-12.html#cb44-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2050</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb44-43"><a href="week-12.html#cb44-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb44-44"><a href="week-12.html#cb44-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#377EB8&quot;</span>, <span class="st">&quot;#E41A1C&quot;</span>, <span class="st">&quot;#4DAF4A&quot;</span>, <span class="st">&quot;#984EA3&quot;</span>))</span></code></pre></div>
 <p><img src="12_Week_12_files/figure-html/unnamed-chunk-3-1.png" width="90%" style="display: block; margin: auto;" />
 <br></p>
 <p>The phase diagram also illustrates stable coexistence of the two consumers:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="week-12.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Parameters</span></span>
-<span id="cb44-2"><a href="week-12.html#cb44-2" aria-hidden="true" tabindex="-1"></a>a1a <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
-<span id="cb44-3"><a href="week-12.html#cb44-3" aria-hidden="true" tabindex="-1"></a>a1b <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
-<span id="cb44-4"><a href="week-12.html#cb44-4" aria-hidden="true" tabindex="-1"></a>a2a <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
-<span id="cb44-5"><a href="week-12.html#cb44-5" aria-hidden="true" tabindex="-1"></a>a2b <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb44-6"><a href="week-12.html#cb44-6" aria-hidden="true" tabindex="-1"></a>e1 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb44-7"><a href="week-12.html#cb44-7" aria-hidden="true" tabindex="-1"></a>e2 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb44-8"><a href="week-12.html#cb44-8" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
-<span id="cb44-9"><a href="week-12.html#cb44-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-10"><a href="week-12.html#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Slopes and intercepts of the ZNGI&#39;s</span></span>
-<span id="cb44-11"><a href="week-12.html#cb44-11" aria-hidden="true" tabindex="-1"></a>ZNGI_slope_N1 <span class="ot">&lt;-</span> <span class="sc">-</span>a1a<span class="sc">/</span>a1b</span>
-<span id="cb44-12"><a href="week-12.html#cb44-12" aria-hidden="true" tabindex="-1"></a>ZNGI_intercept_N1 <span class="ot">&lt;-</span> d<span class="sc">/</span>(e1<span class="sc">*</span>a1b)  </span>
-<span id="cb44-13"><a href="week-12.html#cb44-13" aria-hidden="true" tabindex="-1"></a>ZNGI_slope_N2 <span class="ot">&lt;-</span> <span class="sc">-</span>a2a<span class="sc">/</span>a2b</span>
-<span id="cb44-14"><a href="week-12.html#cb44-14" aria-hidden="true" tabindex="-1"></a>ZNGI_intercept_N2 <span class="ot">&lt;-</span> d<span class="sc">/</span>(e2<span class="sc">*</span>a2b)</span>
-<span id="cb44-15"><a href="week-12.html#cb44-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-16"><a href="week-12.html#cb44-16" aria-hidden="true" tabindex="-1"></a><span class="do">### Consumption vectors</span></span>
-<span id="cb44-17"><a href="week-12.html#cb44-17" aria-hidden="true" tabindex="-1"></a>eqilibrium_Ra <span class="ot">&lt;-</span> (d<span class="sc">/</span>e1)<span class="sc">*</span>((a1b<span class="sc">-</span>a2b)<span class="sc">/</span>(a2a<span class="sc">*</span>a1b<span class="sc">-</span>a2b<span class="sc">*</span>a1a))</span>
-<span id="cb44-18"><a href="week-12.html#cb44-18" aria-hidden="true" tabindex="-1"></a>eqilibrium_Rb <span class="ot">&lt;-</span> (d<span class="sc">/</span>e2)<span class="sc">*</span>((a1a<span class="sc">-</span>a2a)<span class="sc">/</span>(a2b<span class="sc">*</span>a1a<span class="sc">-</span>a2a<span class="sc">*</span>a1b))</span>
-<span id="cb44-19"><a href="week-12.html#cb44-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-20"><a href="week-12.html#cb44-20" aria-hidden="true" tabindex="-1"></a>convec_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(eqilibrium_Ra <span class="sc">+</span> <span class="dv">6</span><span class="sc">*</span>a1a<span class="sc">*</span>eqilibrium_Ra, </span>
-<span id="cb44-21"><a href="week-12.html#cb44-21" aria-hidden="true" tabindex="-1"></a>                              eqilibrium_Ra <span class="sc">+</span> <span class="dv">6</span><span class="sc">*</span>a2a<span class="sc">*</span>eqilibrium_Ra),</span>
-<span id="cb44-22"><a href="week-12.html#cb44-22" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y =</span> <span class="fu">c</span>(eqilibrium_Rb <span class="sc">+</span> <span class="dv">6</span><span class="sc">*</span>a1b<span class="sc">*</span>eqilibrium_Rb, </span>
-<span id="cb44-23"><a href="week-12.html#cb44-23" aria-hidden="true" tabindex="-1"></a>                              eqilibrium_Rb <span class="sc">+</span> <span class="dv">6</span><span class="sc">*</span>a2b<span class="sc">*</span>eqilibrium_Rb),</span>
-<span id="cb44-24"><a href="week-12.html#cb44-24" aria-hidden="true" tabindex="-1"></a>                        <span class="at">xend =</span> <span class="fu">c</span>(eqilibrium_Ra <span class="sc">-</span> a1a<span class="sc">*</span>eqilibrium_Ra, </span>
-<span id="cb44-25"><a href="week-12.html#cb44-25" aria-hidden="true" tabindex="-1"></a>                              eqilibrium_Ra <span class="sc">-</span> a2a<span class="sc">*</span>eqilibrium_Ra),</span>
-<span id="cb44-26"><a href="week-12.html#cb44-26" aria-hidden="true" tabindex="-1"></a>                        <span class="at">yend =</span> <span class="fu">c</span>(eqilibrium_Rb <span class="sc">-</span> a1b<span class="sc">*</span>eqilibrium_Rb, </span>
-<span id="cb44-27"><a href="week-12.html#cb44-27" aria-hidden="true" tabindex="-1"></a>                              eqilibrium_Rb <span class="sc">-</span> a2b<span class="sc">*</span>eqilibrium_Rb),</span>
-<span id="cb44-28"><a href="week-12.html#cb44-28" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="fu">c</span>(<span class="st">&quot;N1&quot;</span>, <span class="st">&quot;N2&quot;</span>))</span>
-<span id="cb44-29"><a href="week-12.html#cb44-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-30"><a href="week-12.html#cb44-30" aria-hidden="true" tabindex="-1"></a><span class="do">### Phase diagram</span></span>
-<span id="cb44-31"><a href="week-12.html#cb44-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb44-32"><a href="week-12.html#cb44-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> ZNGI_slope_N1, <span class="at">intercept =</span> ZNGI_intercept_N1, <span class="at">color =</span> <span class="st">&quot;#377EB8&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span> </span>
-<span id="cb44-33"><a href="week-12.html#cb44-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> ZNGI_slope_N2, <span class="at">intercept =</span> ZNGI_intercept_N2, <span class="at">color =</span> <span class="st">&quot;#E41A1C&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span> </span>
-<span id="cb44-34"><a href="week-12.html#cb44-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> convec_df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">xend =</span> xend, <span class="at">yend =</span> yend, <span class="at">color =</span> species), <span class="at">linetype =</span> <span class="st">&quot;blank&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb44-35"><a href="week-12.html#cb44-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> convec_df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">xend =</span> xend, <span class="at">yend =</span> yend, <span class="at">color =</span> species), <span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">type =</span> <span class="st">&quot;closed&quot;</span>, <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.1</span>, <span class="st">&quot;inches&quot;</span>)), <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
-<span id="cb44-36"><a href="week-12.html#cb44-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">data =</span> <span class="fu">as.data.frame</span>(pop_size), <span class="fu">aes</span>(<span class="at">x =</span> Ra, <span class="at">y =</span> Rb)) <span class="sc">+</span></span>
-<span id="cb44-37"><a href="week-12.html#cb44-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">as.data.frame</span>(pop_size), <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">last</span>(Ra), <span class="at">y =</span> <span class="fu">last</span>(Rb)), <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
-<span id="cb44-38"><a href="week-12.html#cb44-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb44-39"><a href="week-12.html#cb44-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(R[a])), <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(R[b]))) <span class="sc">+</span></span>
-<span id="cb44-40"><a href="week-12.html#cb44-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb44-41"><a href="week-12.html#cb44-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb44-42"><a href="week-12.html#cb44-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
-<span id="cb44-43"><a href="week-12.html#cb44-43" aria-hidden="true" tabindex="-1"></a>                     <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(</span>
-<span id="cb44-44"><a href="week-12.html#cb44-44" aria-hidden="true" tabindex="-1"></a>                       <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>))) <span class="sc">+</span></span>
-<span id="cb44-45"><a href="week-12.html#cb44-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="week-12.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Parameters</span></span>
+<span id="cb45-2"><a href="week-12.html#cb45-2" aria-hidden="true" tabindex="-1"></a>a1a <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb45-3"><a href="week-12.html#cb45-3" aria-hidden="true" tabindex="-1"></a>a1b <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb45-4"><a href="week-12.html#cb45-4" aria-hidden="true" tabindex="-1"></a>a2a <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
+<span id="cb45-5"><a href="week-12.html#cb45-5" aria-hidden="true" tabindex="-1"></a>a2b <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb45-6"><a href="week-12.html#cb45-6" aria-hidden="true" tabindex="-1"></a>e1 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb45-7"><a href="week-12.html#cb45-7" aria-hidden="true" tabindex="-1"></a>e2 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb45-8"><a href="week-12.html#cb45-8" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
+<span id="cb45-9"><a href="week-12.html#cb45-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-10"><a href="week-12.html#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Slopes and intercepts of the ZNGI&#39;s</span></span>
+<span id="cb45-11"><a href="week-12.html#cb45-11" aria-hidden="true" tabindex="-1"></a>ZNGI_slope_N1 <span class="ot">&lt;-</span> <span class="sc">-</span>a1a<span class="sc">/</span>a1b</span>
+<span id="cb45-12"><a href="week-12.html#cb45-12" aria-hidden="true" tabindex="-1"></a>ZNGI_intercept_N1 <span class="ot">&lt;-</span> d<span class="sc">/</span>(e1<span class="sc">*</span>a1b)  </span>
+<span id="cb45-13"><a href="week-12.html#cb45-13" aria-hidden="true" tabindex="-1"></a>ZNGI_slope_N2 <span class="ot">&lt;-</span> <span class="sc">-</span>a2a<span class="sc">/</span>a2b</span>
+<span id="cb45-14"><a href="week-12.html#cb45-14" aria-hidden="true" tabindex="-1"></a>ZNGI_intercept_N2 <span class="ot">&lt;-</span> d<span class="sc">/</span>(e2<span class="sc">*</span>a2b)</span>
+<span id="cb45-15"><a href="week-12.html#cb45-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-16"><a href="week-12.html#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="do">### Consumption vectors</span></span>
+<span id="cb45-17"><a href="week-12.html#cb45-17" aria-hidden="true" tabindex="-1"></a>eqilibrium_Ra <span class="ot">&lt;-</span> (d<span class="sc">/</span>e1)<span class="sc">*</span>((a1b<span class="sc">-</span>a2b)<span class="sc">/</span>(a2a<span class="sc">*</span>a1b<span class="sc">-</span>a2b<span class="sc">*</span>a1a))</span>
+<span id="cb45-18"><a href="week-12.html#cb45-18" aria-hidden="true" tabindex="-1"></a>eqilibrium_Rb <span class="ot">&lt;-</span> (d<span class="sc">/</span>e2)<span class="sc">*</span>((a1a<span class="sc">-</span>a2a)<span class="sc">/</span>(a2b<span class="sc">*</span>a1a<span class="sc">-</span>a2a<span class="sc">*</span>a1b))</span>
+<span id="cb45-19"><a href="week-12.html#cb45-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-20"><a href="week-12.html#cb45-20" aria-hidden="true" tabindex="-1"></a>convec_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(eqilibrium_Ra <span class="sc">+</span> <span class="dv">6</span><span class="sc">*</span>a1a<span class="sc">*</span>eqilibrium_Ra, </span>
+<span id="cb45-21"><a href="week-12.html#cb45-21" aria-hidden="true" tabindex="-1"></a>                              eqilibrium_Ra <span class="sc">+</span> <span class="dv">6</span><span class="sc">*</span>a2a<span class="sc">*</span>eqilibrium_Ra),</span>
+<span id="cb45-22"><a href="week-12.html#cb45-22" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y =</span> <span class="fu">c</span>(eqilibrium_Rb <span class="sc">+</span> <span class="dv">6</span><span class="sc">*</span>a1b<span class="sc">*</span>eqilibrium_Rb, </span>
+<span id="cb45-23"><a href="week-12.html#cb45-23" aria-hidden="true" tabindex="-1"></a>                              eqilibrium_Rb <span class="sc">+</span> <span class="dv">6</span><span class="sc">*</span>a2b<span class="sc">*</span>eqilibrium_Rb),</span>
+<span id="cb45-24"><a href="week-12.html#cb45-24" aria-hidden="true" tabindex="-1"></a>                        <span class="at">xend =</span> <span class="fu">c</span>(eqilibrium_Ra <span class="sc">-</span> a1a<span class="sc">*</span>eqilibrium_Ra, </span>
+<span id="cb45-25"><a href="week-12.html#cb45-25" aria-hidden="true" tabindex="-1"></a>                              eqilibrium_Ra <span class="sc">-</span> a2a<span class="sc">*</span>eqilibrium_Ra),</span>
+<span id="cb45-26"><a href="week-12.html#cb45-26" aria-hidden="true" tabindex="-1"></a>                        <span class="at">yend =</span> <span class="fu">c</span>(eqilibrium_Rb <span class="sc">-</span> a1b<span class="sc">*</span>eqilibrium_Rb, </span>
+<span id="cb45-27"><a href="week-12.html#cb45-27" aria-hidden="true" tabindex="-1"></a>                              eqilibrium_Rb <span class="sc">-</span> a2b<span class="sc">*</span>eqilibrium_Rb),</span>
+<span id="cb45-28"><a href="week-12.html#cb45-28" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="fu">c</span>(<span class="st">&quot;N1&quot;</span>, <span class="st">&quot;N2&quot;</span>))</span>
+<span id="cb45-29"><a href="week-12.html#cb45-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-30"><a href="week-12.html#cb45-30" aria-hidden="true" tabindex="-1"></a><span class="do">### Phase diagram</span></span>
+<span id="cb45-31"><a href="week-12.html#cb45-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb45-32"><a href="week-12.html#cb45-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> ZNGI_slope_N1, <span class="at">intercept =</span> ZNGI_intercept_N1, <span class="at">color =</span> <span class="st">&quot;#377EB8&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span> </span>
+<span id="cb45-33"><a href="week-12.html#cb45-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> ZNGI_slope_N2, <span class="at">intercept =</span> ZNGI_intercept_N2, <span class="at">color =</span> <span class="st">&quot;#E41A1C&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span> </span>
+<span id="cb45-34"><a href="week-12.html#cb45-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> convec_df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">xend =</span> xend, <span class="at">yend =</span> yend, <span class="at">color =</span> species), <span class="at">linetype =</span> <span class="st">&quot;blank&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb45-35"><a href="week-12.html#cb45-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> convec_df, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">xend =</span> xend, <span class="at">yend =</span> yend, <span class="at">color =</span> species), <span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">type =</span> <span class="st">&quot;closed&quot;</span>, <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.1</span>, <span class="st">&quot;inches&quot;</span>)), <span class="at">show.legend =</span> F) <span class="sc">+</span></span>
+<span id="cb45-36"><a href="week-12.html#cb45-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">data =</span> <span class="fu">as.data.frame</span>(pop_size), <span class="fu">aes</span>(<span class="at">x =</span> Ra, <span class="at">y =</span> Rb)) <span class="sc">+</span></span>
+<span id="cb45-37"><a href="week-12.html#cb45-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">as.data.frame</span>(pop_size), <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">last</span>(Ra), <span class="at">y =</span> <span class="fu">last</span>(Rb)), <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb45-38"><a href="week-12.html#cb45-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb45-39"><a href="week-12.html#cb45-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(R[a])), <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(R[b]))) <span class="sc">+</span></span>
+<span id="cb45-40"><a href="week-12.html#cb45-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb45-41"><a href="week-12.html#cb45-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb45-42"><a href="week-12.html#cb45-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb45-43"><a href="week-12.html#cb45-43" aria-hidden="true" tabindex="-1"></a>                     <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(</span>
+<span id="cb45-44"><a href="week-12.html#cb45-44" aria-hidden="true" tabindex="-1"></a>                       <span class="at">linetype =</span> <span class="st">&quot;solid&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>))) <span class="sc">+</span></span>
+<span id="cb45-45"><a href="week-12.html#cb45-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="12_Week_12_files/figure-html/unnamed-chunk-4-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>In this particular case, if the initial resource levels <em>R<sub>a0</sub></em> and <em>R<sub>b0</sub></em> fall within the upper area bounded by the two consumption vectors, then the two species will coexist.</p>
 <p><br></p>
@@ -457,48 +527,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="height:15px ;">
 <br>
 </div>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="week-12.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb45-2"><a href="week-12.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span>
-<span id="cb45-3"><a href="week-12.html#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-4"><a href="week-12.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Model specification</span></span>
-<span id="cb45-5"><a href="week-12.html#cb45-5" aria-hidden="true" tabindex="-1"></a>CR_model_nonlinear <span class="ot">&lt;-</span> <span class="cf">function</span>(times, state, parms){</span>
-<span id="cb45-6"><a href="week-12.html#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
-<span id="cb45-7"><a href="week-12.html#cb45-7" aria-hidden="true" tabindex="-1"></a>         dN1_dt <span class="ot">=</span> e1<span class="sc">*</span>a1<span class="sc">*</span>R<span class="sc">*</span>N1 <span class="sc">-</span> d1<span class="sc">*</span>N1</span>
-<span id="cb45-8"><a href="week-12.html#cb45-8" aria-hidden="true" tabindex="-1"></a>         dN2_dt <span class="ot">=</span> e2<span class="sc">*</span>(a2<span class="sc">*</span>R<span class="sc">/</span>(k2<span class="sc">+</span>R))<span class="sc">*</span>N2 <span class="sc">-</span> d2<span class="sc">*</span>N2</span>
-<span id="cb45-9"><a href="week-12.html#cb45-9" aria-hidden="true" tabindex="-1"></a>         dR_dt <span class="ot">=</span>  r<span class="sc">*</span>R<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>(R<span class="sc">/</span>K)) <span class="sc">-</span> a1<span class="sc">*</span>R<span class="sc">*</span>N1 <span class="sc">-</span> ((a2<span class="sc">*</span>R)<span class="sc">/</span>(k2<span class="sc">+</span>R))<span class="sc">*</span>N2</span>
-<span id="cb45-10"><a href="week-12.html#cb45-10" aria-hidden="true" tabindex="-1"></a>         <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dN1_dt, dN2_dt, dR_dt)))</span>
-<span id="cb45-11"><a href="week-12.html#cb45-11" aria-hidden="true" tabindex="-1"></a>       })</span>
-<span id="cb45-12"><a href="week-12.html#cb45-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb45-13"><a href="week-12.html#cb45-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-14"><a href="week-12.html#cb45-14" aria-hidden="true" tabindex="-1"></a><span class="do">### Model parameters</span></span>
-<span id="cb45-15"><a href="week-12.html#cb45-15" aria-hidden="true" tabindex="-1"></a>times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">5000</span>, <span class="at">by =</span> <span class="fl">0.1</span>)  </span>
-<span id="cb45-16"><a href="week-12.html#cb45-16" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">N1 =</span> <span class="fl">0.3</span>, <span class="at">N2 =</span> <span class="dv">19</span>, <span class="at">R =</span> <span class="dv">106</span>) </span>
-<span id="cb45-17"><a href="week-12.html#cb45-17" aria-hidden="true" tabindex="-1"></a>parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">a1 =</span> <span class="fl">0.003</span>, <span class="at">a2 =</span> <span class="fl">0.5</span>, <span class="at">k2 =</span> <span class="dv">50</span>, <span class="at">e1 =</span> <span class="fl">0.33</span>, <span class="at">e2 =</span> <span class="fl">0.3</span>, <span class="at">d1 =</span> <span class="fl">0.11</span>, <span class="at">d2 =</span> <span class="fl">0.1</span>, <span class="at">r =</span> <span class="fl">0.1</span>, <span class="at">K =</span> <span class="dv">300</span>)</span>
-<span id="cb45-18"><a href="week-12.html#cb45-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-19"><a href="week-12.html#cb45-19" aria-hidden="true" tabindex="-1"></a><span class="do">### Model application</span></span>
-<span id="cb45-20"><a href="week-12.html#cb45-20" aria-hidden="true" tabindex="-1"></a>pop_size <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">func =</span> CR_model_nonlinear, <span class="at">times =</span> times, <span class="at">y =</span> state, <span class="at">parms =</span> parms)</span>
-<span id="cb45-21"><a href="week-12.html#cb45-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-22"><a href="week-12.html#cb45-22" aria-hidden="true" tabindex="-1"></a>pop_size <span class="sc">%&gt;%</span></span>
-<span id="cb45-23"><a href="week-12.html#cb45-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb45-24"><a href="week-12.html#cb45-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>time, <span class="at">names_to =</span> <span class="st">&quot;species&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb45-25"><a href="week-12.html#cb45-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trophic =</span> <span class="fu">case_when</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;N1&quot;</span>, <span class="st">&quot;N2&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Consumer&quot;</span>,</span>
-<span id="cb45-26"><a href="week-12.html#cb45-26" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Resource&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb45-27"><a href="week-12.html#cb45-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> N, <span class="at">color =</span> species)) <span class="sc">+</span> </span>
-<span id="cb45-28"><a href="week-12.html#cb45-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb45-29"><a href="week-12.html#cb45-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trophic, </span>
-<span id="cb45-30"><a href="week-12.html#cb45-30" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>, </span>
-<span id="cb45-31"><a href="week-12.html#cb45-31" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>,</span>
-<span id="cb45-32"><a href="week-12.html#cb45-32" aria-hidden="true" tabindex="-1"></a>             <span class="at">strip.position =</span> <span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
-<span id="cb45-33"><a href="week-12.html#cb45-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb45-34"><a href="week-12.html#cb45-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb45-35"><a href="week-12.html#cb45-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.placement =</span> <span class="st">&quot;outside&quot;</span>,</span>
-<span id="cb45-36"><a href="week-12.html#cb45-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>,</span>
-<span id="cb45-37"><a href="week-12.html#cb45-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb45-38"><a href="week-12.html#cb45-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">5</span>)) <span class="sc">+</span> </span>
-<span id="cb45-39"><a href="week-12.html#cb45-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb45-40"><a href="week-12.html#cb45-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5050</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb45-41"><a href="week-12.html#cb45-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb45-42"><a href="week-12.html#cb45-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#377EB8&quot;</span>, <span class="st">&quot;#E41A1C&quot;</span>, <span class="st">&quot;#4DAF4A&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="week-12.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb46-2"><a href="week-12.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span>
+<span id="cb46-3"><a href="week-12.html#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="week-12.html#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="do">### Model specification</span></span>
+<span id="cb46-5"><a href="week-12.html#cb46-5" aria-hidden="true" tabindex="-1"></a>CR_model_nonlinear <span class="ot">&lt;-</span> <span class="cf">function</span>(times, state, parms){</span>
+<span id="cb46-6"><a href="week-12.html#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
+<span id="cb46-7"><a href="week-12.html#cb46-7" aria-hidden="true" tabindex="-1"></a>         dN1_dt <span class="ot">=</span> e1<span class="sc">*</span>a1<span class="sc">*</span>R<span class="sc">*</span>N1 <span class="sc">-</span> d1<span class="sc">*</span>N1</span>
+<span id="cb46-8"><a href="week-12.html#cb46-8" aria-hidden="true" tabindex="-1"></a>         dN2_dt <span class="ot">=</span> e2<span class="sc">*</span>(a2<span class="sc">*</span>R<span class="sc">/</span>(k2<span class="sc">+</span>R))<span class="sc">*</span>N2 <span class="sc">-</span> d2<span class="sc">*</span>N2</span>
+<span id="cb46-9"><a href="week-12.html#cb46-9" aria-hidden="true" tabindex="-1"></a>         dR_dt <span class="ot">=</span>  r<span class="sc">*</span>R<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>(R<span class="sc">/</span>K)) <span class="sc">-</span> a1<span class="sc">*</span>R<span class="sc">*</span>N1 <span class="sc">-</span> ((a2<span class="sc">*</span>R)<span class="sc">/</span>(k2<span class="sc">+</span>R))<span class="sc">*</span>N2</span>
+<span id="cb46-10"><a href="week-12.html#cb46-10" aria-hidden="true" tabindex="-1"></a>         <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dN1_dt, dN2_dt, dR_dt)))</span>
+<span id="cb46-11"><a href="week-12.html#cb46-11" aria-hidden="true" tabindex="-1"></a>       })</span>
+<span id="cb46-12"><a href="week-12.html#cb46-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb46-13"><a href="week-12.html#cb46-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-14"><a href="week-12.html#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="do">### Model parameters</span></span>
+<span id="cb46-15"><a href="week-12.html#cb46-15" aria-hidden="true" tabindex="-1"></a>times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">5000</span>, <span class="at">by =</span> <span class="fl">0.1</span>)  </span>
+<span id="cb46-16"><a href="week-12.html#cb46-16" aria-hidden="true" tabindex="-1"></a>state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">N1 =</span> <span class="fl">0.3</span>, <span class="at">N2 =</span> <span class="dv">19</span>, <span class="at">R =</span> <span class="dv">106</span>) </span>
+<span id="cb46-17"><a href="week-12.html#cb46-17" aria-hidden="true" tabindex="-1"></a>parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">a1 =</span> <span class="fl">0.003</span>, <span class="at">a2 =</span> <span class="fl">0.5</span>, <span class="at">k2 =</span> <span class="dv">50</span>, <span class="at">e1 =</span> <span class="fl">0.33</span>, <span class="at">e2 =</span> <span class="fl">0.3</span>, <span class="at">d1 =</span> <span class="fl">0.11</span>, <span class="at">d2 =</span> <span class="fl">0.1</span>, <span class="at">r =</span> <span class="fl">0.1</span>, <span class="at">K =</span> <span class="dv">300</span>)</span>
+<span id="cb46-18"><a href="week-12.html#cb46-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-19"><a href="week-12.html#cb46-19" aria-hidden="true" tabindex="-1"></a><span class="do">### Model application</span></span>
+<span id="cb46-20"><a href="week-12.html#cb46-20" aria-hidden="true" tabindex="-1"></a>pop_size <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">func =</span> CR_model_nonlinear, <span class="at">times =</span> times, <span class="at">y =</span> state, <span class="at">parms =</span> parms)</span>
+<span id="cb46-21"><a href="week-12.html#cb46-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-22"><a href="week-12.html#cb46-22" aria-hidden="true" tabindex="-1"></a>pop_size <span class="sc">%&gt;%</span></span>
+<span id="cb46-23"><a href="week-12.html#cb46-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb46-24"><a href="week-12.html#cb46-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>time, <span class="at">names_to =</span> <span class="st">&quot;species&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb46-25"><a href="week-12.html#cb46-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trophic =</span> <span class="fu">case_when</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;N1&quot;</span>, <span class="st">&quot;N2&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Consumer&quot;</span>,</span>
+<span id="cb46-26"><a href="week-12.html#cb46-26" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">&quot;Resource&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb46-27"><a href="week-12.html#cb46-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> N, <span class="at">color =</span> species)) <span class="sc">+</span> </span>
+<span id="cb46-28"><a href="week-12.html#cb46-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb46-29"><a href="week-12.html#cb46-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trophic, </span>
+<span id="cb46-30"><a href="week-12.html#cb46-30" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>, </span>
+<span id="cb46-31"><a href="week-12.html#cb46-31" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>,</span>
+<span id="cb46-32"><a href="week-12.html#cb46-32" aria-hidden="true" tabindex="-1"></a>             <span class="at">strip.position =</span> <span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
+<span id="cb46-33"><a href="week-12.html#cb46-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb46-34"><a href="week-12.html#cb46-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb46-35"><a href="week-12.html#cb46-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.placement =</span> <span class="st">&quot;outside&quot;</span>,</span>
+<span id="cb46-36"><a href="week-12.html#cb46-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>,</span>
+<span id="cb46-37"><a href="week-12.html#cb46-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb46-38"><a href="week-12.html#cb46-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">5</span>)) <span class="sc">+</span> </span>
+<span id="cb46-39"><a href="week-12.html#cb46-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb46-40"><a href="week-12.html#cb46-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5050</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb46-41"><a href="week-12.html#cb46-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb46-42"><a href="week-12.html#cb46-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#377EB8&quot;</span>, <span class="st">&quot;#E41A1C&quot;</span>, <span class="st">&quot;#4DAF4A&quot;</span>))</span></code></pre></div>
 <img src="12_Week_12_files/figure-html/unnamed-chunk-5-1.png" width="90%" style="display: block; margin: auto;" />
 <div style="height:15px ;">
 <br>

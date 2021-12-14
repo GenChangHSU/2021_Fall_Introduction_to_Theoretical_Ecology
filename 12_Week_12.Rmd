@@ -10,21 +10,32 @@ knitr::opts_chunk$set(message = F,
 
 ## Lecture in a nutshell {-}
 
-* **Topic:**
-    1. 
-    2. 
-    3. 
+* **Exploitative competition (consumer-resource dynamics)**
+    1. R* rule: 
+        * 2 consumers + 1 resource
+<div style="margin-left: 15%; margin-top: 15px;">$\begin{align}\frac {dN_{1}}{dt} = e_{1}a_{1}RN_{1}-dN_{1}\end{align}\\$</div>
+<div style="margin-left: 15%;">$\begin{align}\frac {dN_{2}}{dt} = e_{2}a_{2}RN_{2}-dN_{2}\end{align}\\$</div>
+<div style="margin-left: 15%; margin-bottom: 15px;">$\begin{align}\frac {dR}{dt} = d(S_{0}-R)-a_{1}RN_{1}-a_{2}RN_{2}\end{align}$</div>
+        * The two consumers **CANNOT** coexist: the one with lower R* (the resource level at the monoculture equilibrium) will win
+        * Generalization: When multiple species are competing for a single resource, coexistence is not possible. The species with the lowest R* will win at equilibrium.
+    2. Tilman’s resource ratio hypothesis: 
+        * 2 consumers + 2 resources
+<div style="margin-left: 15%; margin-top: 15px;">$\begin{align}\frac {dN_{1}}{dt} = e_{1}a_{1a}R_{a}N_{1}+e_{1}a_{1b}R_{b}N_{1}-dN_{1}\end{align}\\$</div>
+<div style="margin-left: 15%;">$\begin{align}\frac {dN_{2}}{dt} = e_{2}a_{2a}R_{a}N_{2}+e_{2}a_{2b}R_{b}N_{2}-dN_{2}\end{align}\\$</div>
+<div style="margin-left: 15%; margin-bottom: 15px;">$\begin{align}\frac {dR_{a}}{dt} = d(S_{a}-R_{a})-a_{1a}R_{a}N_{1}-a_{2a}R_{a}N_{2}\end{align}$</div>
+<div style="margin-left: 15%; margin-bottom: 15px;">$\begin{align}\frac {dR_{b}}{dt} = d(S_{b}-R_{b})-a_{1b}R_{b}N_{1}-a_{2b}R_{b}N_{2}\end{align}$</div>        
+        * Outcomes: 
+            1. Consumer 1 wins: $ZNGI_{2}$ lies above $ZNGI_{1}$ in the $R_{a}$-$R_{b}$ state space
+            2. Consumer 2 wins: $ZNGI_{1}$ lies above $ZNGI_{2}$ in the $R_{a}$-$R_{b}$ state space
+            3. Coexist: $ZNGI_{1}$ and $ZNGI_{2}$ cross (trade-off in competitiveness); species should consume more of the resource that limits its growth (i.e., the resource of which the decline leads to the largest reduction in growth); resource supply should be balanced
+            4. Priority effect
+        
+    3. Armstrong & McGehee relative nonlinearity
+        * 2 consumers + 1 resource
+        * Logistically-growing resource + type-II functional response
+        * Fluctuating resource generates stable limit cycles
     
-<div style="height:1px ;"><br></div>
-
-* **Topic:**
-    1. 
-    2. 
-    3.
-
-<div style="height:1px ;"><br></div>    
 <br>
-
 
 ## Lab demonstration {-}
 
@@ -67,7 +78,7 @@ data.frame(R = seq(0, 0.1, 0.001)) %>%
 
 ```
 
-```{r, fig.width = 7, fig.height = 3.5, out.width = "90%", fig.align = "center", echo=F, include=F, eval=F}
+```{r, fig.width = 7, fig.height = 3.5, out.width = "90%", fig.align = "center"}
 ### Model specification
 CR_model_2C_1R <- function(times, state, parms){
   with(as.list(c(state, parms)), {
@@ -110,9 +121,9 @@ pop_size %>%
   scale_color_manual(name = NULL, values = c("#377EB8", "#E41A1C", "#4DAF4A"))
 
 ```
-<!-- <div style="height:15px ;"><br></div> -->
+<div style="height:15px ;"><br></div>
 
-<!-- We can see that _N~1~_ goes extinct, as predicted by the R* rule; the remaining consumer _N~2~_ and the resource _R_ exhibit stable coexistence. -->
+We can see that _N~1~_ goes extinct, as predicted by the R* rule; the remaining consumer _N~2~_ and the resource _R_ exhibit stable coexistence.
 
 <br>
 
