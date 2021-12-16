@@ -151,7 +151,7 @@ syllabus <- tibble(
           "Analyzing Lotka-Volterra model of predator-prey interactions (basic)",
           "Analyzing Lotka-Volterra model of predator-prey interactions (variants)",
           "Analyzing the dynamics of various consumer-resource systems",
-          "",
+          "Visualizing the area of prey coexistence under apparent competition",
           "",
           "",
           " \\- "),
