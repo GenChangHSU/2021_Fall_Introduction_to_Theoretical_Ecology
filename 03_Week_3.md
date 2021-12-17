@@ -87,9 +87,7 @@ ggplot(data = as.data.frame(pop_size), aes(x = time, y = N)) +
   scale_y_continuous(limits = c(0, max(as.data.frame(pop_size)$N)*1.1), expand = c(0, 0))
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{03_Week_3_files/figure-latex/unnamed-chunk-1-1} \end{center}
+<img src="03_Week_3_files/figure-html/unnamed-chunk-1-1.png" width="70%" style="display: block; margin: auto;" />
 <br>
 
 <style>
@@ -160,9 +158,7 @@ ggplot(data = logistic_data, aes(x = N, y = values)) +
             parse = T)
 ```
 
-
-
-\begin{center}\includegraphics[width=0.95\linewidth]{03_Week_3_files/figure-latex/unnamed-chunk-3-1} \end{center}
+<img src="03_Week_3_files/figure-html/unnamed-chunk-3-1.png" width="95%" style="display: block; margin: auto;" />
 
 <br>
 

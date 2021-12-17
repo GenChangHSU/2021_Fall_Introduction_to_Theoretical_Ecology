@@ -101,9 +101,7 @@ ggplot(pop_data, aes(x = time, y = pop_size)) +
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-2-1} \end{center}
+<img src="04_Week_4_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" />
 
 ```r
 ### Cobweb plot/logistic map
@@ -127,9 +125,7 @@ ggplot() +
         panel.grid = element_blank())
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_Week_4_files/figure-latex/unnamed-chunk-2-2} \end{center}
+<img src="04_Week_4_files/figure-html/unnamed-chunk-2-2.png" width="70%" style="display: block; margin: auto;" />
 \*The name "logistic map" comes from the fact that it maps the population size at one time step *N~t~* to the value at the next time step *N~t+1~*.
 
 <br>
