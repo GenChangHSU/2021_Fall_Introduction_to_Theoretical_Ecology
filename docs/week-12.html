@@ -310,9 +310,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>Armstrong &amp; McGehee relative nonlinearity
 <ul>
-<li>2 consumers + 1 resource</li>
-<li>Logistically-growing resource + type-II functional response</li>
-<li>Fluctuating resource generates stable limit cycles</li>
+<li>2 consumers + 1 resource
+<div style="margin-left: 25%;">
+<span class="math inline">\(\begin{align}\frac {dN_{1}}{dt} = e_{1}a_{1}RN_{1}-d_{1}N_{1}\end{align}\\\)</span>
+</div>
+<div style="margin-left: 25%;">
+<span class="math inline">\(\begin{align}\frac {dN_{2}}{dt} = e_{2}\frac{a_{2}R}{k_{2}+R}N_{2}-d_{2}N_{2}\end{align}\\\)</span>
+</div>
+<div style="margin-left: 25%; margin-bottom: 15px;">
+<span class="math inline">\(\begin{align}\frac {dR}{dt} = rR(1-\frac{R}{K})-a_{1}RN_{1}-\frac{a_{2}R}{k_{2}+R}N_{2}\end{align}\)</span>
+</div></li>
+<li>Logistically-growing resource + type-II functional response of one consumer</li>
+<li>Fluctuating resource generates stable limit cycles (fluctuating-dependent coexistence): coexistence occurs if <span class="math inline">\(R^{**}\)</span> &lt; <span class="math inline">\(R^{*}\)</span> &lt; <span class="math inline">\(\bar{R}\)</span></li>
 </ul></li>
 </ol></li>
 </ul>

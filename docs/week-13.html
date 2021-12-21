@@ -268,27 +268,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lecture-in-a-nutshell-11" class="section level2 unnumbered">
 <h2>Lecture in a nutshell</h2>
 <ul>
-<li><strong>Topic:</strong>
-<ol style="list-style-type: decimal">
-<li></li>
-<li></li>
-<li></li>
-</ol></li>
-</ul>
-<div style="height:1px ;">
-<br>
+<li><strong>Model derivation</strong>
+<div style="margin-left: 30%;">
+<span class="math inline">\(\begin{align}\frac {dN_{1}}{dt} = r_{1}N_{1}(1-\frac{N_{1}}{K_{1}})-a_{1}N_{1}P\end{align}\\\)</span>
 </div>
+<div style="margin-left: 30%;">
+<span class="math inline">\(\begin{align}\frac {dN_{2}}{dt} = r_{2}N_{2}(1-\frac{N_{2}}{K_{2}})-a_{2}N_{2}P\end{align}\\\)</span>
+</div>
+<div style="margin-left: 30%; margin-bottom: 15px;">
+<span class="math inline">\(\begin{align}\frac {dP}{dt} = e_{1}a_{1}N_{1}P+e_{2}a_{2}N_{2}P-mp\end{align}\)</span>
+</div>
+<ol style="list-style-type: decimal">
+<li>Find the equilibrium points:
 <ul>
-<li><strong>Topic:</strong>
+<li><span class="math inline">\(E_{1} = (\frac{d}{e_{1}a_{1}}, 0, \frac{r_{1}}{a_{1}}(1-\frac{d}{e_{1}a_{1}K_{1}}))\)</span></li>
+<li><span class="math inline">\(E_{2} = (0, \frac{d}{e_{2}a_{2}}, \frac{r_{2}}{a_{2}}(1-\frac{d}{e_{2}a_{2}K_{2}}))\)</span></li>
+<li><span class="math inline">\(E_{c} = (\frac{d-e_{2}a_{2}K_{2}(1-\frac{a_{2}r_{1}}{r_{2}a_{1}})}{e_{1}a_{1}+e_{2}a_{2}\frac{K_{2}a_{2}r_{1}}{K_{1}r_{2}a_{1}}}, \frac{d-e_{1}a_{1}K_{1}(1-\frac{a_{1}r_{2}}{r_{1}a_{2}})}{e_{2}a_{2}+e_{1}a_{2}\frac{K_{1}a_{1}r_{2}}{K_{2}r_{1}a_{2}}}, \frac{r_{1}}{a_{1}}(1-\frac{N_{1}^{*}}{K_{1}}))\)</span></li>
+</ul></li>
+<li>Invasion analysis:
+<ul>
+<li><span class="math inline">\(N_{2}^{*} \rightarrow E_{1}\)</span>: <span class="math inline">\(IGR_{2} = r_{2}-a_{2}[\frac{r_{1}}{a_{1}}(1-\frac{d}{e_{1}a_{1}K_{1}})] &gt; 0\)</span></li>
+<li><span class="math inline">\(N_{1}^{*} \rightarrow E_{2}\)</span>: <span class="math inline">\(IGR_{1} = r_{1}-a_{1}[\frac{r_{2}}{a_{2}}(1-\frac{d}{e_{2}a_{2}K_{2}})] &gt; 0\)</span></li>
+<li>Mutual invasion criterion (coexistence): <span class="math inline">\(\frac{r_{1}}{a_{1}}(1-\frac{d}{e_{1}a_{1}K_{1}})&lt;\frac{r_{2}}{a_{2}}&lt;\frac{r_{1}}{a_{1}}(1-\frac{d}{e_{2}a_{2}K_{2}})^{-1}\)</span></li>
+</ul></li>
+<li>Local stability analysis:
+<ul>
+<li><span class="math inline">\(J_{E_{1}} = \begin{vmatrix} -\frac{r_{1}}{K_{1}}N_{1}^{*} &amp; 0 &amp; -a_{1}N_{1}^{*}\\0 &amp; r_{2}-a_{2}P^{*} &amp; 0\\e_{1}a_{1}P^{*} &amp; e_{2}a_{2}P^{*} &amp; 0\end{vmatrix}\)</span>
 <ol style="list-style-type: decimal">
-<li></li>
-<li></li>
-<li></li>
+<li>Characteristic equation: <span class="math inline">\((r_{2}-a_{2}P^{*}-\lambda)[\lambda^{2}+\frac{r_{1}}{K_{1}}N_{1}^{*}\lambda+e_{1}a_{1}^{2}N_{1}^{*}P^{*}] = 0\)</span></li>
+<li><span class="math inline">\(E_{1}\)</span> is stable if <span class="math inline">\(r_{2}-a_{2}P^{*}&lt;0\)</span> (i.e., <span class="math inline">\(IGR_{2} &lt;0\)</span>)</li>
+</ol></li>
+<li>Same procedure for <span class="math inline">\(E_{2}\)</span></li>
+<li><span class="math inline">\(J_{E_{c}} = \begin{vmatrix} -\frac{r_{1}}{K_{1}}N_{1}^{*} &amp; 0 &amp; -a_{1}N_{1}^{*}\\0 &amp; -\frac{r_{2}}{K_{2}}N_{2}^{*} &amp; -a_{2}N_{2}^{*}\\e_{1}a_{1}P^{*} &amp; e_{2}a_{2}P^{*} &amp; 0\end{vmatrix}\)</span>
+<ol style="list-style-type: decimal">
+<li>Characteristic equation: <span class="math inline">\(\lambda^{3}+[\frac{r_{1}}{K_{1}}N_{1}^{*}+\frac{r_{2}}{K_{2}}N_{2}^{*}]\lambda^{2}+[\frac{r_{1}r_{2}}{K_{1}K_{2}}N_{1}^{*}N_{2}^{*}+e_{1}a_{1}^{2}N_{1}^{*}P^{*}+e_{2}a_{2}^{2}N_{2}^{*}P^{*}]\lambda\\+[e_{1}a_{1}^{2}\frac{r_{2}}{K_{2}}+e_{2}a_{2}^{2}\frac{r_{1}}{K_{1}}]N_{1}^{*}N_{2}^{*}P^{*} = 0\)</span></li>
+<li>Using the Routh–Hurwitz stability criterion to determine the sign of the eigenvalues, we arrive at the conclusion that <span class="math inline">\(E_{c}\)</span> is locally stable if it is itself feasible.</li>
+</ol></li>
+</ul></li>
 </ol></li>
 </ul>
-<div style="height:1px ;">
-<br>
-</div>
 <p><br></p>
 </div>
 <div id="lab-demonstration-11" class="section level2 unnumbered">

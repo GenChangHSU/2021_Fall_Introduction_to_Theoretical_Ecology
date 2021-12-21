@@ -10,21 +10,29 @@ knitr::opts_chunk$set(message = F,
 
 ## Lecture in a nutshell {-}
 
-* **Topic:**
-    1. 
-    2. 
-    3. 
+* **Model derivation**
+<div style="margin-left: 30%;">$\begin{align}\frac {dN_{1}}{dt} = r_{1}N_{1}(1-\frac{N_{1}}{K_{1}})-a_{1}N_{1}P\end{align}\\$</div>
+<div style="margin-left: 30%;">$\begin{align}\frac {dN_{2}}{dt} = r_{2}N_{2}(1-\frac{N_{2}}{K_{2}})-a_{2}N_{2}P\end{align}\\$</div>
+<div style="margin-left: 30%; margin-bottom: 15px;">$\begin{align}\frac {dP}{dt} = e_{1}a_{1}N_{1}P+e_{2}a_{2}N_{2}P-mp\end{align}$</div>
     
-<div style="height:1px ;"><br></div>
+    1. Find the equilibrium points:
+        * $E_{1} = (\frac{d}{e_{1}a_{1}}, 0, \frac{r_{1}}{a_{1}}(1-\frac{d}{e_{1}a_{1}K_{1}}))$
+        * $E_{2} = (0, \frac{d}{e_{2}a_{2}}, \frac{r_{2}}{a_{2}}(1-\frac{d}{e_{2}a_{2}K_{2}}))$
+        * $E_{c} = (\frac{d-e_{2}a_{2}K_{2}(1-\frac{a_{2}r_{1}}{r_{2}a_{1}})}{e_{1}a_{1}+e_{2}a_{2}\frac{K_{2}a_{2}r_{1}}{K_{1}r_{2}a_{1}}}, \frac{d-e_{1}a_{1}K_{1}(1-\frac{a_{1}r_{2}}{r_{1}a_{2}})}{e_{2}a_{2}+e_{1}a_{2}\frac{K_{1}a_{1}r_{2}}{K_{2}r_{1}a_{2}}}, \frac{r_{1}}{a_{1}}(1-\frac{N_{1}^{*}}{K_{1}}))$ 
+    2. Invasion analysis:
+        * $N_{2}^{*} \rightarrow E_{1}$: $IGR_{2} = r_{2}-a_{2}[\frac{r_{1}}{a_{1}}(1-\frac{d}{e_{1}a_{1}K_{1}})] > 0$
+        * $N_{1}^{*} \rightarrow E_{2}$: $IGR_{1} = r_{1}-a_{1}[\frac{r_{2}}{a_{2}}(1-\frac{d}{e_{2}a_{2}K_{2}})] > 0$
+        * Mutual invasion criterion (coexistence): $\frac{r_{1}}{a_{1}}(1-\frac{d}{e_{1}a_{1}K_{1}})<\frac{r_{2}}{a_{2}}<\frac{r_{1}}{a_{1}}(1-\frac{d}{e_{2}a_{2}K_{2}})^{-1}$
+    3. Local stability analysis:
+        * $J_{E_{1}} = \begin{vmatrix} -\frac{r_{1}}{K_{1}}N_{1}^{*} & 0 & -a_{1}N_{1}^{*}\\0 & r_{2}-a_{2}P^{*} & 0\\e_{1}a_{1}P^{*} & e_{2}a_{2}P^{*} & 0\end{vmatrix}$ 
+            1. Characteristic equation: $(r_{2}-a_{2}P^{*}-\lambda)[\lambda^{2}+\frac{r_{1}}{K_{1}}N_{1}^{*}\lambda+e_{1}a_{1}^{2}N_{1}^{*}P^{*}] = 0$
+            2. $E_{1}$ is stable if $r_{2}-a_{2}P^{*}<0$ (i.e., $IGR_{2} <0$)
+        * Same procedure for $E_{2}$
+        * $J_{E_{c}} = \begin{vmatrix} -\frac{r_{1}}{K_{1}}N_{1}^{*} & 0 & -a_{1}N_{1}^{*}\\0 & -\frac{r_{2}}{K_{2}}N_{2}^{*} & -a_{2}N_{2}^{*}\\e_{1}a_{1}P^{*} & e_{2}a_{2}P^{*} & 0\end{vmatrix}$ 
+            1. Characteristic equation: $\lambda^{3}+[\frac{r_{1}}{K_{1}}N_{1}^{*}+\frac{r_{2}}{K_{2}}N_{2}^{*}]\lambda^{2}+[\frac{r_{1}r_{2}}{K_{1}K_{2}}N_{1}^{*}N_{2}^{*}+e_{1}a_{1}^{2}N_{1}^{*}P^{*}+e_{2}a_{2}^{2}N_{2}^{*}P^{*}]\lambda\\+[e_{1}a_{1}^{2}\frac{r_{2}}{K_{2}}+e_{2}a_{2}^{2}\frac{r_{1}}{K_{1}}]N_{1}^{*}N_{2}^{*}P^{*} = 0$
+            2. Using the Routh–Hurwitz stability criterion to determine the sign of the eigenvalues, we arrive at the conclusion that $E_{c}$ is locally stable if it is itself feasible.
 
-* **Topic:**
-    1. 
-    2. 
-    3.
-
-<div style="height:1px ;"><br></div>    
 <br>
-
 
 ## Lab demonstration {-}
 
