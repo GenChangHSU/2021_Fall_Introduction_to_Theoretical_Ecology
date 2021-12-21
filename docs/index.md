@@ -181,15 +181,15 @@ Below are the textbook references:
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 14** <span style="vertical-align:-30%"> </span>
            <br> 28-Dec-2021 </td>
    <td style="text-align:center;width: 17em; "> Disease dynamics and SIR models </td>
-   <td style="text-align:center;width: 17em; ">  </td>
+   <td style="text-align:center;width: 17em; "> Analyzing the SIR model with demography &amp; Visualization </td>
    <td style="text-align:left;width: 13em; "> Anderson &amp; May, 1979 </td>
   </tr>
   <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 15** <span style="vertical-align:-30%"> </span>
            <br> 04-Jan-2022 </td>
-   <td style="text-align:center;width: 17em; "> Ecosystem models and feedbacks </td>
-   <td style="text-align:center;width: 17em; ">  </td>
-   <td style="text-align:left;width: 13em; "> Pastor [Ch.11 &amp; 12] </td>
+   <td style="text-align:center;width: 17em; "> Course review &amp; open discussion </td>
+   <td style="text-align:center;width: 17em; "> \- </td>
+   <td style="text-align:left;width: 13em; "> TBA </td>
   </tr>
   <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 16** <span style="vertical-align:-30%"> </span>

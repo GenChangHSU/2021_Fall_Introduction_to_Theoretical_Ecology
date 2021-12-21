@@ -122,10 +122,10 @@ Below are the textbook references:
            <br> 21-Dec-2021 & Multispecies models of competition: apparent competition & Visualizing the area of prey coexistence under apparent competition & Holt, 1977\\
 \hline
 **Week 14** <span style='vertical-align:-30%'> </span>
-           <br> 28-Dec-2021 & Disease dynamics and SIR models &  & Anderson & May, 1979\\
+           <br> 28-Dec-2021 & Disease dynamics and SIR models & Analyzing the SIR model with demography & Visualization & Anderson & May, 1979\\
 \hline
 **Week 15** <span style='vertical-align:-30%'> </span>
-           <br> 04-Jan-2022 & Ecosystem models and feedbacks &  & Pastor [Ch.11 & 12]\\
+           <br> 04-Jan-2022 & Course review & open discussion & \- & TBA\\
 \hline
 **Week 16** <span style='vertical-align:-30%'> </span>
            <br> 11-Jan-2022 & Final exam & \- & $~~~~~~~~~~~~$ \-\\

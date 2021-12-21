@@ -5,8 +5,8 @@ knitr::opts_chunk$set(message = F,
 
 ```
 
-# Week  {-} 
-<div style = "font-size: 28pt"> **__**</div>
+# Week 15 {-} 
+<div style = "font-size: 28pt"> **_Course review & open discussion_**</div>
 
 ## Lecture in a nutshell {-}
 
@@ -17,33 +17,23 @@ knitr::opts_chunk$set(message = F,
     
 <div style="height:1px ;"><br></div>
 
-* **Topic:**
-    1. 
-    2. 
-    3.
-
-<div style="height:1px ;"><br></div>    
 <br>
-
 
 ## Lab demonstration {-}
 
-<br>
-<br>
-<br>
-<br>
+1. deSolve and ode
+2. for loop
+3. matrix computation & eigenanalysis
+4. ggplot visualization
+
 <br>
 
 ## Additional readings {-}
 
 <br>
-<br>
-<br>
-<br>
-<br>
 
 ## Assignments {-}
 
-[](./Assignments/.pdf){target="_blank"}
+[Modeling Idea for an Interesting Research Question](./Assignments/Week15_Modeling Idea.pdf){target="_blank"}
 
 

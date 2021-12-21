@@ -136,7 +136,7 @@ syllabus <- tibble(
                       "Resource competition: R* models",
                       "Multispecies models of competition: apparent competition",
                       "Disease dynamics and SIR models",
-                      "Ecosystem models and feedbacks",
+                      "Course review & open discussion",
                       "Final exam"),
     
   Lab = c(" \\- ",
@@ -152,8 +152,8 @@ syllabus <- tibble(
           "Analyzing Lotka-Volterra model of predator-prey interactions (variants)",
           "Analyzing the dynamics of various consumer-resource systems",
           "Visualizing the area of prey coexistence under apparent competition",
-          "",
-          "",
+          "Analyzing the SIR model with demography & Visualization",
+          " \\- ",
           " \\- "),
     
     
@@ -171,7 +171,7 @@ syllabus <- tibble(
                "Armstrong & McGehee, 1980 <br> Tilman, 1980",
                "Holt, 1977",
                "Anderson & May, 1979",
-               "Pastor [Ch.11 & 12]",
+               " TBA ",
                " $~~~~~~~~~~~~$ \\- ")  
   
 )

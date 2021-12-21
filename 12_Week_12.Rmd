@@ -322,5 +322,5 @@ As shown in the figure, the two consumers coexist in a fluctuating manner. In fa
 
 [Apparent Competition and P* Rule](./Assignments/Week12_Apparent Competition.pdf){target="_blank"}
 
-<!-- [Suggested Solutions](./Assignments/Week12_Apparent Competition_with_Solutions.pdf){target="_blank"} -->
+[Suggested Solutions](./Assignments/Week12_Apparent Competition_with_Solutions.pdf){target="_blank"}
 
