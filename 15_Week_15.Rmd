@@ -8,23 +8,32 @@ knitr::opts_chunk$set(message = F,
 # Week 15 {-} 
 <div style = "font-size: 28pt"> **_Course review & open discussion_**</div>
 
-## Lecture in a nutshell {-}
+## Lab review {-}
 
-* **Topic:**
-    1. 
-    2. 
-    3. 
-    
-<div style="height:1px ;"><br></div>
+Throughout the lab sections this semester, we have been focusing largely on solving differential equations using the package `deSolve` and visualize the system dynamics with ggplots. We have also used for loops to model discrete-time population growth. Lastly, we have learned how to analyze age-structured models using matrix computation as well as eigenanalysis to estimate the asymptotic growth rate and stable age distribution.    
 
-<br>
+Here is a brief summary of the key points regarding these modeling techniques:
 
-## Lab demonstration {-}
+### 1. deSolve and numerical integration {-}
 
-1. deSolve and ode
-2. for loop
-3. matrix computation & eigenanalysis
-4. ggplot visualization
+
+
+
+
+
+### 2. for loops {-}
+
+
+
+
+
+
+### 3. Matrix computation and eigenanalysis {-}
+
+
+
+
+
 
 <br>
 
@@ -34,6 +43,6 @@ knitr::opts_chunk$set(message = F,
 
 ## Assignments {-}
 
-[Modeling Idea for an Interesting Research Question](./Assignments/Week15_Modeling Idea.pdf){target="_blank"}
+[Modeling Idea for an Interesting Ecological Question](./Assignments/Week15_Modeling Idea.pdf){target="_blank"}
 
 
