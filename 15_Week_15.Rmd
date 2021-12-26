@@ -10,7 +10,7 @@ knitr::opts_chunk$set(message = F,
 
 ## Lab review {-}
 
-Throughout the lab sections this semester, we have been focusing largely on solving differential equations using the package `deSolve` and visualize the system dynamics with ggplots. We have also used for loops to model discrete-time population growth. Lastly, we have learned how to analyze age-structured models using matrix multiplication as well as eigenanalysis to estimate the asymptotic growth rate and stable age distribution.    
+Throughout the lab sections this semester, we have been focusing largely on solving differential equations using the package `deSolve` and visualize the system dynamics with ggplots. We have also used for loops to model discrete-time population growth. Lastly, we have analyzed age-structured models using matrix multiplication as well as eigenanalysis to estimate the asymptotic growth rate and stable age distribution.    
 
 Below is a brief summary of the key points regarding these modeling techniques:
 
@@ -18,23 +18,23 @@ Below is a brief summary of the key points regarding these modeling techniques:
 
 There are two main steps for solving ode's with `deSolve`:
 
-<span id = "aaa" style="display: block; margin-top: -10px; margin-left: 50px">Model specification: Create a function specifying your model structure, that is, a set of differential equations</span>
+<span id = "aaa" style="display: block; margin-top: -10px; margin-left: 70px">Model specification: Create a function specifying your model structure, that is, a set of differential equations</span>
 
-<span id = "bbb" style="display: block; margin-top: -10px; margin-left: 50px">Model application: Set the time steps, initial conditions, and model parameters and run the `ode()` function to solve the system of differential equations</span>
+<span id = "bbb" style="display: block; margin-top: -10px; margin-left: 70px">Model application: Set the time steps, initial conditions, and model parameters and run the `ode()` function to solve the system of differential equations</span>
 
 <style>
 
 p span#aaa:before { 
-  content: "(1) "; 
+  content: "Step 1. "; 
   display: inline-block;
-  margin-left: -1.5em;
+  margin-left: -3.5em;
   margin-right: 0.3em;
 }
 
 p span#bbb:before { 
-  content: "(2) "; 
+  content: "Step 2. "; 
   display: inline-block;
-  margin-left: -1.5em;
+  margin-left: -3.5em;
   margin-right: 0.3em;
 }
 
@@ -79,7 +79,7 @@ head(pop_size)
 
 ### 2. for loops {-}
 
-The key to using for loops is to identify what to iterate over (e.g., time) and how many iterations there are (e.g., 100 iterations). We will also create an object that stores the results of each for loop iteration.
+The key to using for loops is to identify what you would like to iterate over (e.g., time) and how many iterations there are (e.g., 100 iterations). Also, we will create an object beforehand to store the results of each for loop iteration.
 
 Here is a for loop example using the discrete logistic growth model:
 
@@ -94,7 +94,7 @@ K <- 500
 N0 <- 10
 time <- 100
 
-### Create an empty vector to store the for loop results
+### Create an empty object to store the for loop results
 pop_size <- numeric(time)
 pop_size[1] <- N0
 
@@ -114,9 +114,9 @@ head(pop_data)
 
 ### 3. Matrix multiplication and eigenanalysis {-}
 
-In R, we use `%*%` (not `*`!) to do matrix multiplication. Make sure the two matrices are **compatible**: the number of columns in the first matrix should be the same as the number of rows in the second matrix. If necessary, use `t()` to transpose the matrix so that the matrices are compatible for multiplication.
+In R, we use `%*%` (not `*`!) to do matrix multiplication. Make sure the two matrices are **compatible**: the number of columns in the first matrix should be the same as the number of rows in the second matrix. If necessary, use `t()` to transpose the matrix so that the two matrices are compatible for multiplication.
 
-To perform eigenanalysis on a square matrix, simply pass the matrix into the function `eigen()` and store the results in an object. You can then access the eigenvalues and eigenvectors via `object_name$values` and `object_name$vectors`.
+To perform eigenanalysis on a square matrix, simply pass the matrix into the function `eigen()` and store the results to an object. You can then access the eigenvalues and eigenvectors via `object_name$values` and `object_name$vectors`.
 
 Here is a Leslie matrix example:
 
@@ -141,7 +141,6 @@ pop_size <- data.frame(Age1 = numeric(time+1),
 pop_size[1, ] <- initial_age
 
 for (i in 1:time) {
-  
   # use "%*%" for matrix multiplication
   # "leslie_mtrx" (3-by-3) is compatible with "as.matrix(t(pop_size[i, ]))" (3-by-1)
   pop_size[i+1, ] <- leslie_mtrx %*% as.matrix(t(pop_size[i, ]))
