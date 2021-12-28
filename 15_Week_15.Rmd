@@ -8,6 +8,10 @@ knitr::opts_chunk$set(message = F,
 # Week 15 {-} 
 <div style = "font-size: 28pt"> **_Course review & open discussion_**</div>
 
+## Lecture review {-}
+
+<br>
+
 ## Lab review {-}
 
 Throughout the lab sections this semester, we have been focusing largely on solving differential equations using the package `deSolve` and visualize the system dynamics with ggplots. We have also used for loops to model discrete-time population growth. Lastly, we have analyzed age-structured models using matrix multiplication as well as eigenanalysis to estimate the asymptotic growth rate and stable age distribution.    
