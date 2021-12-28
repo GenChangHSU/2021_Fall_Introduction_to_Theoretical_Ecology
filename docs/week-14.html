@@ -139,7 +139,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course Information</a></li>
-<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i>Syllabus</a></li>
 <li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html"><i class="fa fa-check"></i>Week 1</a>
 <ul>
 <li class="chapter" data-level="" data-path="week-1.html"><a href="week-1.html#lecture-in-a-nutshell"><i class="fa fa-check"></i>Lecture in a nutshell</a></li>
@@ -280,28 +279,95 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lecture-in-a-nutshell-12" class="section level2 unnumbered">
 <h2>Lecture in a nutshell</h2>
 <ul>
-<li><strong>Topic:</strong>
+<li><strong>Disease dynamics</strong>
 <ol style="list-style-type: decimal">
-<li></li>
-<li></li>
-<li></li>
+<li>Compartmental models: assign individuals to different categories and model the transitions between them</li>
+<li>Density-based transmission vs. Frequency-based transmission: whether the rate of contacting other individuals scales with the population density
+<ul>
+<li>Density-based transmission: the growth of the infected individuals is <span class="math inline">\(\beta SI\)</span></li>
+<li>Frequency-based transmission: the growth of the infected individuals is <span class="math inline">\(\frac{\beta SI}{N}\)</span></li>
+</ul></li>
 </ol></li>
 </ul>
 <div style="height:1px ;">
 <br>
 </div>
 <ul>
-<li><strong>Topic:</strong>
+<li><strong>SI model without demography</strong>
 <ol style="list-style-type: decimal">
-<li></li>
-<li></li>
-<li></li>
+<li>System of equations:
+<div style="margin-left: 35%;">
+<span class="math inline">\(\begin{align}\frac {dS}{dt} =-\beta SI\end{align}\\\)</span>
+</div>
+<div style="margin-left: 35%;">
+<span class="math inline">\(\begin{align}\frac {dI}{dt} = \beta SI\end{align}\\\)</span>
+</div></li>
+<li>The number of infected individuals will grow logistically and the disease will eventually infect the entire population.</li>
 </ol></li>
 </ul>
 <div style="height:1px ;">
 <br>
 </div>
-<p><br></p>
+<ul>
+<li><strong>SIR model without demography</strong>
+<ol style="list-style-type: decimal">
+<li>System of equations:
+<div style="margin-left: 35%;">
+<span class="math inline">\(\begin{align}\frac {dS}{dt} =-\beta SI\end{align}\\\)</span>
+</div>
+<div style="margin-left: 35%;">
+<span class="math inline">\(\begin{align}\frac {dI}{dt} = \beta SI-\rho I\end{align}\\\)</span>
+</div>
+<div style="margin-left: 35%; margin-bottom: 15px;">
+<span class="math inline">\(\begin{align}\frac {dR}{dt} = \rho I\end{align}\)</span>
+</div></li>
+<li><span class="math inline">\(R_{0}\)</span>: the number of secondary infections caused by one infected individual in a fully susceptible population (= per capita infection in a fully susceptible population*infectious time)</li>
+<li>For SIR model without demography, <span class="math inline">\(R_{0}\)</span> is <span class="math inline">\(\frac{\beta}{\rho}S_{0}\)</span></li>
+<li>Can the disease spread at <span class="math inline">\(S_{0}\)</span>? The invasion growth rate of <em>I</em> is <span class="math inline">\(\lim_{I \to 0} \frac{dI}{dt}\frac{1}{I} = \beta S_{0}-\rho\)</span>
+<ul>
+<li>If <span class="math inline">\(R_{0}\)</span> &gt; 1, IGR &gt; 0, the disease can spread initially but will later decline and eventually self-extinguish. Part of the population will be free from the infection. <em>S</em> and <em>R</em> coexist at the equilibrium.</li>
+<li>If <span class="math inline">\(R_{0}\)</span> &lt; 1, IGR &lt; 0, disease cannot spread and will just gradually die out. The population will consist of mostly <em>S</em> and a few <em>R</em> at the equilibrium.</li>
+</ul></li>
+</ol></li>
+</ul>
+<div style="height:1px ;">
+<br>
+</div>
+<ul>
+<li><strong>SIR model with demography</strong>
+<ol style="list-style-type: decimal">
+<li><p>System of equations:</p>
+<div style="margin-left: 35%;">
+<span class="math inline">\(\begin{align}\frac {dS}{dt} = \theta-\beta SI-\delta S\end{align}\\\)</span>
+</div>
+<div style="margin-left: 35%;">
+<span class="math inline">\(\begin{align}\frac {dI}{dt} = \beta SI-\rho I-\gamma I\end{align}\\\)</span>
+</div>
+<div style="margin-left: 35%; margin-bottom: 15px;">
+<span class="math inline">\(\begin{align}\frac {dR}{dt} = \rho I-\delta R\end{align}\)</span>
+</div></li>
+<li><p><span class="math inline">\(R_{0}\)</span> is <span class="math inline">\(\frac {\beta}{\rho+\gamma}\frac{\theta}{\delta}\)</span></p></li>
+<li><p>The equilibrium points:</p>
+<ul>
+<li><p><span class="math inline">\(E_{DF}\)</span> (disease-free equilibrium)</p></li>
+<li><p><span class="math inline">\(E_{E}\)</span></p></li>
+</ul></li>
+<li><p>Invasion analysis</p></li>
+<li><p>Local stability analysis</p>
+<ul>
+<li><span class="math inline">\(E_{DF}\)</span>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(J_{DF}\)</span></li>
+<li>Stable if $= $, or <span class="math inline">\(R_{0} &lt; 1\)</span></li>
+</ol></li>
+<li><span class="math inline">\(E_{E}\)</span>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(J_{E}\)</span></li>
+<li>Stable if $= $, or <span class="math inline">\(R_{0} &lt; 1\)</span></li>
+</ol></li>
+</ul></li>
+</ol></li>
+</ul>
 </div>
 <div id="lab-demonstration-12" class="section level2 unnumbered">
 <h2>Lab demonstration</h2>
@@ -315,49 +381,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div style="margin-left: 35%; margin-bottom: 15px;">
 <span class="math inline">\(\begin{align}\frac {dR}{dt} = \rho I-\delta R\end{align}\)</span>
 </div>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="week-14.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb51-2"><a href="week-14.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span>
-<span id="cb51-3"><a href="week-14.html#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-4"><a href="week-14.html#cb51-4" aria-hidden="true" tabindex="-1"></a>SIR_model_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, beta, delta, rho, gamma, title){</span>
-<span id="cb51-5"><a href="week-14.html#cb51-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb51-6"><a href="week-14.html#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># model specification</span></span>
-<span id="cb51-7"><a href="week-14.html#cb51-7" aria-hidden="true" tabindex="-1"></a>  SIR_model <span class="ot">&lt;-</span> <span class="cf">function</span>(times, state, parms) {</span>
-<span id="cb51-8"><a href="week-14.html#cb51-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
-<span id="cb51-9"><a href="week-14.html#cb51-9" aria-hidden="true" tabindex="-1"></a>      dS_dt <span class="ot">=</span> theta <span class="sc">-</span> beta<span class="sc">*</span>S<span class="sc">*</span>I <span class="sc">-</span> delta<span class="sc">*</span>S</span>
-<span id="cb51-10"><a href="week-14.html#cb51-10" aria-hidden="true" tabindex="-1"></a>      dI_dt <span class="ot">=</span> beta<span class="sc">*</span>S<span class="sc">*</span>I <span class="sc">-</span> rho<span class="sc">*</span>I <span class="sc">-</span> gamma<span class="sc">*</span>I </span>
-<span id="cb51-11"><a href="week-14.html#cb51-11" aria-hidden="true" tabindex="-1"></a>      dR_dt <span class="ot">=</span> rho<span class="sc">*</span>I <span class="sc">-</span> delta<span class="sc">*</span>R</span>
-<span id="cb51-12"><a href="week-14.html#cb51-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dS_dt, dI_dt, dR_dt)))</span>
-<span id="cb51-13"><a href="week-14.html#cb51-13" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb51-14"><a href="week-14.html#cb51-14" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb51-15"><a href="week-14.html#cb51-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb51-16"><a href="week-14.html#cb51-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># model parameters</span></span>
-<span id="cb51-17"><a href="week-14.html#cb51-17" aria-hidden="true" tabindex="-1"></a>  times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb51-18"><a href="week-14.html#cb51-18" aria-hidden="true" tabindex="-1"></a>  state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S =</span> <span class="dv">25</span>, <span class="at">I =</span> <span class="fl">0.1</span>, <span class="at">R =</span> <span class="dv">0</span>)</span>
-<span id="cb51-19"><a href="week-14.html#cb51-19" aria-hidden="true" tabindex="-1"></a>  parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">theta =</span> theta, <span class="at">beta =</span> beta, <span class="at">delta =</span> delta, <span class="at">rho =</span> rho, <span class="at">gamma =</span> gamma)</span>
-<span id="cb51-20"><a href="week-14.html#cb51-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb51-21"><a href="week-14.html#cb51-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># model application</span></span>
-<span id="cb51-22"><a href="week-14.html#cb51-22" aria-hidden="true" tabindex="-1"></a>  SIR_out <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">func =</span> SIR_model, <span class="at">times =</span> times, <span class="at">y =</span> state, <span class="at">parms =</span> parms)</span>
-<span id="cb51-23"><a href="week-14.html#cb51-23" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb51-24"><a href="week-14.html#cb51-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># visualization</span></span>
-<span id="cb51-25"><a href="week-14.html#cb51-25" aria-hidden="true" tabindex="-1"></a>  SIR_out <span class="sc">%&gt;%</span></span>
-<span id="cb51-26"><a href="week-14.html#cb51-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb51-27"><a href="week-14.html#cb51-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>time, <span class="at">names_to =</span> <span class="st">&quot;state&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb51-28"><a href="week-14.html#cb51-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">state =</span> <span class="fu">fct_relevel</span>(state, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;I&quot;</span>, <span class="st">&quot;R&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb51-29"><a href="week-14.html#cb51-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> N, <span class="at">color =</span> state)) <span class="sc">+</span> </span>
-<span id="cb51-30"><a href="week-14.html#cb51-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb51-31"><a href="week-14.html#cb51-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb51-32"><a href="week-14.html#cb51-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">y =</span> <span class="st">&quot;N&quot;</span>, <span class="at">title =</span> title) <span class="sc">+</span></span>
-<span id="cb51-33"><a href="week-14.html#cb51-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1010</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb51-34"><a href="week-14.html#cb51-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">55</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb51-35"><a href="week-14.html#cb51-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb51-36"><a href="week-14.html#cb51-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
-<span id="cb51-37"><a href="week-14.html#cb51-37" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb51-38"><a href="week-14.html#cb51-38" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="week-14.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Epidemic equilibrium  </span></span>
-<span id="cb52-2"><a href="week-14.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">SIR_model_fun</span>(<span class="at">theta =</span> <span class="fl">0.25</span>, <span class="at">beta =</span> <span class="fl">0.01</span>, <span class="at">delta =</span> <span class="fl">0.01</span>, <span class="at">rho =</span> <span class="fl">0.02</span>, <span class="at">gamma =</span> <span class="fl">0.02</span>, <span class="at">title =</span> <span class="st">&quot;Epidemic equilibrium&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="week-14.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="week-14.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span>
+<span id="cb1-3"><a href="week-14.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="week-14.html#cb1-4" aria-hidden="true" tabindex="-1"></a>SIR_model_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, beta, delta, rho, gamma, title){</span>
+<span id="cb1-5"><a href="week-14.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-6"><a href="week-14.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># model specification</span></span>
+<span id="cb1-7"><a href="week-14.html#cb1-7" aria-hidden="true" tabindex="-1"></a>  SIR_model <span class="ot">&lt;-</span> <span class="cf">function</span>(times, state, parms) {</span>
+<span id="cb1-8"><a href="week-14.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">with</span>(<span class="fu">as.list</span>(<span class="fu">c</span>(state, parms)), {</span>
+<span id="cb1-9"><a href="week-14.html#cb1-9" aria-hidden="true" tabindex="-1"></a>      dS_dt <span class="ot">=</span> theta <span class="sc">-</span> beta<span class="sc">*</span>S<span class="sc">*</span>I <span class="sc">-</span> delta<span class="sc">*</span>S</span>
+<span id="cb1-10"><a href="week-14.html#cb1-10" aria-hidden="true" tabindex="-1"></a>      dI_dt <span class="ot">=</span> beta<span class="sc">*</span>S<span class="sc">*</span>I <span class="sc">-</span> rho<span class="sc">*</span>I <span class="sc">-</span> gamma<span class="sc">*</span>I </span>
+<span id="cb1-11"><a href="week-14.html#cb1-11" aria-hidden="true" tabindex="-1"></a>      dR_dt <span class="ot">=</span> rho<span class="sc">*</span>I <span class="sc">-</span> delta<span class="sc">*</span>R</span>
+<span id="cb1-12"><a href="week-14.html#cb1-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">return</span>(<span class="fu">list</span>(<span class="fu">c</span>(dS_dt, dI_dt, dR_dt)))</span>
+<span id="cb1-13"><a href="week-14.html#cb1-13" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb1-14"><a href="week-14.html#cb1-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-15"><a href="week-14.html#cb1-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-16"><a href="week-14.html#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># model parameters</span></span>
+<span id="cb1-17"><a href="week-14.html#cb1-17" aria-hidden="true" tabindex="-1"></a>  times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1000</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb1-18"><a href="week-14.html#cb1-18" aria-hidden="true" tabindex="-1"></a>  state <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">S =</span> <span class="dv">25</span>, <span class="at">I =</span> <span class="fl">0.1</span>, <span class="at">R =</span> <span class="dv">0</span>)</span>
+<span id="cb1-19"><a href="week-14.html#cb1-19" aria-hidden="true" tabindex="-1"></a>  parms <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">theta =</span> theta, <span class="at">beta =</span> beta, <span class="at">delta =</span> delta, <span class="at">rho =</span> rho, <span class="at">gamma =</span> gamma)</span>
+<span id="cb1-20"><a href="week-14.html#cb1-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-21"><a href="week-14.html#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># model application</span></span>
+<span id="cb1-22"><a href="week-14.html#cb1-22" aria-hidden="true" tabindex="-1"></a>  SIR_out <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">func =</span> SIR_model, <span class="at">times =</span> times, <span class="at">y =</span> state, <span class="at">parms =</span> parms)</span>
+<span id="cb1-23"><a href="week-14.html#cb1-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-24"><a href="week-14.html#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># visualization</span></span>
+<span id="cb1-25"><a href="week-14.html#cb1-25" aria-hidden="true" tabindex="-1"></a>  SIR_out <span class="sc">%&gt;%</span></span>
+<span id="cb1-26"><a href="week-14.html#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-27"><a href="week-14.html#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>time, <span class="at">names_to =</span> <span class="st">&quot;state&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;N&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-28"><a href="week-14.html#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">state =</span> <span class="fu">fct_relevel</span>(state, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;I&quot;</span>, <span class="st">&quot;R&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-29"><a href="week-14.html#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> N, <span class="at">color =</span> state)) <span class="sc">+</span> </span>
+<span id="cb1-30"><a href="week-14.html#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb1-31"><a href="week-14.html#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb1-32"><a href="week-14.html#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">y =</span> <span class="st">&quot;N&quot;</span>, <span class="at">title =</span> title) <span class="sc">+</span></span>
+<span id="cb1-33"><a href="week-14.html#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1010</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb1-34"><a href="week-14.html#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">55</span>), <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb1-35"><a href="week-14.html#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">name =</span> <span class="cn">NULL</span>, <span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb1-36"><a href="week-14.html#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb1-37"><a href="week-14.html#cb1-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-38"><a href="week-14.html#cb1-38" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="week-14.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Epidemic equilibrium  </span></span>
+<span id="cb2-2"><a href="week-14.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">SIR_model_fun</span>(<span class="at">theta =</span> <span class="fl">0.25</span>, <span class="at">beta =</span> <span class="fl">0.01</span>, <span class="at">delta =</span> <span class="fl">0.01</span>, <span class="at">rho =</span> <span class="fl">0.02</span>, <span class="at">gamma =</span> <span class="fl">0.02</span>, <span class="at">title =</span> <span class="st">&quot;Epidemic equilibrium&quot;</span>)</span></code></pre></div>
 <p><img src="14_Week_14_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="week-14.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Disease-free equilibrium</span></span>
-<span id="cb53-2"><a href="week-14.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">SIR_model_fun</span>(<span class="at">theta =</span> <span class="fl">0.25</span>, <span class="at">beta =</span> <span class="fl">0.01</span>, <span class="at">delta =</span> <span class="fl">0.01</span>, <span class="at">rho =</span> <span class="fl">0.3</span>, <span class="at">gamma =</span> <span class="fl">0.02</span>, <span class="at">title =</span> <span class="st">&quot;Disease-free equilibrium&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="week-14.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Disease-free equilibrium</span></span>
+<span id="cb3-2"><a href="week-14.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">SIR_model_fun</span>(<span class="at">theta =</span> <span class="fl">0.25</span>, <span class="at">beta =</span> <span class="fl">0.01</span>, <span class="at">delta =</span> <span class="fl">0.01</span>, <span class="at">rho =</span> <span class="fl">0.3</span>, <span class="at">gamma =</span> <span class="fl">0.02</span>, <span class="at">title =</span> <span class="st">&quot;Disease-free equilibrium&quot;</span>)</span></code></pre></div>
 <p><img src="14_Week_14_files/figure-html/unnamed-chunk-2-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>By increasing the recovery rate <span class="math inline">\(\rho\)</span> in the second example, we drive the basic reproduction number <span class="math inline">\(R_{0}\)</span> below 1, and thus the disease will not spread and the system reaches the disease-free equilibrium.</p>
 <p><br></p>
