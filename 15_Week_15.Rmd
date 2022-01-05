@@ -10,7 +10,7 @@ knitr::opts_chunk$set(message = F,
 
 ## Lecture review {-}
 
-<br>
+[Lecture review](./Lecture handouts/Week15_Lecture review.pdf){target="_blank"}
 
 ## Lab review {-}
 
