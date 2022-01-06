@@ -125,7 +125,7 @@ Below are the textbook references:
            <br> 28-Dec-2021 & Disease dynamics and SIR models & Analyzing the SIR model with demography & Visualization & Anderson & May, 1979\\
 \hline
 **Week 15** <span style='vertical-align:-30%'> </span>
-           <br> 04-Jan-2022 & Course review & open discussion & \- & TBA\\
+           <br> 04-Jan-2022 & Course review & open discussion & \- & $~~~~~~~~~~~~$ \-\\
 \hline
 **Week 16** <span style='vertical-align:-30%'> </span>
            <br> 11-Jan-2022 & Final exam & \- & $~~~~~~~~~~~~$ \-\\

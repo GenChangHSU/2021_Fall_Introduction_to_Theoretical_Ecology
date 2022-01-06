@@ -171,7 +171,7 @@ syllabus <- tibble(
                "Armstrong & McGehee, 1980 <br> Tilman, 1980",
                "Holt, 1977",
                "Anderson & May, 1979",
-               " TBA ",
+               " $~~~~~~~~~~~~$ \\- ",
                " $~~~~~~~~~~~~$ \\- ")  
   
 )

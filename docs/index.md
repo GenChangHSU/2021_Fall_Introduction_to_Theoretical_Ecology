@@ -189,7 +189,7 @@ Below are the textbook references:
            <br> 04-Jan-2022 </td>
    <td style="text-align:center;width: 17em; "> Course review &amp; open discussion </td>
    <td style="text-align:center;width: 17em; "> \- </td>
-   <td style="text-align:left;width: 13em; "> TBA </td>
+   <td style="text-align:left;width: 13em; "> $~~~~~~~~~~~~$ \- </td>
   </tr>
   <tr>
    <td style="text-align:center;width: 10em; border-right:1px solid;"> **Week 16** <span style="vertical-align:-30%"> </span>
