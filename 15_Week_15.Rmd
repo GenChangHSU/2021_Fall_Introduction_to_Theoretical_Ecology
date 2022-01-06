@@ -175,6 +175,7 @@ eigen_out$vectors[, 1]
 ## Additional readings {-}
 
 No additional readings this week.
+<br>
 
 ## Assignments {-}
 
