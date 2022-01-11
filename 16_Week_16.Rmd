@@ -10,9 +10,9 @@ knitr::opts_chunk$set(message = F,
 
 <div style="height:1px ;"><br></div>
 
-<!-- [Final exam](./Assignments/Week16_Final.pdf){target="_blank"} -->
+[Final exam](./Assignments/Week16_Final.pdf){target="_blank"}
 
-<!-- <div style="height:1px ;"><br></div> -->
+<div style="height:1px ;"><br></div>
 
-<!-- [Suggested Solutions](./Assignments/Week16_Final_with_Solutions.pdf){target="_blank"} -->
+[Suggested Solutions](./Assignments/Week16_Final_with_Solutions.pdf){target="_blank"}
 
